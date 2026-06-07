@@ -60,7 +60,16 @@ export function SiteHeader() {
       className="site-header fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-background/70 pt-[env(safe-area-inset-top)] backdrop-blur-xl transition-[background-color,box-shadow,padding] duration-300"
     >
       <div className="mx-auto flex h-14 max-w-7xl items-center justify-between gap-2 px-3 sm:h-16 sm:gap-4 sm:px-6 lg:px-8">
-        <div className="header-brand flex min-w-0 items-center gap-2 sm:gap-3">
+        <div className="header-brand flex min-w-0 items-center gap-1.5 sm:gap-3">
+          <a
+            href="#top"
+            className="shrink-0 font-heading text-xs font-extrabold leading-none tracking-tight transition-colors hover:text-primary min-[360px]:text-sm sm:text-base"
+            aria-label="ETC 2026"
+          >
+            ETC<span className="text-primary">.</span>
+            <span className="max-[359px]:hidden"> 2026</span>
+          </a>
+          <span className="h-4 w-px shrink-0 bg-border sm:h-5" aria-hidden />
           <a
             href={IBTIKAR_URL}
             target="_blank"
@@ -68,14 +77,7 @@ export function SiteHeader() {
             className="shrink-0 transition-opacity hover:opacity-80"
             aria-label="Ibtikar Assembly"
           >
-            <IbtikarLogo className="h-6 w-auto sm:h-8" />
-          </a>
-          <span className="hidden h-5 w-px bg-border min-[420px]:block" aria-hidden />
-          <a
-            href="#top"
-            className="hidden truncate font-heading text-sm font-extrabold tracking-tight transition-colors hover:text-primary min-[420px]:inline sm:text-base"
-          >
-            ETC<span className="text-primary">.</span> 2026
+            <IbtikarLogo className="h-5 w-auto max-[359px]:max-w-[4.5rem] sm:h-8 sm:max-w-none" />
           </a>
         </div>
 
