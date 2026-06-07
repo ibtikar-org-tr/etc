@@ -19,7 +19,7 @@ export function Register() {
   return (
     <section id="register" className="border-t border-border py-20 lg:py-28">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-3xl border border-primary/30 bg-card p-8 sm:p-12 lg:p-16">
+        <div className="anim-panel relative overflow-hidden rounded-3xl border border-primary/30 bg-card p-8 sm:p-12 lg:p-16">
           <div className="pointer-events-none absolute -end-20 -top-20 size-64 rounded-full bg-primary/10 blur-3xl" />
           <div className="relative grid gap-10 lg:grid-cols-2 lg:items-center">
             <div>

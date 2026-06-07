@@ -1,13 +1,15 @@
 "use client"
 
-import { useState } from "react"
+import { useRef, useState } from "react"
 import { useLang } from "./lang-provider"
 import { cn } from "@/lib/utils"
+import { gsap, prefersReducedMotion, useGSAP } from "@/lib/gsap"
 
 export function Agenda() {
   const { t, lang } = useLang()
   const ag = t.agenda
   const [day, setDay] = useState<1 | 2>(1)
+  const tableRef = useRef<HTMLDivElement>(null)
   const lunch = lang === "ar" ? "استراحة الغداء" : lang === "tr" ? "Öğle Arası" : "Lunch Break"
 
   // Day 1 schedule built from topics + shorts
@@ -36,13 +38,25 @@ export function Agenda() {
 
   const rows = day === 1 ? day1 : (day2 as typeof day1)
 
+  useGSAP(
+    () => {
+      if (prefersReducedMotion()) return
+      gsap.fromTo(
+        ".agenda-row",
+        { opacity: 0, x: -12 },
+        { opacity: 1, x: 0, duration: 0.45, stagger: 0.035, ease: "power2.out" },
+      )
+    },
+    { scope: tableRef, dependencies: [day, lang], revertOnUpdate: true },
+  )
+
   return (
     <section id="agenda" className="border-t border-border py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <p className="font-mono text-xs uppercase tracking-widest text-primary">{ag.label}</p>
-        <h2 className="mt-4 font-heading text-3xl font-bold leading-tight sm:text-4xl">{ag.title}</h2>
+        <p className="anim-label font-mono text-xs uppercase tracking-widest text-primary">{ag.label}</p>
+        <h2 className="anim-title mt-4 font-heading text-3xl font-bold leading-tight sm:text-4xl">{ag.title}</h2>
 
-        <div className="mt-8 inline-flex rounded-lg border border-border bg-card p-1">
+        <div className="anim-subtitle mt-8 inline-flex rounded-lg border border-border bg-card p-1">
           {[1, 2].map((d) => (
             <button
               key={d}
@@ -58,7 +72,7 @@ export function Agenda() {
         </div>
         <p className="mt-3 text-sm text-muted-foreground">{day === 1 ? ag.day1date : ag.day2date}</p>
 
-        <div className="mt-8 overflow-hidden rounded-xl border border-border">
+        <div ref={tableRef} className="anim-panel mt-8 overflow-hidden rounded-xl border border-border">
           <div className="grid grid-cols-[140px_1fr_auto] gap-4 border-b border-border bg-card/60 px-4 py-3 font-mono text-[11px] uppercase tracking-wider text-muted-foreground sm:px-6">
             <span>{ag.time}</span>
             <span>{ag.session}</span>
@@ -70,7 +84,7 @@ export function Agenda() {
               <div
                 key={i}
                 className={cn(
-                  "grid grid-cols-[140px_1fr_auto] items-center gap-4 px-4 py-4 text-sm sm:px-6",
+                  "agenda-row grid grid-cols-[140px_1fr_auto] items-center gap-4 px-4 py-4 text-sm sm:px-6",
                   i !== rows.length - 1 && "border-b border-border",
                   isHeader ? "bg-primary/5" : row.highlight ? "bg-secondary/40" : "bg-card/30",
                 )}

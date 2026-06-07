@@ -151,3 +151,34 @@
 .hero-video-wrap {
   background-color: var(--hero-background);
 }
+
+.site-header.header-scrolled {
+  background-color: color-mix(in oklch, var(--background) 92%, transparent);
+  box-shadow: 0 8px 32px oklch(0 0 0 / 0.25);
+}
+
+.anim-card {
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-label,
+  .anim-title,
+  .anim-subtitle,
+  .anim-text,
+  .anim-card,
+  .anim-row,
+  .anim-panel,
+  .anim-footer-col,
+  .hero-badge,
+  .hero-title-line,
+  .hero-subtitle,
+  .hero-cta,
+  .hero-fact,
+  .header-brand,
+  .header-nav-link,
+  .header-action {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

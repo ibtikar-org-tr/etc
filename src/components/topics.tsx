@@ -13,11 +13,11 @@ export function Topics() {
     <section id="topics" className="border-t border-border py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
-          <p className="font-mono text-xs uppercase tracking-widest text-primary">{tp.label}</p>
-          <h2 className="mt-4 font-heading text-3xl font-bold leading-tight text-balance sm:text-4xl">
+          <p className="anim-label font-mono text-xs uppercase tracking-widest text-primary">{tp.label}</p>
+          <h2 className="anim-title mt-4 font-heading text-3xl font-bold leading-tight text-balance sm:text-4xl">
             {tp.title}
           </h2>
-          <p className="mt-4 text-base text-muted-foreground sm:text-lg">{tp.subtitle}</p>
+          <p className="anim-subtitle mt-4 text-base text-muted-foreground sm:text-lg">{tp.subtitle}</p>
         </div>
 
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -26,7 +26,7 @@ export function Topics() {
             return (
               <div
                 key={item.title}
-                className="group relative flex flex-col rounded-2xl border border-border bg-card p-6 transition-all hover:border-primary/50 hover:bg-card/80"
+                className="anim-card group relative flex flex-col rounded-2xl border border-border bg-card p-6 transition-all hover:border-primary/50 hover:bg-card/80"
               >
                 <div className="flex items-center justify-between">
                   <div className="grid size-11 place-items-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">

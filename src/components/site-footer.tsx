@@ -19,7 +19,7 @@ export function SiteFooter() {
     <footer className="border-t border-border bg-card/30">
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-          <div className="lg:col-span-2">
+          <div className="anim-footer-col lg:col-span-2">
             <a
               href={IBTIKAR_URL}
               target="_blank"
@@ -41,7 +41,7 @@ export function SiteFooter() {
             </a>
           </div>
 
-          <div>
+          <div className="anim-footer-col">
             <h4 className="font-mono text-xs uppercase tracking-wider text-muted-foreground">{f.nav}</h4>
             <ul className="mt-4 space-y-2.5">
               {navLinks.map((l) => (
@@ -54,7 +54,7 @@ export function SiteFooter() {
             </ul>
           </div>
 
-          <div>
+          <div className="anim-footer-col">
             <h4 className="font-mono text-xs uppercase tracking-wider text-muted-foreground">{f.contact}</h4>
             <ul className="mt-4 space-y-2.5">
               <li>

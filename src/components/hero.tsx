@@ -1,13 +1,16 @@
 "use client"
 
+import { useRef } from "react"
 import { MapPin, Calendar, Users, Clock, ArrowLeft } from "lucide-react"
 import { useLang } from "./lang-provider"
 import { IBTIKAR_URL, IbtikarLogo } from "./ibtikar-logo"
 import { HeroBackground } from "./hero-background"
+import { gsap, prefersReducedMotion, useGSAP } from "@/lib/gsap"
 
 export function Hero() {
   const { t } = useLang()
   const h = t.hero
+  const sectionRef = useRef<HTMLElement>(null)
 
   const facts = [
     { icon: MapPin, label: h.city, value: h.cityValue },
@@ -16,13 +19,44 @@ export function Hero() {
     { icon: Clock, label: h.days, value: h.daysValue },
   ]
 
+  useGSAP(
+    () => {
+      if (prefersReducedMotion()) return
+
+      const tl = gsap.timeline({ defaults: { ease: "power3.out" } })
+
+      tl.from(".hero-badge", { opacity: 0, y: -20, duration: 0.55, stagger: 0.1 })
+        .from(".hero-title-line", { opacity: 0, y: 72, duration: 1, stagger: 0.14 }, "-=0.25")
+        .from(".hero-accent", { opacity: 0, scale: 0.92, duration: 0.8 }, "-=0.6")
+        .from(".hero-subtitle", { opacity: 0, y: 28, duration: 0.75 }, "-=0.55")
+        .from(".hero-cta", { opacity: 0, y: 22, duration: 0.55, stagger: 0.1 }, "-=0.45")
+        .from(".hero-fact", { opacity: 0, y: 36, duration: 0.65, stagger: 0.08 }, "-=0.35")
+
+      gsap.to(".hero-video-wrap video", {
+        yPercent: 12,
+        ease: "none",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: 0.6,
+        },
+      })
+    },
+    { scope: sectionRef },
+  )
+
   return (
-    <section id="top" className="hero-section relative flex min-h-screen flex-col overflow-visible">
+    <section
+      ref={sectionRef}
+      id="top"
+      className="hero-section relative flex min-h-screen flex-col overflow-visible"
+    >
       <HeroBackground />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl flex-1 px-4 pb-16 pt-32 sm:px-6 lg:px-8 lg:pb-24 lg:pt-44">
         <div className="flex flex-wrap items-center gap-3">
-          <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-medium text-primary sm:text-sm">
+          <div className="hero-badge inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-medium text-primary sm:text-sm">
             <span className="size-1.5 rounded-full bg-primary" />
             {h.badge}
           </div>
@@ -30,7 +64,7 @@ export function Hero() {
             href={IBTIKAR_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-3 py-1 text-xs text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground sm:text-sm"
+            className="hero-badge inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-3 py-1 text-xs text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground sm:text-sm"
           >
             <IbtikarLogo variant="square" className="size-5 rounded-sm" />
             {h.organizer}
@@ -38,26 +72,25 @@ export function Hero() {
         </div>
 
         <h1 className="mt-6 max-w-4xl font-heading text-4xl font-extrabold leading-[1.05] tracking-tight text-balance sm:text-6xl lg:text-7xl">
-          {h.titleTop}
-          <br />
-          <span className="text-primary">{h.titleBottom}</span>
+          <span className="hero-title-line block">{h.titleTop}</span>
+          <span className="hero-title-line hero-accent block text-primary">{h.titleBottom}</span>
         </h1>
 
-        <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+        <p className="hero-subtitle mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
           {h.subtitle}
         </p>
 
         <div className="mt-8 flex flex-wrap items-center gap-3">
           <a
             href="#register"
-            className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+            className="hero-cta inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
           >
             {h.register}
             <ArrowLeft className="size-4 rtl:rotate-0 ltr:rotate-180" />
           </a>
           <a
             href="#agenda"
-            className="inline-flex items-center gap-2 rounded-md border border-border bg-card/50 px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-card"
+            className="hero-cta inline-flex items-center gap-2 rounded-md border border-border bg-card/50 px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-card"
           >
             {h.viewAgenda}
           </a>
@@ -65,7 +98,7 @@ export function Hero() {
 
         <div className="mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-border bg-border lg:grid-cols-4">
           {facts.map((f) => (
-            <div key={f.label} className="flex items-center gap-3 bg-card p-4 lg:p-5">
+            <div key={f.label} className="hero-fact flex items-center gap-3 bg-card p-4 lg:p-5">
               <div className="grid size-10 shrink-0 place-items-center rounded-lg bg-primary/10 text-primary">
                 <f.icon className="size-5" />
               </div>

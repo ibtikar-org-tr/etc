@@ -1,14 +1,16 @@
 "use client"
 
-import { useState } from "react"
+import { useRef, useState } from "react"
 import { Menu, X, Globe, Check } from "lucide-react"
 import { useLang } from "./lang-provider"
 import { LANGS } from "@/lib/i18n"
 import { cn } from "@/lib/utils"
 import { IBTIKAR_URL, IbtikarLogo } from "./ibtikar-logo"
+import { gsap, prefersReducedMotion, ScrollTrigger, useGSAP } from "@/lib/gsap"
 
 export function SiteHeader() {
   const { lang, setLang, t } = useLang()
+  const headerRef = useRef<HTMLElement>(null)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [langOpen, setLangOpen] = useState(false)
 
@@ -20,10 +22,45 @@ export function SiteHeader() {
     { href: "#faq", label: t.nav.faq },
   ]
 
+  useGSAP(
+    () => {
+      if (prefersReducedMotion()) return
+
+      gsap.from(".header-brand", { opacity: 0, x: -24, duration: 0.7, ease: "power3.out" })
+      gsap.from(".header-nav-link", {
+        opacity: 0,
+        y: -12,
+        duration: 0.5,
+        stagger: 0.07,
+        delay: 0.15,
+        ease: "power2.out",
+      })
+      gsap.from(".header-action", {
+        opacity: 0,
+        x: 20,
+        duration: 0.6,
+        stagger: 0.08,
+        delay: 0.2,
+        ease: "power3.out",
+      })
+
+      ScrollTrigger.create({
+        start: 60,
+        end: 99999,
+        onEnter: () => headerRef.current?.classList.add("header-scrolled"),
+        onLeaveBack: () => headerRef.current?.classList.remove("header-scrolled"),
+      })
+    },
+    { scope: headerRef, dependencies: [lang], revertOnUpdate: true },
+  )
+
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-xl">
+    <header
+      ref={headerRef}
+      className="site-header fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-background/70 backdrop-blur-xl transition-[background-color,box-shadow,padding] duration-300"
+    >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-        <div className="flex min-w-0 items-center gap-3">
+        <div className="header-brand flex min-w-0 items-center gap-3">
           <a
             href={IBTIKAR_URL}
             target="_blank"
@@ -47,7 +84,7 @@ export function SiteHeader() {
             <a
               key={l.href}
               href={l.href}
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              className="header-nav-link text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
               {l.label}
             </a>
@@ -55,7 +92,7 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <div className="relative">
+          <div className="header-action relative">
             <button
               onClick={() => setLangOpen((v) => !v)}
               onBlur={() => setTimeout(() => setLangOpen(false), 150)}
@@ -89,13 +126,13 @@ export function SiteHeader() {
 
           <a
             href="#register"
-            className="hidden rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 sm:inline-block"
+            className="header-action hidden rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 sm:inline-block"
           >
             {t.nav.register}
           </a>
 
           <button
-            className="md:hidden"
+            className="header-action md:hidden"
             onClick={() => setMobileOpen((v) => !v)}
             aria-label="Menu"
           >

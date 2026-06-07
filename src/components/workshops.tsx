@@ -10,16 +10,16 @@ export function Workshops() {
     <section id="workshops" className="border-t border-border py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
-          <p className="font-mono text-xs uppercase tracking-widest text-primary">{w.label}</p>
-          <h2 className="mt-4 font-heading text-3xl font-bold leading-tight text-balance sm:text-4xl">
+          <p className="anim-label font-mono text-xs uppercase tracking-widest text-primary">{w.label}</p>
+          <h2 className="anim-title mt-4 font-heading text-3xl font-bold leading-tight text-balance sm:text-4xl">
             {w.title}
           </h2>
-          <p className="mt-4 text-base text-muted-foreground sm:text-lg">{w.subtitle}</p>
+          <p className="anim-subtitle mt-4 text-base text-muted-foreground sm:text-lg">{w.subtitle}</p>
         </div>
 
         <div className="mt-12 space-y-10">
           {w.sessions.map((session, si) => (
-            <div key={session.name}>
+            <div key={session.name} className="anim-text">
               <div className="flex items-center gap-3">
                 <span className="grid size-8 place-items-center rounded-lg bg-primary font-heading text-sm font-bold text-primary-foreground">
                   {si + 1}
@@ -32,7 +32,7 @@ export function Workshops() {
                 {session.items.map((item) => (
                   <div
                     key={item.title}
-                    className="flex flex-col rounded-2xl border border-border bg-card p-6 transition-colors hover:border-primary/50"
+                    className="anim-card flex flex-col rounded-2xl border border-border bg-card p-6 transition-colors hover:border-primary/50"
                   >
                     <h4 className="font-heading text-base font-bold leading-snug text-balance">{item.title}</h4>
                     <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{item.desc}</p>

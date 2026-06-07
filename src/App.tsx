@@ -1,4 +1,5 @@
 import { LangProvider } from "@/components/lang-provider"
+import { SiteAnimations } from "@/components/site-animations"
 import { SiteHeader } from "@/components/site-header"
 import { Hero } from "@/components/hero"
 import { About } from "@/components/about"
@@ -13,6 +14,7 @@ import { SiteFooter } from "@/components/site-footer"
 function App() {
   return (
     <LangProvider>
+      <SiteAnimations>
       <SiteHeader />
       <main>
         <Hero />
@@ -25,6 +27,7 @@ function App() {
         <Register />
       </main>
       <SiteFooter />
+      </SiteAnimations>
     </LangProvider>
   )
 }
