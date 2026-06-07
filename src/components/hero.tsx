@@ -11,6 +11,7 @@ export function Hero() {
   const { t } = useLang()
   const h = t.hero
   const sectionRef = useRef<HTMLElement>(null)
+  const factsRef = useRef<HTMLDivElement>(null)
 
   const facts = [
     { icon: MapPin, label: h.city, value: h.cityValue },
@@ -21,7 +22,15 @@ export function Hero() {
 
   useGSAP(
     () => {
-      if (prefersReducedMotion()) return
+      const factsEl = factsRef.current
+      if (!factsEl) return
+
+      if (prefersReducedMotion()) {
+        gsap.set(factsEl, { autoAlpha: 1, y: 0 })
+        return
+      }
+
+      gsap.set(factsEl, { autoAlpha: 0, y: 28 })
 
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } })
 
@@ -30,7 +39,8 @@ export function Hero() {
         .from(".hero-accent", { opacity: 0, scale: 0.92, duration: 0.8 }, "-=0.6")
         .from(".hero-subtitle", { opacity: 0, y: 28, duration: 0.75 }, "-=0.55")
         .from(".hero-cta", { opacity: 0, y: 22, duration: 0.55, stagger: 0.1 }, "-=0.45")
-        .from(".hero-fact", { opacity: 0, y: 36, duration: 0.65, stagger: 0.08 }, "-=0.35")
+        .to(factsEl, { autoAlpha: 1, y: 0, duration: 0.7 }, "-=0.15")
+        .from(".hero-fact", { opacity: 0, y: 12, duration: 0.4, stagger: 0.06 }, "-=0.4")
 
       gsap.to(".hero-video-wrap video", {
         yPercent: 12,
@@ -96,7 +106,10 @@ export function Hero() {
           </a>
         </div>
 
-        <div className="mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-border bg-border lg:grid-cols-4">
+        <div
+          ref={factsRef}
+          className="hero-facts mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-border bg-border lg:grid-cols-4"
+        >
           {facts.map((f) => (
             <div key={f.label} className="hero-fact flex items-center gap-3 bg-card p-4 lg:p-5">
               <div className="grid size-10 shrink-0 place-items-center rounded-lg bg-primary/10 text-primary">
