@@ -3,6 +3,7 @@ import { SiteHeader } from "@/components/site-header"
 import { Hero } from "@/components/hero"
 import { About } from "@/components/about"
 import { Topics } from "@/components/topics"
+import { Shorts } from "@/components/shorts"
 import { Agenda } from "@/components/agenda"
 import { Workshops } from "@/components/workshops"
 import { Faq } from "@/components/faq"
@@ -17,6 +18,7 @@ function App() {
         <Hero />
         <About />
         <Topics />
+        <Shorts />
         <Agenda />
         <Workshops />
         <Faq />
