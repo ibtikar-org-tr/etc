@@ -35,9 +35,12 @@ export function Hero() {
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } })
 
       tl.from(".hero-badge", { opacity: 0, y: -20, duration: 0.55, stagger: 0.1 })
-        .from(".hero-title-line", { opacity: 0, y: 72, duration: 1, stagger: 0.14 }, "-=0.25")
-        .from(".hero-accent", { opacity: 0, scale: 0.92, duration: 0.8 }, "-=0.6")
-        .from(".hero-subtitle", { opacity: 0, y: 28, duration: 0.75 }, "-=0.55")
+        .from(
+          ".hero-title-line",
+          { opacity: 0, y: 72, duration: 1, stagger: 0.14, ease: "power3.out" },
+          "-=0.25",
+        )
+        .from(".hero-subtitle", { opacity: 0, y: 28, duration: 0.75 }, "-=0.4")
         .from(".hero-cta", { opacity: 0, y: 22, duration: 0.55, stagger: 0.1 }, "-=0.45")
         .to(factsEl, { autoAlpha: 1, y: 0, duration: 0.7 }, "-=0.15")
         .from(".hero-fact", { opacity: 0, y: 12, duration: 0.4, stagger: 0.06 }, "-=0.4")
@@ -83,7 +86,7 @@ export function Hero() {
 
         <h1 className="mt-6 max-w-4xl font-heading text-4xl font-extrabold leading-[1.05] tracking-tight text-balance sm:text-6xl lg:text-7xl">
           <span className="hero-title-line block">{h.titleTop}</span>
-          <span className="hero-title-line hero-accent block text-primary">{h.titleBottom}</span>
+          <span className="hero-title-line block text-primary">{h.titleBottom}</span>
         </h1>
 
         <p className="hero-subtitle mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
