@@ -67,8 +67,8 @@ export function Hero() {
     >
       <HeroBackground />
 
-      <div className="relative z-10 mx-auto w-full max-w-7xl flex-1 px-4 pb-16 pt-32 sm:px-6 lg:px-8 lg:pb-24 lg:pt-44">
-        <div className="flex flex-wrap items-center gap-3">
+      <div className="relative z-10 mx-auto w-full max-w-7xl flex-1 px-4 pb-12 pt-24 sm:px-6 sm:pb-16 sm:pt-32 lg:px-8 lg:pb-24 lg:pt-40">
+        <div className="flex flex-col items-start gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3">
           <div className="hero-badge inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-medium text-primary sm:text-sm">
             <span className="size-1.5 rounded-full bg-primary" />
             {h.badge}
@@ -84,7 +84,7 @@ export function Hero() {
           </a>
         </div>
 
-        <h1 className="mt-6 max-w-4xl font-heading text-4xl font-extrabold leading-[1.05] tracking-tight text-balance sm:text-6xl lg:text-7xl">
+        <h1 className="mt-5 max-w-4xl font-heading text-[2rem] font-extrabold leading-[1.08] tracking-tight text-balance sm:mt-6 sm:text-5xl lg:text-7xl">
           <span className="hero-title-line block">{h.titleTop}</span>
           <span className="hero-title-line block bg-gradient-to-l from-violet-400 via-purple-400 to-fuchsia-300 bg-clip-text text-transparent">
             {h.titleBottom}
@@ -95,17 +95,17 @@ export function Hero() {
           {h.subtitle}
         </p>
 
-        <div className="mt-8 flex flex-wrap items-center gap-3">
+        <div className="mt-6 flex w-full flex-col gap-3 sm:mt-8 sm:w-auto sm:flex-row sm:flex-wrap">
           <a
             href="#register"
-            className="hero-cta inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+            className="hero-cta inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 sm:w-auto"
           >
             {h.register}
             <ArrowLeft className="size-4 rtl:rotate-0 ltr:rotate-180" />
           </a>
           <a
             href="#agenda"
-            className="hero-cta inline-flex items-center gap-2 rounded-md border border-border bg-card/50 px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-card"
+            className="hero-cta inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-md border border-border bg-card/50 px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-card sm:w-auto"
           >
             {h.viewAgenda}
           </a>
@@ -113,16 +113,16 @@ export function Hero() {
 
         <div
           ref={factsRef}
-          className="hero-facts mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-border bg-border lg:grid-cols-4"
+          className="hero-facts mt-10 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-border bg-border min-[380px]:grid-cols-2 lg:mt-14 lg:grid-cols-4"
         >
           {facts.map((f) => (
-            <div key={f.label} className="hero-fact flex items-center gap-3 bg-card p-4 lg:p-5">
-              <div className="grid size-10 shrink-0 place-items-center rounded-lg bg-primary/10 text-primary">
-                <f.icon className="size-5" />
+            <div key={f.label} className="hero-fact flex items-center gap-3 bg-card p-3.5 sm:p-4 lg:p-5">
+              <div className="grid size-9 shrink-0 place-items-center rounded-lg bg-primary/10 text-primary sm:size-10">
+                <f.icon className="size-4 sm:size-5" />
               </div>
               <div className="min-w-0">
                 <div className="text-xs text-muted-foreground">{f.label}</div>
-                <div className="truncate text-sm font-semibold">{f.value}</div>
+                <div className="text-sm font-semibold leading-snug text-balance">{f.value}</div>
               </div>
             </div>
           ))}

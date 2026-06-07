@@ -57,10 +57,10 @@ export function SiteHeader() {
   return (
     <header
       ref={headerRef}
-      className="site-header fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-background/70 backdrop-blur-xl transition-[background-color,box-shadow,padding] duration-300"
+      className="site-header fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-background/70 pt-[env(safe-area-inset-top)] backdrop-blur-xl transition-[background-color,box-shadow,padding] duration-300"
     >
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-        <div className="header-brand flex min-w-0 items-center gap-3">
+      <div className="mx-auto flex h-14 max-w-7xl items-center justify-between gap-2 px-3 sm:h-16 sm:gap-4 sm:px-6 lg:px-8">
+        <div className="header-brand flex min-w-0 items-center gap-2 sm:gap-3">
           <a
             href={IBTIKAR_URL}
             target="_blank"
@@ -68,12 +68,12 @@ export function SiteHeader() {
             className="shrink-0 transition-opacity hover:opacity-80"
             aria-label="Ibtikar Assembly"
           >
-            <IbtikarLogo className="h-7 w-auto sm:h-8" />
+            <IbtikarLogo className="h-6 w-auto sm:h-8" />
           </a>
-          <span className="hidden h-5 w-px bg-border sm:block" aria-hidden />
+          <span className="hidden h-5 w-px bg-border min-[420px]:block" aria-hidden />
           <a
             href="#top"
-            className="truncate font-heading text-sm font-extrabold tracking-tight transition-colors hover:text-primary sm:text-base"
+            className="hidden truncate font-heading text-sm font-extrabold tracking-tight transition-colors hover:text-primary min-[420px]:inline sm:text-base"
           >
             ETC<span className="text-primary">.</span> 2026
           </a>
@@ -96,7 +96,7 @@ export function SiteHeader() {
             <button
               onClick={() => setLangOpen((v) => !v)}
               onBlur={() => setTimeout(() => setLangOpen(false), 150)}
-              className="flex items-center gap-1.5 rounded-md border border-border px-2.5 py-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
+              className="flex min-h-11 min-w-11 items-center justify-center gap-1.5 rounded-md border border-border px-2.5 py-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground sm:min-h-0 sm:min-w-0"
               aria-label="Language"
             >
               <Globe className="size-4" />
@@ -132,9 +132,10 @@ export function SiteHeader() {
           </a>
 
           <button
-            className="header-action md:hidden"
+            className="header-action grid min-h-11 min-w-11 place-items-center md:hidden"
             onClick={() => setMobileOpen((v) => !v)}
             aria-label="Menu"
+            aria-expanded={mobileOpen}
           >
             {mobileOpen ? <X className="size-6" /> : <Menu className="size-6" />}
           </button>
@@ -142,14 +143,14 @@ export function SiteHeader() {
       </div>
 
       {mobileOpen && (
-        <div className="border-t border-border/60 bg-background md:hidden">
+        <div className="max-h-[70dvh] overflow-y-auto border-t border-border/60 bg-background pb-[env(safe-area-inset-bottom)] md:hidden">
           <nav className="mx-auto flex max-w-7xl flex-col px-4 py-3">
             {links.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
                 onClick={() => setMobileOpen(false)}
-                className="py-2.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                className="min-h-11 py-3 text-sm text-muted-foreground transition-colors hover:text-foreground"
               >
                 {l.label}
               </a>

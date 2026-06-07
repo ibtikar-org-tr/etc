@@ -5,6 +5,14 @@ import { useLang } from "./lang-provider"
 import { cn } from "@/lib/utils"
 import { gsap, prefersReducedMotion, useGSAP } from "@/lib/gsap"
 
+type AgendaRow = {
+  time: string
+  title: string
+  type: string
+  highlight?: boolean
+  header?: boolean
+}
+
 export function Agenda() {
   const { t, lang } = useLang()
   const ag = t.agenda
@@ -12,8 +20,7 @@ export function Agenda() {
   const tableRef = useRef<HTMLDivElement>(null)
   const lunch = lang === "ar" ? "استراحة الغداء" : lang === "tr" ? "Öğle Arası" : "Lunch Break"
 
-  // Day 1 schedule built from topics + shorts
-  const day1: { time: string; title: string; type: string; highlight?: boolean }[] = [
+  const day1: AgendaRow[] = [
     { time: "10:30 – 10:45", title: t.shorts.items[0].title, type: "—", highlight: true },
     { time: "10:45 – 11:30", title: t.topics.items[0].title, type: ag.lectures },
     { time: "11:30 – 11:45", title: t.shorts.items[1].title, type: "—", highlight: true },
@@ -28,15 +35,21 @@ export function Agenda() {
     { time: "17:10 – 18:00", title: t.shorts.items[2].title, type: "—", highlight: true },
   ]
 
-  const day2 = t.workshops.sessions.flatMap((s, si) => {
+  const day2: AgendaRow[] = t.workshops.sessions.flatMap((s, si) => {
     const times = ["10:30 – 12:00", "12:30 – 14:00", "14:30 – 16:00"]
     return [
-      { time: times[si], title: s.name, type: ag.workshops, highlight: true as boolean, header: true },
-      ...s.items.map((it) => ({ time: "", title: it.title, type: it.tags?.[0] ?? "", highlight: false, header: false })),
+      { time: times[si], title: s.name, type: ag.workshops, highlight: true, header: true },
+      ...s.items.map((it) => ({
+        time: "",
+        title: it.title,
+        type: it.tags?.[0] ?? "",
+        highlight: false,
+        header: false,
+      })),
     ]
   })
 
-  const rows = day === 1 ? day1 : (day2 as typeof day1)
+  const rows = day === 1 ? day1 : day2
 
   useGSAP(
     () => {
@@ -51,18 +64,18 @@ export function Agenda() {
   )
 
   return (
-    <section id="agenda" className="border-t border-border py-20 lg:py-28">
+    <section id="agenda" className="section-pad">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <p className="anim-label font-mono text-xs uppercase tracking-widest text-primary">{ag.label}</p>
-        <h2 className="anim-title mt-4 font-heading text-3xl font-bold leading-tight sm:text-4xl">{ag.title}</h2>
+        <h2 className="anim-title section-title mt-4">{ag.title}</h2>
 
-        <div className="anim-subtitle mt-8 inline-flex rounded-lg border border-border bg-card p-1">
+        <div className="anim-subtitle mt-6 flex w-full max-w-md rounded-lg border border-border bg-card p-1 sm:mt-8 sm:inline-flex sm:w-auto">
           {[1, 2].map((d) => (
             <button
               key={d}
               onClick={() => setDay(d as 1 | 2)}
               className={cn(
-                "rounded-md px-4 py-2 text-sm font-medium transition-colors",
+                "min-h-11 flex-1 rounded-md px-3 py-2.5 text-sm font-medium transition-colors sm:flex-none sm:px-4",
                 day === d ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground",
               )}
             >
@@ -70,30 +83,53 @@ export function Agenda() {
             </button>
           ))}
         </div>
-        <p className="mt-3 text-sm text-muted-foreground">{day === 1 ? ag.day1date : ag.day2date}</p>
+        <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{day === 1 ? ag.day1date : ag.day2date}</p>
 
-        <div ref={tableRef} className="anim-panel mt-8 overflow-hidden rounded-xl border border-border">
-          <div className="grid grid-cols-[140px_1fr_auto] gap-4 border-b border-border bg-card/60 px-4 py-3 font-mono text-[11px] uppercase tracking-wider text-muted-foreground sm:px-6">
+        <div ref={tableRef} className="anim-panel mt-6 overflow-hidden rounded-xl border border-border sm:mt-8">
+          <div className="hidden grid-cols-[minmax(7rem,140px)_1fr_auto] gap-4 border-b border-border bg-card/60 px-4 py-3 font-mono text-[11px] uppercase tracking-wider text-muted-foreground sm:grid sm:px-6">
             <span>{ag.time}</span>
             <span>{ag.session}</span>
             <span className="text-end">{ag.speaker}</span>
           </div>
+
           {rows.map((row, i) => {
-            const isHeader = "header" in row && (row as { header?: boolean }).header
+            const isHeader = row.header
+            const showType = row.type && row.type !== "—"
+
             return (
               <div
                 key={i}
                 className={cn(
-                  "agenda-row grid grid-cols-[140px_1fr_auto] items-center gap-4 px-4 py-4 text-sm sm:px-6",
-                  i !== rows.length - 1 && "border-b border-border",
+                  "agenda-row border-border px-4 py-4 sm:grid sm:grid-cols-[minmax(7rem,140px)_1fr_auto] sm:items-center sm:gap-4 sm:px-6 sm:py-4",
+                  i !== rows.length - 1 && "border-b",
                   isHeader ? "bg-primary/5" : row.highlight ? "bg-secondary/40" : "bg-card/30",
                 )}
               >
-                <span className="font-mono text-xs text-muted-foreground">{row.time}</span>
-                <span className={cn("font-medium", isHeader && "font-heading font-bold text-primary")}>
-                  {row.title}
+                <span
+                  className={cn(
+                    "block font-mono text-xs",
+                    row.time ? "text-primary sm:text-muted-foreground" : "hidden sm:block",
+                  )}
+                >
+                  {row.time || "—"}
                 </span>
-                <span className="text-end font-mono text-[11px] text-muted-foreground">{row.type}</span>
+
+                <div className="min-w-0 sm:contents">
+                  <span
+                    className={cn(
+                      "block text-sm leading-snug font-medium sm:col-start-2",
+                      isHeader && "font-heading text-base font-bold text-primary sm:text-sm",
+                    )}
+                  >
+                    {row.title}
+                  </span>
+
+                  {showType && (
+                    <span className="mt-2 inline-block rounded-md bg-secondary px-2 py-0.5 font-mono text-[10px] text-muted-foreground sm:mt-0 sm:col-start-3 sm:bg-transparent sm:px-0 sm:py-0 sm:text-end sm:text-[11px]">
+                      {row.type}
+                    </span>
+                  )}
+                </div>
               </div>
             )
           })}

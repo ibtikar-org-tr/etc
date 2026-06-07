@@ -7,11 +7,11 @@ export function Workshops() {
   const w = t.workshops
 
   return (
-    <section id="workshops" className="border-t border-border py-20 lg:py-28">
+    <section id="workshops" className="section-pad">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
           <p className="anim-label font-mono text-xs uppercase tracking-widest text-primary">{w.label}</p>
-          <h2 className="anim-title mt-4 font-heading text-3xl font-bold leading-tight text-balance sm:text-4xl">
+          <h2 className="anim-title section-title mt-4">
             {w.title}
           </h2>
           <p className="anim-subtitle mt-4 text-base text-muted-foreground sm:text-lg">{w.subtitle}</p>

@@ -123,12 +123,12 @@ export function PageBackground() {
           <rect width="100%" height="100%" fill="url(#pcb-traces)" />
         </svg>
 
-        <div className="page-bg-mesh absolute top-1/4 left-1/2 size-[900px] -translate-x-1/2 rounded-full border border-primary/10 opacity-40" />
-        <div className="page-bg-mesh absolute top-2/3 right-0 size-[600px] translate-x-1/3 rounded-full border border-primary/5 opacity-30" />
+        <div className="page-bg-mesh absolute top-1/4 left-1/2 hidden size-[900px] -translate-x-1/2 rounded-full border border-primary/10 opacity-40 sm:block" />
+        <div className="page-bg-mesh absolute top-2/3 right-0 hidden size-[600px] translate-x-1/3 rounded-full border border-primary/5 opacity-30 sm:block" />
 
-        <div className="page-bg-orb absolute top-[12%] left-[8%] size-72 rounded-full bg-primary/10 blur-[100px]" />
-        <div className="page-bg-orb absolute top-[45%] right-[6%] size-96 rounded-full bg-primary/8 blur-[120px]" />
-        <div className="page-bg-orb absolute bottom-[10%] left-[30%] size-80 rounded-full bg-primary/6 blur-[90px]" />
+        <div className="page-bg-orb absolute top-[12%] left-[8%] size-48 rounded-full bg-primary/10 blur-[80px] sm:size-72 sm:blur-[100px]" />
+        <div className="page-bg-orb absolute top-[45%] right-[6%] size-56 rounded-full bg-primary/8 blur-[90px] sm:size-96 sm:blur-[120px]" />
+        <div className="page-bg-orb absolute bottom-[10%] left-[30%] size-52 rounded-full bg-primary/6 blur-[70px] sm:size-80 sm:blur-[90px]" />
 
         <div className="page-bg-scan absolute inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/25 to-transparent" />
       </div>

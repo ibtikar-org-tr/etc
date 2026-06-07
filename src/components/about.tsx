@@ -8,12 +8,12 @@ export function About() {
   const a = t.about
 
   return (
-    <section id="about" className="border-t border-border py-20 lg:py-28">
+    <section id="about" className="section-pad">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
             <p className="anim-label font-mono text-xs uppercase tracking-widest text-primary">{a.label}</p>
-            <h2 className="anim-title mt-4 font-heading text-3xl font-bold leading-tight text-balance sm:text-4xl">
+            <h2 className="anim-title section-title mt-4">
               {a.title}
             </h2>
             <p className="anim-text mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">{a.body}</p>
@@ -37,13 +37,13 @@ export function About() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4 self-center">
+          <div className="grid grid-cols-2 gap-3 self-center sm:gap-4">
             {a.stats.map((s) => (
               <div
                 key={s.label}
-                className="anim-card rounded-xl border border-border bg-card p-6 transition-colors hover:border-primary/40"
+                className="anim-card rounded-xl border border-border bg-card p-4 transition-colors hover:border-primary/40 sm:p-6"
               >
-                <div className="font-heading text-4xl font-extrabold text-primary">{s.value}</div>
+                <div className="font-heading text-3xl font-extrabold text-primary sm:text-4xl">{s.value}</div>
                 <div className="mt-1 text-sm text-muted-foreground">{s.label}</div>
               </div>
             ))}

@@ -24,11 +24,11 @@ export function Faq() {
   }
 
   return (
-    <section id="faq" className="border-t border-border py-20 lg:py-28">
+    <section id="faq" className="section-pad">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <p className="anim-label font-mono text-xs uppercase tracking-widest text-primary">{f.label}</p>
-          <h2 className="anim-title mt-4 font-heading text-3xl font-bold sm:text-4xl">{f.title}</h2>
+          <h2 className="anim-title section-title mt-4">{f.title}</h2>
         </div>
 
         <div className="anim-panel mt-10 divide-y divide-border overflow-hidden rounded-xl border border-border">
@@ -38,7 +38,7 @@ export function Faq() {
               <div key={i} className="anim-row bg-card">
                 <button
                   onClick={() => toggle(i)}
-                  className="flex w-full items-center justify-between gap-4 px-5 py-4 text-start"
+                  className="flex min-h-11 w-full items-center justify-between gap-4 px-4 py-4 text-start sm:px-5"
                 >
                   <span className="font-medium">{item.q}</span>
                   {isOpen ? (

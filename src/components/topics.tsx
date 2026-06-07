@@ -10,11 +10,11 @@ export function Topics() {
   const tp = t.topics
 
   return (
-    <section id="topics" className="border-t border-border py-20 lg:py-28">
+    <section id="topics" className="section-pad">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
           <p className="anim-label font-mono text-xs uppercase tracking-widest text-primary">{tp.label}</p>
-          <h2 className="anim-title mt-4 font-heading text-3xl font-bold leading-tight text-balance sm:text-4xl">
+          <h2 className="anim-title section-title mt-4">
             {tp.title}
           </h2>
           <p className="anim-subtitle mt-4 text-base text-muted-foreground sm:text-lg">{tp.subtitle}</p>

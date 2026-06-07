@@ -17,13 +17,13 @@ export function Register() {
         : { name: "Full name", email: "Email address", uni: "University" }
 
   return (
-    <section id="register" className="border-t border-border py-20 lg:py-28">
+    <section id="register" className="section-pad">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <div className="anim-panel relative overflow-hidden rounded-3xl border border-primary/30 bg-card p-8 sm:p-12 lg:p-16">
+        <div className="anim-panel relative overflow-hidden rounded-2xl border border-primary/30 bg-card p-5 sm:rounded-3xl sm:p-10 lg:p-16">
           <div className="pointer-events-none absolute -end-20 -top-20 size-64 rounded-full bg-primary/10 blur-3xl" />
           <div className="relative grid gap-10 lg:grid-cols-2 lg:items-center">
             <div>
-              <h2 className="font-heading text-3xl font-bold leading-tight text-balance sm:text-4xl">{c.title}</h2>
+              <h2 className="section-title">{c.title}</h2>
               <p className="mt-4 text-base text-muted-foreground sm:text-lg">{c.subtitle}</p>
               <p className="mt-6 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-primary">
                 <span className="size-1.5 rounded-full bg-primary" />
@@ -56,17 +56,17 @@ export function Register() {
                 <input
                   required
                   placeholder={ph.name}
-                  className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none transition-colors placeholder:text-muted-foreground focus:border-primary"
+                  className="w-full rounded-lg border border-border bg-background px-4 py-3.5 text-base outline-none transition-colors placeholder:text-muted-foreground focus:border-primary sm:text-sm"
                 />
                 <input
                   required
                   type="email"
                   placeholder={ph.email}
-                  className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none transition-colors placeholder:text-muted-foreground focus:border-primary"
+                  className="w-full rounded-lg border border-border bg-background px-4 py-3.5 text-base outline-none transition-colors placeholder:text-muted-foreground focus:border-primary sm:text-sm"
                 />
                 <input
                   placeholder={ph.uni}
-                  className="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm outline-none transition-colors placeholder:text-muted-foreground focus:border-primary"
+                  className="w-full rounded-lg border border-border bg-background px-4 py-3.5 text-base outline-none transition-colors placeholder:text-muted-foreground focus:border-primary sm:text-sm"
                 />
                 <button
                   type="submit"

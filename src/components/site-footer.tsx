@@ -17,7 +17,7 @@ export function SiteFooter() {
 
   return (
     <footer className="border-t border-border bg-card/30">
-      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-10 pb-[calc(2.5rem+env(safe-area-inset-bottom))] sm:px-6 sm:py-14 lg:px-8">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div className="anim-footer-col lg:col-span-2">
             <a
