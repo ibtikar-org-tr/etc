@@ -3,6 +3,7 @@
 import { MapPin, Calendar, Users, Clock, ArrowLeft } from "lucide-react"
 import { useLang } from "./lang-provider"
 import { IBTIKAR_URL, IbtikarLogo } from "./ibtikar-logo"
+import { HeroBackground } from "./hero-background"
 
 export function Hero() {
   const { t } = useLang()
@@ -16,17 +17,10 @@ export function Hero() {
   ]
 
   return (
-    <section id="top" className="relative overflow-hidden">
-      <div className="absolute inset-0">
-        <img
-          src="/hero-bg.png"
-          alt=""
-          className="size-full object-cover opacity-40"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/60 to-background" />
-      </div>
+    <section id="top" className="hero-section relative flex min-h-screen flex-col overflow-visible">
+      <HeroBackground />
 
-      <div className="relative mx-auto max-w-7xl px-4 pb-16 pt-32 sm:px-6 lg:px-8 lg:pb-24 lg:pt-44">
+      <div className="relative z-10 mx-auto w-full max-w-7xl flex-1 px-4 pb-16 pt-32 sm:px-6 lg:px-8 lg:pb-24 lg:pt-44">
         <div className="flex flex-wrap items-center gap-3">
           <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-medium text-primary sm:text-sm">
             <span className="size-1.5 rounded-full bg-primary" />

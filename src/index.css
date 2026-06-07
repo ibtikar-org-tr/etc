@@ -139,3 +139,15 @@
     font-family: var(--font-heading);
   }
 }
+
+/* Hero section background theme */
+.hero-section {
+  --hero-background: hsl(260 87% 3%);
+  --hero-foreground: hsl(40 6% 95%);
+  --hero-sub: hsl(40 6% 82%);
+  background-color: var(--hero-background);
+}
+
+.hero-video-wrap {
+  background-color: var(--hero-background);
+}
