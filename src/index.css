@@ -171,14 +171,14 @@
 /* Animated tech page background */
 .page-bg-grid {
   background-image:
-    linear-gradient(oklch(0.7 0.22 300 / 0.09) 1px, transparent 1px),
-    linear-gradient(90deg, oklch(0.7 0.22 300 / 0.09) 1px, transparent 1px);
+    linear-gradient(oklch(0.7 0.22 300 / 0.18) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(0.7 0.22 300 / 0.18) 1px, transparent 1px);
   background-size: 48px 48px;
-  mask-image: radial-gradient(ellipse 85% 75% at 50% 40%, black 20%, transparent 75%);
+  mask-image: radial-gradient(ellipse 90% 80% at 50% 40%, black 30%, transparent 80%);
 }
 
 .site-root {
-  background-color: var(--background);
+  background-color: transparent;
 }
 
 .site-header.header-scrolled {

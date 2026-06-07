@@ -23,10 +23,10 @@ export function HeroBackground() {
 
       gsap.fromTo(
         ".hero-blur-orb",
-        { scale: 0.92, opacity: 0.75 },
+        { scale: 0.92, opacity: 0.28 },
         {
           scale: 1.06,
-          opacity: 0.92,
+          opacity: 0.42,
           duration: 5,
           repeat: -1,
           yoyo: true,
@@ -123,7 +123,7 @@ export function HeroBackground() {
         />
       </div>
 
-      <div className="hero-blur-orb absolute top-1/2 left-1/2 h-[527px] w-[984px] -translate-x-1/2 -translate-y-1/2 bg-[hsl(260_80%_8%)] opacity-90 blur-[82px]" />
+      <div className="hero-blur-orb absolute top-1/2 left-1/2 h-[527px] w-[984px] -translate-x-1/2 -translate-y-1/2 bg-primary/25 opacity-35 blur-[82px]" />
     </div>
   )
 }

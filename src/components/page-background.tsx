@@ -82,10 +82,10 @@ export function PageBackground() {
       aria-hidden
     >
       <div className="page-bg-drift absolute inset-0">
-        <div className="page-bg-grid absolute inset-0 opacity-[0.35]" />
+        <div className="page-bg-grid absolute inset-0 opacity-[0.6]" />
 
         <svg
-          className="page-bg-circuit absolute inset-[-20%] h-[140%] w-[140%] text-primary opacity-[0.12]"
+          className="page-bg-circuit absolute inset-[-20%] h-[140%] w-[140%] text-primary opacity-[0.28]"
           xmlns="http://www.w3.org/2000/svg"
         >
           <defs>
@@ -123,17 +123,17 @@ export function PageBackground() {
           <rect width="100%" height="100%" fill="url(#pcb-traces)" />
         </svg>
 
-        <div className="page-bg-mesh absolute top-1/4 left-1/2 hidden size-[900px] -translate-x-1/2 rounded-full border border-primary/10 opacity-40 sm:block" />
-        <div className="page-bg-mesh absolute top-2/3 right-0 hidden size-[600px] translate-x-1/3 rounded-full border border-primary/5 opacity-30 sm:block" />
+        <div className="page-bg-mesh absolute top-1/4 left-1/2 hidden size-[900px] -translate-x-1/2 rounded-full border border-primary/25 opacity-55 sm:block" />
+        <div className="page-bg-mesh absolute top-2/3 right-0 hidden size-[600px] translate-x-1/3 rounded-full border border-primary/15 opacity-45 sm:block" />
 
-        <div className="page-bg-orb absolute top-[12%] left-[8%] size-48 rounded-full bg-primary/10 blur-[80px] sm:size-72 sm:blur-[100px]" />
-        <div className="page-bg-orb absolute top-[45%] right-[6%] size-56 rounded-full bg-primary/8 blur-[90px] sm:size-96 sm:blur-[120px]" />
-        <div className="page-bg-orb absolute bottom-[10%] left-[30%] size-52 rounded-full bg-primary/6 blur-[70px] sm:size-80 sm:blur-[90px]" />
+        <div className="page-bg-orb absolute top-[12%] left-[8%] size-48 rounded-full bg-primary/20 blur-[80px] sm:size-72 sm:blur-[100px]" />
+        <div className="page-bg-orb absolute top-[45%] right-[6%] size-56 rounded-full bg-primary/16 blur-[90px] sm:size-96 sm:blur-[120px]" />
+        <div className="page-bg-orb absolute bottom-[10%] left-[30%] size-52 rounded-full bg-primary/14 blur-[70px] sm:size-80 sm:blur-[90px]" />
 
-        <div className="page-bg-scan absolute inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/25 to-transparent" />
+        <div className="page-bg-scan absolute inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/45 to-transparent" />
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-transparent to-background/60" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/5 via-transparent to-background/20" />
     </div>
   )
 }
