@@ -5,6 +5,7 @@ import { Menu, X, Globe, Check } from "lucide-react"
 import { useLang } from "./lang-provider"
 import { LANGS } from "@/lib/i18n"
 import { cn } from "@/lib/utils"
+import { IBTIKAR_URL, IbtikarLogo } from "./ibtikar-logo"
 
 export function SiteHeader() {
   const { lang, setLang, t } = useLang()
@@ -22,14 +23,24 @@ export function SiteHeader() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-        <a href="#top" className="flex items-center gap-2 font-heading text-lg font-extrabold tracking-tight">
-          <span className="grid size-7 place-items-center rounded-md bg-primary text-primary-foreground">
-            <span className="text-sm font-black">إ</span>
-          </span>
-          <span>
-            ETC<span className="text-primary">.</span>
-          </span>
-        </a>
+        <div className="flex min-w-0 items-center gap-3">
+          <a
+            href={IBTIKAR_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 transition-opacity hover:opacity-80"
+            aria-label="Ibtikar Assembly"
+          >
+            <IbtikarLogo className="h-7 w-auto sm:h-8" />
+          </a>
+          <span className="hidden h-5 w-px bg-border sm:block" aria-hidden />
+          <a
+            href="#top"
+            className="truncate font-heading text-sm font-extrabold tracking-tight transition-colors hover:text-primary sm:text-base"
+          >
+            ETC<span className="text-primary">.</span> 2026
+          </a>
+        </div>
 
         <nav className="hidden items-center gap-7 md:flex">
           {links.map((l) => (

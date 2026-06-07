@@ -2,6 +2,7 @@
 
 import { MapPin, Calendar, Users, Clock, ArrowLeft } from "lucide-react"
 import { useLang } from "./lang-provider"
+import { IBTIKAR_URL, IbtikarLogo } from "./ibtikar-logo"
 
 export function Hero() {
   const { t } = useLang()
@@ -26,9 +27,20 @@ export function Hero() {
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 pb-16 pt-32 sm:px-6 lg:px-8 lg:pb-24 lg:pt-44">
-        <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-medium text-primary sm:text-sm">
-          <span className="size-1.5 rounded-full bg-primary" />
-          {h.badge}
+        <div className="flex flex-wrap items-center gap-3">
+          <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-medium text-primary sm:text-sm">
+            <span className="size-1.5 rounded-full bg-primary" />
+            {h.badge}
+          </div>
+          <a
+            href={IBTIKAR_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-3 py-1 text-xs text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground sm:text-sm"
+          >
+            <IbtikarLogo variant="square" className="size-5 rounded-sm" />
+            {h.organizer}
+          </a>
         </div>
 
         <h1 className="mt-6 max-w-4xl font-heading text-4xl font-extrabold leading-[1.05] tracking-tight text-balance sm:text-6xl lg:text-7xl">

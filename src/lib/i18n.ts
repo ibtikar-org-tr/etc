@@ -18,6 +18,7 @@ export type Dict = {
   nav: { about: string; agenda: string; topics: string; workshops: string; faq: string; register: string }
   hero: {
     badge: string
+    organizer: string
     titleTop: string
     titleBottom: string
     subtitle: string
@@ -32,7 +33,15 @@ export type Dict = {
     days: string
     daysValue: string
   }
-  about: { label: string; title: string; body: string; stats: { value: string; label: string }[] }
+  about: {
+    label: string
+    title: string
+    body: string
+    organizerLabel: string
+    organizerBody: string
+    organizerLink: string
+    stats: { value: string; label: string }[]
+  }
   topics: { label: string; title: string; subtitle: string; items: Track[] }
   shorts: { label: string; title: string; items: Track[] }
   agenda: {
@@ -51,7 +60,16 @@ export type Dict = {
   workshops: { label: string; title: string; subtitle: string; sessions: { name: string; items: Track[] }[] }
   cta: { title: string; subtitle: string; button: string; note: string }
   faq: { label: string; title: string; items: { q: string; a: string }[] }
-  footer: { org: string; tagline: string; rights: string; nav: string; contact: string; volunteer: string }
+  footer: {
+    org: string
+    orgSub: string
+    tagline: string
+    rights: string
+    nav: string
+    contact: string
+    volunteer: string
+    website: string
+  }
 }
 
 export const dict: Record<Lang, Dict> = {
@@ -60,10 +78,11 @@ export const dict: Record<Lang, Dict> = {
     nav: { about: "عن المؤتمر", agenda: "الجدول", topics: "المحاور", workshops: "ورش العمل", faq: "الأسئلة", register: "سجّل الآن" },
     hero: {
       badge: "إسطنبول · 27–28 يونيو 2026",
+      organizer: "تنظّمه تجمّع إبتكار",
       titleTop: "مؤتمر التّقنيّات",
       titleBottom: "الصّاعدة 2026",
       subtitle:
-        "مؤتمر طلّابي يسلّط الضّوء على أحدث التقنيات من الناحية التّقنيّة، عبر محاضرات نظريّة معمّقة وورش عمل تطبيقيّة في الذكاء الاصطناعي والأمن السيبراني وإنترنت الأشياء وأكثر.",
+        "مؤتمر طلّابي تنظّمه تجمّع إبتكار، يسلّط الضّوء على أحدث التقنيات من الناحية التّقنيّة، عبر محاضرات نظريّة معمّقة وورش عمل تطبيقيّة في الذكاء الاصطناعي والأمن السيبراني وإنترنت الأشياء وأكثر.",
       register: "سجّل الآن",
       viewAgenda: "استعرض الجدول",
       city: "المكان",
@@ -79,6 +98,10 @@ export const dict: Record<Lang, Dict> = {
       label: "عن المؤتمر",
       title: "حيث تلتقي العقول الصّاعدة بالتقنيات الصّاعدة",
       body: "مؤتمر طلّابي يتناول مواضيع مختلفة في التقنيّات الحديثة من النّاحية التّقنيّة. يتألف من مجموعة محاضرات نظريّة تقدّم مدخلًا في المجالات التقنية الصاعدة، إلى جانب ورش عمل عمليّة تشكّل بوّابة للدخول إلى كل تقنية أو مجال.",
+      organizerLabel: "الجهة المنظّمة",
+      organizerBody:
+        "تجمّع إبتكار فريق تطوّعي يجمع طلّاب الجامعات الناطقين بالعربية المهتمّين بالابتكار والتقنية والبحث والتطوير. يهدف إلى تمكينهم وإثراء خبراتهم التقنية عبر أنشطة ومشاريع تلامس حياة الطالب الجامعية وتطوّره في المجال التقني والمهارات المجتمعية.",
+      organizerLink: "تعرّف على تجمّع إبتكار",
       stats: [
         { value: "+200", label: "طالب وضيف" },
         { value: "6", label: "محاضرات رئيسيّة" },
@@ -158,12 +181,13 @@ export const dict: Record<Lang, Dict> = {
       title: "احجز مقعدك في مؤتمر التّقنيّات الصّاعدة",
       subtitle: "المقاعد محدودة بـ 200 طالب. سجّل الآن قبل اكتمال العدد.",
       button: "سجّل مجّانًا",
-      note: "التسجيل مجّاني للطلاب · إسطنبول 2026",
+      note: "تجمّع إبتكار · التسجيل مجّاني للطلاب · إسطنبول 2026",
     },
     faq: {
       label: "الأسئلة الشائعة",
       title: "كل ما تحتاج معرفته",
       items: [
+        { q: "من يُنظّم المؤتمر؟", a: "يُنظّم المؤتمر تجمّع إبتكار، الفريق التطوّعي الذي يجمع طلّاب الجامعات الناطقين بالعربية المهتمّين بالابتكار والتقنية. تعرّف أكثر على ibtikar.org.tr" },
         { q: "أين ومتى يُقام المؤتمر؟", a: "يُقام المؤتمر في إسطنبول يومي السبت والأحد، 27–28 يونيو 2026." },
         { q: "هل التسجيل مجّاني؟", a: "نعم، التسجيل مجّاني للطلاب مع عدد محدود من المقاعد." },
         { q: "ما اللغات المعتمدة في المؤتمر؟", a: "تُقدَّم الفعاليّات بالعربيّة، وبعضها بالتركيّة والإنجليزيّة." },
@@ -171,7 +195,16 @@ export const dict: Record<Lang, Dict> = {
         { q: "هل سأحصل على شهادة حضور؟", a: "نعم، يحصل المشاركون على شهادة حضور رقميّة بعد المؤتمر." },
       ],
     },
-    footer: { org: "إبتكار", tagline: "نصنع جيلًا من التقنيّين الصّاعدين.", rights: "جميع الحقوق محفوظة", nav: "روابط", contact: "تواصل", volunteer: "تطوّع معنا" },
+    footer: {
+      org: "تجمّع إبتكار",
+      orgSub: "Ibtikar Assembly",
+      tagline: "جيلٌ يبتكر",
+      rights: "جميع الحقوق محفوظة",
+      nav: "روابط",
+      contact: "تواصل",
+      volunteer: "تطوّع معنا",
+      website: "ibtikar.org.tr",
+    },
   },
 
   tr: {
@@ -179,10 +212,11 @@ export const dict: Record<Lang, Dict> = {
     nav: { about: "Hakkında", agenda: "Program", topics: "Konular", workshops: "Atölyeler", faq: "SSS", register: "Kayıt Ol" },
     hero: {
       badge: "İstanbul · 27–28 Haziran 2026",
+      organizer: "İbtikar Meclisi düzenliyor",
       titleTop: "Yükselen Teknolojiler",
       titleBottom: "Konferansı 2026",
       subtitle:
-        "Yapay zeka, siber güvenlik, nesnelerin interneti ve daha fazlasında derinlemesine teorik dersler ve uygulamalı atölyelerle en yeni teknolojileri teknik açıdan ele alan bir öğrenci konferansı.",
+        "İbtikar Meclisi tarafından düzenlenen; yapay zeka, siber güvenlik, nesnelerin interneti ve daha fazlasında derinlemesine teorik dersler ve uygulamalı atölyelerle en yeni teknolojileri teknik açıdan ele alan bir öğrenci konferansı.",
       register: "Kayıt Ol",
       viewAgenda: "Programı Gör",
       city: "Konum",
@@ -198,6 +232,10 @@ export const dict: Record<Lang, Dict> = {
       label: "Hakkında",
       title: "Yükselen zihinlerin yükselen teknolojilerle buluştuğu yer",
       body: "Modern teknolojinin çeşitli konularını teknik açıdan ele alan bir öğrenci konferansı. Yükselen teknik alanlara giriş niteliğinde teorik derslerin yanı sıra, her teknoloji ve alana kapı açan uygulamalı atölyelerden oluşur.",
+      organizerLabel: "Düzenleyen",
+      organizerBody:
+        "İbtikar Meclisi, inovasyon, teknoloji, araştırma ve geliştirmeyle ilgilenen Arapça konuşan üniversite öğrencilerini bir araya getiren gönüllü bir ekiptir. Öğrencileri güçlendirmeyi ve teknik becerilerini zenginleştirmeyi hedefler.",
+      organizerLink: "İbtikar Meclisi hakkında",
       stats: [
         { value: "200+", label: "öğrenci ve misafir" },
         { value: "6", label: "ana ders" },
@@ -277,12 +315,13 @@ export const dict: Record<Lang, Dict> = {
       title: "Yükselen Teknolojiler Konferansı'ndaki yerini ayırt",
       subtitle: "Kontenjan 200 öğrenci ile sınırlıdır. Dolmadan kayıt ol.",
       button: "Ücretsiz Kayıt Ol",
-      note: "Öğrenciler için ücretsiz · İstanbul 2026",
+      note: "İbtikar Meclisi · Öğrenciler için ücretsiz · İstanbul 2026",
     },
     faq: {
       label: "Sıkça Sorulan Sorular",
       title: "Bilmen gereken her şey",
       items: [
+        { q: "Konferansı kim düzenliyor?", a: "Konferans, inovasyon ve teknolojiyle ilgilenen Arapça konuşan üniversite öğrencilerini bir araya getiren gönüllü ekip İbtikar Meclisi tarafından düzenlenmektedir. Daha fazlası için ibtikar.org.tr" },
         { q: "Konferans nerede ve ne zaman?", a: "Konferans İstanbul'da, 27–28 Haziran 2026 Cumartesi ve Pazar günleri yapılacak." },
         { q: "Kayıt ücretsiz mi?", a: "Evet, öğrenciler için kayıt ücretsizdir ve kontenjan sınırlıdır." },
         { q: "Konferansın dilleri nelerdir?", a: "Etkinlikler Arapça sunulur, bazıları Türkçe ve İngilizcedir." },
@@ -290,7 +329,16 @@ export const dict: Record<Lang, Dict> = {
         { q: "Katılım sertifikası alacak mıyım?", a: "Evet, katılımcılar konferans sonrası dijital katılım sertifikası alır." },
       ],
     },
-    footer: { org: "İbtikar", tagline: "Yükselen teknoloji uzmanlarından bir nesil yetiştiriyoruz.", rights: "Tüm hakları saklıdır", nav: "Bağlantılar", contact: "İletişim", volunteer: "Gönüllü Ol" },
+    footer: {
+      org: "İbtikar Meclisi",
+      orgSub: "Ibtikar Assembly",
+      tagline: "İnovasyon yapan bir nesil",
+      rights: "Tüm hakları saklıdır",
+      nav: "Bağlantılar",
+      contact: "İletişim",
+      volunteer: "Gönüllü Ol",
+      website: "ibtikar.org.tr",
+    },
   },
 
   en: {
@@ -298,10 +346,11 @@ export const dict: Record<Lang, Dict> = {
     nav: { about: "About", agenda: "Agenda", topics: "Topics", workshops: "Workshops", faq: "FAQ", register: "Register" },
     hero: {
       badge: "Istanbul · June 27–28, 2026",
+      organizer: "Hosted by Ibtikar Assembly",
       titleTop: "Emerging Technologies",
       titleBottom: "Conference 2026",
       subtitle:
-        "A student conference spotlighting the latest technologies from a technical angle — through in-depth theoretical lectures and hands-on workshops in AI, cybersecurity, IoT, and more.",
+        "A student conference hosted by Ibtikar Assembly, spotlighting the latest technologies from a technical angle — through in-depth theoretical lectures and hands-on workshops in AI, cybersecurity, IoT, and more.",
       register: "Register Now",
       viewAgenda: "View Agenda",
       city: "Location",
@@ -317,6 +366,10 @@ export const dict: Record<Lang, Dict> = {
       label: "About",
       title: "Where rising minds meet emerging technologies",
       body: "A student conference covering diverse topics in modern technology from a technical perspective. It combines theoretical lectures that introduce emerging technical fields with practical workshops that serve as a gateway into each technology and domain.",
+      organizerLabel: "Organizer",
+      organizerBody:
+        "Ibtikar Assembly is a volunteer team that brings together Arabic-speaking university students interested in innovation, technology, research and development. It seeks to empower them and enrich their technical expertise through activities and projects that touch student life and community skills.",
+      organizerLink: "Learn about Ibtikar Assembly",
       stats: [
         { value: "200+", label: "students & guests" },
         { value: "6", label: "keynote lectures" },
@@ -396,12 +449,13 @@ export const dict: Record<Lang, Dict> = {
       title: "Reserve your seat at the Emerging Technologies Conference",
       subtitle: "Seats are limited to 200 students. Register before they're gone.",
       button: "Register for Free",
-      note: "Free for students · Istanbul 2026",
+      note: "Ibtikar Assembly · Free for students · Istanbul 2026",
     },
     faq: {
       label: "FAQ",
       title: "Everything you need to know",
       items: [
+        { q: "Who organizes the conference?", a: "The conference is organized by Ibtikar Assembly, a volunteer team of Arabic-speaking university students passionate about innovation and technology. Learn more at ibtikar.org.tr" },
         { q: "Where and when is the conference?", a: "The conference takes place in Istanbul on Saturday and Sunday, June 27–28, 2026." },
         { q: "Is registration free?", a: "Yes, registration is free for students with a limited number of seats." },
         { q: "What languages are used?", a: "Sessions are delivered in Arabic, with some in Turkish and English." },
@@ -409,6 +463,15 @@ export const dict: Record<Lang, Dict> = {
         { q: "Will I get a certificate?", a: "Yes, participants receive a digital certificate of attendance after the conference." },
       ],
     },
-    footer: { org: "Ibtikar", tagline: "Building a generation of rising technologists.", rights: "All rights reserved", nav: "Links", contact: "Contact", volunteer: "Volunteer With Us" },
+    footer: {
+      org: "Ibtikar Assembly",
+      orgSub: "تجمّع إبتكار",
+      tagline: "A generation that innovates",
+      rights: "All rights reserved",
+      nav: "Links",
+      contact: "Contact",
+      volunteer: "Volunteer With Us",
+      website: "ibtikar.org.tr",
+    },
   },
 }
