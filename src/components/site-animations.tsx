@@ -2,6 +2,7 @@
 
 import { useRef, type ReactNode } from "react"
 import { useLang } from "./lang-provider"
+import { PageBackground } from "./page-background"
 import { gsap, prefersReducedMotion, ScrollTrigger, useGSAP } from "@/lib/gsap"
 
 export function SiteAnimations({ children }: { children: ReactNode }) {
@@ -143,8 +144,9 @@ export function SiteAnimations({ children }: { children: ReactNode }) {
   )
 
   return (
-    <div ref={rootRef} className="site-root">
-      {children}
+    <div ref={rootRef} className="site-root relative isolate">
+      <PageBackground />
+      <div className="relative z-[1]">{children}</div>
     </div>
   )
 }
