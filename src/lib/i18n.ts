@@ -233,11 +233,11 @@ export const dict: Record<Lang, Dict> = {
     nav: { about: "Hakkında", agenda: "Program", topics: "Konular", workshops: "Atölyeler", faq: "SSS", register: "Kayıt Ol" },
     hero: {
       badge: "İstanbul · 27–28 Haziran 2026",
-      organizer: "İbtikar Meclisi düzenliyor",
+      organizer: "İbtikar Topluluğu düzenliyor",
       titleTop: "Yükselen Teknolojiler",
       titleBottom: "Konferansı 2026",
       subtitle:
-        "İbtikar Meclisi tarafından düzenlenen; modern teknolojinin çeşitli konularını teknik açıdan ele alan öğrenci konferansı — yükselen alanlara giriş niteliğinde teorik dersler ve her teknolojiye kapı açan uygulamalı atölyeler.",
+        "İbtikar Topluluğu tarafından düzenlenen; modern teknolojinin çeşitli konularını teknik açıdan ele alan öğrenci konferansı — yükselen alanlara giriş niteliğinde teorik dersler ve her teknolojiye kapı açan uygulamalı atölyeler.",
       register: "Kayıt Ol",
       viewAgenda: "Programı Gör",
       city: "Konum",
@@ -255,8 +255,8 @@ export const dict: Record<Lang, Dict> = {
       body: "Modern teknolojinin çeşitli konularını teknik açıdan ele alan bir öğrenci konferansı. Yükselen teknik alanlara giriş niteliğinde teorik derslerin yanı sıra, her teknoloji ve alana kapı açan uygulamalı atölyelerden oluşur.",
       organizerLabel: "Düzenleyen",
       organizerBody:
-        "İbtikar Meclisi, inovasyon, teknoloji, araştırma ve geliştirmeyle ilgilenen Arapça konuşan üniversite öğrencilerini bir araya getiren gönüllü bir ekiptir. Öğrencileri güçlendirmeyi ve teknik becerilerini zenginleştirmeyi hedefler.",
-      organizerLink: "İbtikar Meclisi hakkında",
+        "İbtikar Topluluğu, inovasyon, teknoloji, araştırma ve geliştirmeyle ilgilenen Arapça konuşan üniversite öğrencilerini bir araya getiren gönüllü bir ekiptir. Öğrencileri güçlendirmeyi ve teknik becerilerini zenginleştirmeyi hedefler.",
+      organizerLink: "İbtikar Topluluğu hakkında",
       stats: [
         { value: "200+", label: "öğrenci ve misafir" },
         { value: "6", label: "ana ders" },
@@ -357,13 +357,13 @@ export const dict: Record<Lang, Dict> = {
       title: "Yükselen Teknolojiler Konferansı 2026'da yerini ayırt",
       subtitle: "200 öğrenci + misafir — kontenjan sınırlı. Dolmadan kayıt ol.",
       button: "Ücretsiz Kayıt Ol",
-      note: "İbtikar Meclisi · Öğrenciler için ücretsiz · İstanbul 2026",
+      note: "İbtikar Topluluğu · Öğrenciler için ücretsiz · İstanbul 2026",
     },
     faq: {
       label: "Sıkça Sorulan Sorular",
       title: "Bilmen gereken her şey",
       items: [
-        { q: "Konferansı kim düzenliyor?", a: "Konferans, inovasyon ve teknolojiyle ilgilenen Arapça konuşan üniversite öğrencilerini bir araya getiren gönüllü ekip İbtikar Meclisi tarafından düzenlenmektedir. Daha fazlası için ibtikar.org.tr" },
+        { q: "Konferansı kim düzenliyor?", a: "Konferans, inovasyon ve teknolojiyle ilgilenen Arapça konuşan üniversite öğrencilerini bir araya getiren gönüllü ekip İbtikar Topluluğu tarafından düzenlenmektedir. Daha fazlası için ibtikar.org.tr" },
         { q: "Konferans nerede ve ne zaman?", a: "Konferans İstanbul'da; 27 Haziran Cumartesi (10:30–18:00) teorik dersler, 28 Haziran Pazar atölyeler." },
         { q: "Kayıt ücretsiz mi?", a: "Evet, öğrenciler için kayıt ücretsizdir ve kontenjan sınırlıdır." },
         { q: "Konferansın dilleri nelerdir?", a: "Etkinlikler Arapça sunulur, bazıları Türkçe ve İngilizcedir." },
@@ -372,8 +372,8 @@ export const dict: Record<Lang, Dict> = {
       ],
     },
     footer: {
-      org: "İbtikar Meclisi",
-      orgSub: "Ibtikar Assembly",
+      org: "İbtikar Topluluğu",
+      orgSub: "İbtikar Topluluğu",
       tagline: "İnovasyon yapan bir nesil",
       rights: "Tüm hakları saklıdır",
       nav: "Bağlantılar",
