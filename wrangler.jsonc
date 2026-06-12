@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "ia-etc-2026",
+  "name": "ia-etc",
   "compatibility_date": "2026-06-07",
   "observability": {
     "enabled": true
