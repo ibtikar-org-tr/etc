@@ -69,7 +69,7 @@ export function SiteFooter() {
               </li>
               <li>
                 <a
-                  href={`${IBTIKAR_URL}/volunteers`}
+                  href={`https://vms.ibtikar.tr/dashboard/volunteering`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-primary transition-colors hover:underline"
