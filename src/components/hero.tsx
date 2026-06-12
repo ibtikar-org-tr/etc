@@ -91,7 +91,7 @@ export function Hero() {
           </span>
         </h1>
 
-        <p className="hero-subtitle mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+        <p className="hero-subtitle mt-6 max-w-2xl text-base leading-relaxed sm:text-lg">
           {h.subtitle}
         </p>
 

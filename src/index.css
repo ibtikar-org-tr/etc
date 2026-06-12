@@ -164,6 +164,11 @@
   background-color: transparent;
 }
 
+.hero-subtitle {
+  color: var(--hero-sub);
+  text-shadow: 0 1px 16px oklch(0.11 0.055 285 / 0.9);
+}
+
 .hero-video-wrap {
   background-color: var(--hero-background);
 }
