@@ -1,20 +1,16 @@
-"use client"
-
-import { useState } from "react"
-import { ArrowLeft, CheckCircle2 } from "lucide-react"
+import { Clock, ExternalLink } from "lucide-react"
 import { useLang } from "./lang-provider"
 
-export function Register() {
-  const { t, lang } = useLang()
-  const c = t.cta
-  const [submitted, setSubmitted] = useState(false)
+/** Set when the external registration platform is live. */
+export const REGISTRATION_URL = ""
 
-  const ph =
-    lang === "ar"
-      ? { name: "الاسم الكامل", email: "البريد الإلكتروني", uni: "الجامعة" }
-      : lang === "tr"
-        ? { name: "Ad Soyad", email: "E-posta", uni: "Üniversite" }
-        : { name: "Full name", email: "Email address", uni: "University" }
+export function Register() {
+  const { t } = useLang()
+  const c = t.cta
+  const isAvailable = Boolean(REGISTRATION_URL)
+
+  const buttonClass =
+    "inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-opacity disabled:cursor-not-allowed disabled:opacity-50"
 
   return (
     <section id="register" className="section-pad">
@@ -25,58 +21,34 @@ export function Register() {
             <div>
               <h2 className="section-title">{c.title}</h2>
               <p className="mt-4 text-base text-muted-foreground sm:text-lg">{c.subtitle}</p>
+              <p className="mt-4 flex items-start gap-2 text-sm text-muted-foreground sm:text-base">
+                <Clock className="mt-0.5 size-4 shrink-0 text-primary" />
+                {c.comingSoon}
+              </p>
               <p className="mt-6 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-primary">
                 <span className="size-1.5 rounded-full bg-primary" />
                 {c.note}
               </p>
             </div>
 
-            {submitted ? (
-              <div className="flex flex-col items-center justify-center rounded-2xl border border-border bg-background/50 p-10 text-center">
-                <CheckCircle2 className="size-12 text-primary" />
-                <p className="mt-4 font-heading text-lg font-bold">
-                  {lang === "ar" ? "تمّ التسجيل بنجاح!" : lang === "tr" ? "Kayıt başarılı!" : "You're registered!"}
-                </p>
-                <p className="mt-1 text-sm text-muted-foreground">
-                  {lang === "ar"
-                    ? "سنرسل لك التفاصيل عبر البريد."
-                    : lang === "tr"
-                      ? "Detayları e-posta ile göndereceğiz."
-                      : "We'll email you the details."}
-                </p>
-              </div>
-            ) : (
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault()
-                  setSubmitted(true)
-                }}
-                className="space-y-3"
-              >
-                <input
-                  required
-                  placeholder={ph.name}
-                  className="w-full rounded-lg border border-border bg-background px-4 py-3.5 text-base outline-none transition-colors placeholder:text-muted-foreground focus:border-primary sm:text-sm"
-                />
-                <input
-                  required
-                  type="email"
-                  placeholder={ph.email}
-                  className="w-full rounded-lg border border-border bg-background px-4 py-3.5 text-base outline-none transition-colors placeholder:text-muted-foreground focus:border-primary sm:text-sm"
-                />
-                <input
-                  placeholder={ph.uni}
-                  className="w-full rounded-lg border border-border bg-background px-4 py-3.5 text-base outline-none transition-colors placeholder:text-muted-foreground focus:border-primary sm:text-sm"
-                />
-                <button
-                  type="submit"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+            <div>
+              {isAvailable ? (
+                <a
+                  href={REGISTRATION_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${buttonClass} hover:opacity-90`}
                 >
                   {c.button}
-                  <ArrowLeft className="size-4 ltr:rotate-180" />
+                  <ExternalLink className="size-4" />
+                </a>
+              ) : (
+                <button type="button" disabled className={buttonClass} aria-disabled="true">
+                  {c.button}
+                  <ExternalLink className="size-4 opacity-60" />
                 </button>
-              </form>
-            )}
+              )}
+            </div>
           </div>
         </div>
       </div>

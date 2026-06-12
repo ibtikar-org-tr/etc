@@ -58,7 +58,7 @@ export type Dict = {
     workshops: string
   }
   workshops: { label: string; title: string; subtitle: string; sessions: { name: string; items: Track[] }[] }
-  cta: { title: string; subtitle: string; button: string; note: string }
+  cta: { title: string; subtitle: string; button: string; note: string; comingSoon: string }
   faq: { label: string; title: string; items: { q: string; a: string }[] }
   footer: {
     org: string
@@ -200,9 +200,10 @@ export const dict: Record<Lang, Dict> = {
     },
     cta: {
       title: "احجز مقعدك في مؤتمر التّقنيّات الصّاعدة 2026",
-      subtitle: "200 طالب + ضيوف — المقاعد محدودة. سجّل الآن قبل اكتمال العدد.",
+      subtitle: "200 طالب + ضيوف — المقاعد محدودة. التسجيل عبر منصّة خارجيّة.",
       button: "سجّل مجّانًا",
       note: "تجمّع إبتكار · التسجيل مجّاني للطلاب · إسطنبول 2026",
+      comingSoon: "سيُفعَّل رابط التسجيل الخارجي خلال أيّام قليلة.",
     },
     faq: {
       label: "الأسئلة الشائعة",
@@ -355,9 +356,10 @@ export const dict: Record<Lang, Dict> = {
     },
     cta: {
       title: "Yükselen Teknolojiler Konferansı 2026'da yerini ayırt",
-      subtitle: "200 öğrenci + misafir — kontenjan sınırlı. Dolmadan kayıt ol.",
+      subtitle: "200 öğrenci + misafir — kontenjan sınırlı. Kayıt harici bir platform üzerinden yapılacak.",
       button: "Ücretsiz Kayıt Ol",
       note: "İbtikar Topluluğu · Öğrenciler için ücretsiz · İstanbul 2026",
+      comingSoon: "Harici kayıt bağlantısı birkaç gün içinde aktif olacak.",
     },
     faq: {
       label: "Sıkça Sorulan Sorular",
@@ -510,9 +512,10 @@ export const dict: Record<Lang, Dict> = {
     },
     cta: {
       title: "Reserve your seat at the Emerging Technologies Conference 2026",
-      subtitle: "200 students + guests — limited seats. Register before they're gone.",
+      subtitle: "200 students + guests — limited seats. Registration is via an external platform.",
       button: "Register for Free",
       note: "Ibtikar Assembly · Free for students · Istanbul 2026",
+      comingSoon: "The external registration link will be available in a few days.",
     },
     faq: {
       label: "FAQ",
