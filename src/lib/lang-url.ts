@@ -1,15 +1,20 @@
 import type { Lang } from "@/lib/i18n"
 
+export type Page = "home" | "etc-2024"
+
 export function isLang(value: string | null | undefined): value is Lang {
   return value === "ar" || value === "tr" || value === "en"
 }
 
+export function readPageFromUrl(): Page {
+  const parts = window.location.pathname.split("/").filter(Boolean)
+  return parts.includes("etc-2024") ? "etc-2024" : "home"
+}
+
 export function readLangFromUrl(): Lang {
   const parts = window.location.pathname.split("/").filter(Boolean)
-  if (parts.length === 0) return "ar"
-
-  const fromPath = parts[0]
-  if (isLang(fromPath)) return fromPath
+  const langPart = parts.find((p) => isLang(p))
+  if (langPart) return langPart
 
   const fromQuery = new URLSearchParams(window.location.search).get("lang")
   if (isLang(fromQuery)) return fromQuery
@@ -17,20 +22,40 @@ export function readLangFromUrl(): Lang {
   return "ar"
 }
 
+export function buildPath(lang: Lang, page: Page = "home"): string {
+  return page === "etc-2024" ? `/${lang}/etc-2024` : `/${lang}`
+}
+
 export function langPath(lang: Lang): string {
-  return `/${lang}`
+  return buildPath(lang, readPageFromUrl())
+}
+
+export function pagePath(lang: Lang, page: Page): string {
+  return buildPath(lang, page)
 }
 
 export function writeLangToUrl(lang: Lang, replace = false) {
+  const page = readPageFromUrl()
   const { hash, search } = window.location
   const params = new URLSearchParams(search)
   params.delete("lang")
 
   const query = params.toString()
-  const pathname = langPath(lang)
+  const pathname = buildPath(lang, page)
   const href = `${pathname}${query ? `?${query}` : ""}${hash}`
 
   window.history[replace ? "replaceState" : "pushState"](null, "", href)
+}
+
+export function navigateToPage(page: Page, lang?: Lang) {
+  const nextLang = lang ?? readLangFromUrl()
+  const { hash, search } = window.location
+  const params = new URLSearchParams(search)
+  params.delete("lang")
+  const query = params.toString()
+  const href = `${buildPath(nextLang, page)}${query ? `?${query}` : ""}${hash}`
+  window.history.pushState(null, "", href)
+  window.dispatchEvent(new PopStateEvent("popstate"))
 }
 
 export function migrateLegacyLangQuery() {

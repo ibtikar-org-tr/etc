@@ -4,23 +4,35 @@ import { useRef, useState } from "react"
 import { Menu, X, Globe, Check } from "lucide-react"
 import { useLang } from "./lang-provider"
 import { LANGS } from "@/lib/i18n"
+import { buildPath, pagePath } from "@/lib/lang-url"
 import { cn } from "@/lib/utils"
 import { IBTIKAR_URL, IbtikarLogo } from "./ibtikar-logo"
 import { gsap, prefersReducedMotion, ScrollTrigger, useGSAP } from "@/lib/gsap"
 
 export function SiteHeader() {
-  const { lang, setLang, t } = useLang()
+  const { lang, setLang, page, t, t2024 } = useLang()
   const headerRef = useRef<HTMLElement>(null)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [langOpen, setLangOpen] = useState(false)
 
-  const links = [
-    { href: "#about", label: t.nav.about },
-    { href: "#topics", label: t.nav.topics },
-    { href: "#agenda", label: t.nav.agenda },
-    { href: "#workshops", label: t.nav.workshops },
-    { href: "#faq", label: t.nav.faq },
-  ]
+  const isArchive = page === "etc-2024"
+  const homeHref = buildPath(lang, "home")
+  const archiveHref = pagePath(lang, "etc-2024")
+
+  const links = isArchive
+    ? [
+        { href: "#about", label: t2024.nav.about },
+        { href: "#topics", label: t2024.nav.topics },
+        { href: "#workshops", label: t2024.nav.workshops },
+        { href: "#gallery", label: t2024.nav.gallery },
+      ]
+    : [
+        { href: "#about", label: t.nav.about },
+        { href: "#topics", label: t.nav.topics },
+        { href: "#agenda", label: t.nav.agenda },
+        { href: "#workshops", label: t.nav.workshops },
+        { href: "#faq", label: t.nav.faq },
+      ]
 
   useGSAP(
     () => {
@@ -51,7 +63,7 @@ export function SiteHeader() {
         onLeaveBack: () => headerRef.current?.classList.remove("header-scrolled"),
       })
     },
-    { scope: headerRef, dependencies: [lang], revertOnUpdate: true },
+    { scope: headerRef, dependencies: [lang, page], revertOnUpdate: true },
   )
 
   return (
@@ -62,12 +74,12 @@ export function SiteHeader() {
       <div className="mx-auto flex h-14 max-w-7xl items-center justify-between gap-2 px-3 sm:h-16 sm:gap-4 sm:px-6 lg:px-8">
         <div className="header-brand flex min-w-0 items-center gap-1.5 sm:gap-3">
           <a
-            href="#top"
+            href={isArchive ? `${archiveHref}#top` : `${homeHref}#top`}
             className="shrink-0 font-heading text-xs font-extrabold leading-none tracking-tight transition-colors hover:text-primary min-[360px]:text-sm sm:text-base"
-            aria-label="ETC 2026"
+            aria-label={isArchive ? "ETC 2024" : "ETC 2026"}
           >
             ETC<span className="text-primary">.</span>
-            <span className="max-[359px]:hidden"> 2026</span>
+            <span className="max-[359px]:hidden"> {isArchive ? "2024" : "2026"}</span>
           </a>
           <span className="h-4 w-px shrink-0 bg-border sm:h-5" aria-hidden />
           <a
@@ -91,6 +103,21 @@ export function SiteHeader() {
               {l.label}
             </a>
           ))}
+          {isArchive ? (
+            <a
+              href={homeHref}
+              className="header-nav-link text-sm font-medium text-primary transition-colors hover:text-primary/80"
+            >
+              {t2024.nav.backTo2026}
+            </a>
+          ) : (
+            <a
+              href={archiveHref}
+              className="header-nav-link text-sm text-muted-foreground transition-colors hover:text-foreground"
+            >
+              {t.nav.pastEdition}
+            </a>
+          )}
         </nav>
 
         <div className="flex items-center gap-2">
@@ -126,12 +153,14 @@ export function SiteHeader() {
             )}
           </div>
 
-          <a
-            href="#register"
-            className="header-action hidden rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 sm:inline-block"
-          >
-            {t.nav.register}
-          </a>
+          {!isArchive && (
+            <a
+              href="#register"
+              className="header-action hidden rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 sm:inline-block"
+            >
+              {t.nav.register}
+            </a>
+          )}
 
           <button
             className="header-action grid min-h-11 min-w-11 place-items-center md:hidden"
@@ -157,13 +186,32 @@ export function SiteHeader() {
                 {l.label}
               </a>
             ))}
-            <a
-              href="#register"
-              onClick={() => setMobileOpen(false)}
-              className="mt-2 rounded-md bg-primary px-4 py-2.5 text-center text-sm font-semibold text-primary-foreground"
-            >
-              {t.nav.register}
-            </a>
+            {isArchive ? (
+              <a
+                href={homeHref}
+                onClick={() => setMobileOpen(false)}
+                className="min-h-11 py-3 text-sm font-medium text-primary"
+              >
+                {t2024.nav.backTo2026}
+              </a>
+            ) : (
+              <>
+                <a
+                  href={archiveHref}
+                  onClick={() => setMobileOpen(false)}
+                  className="min-h-11 py-3 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  {t.nav.pastEdition}
+                </a>
+                <a
+                  href="#register"
+                  onClick={() => setMobileOpen(false)}
+                  className="mt-2 rounded-md bg-primary px-4 py-2.5 text-center text-sm font-semibold text-primary-foreground"
+                >
+                  {t.nav.register}
+                </a>
+              </>
+            )}
           </nav>
         </div>
       )}

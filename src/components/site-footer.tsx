@@ -2,18 +2,31 @@
 
 import { useLang } from "./lang-provider"
 import { IBTIKAR_URL, IbtikarLogo } from "./ibtikar-logo"
+import { buildPath, pagePath } from "@/lib/lang-url"
 
 export function SiteFooter() {
-  const { t } = useLang()
+  const { lang, page, t, t2024 } = useLang()
   const f = t.footer
+  const isArchive = page === "etc-2024"
+  const homeHref = buildPath(lang, "home")
+  const archiveHref = pagePath(lang, "etc-2024")
 
-  const navLinks = [
-    { href: "#about", label: t.nav.about },
-    { href: "#topics", label: t.nav.topics },
-    { href: "#agenda", label: t.nav.agenda },
-    { href: "#workshops", label: t.nav.workshops },
-    { href: "#faq", label: t.nav.faq },
-  ]
+  const navLinks = isArchive
+    ? [
+        { href: `${archiveHref}#about`, label: t2024.nav.about },
+        { href: `${archiveHref}#topics`, label: t2024.nav.topics },
+        { href: `${archiveHref}#workshops`, label: t2024.nav.workshops },
+        { href: `${archiveHref}#gallery`, label: t2024.nav.gallery },
+        { href: homeHref, label: t2024.nav.backTo2026 },
+      ]
+    : [
+        { href: "#about", label: t.nav.about },
+        { href: "#topics", label: t.nav.topics },
+        { href: "#agenda", label: t.nav.agenda },
+        { href: "#workshops", label: t.nav.workshops },
+        { href: "#faq", label: t.nav.faq },
+        { href: archiveHref, label: t.nav.pastEdition },
+      ]
 
   return (
     <footer className="border-t border-border bg-card/30">
@@ -82,8 +95,8 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-border pt-6 text-xs text-muted-foreground sm:flex-row">
-          <p>© 2026 {f.org}. {f.rights}.</p>
-          <p className="font-mono">Istanbul · 27–28.06.2026</p>
+          <p>© {isArchive ? "2024" : "2026"} {f.org}. {f.rights}.</p>
+          <p className="font-mono">{isArchive ? t2024.footer.dates : "Istanbul · 27–28.06.2026"}</p>
         </div>
       </div>
     </footer>

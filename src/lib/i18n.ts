@@ -15,7 +15,7 @@ type Track = {
 
 export type Dict = {
   dir: "rtl" | "ltr"
-  nav: { about: string; agenda: string; topics: string; workshops: string; faq: string; register: string }
+  nav: { about: string; agenda: string; topics: string; workshops: string; faq: string; register: string; pastEdition: string }
   hero: {
     badge: string
     organizer: string
@@ -41,6 +41,10 @@ export type Dict = {
     organizerBody: string
     organizerLink: string
     stats: { value: string; label: string }[]
+    pastEditionLabel: string
+    pastEditionTitle: string
+    pastEditionBody: string
+    pastEditionLink: string
   }
   topics: { label: string; title: string; subtitle: string; items: Track[] }
   shorts: { label: string; title: string; items: Track[] }
@@ -75,7 +79,7 @@ export type Dict = {
 export const dict: Record<Lang, Dict> = {
   ar: {
     dir: "rtl",
-    nav: { about: "عن المؤتمر", agenda: "الجدول", topics: "المحاور", workshops: "ورش العمل", faq: "الأسئلة", register: "سجّل الآن" },
+    nav: { about: "عن المؤتمر", agenda: "الجدول", topics: "المحاور", workshops: "ورش العمل", faq: "الأسئلة", register: "سجّل الآن", pastEdition: "ETC 2024" },
     hero: {
       badge: "إسطنبول · 27–28 يونيو 2026",
       organizer: "ينظّمه تجمّع إبتكار",
@@ -108,6 +112,10 @@ export const dict: Record<Lang, Dict> = {
         { value: "9", label: "ورش عمل" },
         { value: "2", label: "يوم مكثّف" },
       ],
+      pastEditionLabel: "النسخ السابقة",
+      pastEditionTitle: "مؤتمر التّقنيّات الصّاعدة 2024",
+      pastEditionBody: "استعرض أرشيف النسخة السابقة من المؤتمر — المحاضرات، ورش العمل، وصور من الحدث في إسطنبول.",
+      pastEditionLink: "استعرض ETC 2024",
     },
     topics: {
       label: "اليوم الأول · المحاضرات النظريّة",
@@ -231,7 +239,7 @@ export const dict: Record<Lang, Dict> = {
 
   tr: {
     dir: "ltr",
-    nav: { about: "Hakkında", agenda: "Program", topics: "Konular", workshops: "Atölyeler", faq: "SSS", register: "Kayıt Ol" },
+    nav: { about: "Hakkında", agenda: "Program", topics: "Konular", workshops: "Atölyeler", faq: "SSS", register: "Kayıt Ol", pastEdition: "ETC 2024" },
     hero: {
       badge: "İstanbul · 27–28 Haziran 2026",
       organizer: "İbtikar Topluluğu düzenliyor",
@@ -264,6 +272,10 @@ export const dict: Record<Lang, Dict> = {
         { value: "9", label: "atölye" },
         { value: "2", label: "yoğun gün" },
       ],
+      pastEditionLabel: "Önceki Sürümler",
+      pastEditionTitle: "Yükselen Teknolojiler Konferansı 2024",
+      pastEditionBody: "Konferansın önceki sürümünün arşivini inceleyin — dersler, atölyeler ve İstanbul'daki etkinlik fotoğrafları.",
+      pastEditionLink: "ETC 2024'ü Gör",
     },
     topics: {
       label: "1. Gün · Teorik Dersler",
@@ -387,7 +399,7 @@ export const dict: Record<Lang, Dict> = {
 
   en: {
     dir: "ltr",
-    nav: { about: "About", agenda: "Agenda", topics: "Topics", workshops: "Workshops", faq: "FAQ", register: "Register" },
+    nav: { about: "About", agenda: "Agenda", topics: "Topics", workshops: "Workshops", faq: "FAQ", register: "Register", pastEdition: "ETC 2024" },
     hero: {
       badge: "Istanbul · June 27–28, 2026",
       organizer: "Hosted by Ibtikar Assembly",
@@ -420,6 +432,10 @@ export const dict: Record<Lang, Dict> = {
         { value: "9", label: "workshops" },
         { value: "2", label: "intensive days" },
       ],
+      pastEditionLabel: "Past Editions",
+      pastEditionTitle: "Emerging Technologies Conference 2024",
+      pastEditionBody: "Browse the archive of the previous edition — lectures, workshops, and photos from the event in Istanbul.",
+      pastEditionLink: "View ETC 2024",
     },
     topics: {
       label: "Day 1 · Theoretical Lectures",

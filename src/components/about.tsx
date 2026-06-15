@@ -1,10 +1,13 @@
 "use client"
 
+import { ArrowLeft } from "lucide-react"
 import { useLang } from "./lang-provider"
 import { IBTIKAR_URL, IbtikarLogo } from "./ibtikar-logo"
+import { ETC_2024_HERO_IMAGE } from "@/lib/etc-2024-images"
+import { pagePath } from "@/lib/lang-url"
 
 export function About() {
-  const { t } = useLang()
+  const { lang, t } = useLang()
   const a = t.about
 
   return (
@@ -37,16 +40,39 @@ export function About() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-3 self-center sm:gap-4">
-            {a.stats.map((s) => (
-              <div
-                key={s.label}
-                className="anim-card rounded-xl border border-border bg-card p-4 transition-colors hover:border-primary/40 sm:p-6"
-              >
-                <div className="font-heading text-3xl font-extrabold text-primary sm:text-4xl">{s.value}</div>
-                <div className="mt-1 text-sm text-muted-foreground">{s.label}</div>
+          <div className="flex flex-col gap-4 self-center">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
+              {a.stats.map((s) => (
+                <div
+                  key={s.label}
+                  className="anim-card rounded-xl border border-border bg-card p-4 transition-colors hover:border-primary/40 sm:p-6"
+                >
+                  <div className="font-heading text-3xl font-extrabold text-primary sm:text-4xl">{s.value}</div>
+                  <div className="mt-1 text-sm text-muted-foreground">{s.label}</div>
+                </div>
+              ))}
+            </div>
+
+            <a
+              href={pagePath(lang, "etc-2024")}
+              className="anim-card group flex items-center gap-4 overflow-hidden rounded-xl border border-border bg-card/50 p-4 transition-colors hover:border-primary/40 sm:p-5"
+            >
+              <img
+                src={ETC_2024_HERO_IMAGE}
+                alt=""
+                className="size-16 shrink-0 rounded-lg object-cover sm:size-20"
+                loading="lazy"
+              />
+              <div className="min-w-0 flex-1">
+                <p className="font-mono text-xs uppercase tracking-widest text-primary">{a.pastEditionLabel}</p>
+                <p className="mt-1 font-heading text-sm font-bold sm:text-base">{a.pastEditionTitle}</p>
+                <p className="mt-1 line-clamp-2 text-xs text-muted-foreground sm:text-sm">{a.pastEditionBody}</p>
+                <span className="mt-2 inline-flex items-center gap-1 text-xs font-medium text-primary sm:text-sm">
+                  {a.pastEditionLink}
+                  <ArrowLeft className="size-3.5 transition-transform group-hover:-translate-x-0.5 rtl:rotate-0 ltr:rotate-180" />
+                </span>
               </div>
-            ))}
+            </a>
           </div>
         </div>
       </div>
