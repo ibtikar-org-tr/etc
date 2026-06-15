@@ -11,6 +11,7 @@ import { Faq } from "@/components/faq"
 import { Register } from "@/components/register"
 import { SiteFooter } from "@/components/site-footer"
 import { Etc2024Page } from "@/components/etc-2024-page"
+import { SeoHead } from "@/components/seo-head"
 
 function HomePage() {
   return (
@@ -31,6 +32,7 @@ function AppContent() {
   const { page } = useLang()
   return (
     <SiteAnimations>
+      <SeoHead />
       <SiteHeader />
       <main>{page === "etc-2024" ? <Etc2024Page /> : <HomePage />}</main>
       <SiteFooter />

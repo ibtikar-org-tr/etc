@@ -101,7 +101,13 @@ export function Etc2024Page() {
             <div className="relative overflow-hidden rounded-2xl border border-border">
               <img
                 src={ETC_2024_HERO_IMAGE}
-                alt="ETC 2024 conference"
+                alt={
+                  lang === "ar"
+                    ? "محاضرة Crypto Mining في مؤتمر التّقنيّات الصّاعدة 2024 بإسطنبول"
+                    : lang === "tr"
+                      ? "İstanbul ETC 2024 konferansında Crypto Mining dersi"
+                      : "Crypto Mining lecture at ETC 2024 conference in Istanbul"
+                }
                 className="aspect-[4/3] w-full object-cover"
                 loading="eager"
               />
@@ -251,7 +257,13 @@ export function Etc2024Page() {
                 >
                   <img
                     src={src}
-                    alt=""
+                    alt={
+                      lang === "ar"
+                        ? `صورة من مؤتمر التّقنيّات الصّاعدة 2024 في إسطنبول — ${i + 1}`
+                        : lang === "tr"
+                          ? `İstanbul ETC 2024 konferansından fotoğraf — ${i + 1}`
+                          : `Photo from ETC 2024 conference in Istanbul — ${i + 1}`
+                    }
                     className="aspect-square w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                   />

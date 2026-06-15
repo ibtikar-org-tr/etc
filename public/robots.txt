@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://etc.ibtikar.tr/sitemap.xml

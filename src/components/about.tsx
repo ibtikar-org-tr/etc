@@ -59,7 +59,13 @@ export function About() {
             >
               <img
                 src={ETC_2024_HERO_IMAGE}
-                alt=""
+                alt={
+                  lang === "ar"
+                    ? "صورة من مؤتمر التّقنيّات الصّاعدة 2024"
+                    : lang === "tr"
+                      ? "ETC 2024 konferansından fotoğraf"
+                      : "Photo from ETC 2024 conference"
+                }
                 className="size-16 shrink-0 rounded-lg object-cover sm:size-20"
                 loading="lazy"
               />

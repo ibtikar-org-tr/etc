@@ -52,11 +52,7 @@ export function LangProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     document.documentElement.lang = lang
     document.documentElement.dir = t.dir
-    document.title =
-      page === "etc-2024"
-        ? `ETC 2024 · ${lang === "ar" ? "مؤتمر التّقنيّات الصّاعدة" : lang === "tr" ? "Yükselen Teknolojiler Konferansı" : "Emerging Technologies Conference"}`
-        : `ETC 2026 · ${lang === "ar" ? "مؤتمر التّقنيّات الصّاعدة" : lang === "tr" ? "Yükselen Teknolojiler Konferansı" : "Emerging Technologies Conference"}`
-  }, [lang, t.dir, page])
+  }, [lang, t.dir])
 
   return <LangContext.Provider value={{ lang, setLang, page, t, t2024 }}>{children}</LangContext.Provider>
 }
