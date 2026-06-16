@@ -7,7 +7,7 @@ import { LANGS } from "@/lib/i18n"
 import { buildPath, pagePath } from "@/lib/lang-url"
 import { cn } from "@/lib/utils"
 import { IBTIKAR_URL, IbtikarLogo } from "./ibtikar-logo"
-import { gsap, prefersReducedMotion, ScrollTrigger, useGSAP } from "@/lib/gsap"
+import { gsap, prefersReducedMotion, revealTween, ScrollTrigger, useGSAP } from "@/lib/gsap"
 
 export function SiteHeader() {
   const { lang, setLang, page, t, t2024 } = useLang()
@@ -38,23 +38,22 @@ export function SiteHeader() {
     () => {
       if (prefersReducedMotion()) return
 
-      gsap.from(".header-brand", { opacity: 0, x: -24, duration: 0.7, ease: "power3.out" })
-      gsap.from(".header-nav-link", {
+      gsap.from(".header-brand", revealTween({ opacity: 0, x: -24, duration: 0.7, ease: "power3.out" }))
+      gsap.from(".header-nav-link", revealTween({
         opacity: 0,
         y: -12,
         duration: 0.5,
         stagger: 0.07,
         delay: 0.15,
-        ease: "power2.out",
-      })
-      gsap.from(".header-action", {
+      }))
+      gsap.from(".header-action", revealTween({
         opacity: 0,
         x: 20,
         duration: 0.6,
         stagger: 0.08,
         delay: 0.2,
         ease: "power3.out",
-      })
+      }))
 
       ScrollTrigger.create({
         start: 60,

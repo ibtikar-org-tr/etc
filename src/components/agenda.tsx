@@ -3,7 +3,7 @@
 import { useRef, useState } from "react"
 import { useLang } from "./lang-provider"
 import { cn } from "@/lib/utils"
-import { gsap, prefersReducedMotion, useGSAP } from "@/lib/gsap"
+import { gsap, prefersReducedMotion, revealTween, useGSAP } from "@/lib/gsap"
 
 type AgendaRow = {
   time: string
@@ -57,7 +57,7 @@ export function Agenda() {
       gsap.fromTo(
         ".agenda-row",
         { opacity: 0, x: -12 },
-        { opacity: 1, x: 0, duration: 0.45, stagger: 0.035, ease: "power2.out" },
+        revealTween({ opacity: 1, x: 0, duration: 0.45, stagger: 0.035 }),
       )
     },
     { scope: tableRef, dependencies: [day, lang], revertOnUpdate: true },
@@ -85,7 +85,8 @@ export function Agenda() {
         </div>
         <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{day === 1 ? ag.day1date : ag.day2date}</p>
 
-        <div ref={tableRef} className="anim-panel mt-6 overflow-hidden rounded-xl border border-border sm:mt-8">
+        <div ref={tableRef} className="anim-panel mt-6 sm:mt-8">
+          <div className="overflow-hidden rounded-xl border border-border">
           <div className="hidden grid-cols-[minmax(7rem,140px)_1fr_auto] gap-4 border-b border-border bg-card/60 px-4 py-3 font-mono text-[11px] uppercase tracking-wider text-muted-foreground sm:grid sm:px-6">
             <span>{ag.time}</span>
             <span>{ag.session}</span>
@@ -133,6 +134,7 @@ export function Agenda() {
               </div>
             )
           })}
+          </div>
         </div>
       </div>
     </section>

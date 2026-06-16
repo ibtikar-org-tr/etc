@@ -3,7 +3,7 @@
 import { useRef, type ReactNode } from "react"
 import { useLang } from "./lang-provider"
 import { PageBackground } from "./page-background"
-import { gsap, prefersReducedMotion, ScrollTrigger, useGSAP } from "@/lib/gsap"
+import { gsap, prefersReducedMotion, revealTween, ScrollTrigger, useGSAP } from "@/lib/gsap"
 
 export function SiteAnimations({ children }: { children: ReactNode }) {
   const rootRef = useRef<HTMLDivElement>(null)
@@ -18,14 +18,10 @@ export function SiteAnimations({ children }: { children: ReactNode }) {
         start: "top 92%",
         once: true,
         onEnter: (batch) =>
-          gsap.to(batch, {
-            opacity: 1,
-            y: 0,
-            duration: 0.65,
-            stagger: 0.06,
-            ease: "power2.out",
-            overwrite: true,
-          }),
+          gsap.to(
+            batch,
+            revealTween({ opacity: 1, y: 0, duration: 0.65, stagger: 0.06 }),
+          ),
       })
 
       gsap.set(".anim-title", { opacity: 0, y: 44 })
@@ -33,14 +29,10 @@ export function SiteAnimations({ children }: { children: ReactNode }) {
         start: "top 88%",
         once: true,
         onEnter: (batch) =>
-          gsap.to(batch, {
-            opacity: 1,
-            y: 0,
-            duration: 0.9,
-            stagger: 0.1,
-            ease: "power3.out",
-            overwrite: true,
-          }),
+          gsap.to(
+            batch,
+            revealTween({ opacity: 1, y: 0, duration: 0.9, stagger: 0.1, ease: "power3.out" }),
+          ),
       })
 
       gsap.set(".anim-subtitle", { opacity: 0, y: 28 })
@@ -48,14 +40,10 @@ export function SiteAnimations({ children }: { children: ReactNode }) {
         start: "top 90%",
         once: true,
         onEnter: (batch) =>
-          gsap.to(batch, {
-            opacity: 1,
-            y: 0,
-            duration: 0.75,
-            stagger: 0.08,
-            ease: "power2.out",
-            overwrite: true,
-          }),
+          gsap.to(
+            batch,
+            revealTween({ opacity: 1, y: 0, duration: 0.75, stagger: 0.08 }),
+          ),
       })
 
       gsap.set(".anim-text", { opacity: 0, y: 24 })
@@ -63,14 +51,10 @@ export function SiteAnimations({ children }: { children: ReactNode }) {
         start: "top 90%",
         once: true,
         onEnter: (batch) =>
-          gsap.to(batch, {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            stagger: 0.06,
-            ease: "power2.out",
-            overwrite: true,
-          }),
+          gsap.to(
+            batch,
+            revealTween({ opacity: 1, y: 0, duration: 0.8, stagger: 0.06 }),
+          ),
       })
 
       gsap.set(".anim-card", { opacity: 0, y: 48, scale: 0.94 })
@@ -80,15 +64,10 @@ export function SiteAnimations({ children }: { children: ReactNode }) {
         interval: 0.08,
         batchMax: 5,
         onEnter: (batch) =>
-          gsap.to(batch, {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            duration: 0.75,
-            stagger: 0.09,
-            ease: "power2.out",
-            overwrite: true,
-          }),
+          gsap.to(
+            batch,
+            revealTween({ opacity: 1, y: 0, scale: 1, duration: 0.75, stagger: 0.09 }),
+          ),
       })
 
       gsap.set(".anim-row", { opacity: 0, x: -16 })
@@ -98,14 +77,10 @@ export function SiteAnimations({ children }: { children: ReactNode }) {
         interval: 0.05,
         batchMax: 8,
         onEnter: (batch) =>
-          gsap.to(batch, {
-            opacity: 1,
-            x: 0,
-            duration: 0.55,
-            stagger: 0.04,
-            ease: "power2.out",
-            overwrite: true,
-          }),
+          gsap.to(
+            batch,
+            revealTween({ opacity: 1, x: 0, duration: 0.55, stagger: 0.04 }),
+          ),
       })
 
       gsap.set(".anim-panel", { opacity: 0, scale: 0.96, y: 32 })
@@ -113,14 +88,10 @@ export function SiteAnimations({ children }: { children: ReactNode }) {
         start: "top 85%",
         once: true,
         onEnter: (batch) =>
-          gsap.to(batch, {
-            opacity: 1,
-            scale: 1,
-            y: 0,
-            duration: 1,
-            ease: "power3.out",
-            overwrite: true,
-          }),
+          gsap.to(
+            batch,
+            revealTween({ opacity: 1, scale: 1, y: 0, duration: 1, ease: "power3.out" }),
+          ),
       })
 
       gsap.set(".anim-footer-col", { opacity: 0, y: 24 })
@@ -128,14 +99,10 @@ export function SiteAnimations({ children }: { children: ReactNode }) {
         start: "top 94%",
         once: true,
         onEnter: (batch) =>
-          gsap.to(batch, {
-            opacity: 1,
-            y: 0,
-            duration: 0.7,
-            stagger: 0.12,
-            ease: "power2.out",
-            overwrite: true,
-          }),
+          gsap.to(
+            batch,
+            revealTween({ opacity: 1, y: 0, duration: 0.7, stagger: 0.12 }),
+          ),
       })
 
       ScrollTrigger.refresh()

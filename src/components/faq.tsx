@@ -4,7 +4,7 @@ import { useRef, useState } from "react"
 import { Plus, Minus } from "lucide-react"
 import { useLang } from "./lang-provider"
 import { cn } from "@/lib/utils"
-import { gsap, prefersReducedMotion } from "@/lib/gsap"
+import { gsap, prefersReducedMotion, revealTween } from "@/lib/gsap"
 
 export function Faq() {
   const { t } = useLang()
@@ -17,7 +17,7 @@ export function Faq() {
     if (!prefersReducedMotion() && next !== null) {
       const el = answerRefs.current[next]
       if (el) {
-        gsap.fromTo(el, { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" })
+        gsap.fromTo(el, { opacity: 0, y: 8 }, revealTween({ opacity: 1, y: 0, duration: 0.35 }))
       }
     }
     setOpen(next)
@@ -31,7 +31,8 @@ export function Faq() {
           <h2 className="anim-title section-title mt-4">{f.title}</h2>
         </div>
 
-        <div className="anim-panel mt-10 divide-y divide-border overflow-hidden rounded-xl border border-border">
+        <div className="anim-panel mt-10">
+          <div className="divide-y divide-border overflow-hidden rounded-xl border border-border">
           {f.items.map((item, i) => {
             const isOpen = open === i
             return (
@@ -67,6 +68,7 @@ export function Faq() {
               </div>
             )
           })}
+          </div>
         </div>
       </div>
     </section>

@@ -22,7 +22,7 @@ import { PageBackground } from "@/components/page-background"
 import { ETC_2024_HERO_IMAGE, ETC_2024_IMAGES, etc2024ImageUrl } from "@/lib/etc-2024-images"
 import { buildPath } from "@/lib/lang-url"
 import { cn } from "@/lib/utils"
-import { gsap, prefersReducedMotion, useGSAP } from "@/lib/gsap"
+import { gsap, prefersReducedMotion, revealTween, useGSAP } from "@/lib/gsap"
 
 const topicIcons = [Link2, Gamepad2, Bot, Dna, Wifi, ShieldAlert]
 
@@ -42,10 +42,10 @@ export function Etc2024Page() {
   useGSAP(
     () => {
       if (prefersReducedMotion()) return
-      gsap.from(".etc24-hero-badge", { opacity: 0, y: -16, duration: 0.5, stagger: 0.08 })
-      gsap.from(".etc24-hero-title", { opacity: 0, y: 48, duration: 0.85, stagger: 0.12, delay: 0.1 })
-      gsap.from(".etc24-hero-sub", { opacity: 0, y: 20, duration: 0.6, delay: 0.35 })
-      gsap.from(".etc24-hero-fact", { opacity: 0, y: 14, duration: 0.45, stagger: 0.06, delay: 0.5 })
+      gsap.from(".etc24-hero-badge", revealTween({ opacity: 0, y: -16, duration: 0.5, stagger: 0.08 }))
+      gsap.from(".etc24-hero-title", revealTween({ opacity: 0, y: 48, duration: 0.85, stagger: 0.12, delay: 0.1, ease: "power3.out" }))
+      gsap.from(".etc24-hero-sub", revealTween({ opacity: 0, y: 20, duration: 0.6, delay: 0.35 }))
+      gsap.from(".etc24-hero-fact", revealTween({ opacity: 0, y: 14, duration: 0.45, stagger: 0.06, delay: 0.5 }))
     },
     { scope: sectionRef },
   )
@@ -124,7 +124,8 @@ export function Etc2024Page() {
             </div>
           </div>
 
-          <div className="etc24-hero-facts mt-10 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-border bg-border min-[380px]:grid-cols-2 lg:mt-14 lg:grid-cols-4">
+          <div className="etc24-hero-facts mt-10 lg:mt-14">
+            <div className="grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-border bg-border min-[380px]:grid-cols-2 lg:grid-cols-4">
             {facts.map((f) => (
               <div key={f.label} className="etc24-hero-fact flex items-center gap-3 bg-card p-3.5 sm:p-4 lg:p-5">
                 <div className="grid size-9 shrink-0 place-items-center rounded-lg bg-primary/10 text-primary sm:size-10">
@@ -136,6 +137,7 @@ export function Etc2024Page() {
                 </div>
               </div>
             ))}
+            </div>
           </div>
         </div>
       </section>
@@ -251,10 +253,11 @@ export function Etc2024Page() {
                   type="button"
                   onClick={() => setLightbox(src)}
                   className={cn(
-                    "anim-card group relative overflow-hidden rounded-xl border border-border bg-card transition-colors hover:border-primary/50",
+                    "anim-card group relative",
                     i === 0 && "col-span-2 row-span-2 md:col-span-2 md:row-span-2",
                   )}
                 >
+                  <div className="relative overflow-hidden rounded-xl border border-border bg-card transition-colors group-hover:border-primary/50">
                   <img
                     src={src}
                     alt={
@@ -268,6 +271,7 @@ export function Etc2024Page() {
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-background/0 transition-colors group-hover:bg-background/10" />
+                  </div>
                 </button>
               )
             })}

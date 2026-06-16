@@ -5,7 +5,7 @@ import { MapPin, Calendar, Users, Clock, ArrowLeft } from "lucide-react"
 import { useLang } from "./lang-provider"
 import { IBTIKAR_URL, IbtikarLogo } from "./ibtikar-logo"
 import { HeroBackground } from "./hero-background"
-import { gsap, prefersReducedMotion, useGSAP } from "@/lib/gsap"
+import { gsap, prefersReducedMotion, revealTween, useGSAP } from "@/lib/gsap"
 
 export function Hero() {
   const { t } = useLang()
@@ -34,16 +34,16 @@ export function Hero() {
 
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } })
 
-      tl.from(".hero-badge", { opacity: 0, y: -20, duration: 0.55, stagger: 0.1 })
+      tl.from(".hero-badge", revealTween({ opacity: 0, y: -20, duration: 0.55, stagger: 0.1 }))
         .from(
           ".hero-title-line",
-          { opacity: 0, y: 72, duration: 1, stagger: 0.14, ease: "power3.out" },
+          revealTween({ opacity: 0, y: 72, duration: 1, stagger: 0.14, ease: "power3.out" }),
           "-=0.25",
         )
-        .from(".hero-subtitle", { opacity: 0, y: 28, duration: 0.75 }, "-=0.4")
-        .from(".hero-cta", { opacity: 0, y: 22, duration: 0.55, stagger: 0.1 }, "-=0.45")
-        .to(factsEl, { autoAlpha: 1, y: 0, duration: 0.7 }, "-=0.15")
-        .from(".hero-fact", { opacity: 0, y: 12, duration: 0.4, stagger: 0.06 }, "-=0.4")
+        .from(".hero-subtitle", revealTween({ opacity: 0, y: 28, duration: 0.75 }), "-=0.4")
+        .from(".hero-cta", revealTween({ opacity: 0, y: 22, duration: 0.55, stagger: 0.1 }), "-=0.45")
+        .to(factsEl, revealTween({ autoAlpha: 1, y: 0, duration: 0.7 }), "-=0.15")
+        .from(".hero-fact", revealTween({ opacity: 0, y: 12, duration: 0.4, stagger: 0.06 }), "-=0.4")
 
       gsap.to(".hero-video-wrap video", {
         yPercent: 12,
@@ -111,10 +111,8 @@ export function Hero() {
           </a>
         </div>
 
-        <div
-          ref={factsRef}
-          className="hero-facts mt-10 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-border bg-border min-[380px]:grid-cols-2 lg:mt-14 lg:grid-cols-4"
-        >
+        <div ref={factsRef} className="hero-facts mt-10 lg:mt-14">
+          <div className="grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-border bg-border min-[380px]:grid-cols-2 lg:grid-cols-4">
           {facts.map((f) => (
             <div key={f.label} className="hero-fact flex items-center gap-3 bg-card p-3.5 sm:p-4 lg:p-5">
               <div className="grid size-9 shrink-0 place-items-center rounded-lg bg-primary/10 text-primary sm:size-10">
@@ -126,6 +124,7 @@ export function Hero() {
               </div>
             </div>
           ))}
+          </div>
         </div>
       </div>
     </section>

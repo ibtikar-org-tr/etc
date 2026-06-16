@@ -128,12 +128,12 @@
   }
   html {
     @apply font-sans;
-    overflow-x: clip;
+    overflow-x: hidden;
     scroll-behavior: smooth;
   }
   body {
     @apply bg-background text-foreground;
-    overflow-x: clip;
+    overflow-x: hidden;
     padding-left: env(safe-area-inset-left);
     padding-right: env(safe-area-inset-right);
   }
@@ -189,10 +189,6 @@
 .site-header.header-scrolled {
   background-color: color-mix(in oklch, var(--background) 92%, transparent);
   box-shadow: 0 8px 32px oklch(0 0 0 / 0.25);
-}
-
-.anim-card {
-  will-change: transform, opacity;
 }
 
 @media (prefers-reduced-motion: reduce) {

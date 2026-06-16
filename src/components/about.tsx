@@ -55,8 +55,9 @@ export function About() {
 
             <a
               href={pagePath(lang, "etc-2024")}
-              className="anim-card group flex items-center gap-4 overflow-hidden rounded-xl border border-border bg-card/50 p-4 transition-colors hover:border-primary/40 sm:p-5"
+              className="anim-card group block transition-colors hover:border-primary/40"
             >
+              <div className="flex items-center gap-4 overflow-hidden rounded-xl border border-border bg-card/50 p-4 sm:p-5">
               <img
                 src={ETC_2024_HERO_IMAGE}
                 alt={
@@ -77,6 +78,7 @@ export function About() {
                   {a.pastEditionLink}
                   <ArrowLeft className="size-3.5 transition-transform group-hover:-translate-x-0.5 rtl:rotate-0 ltr:rotate-180" />
                 </span>
+              </div>
               </div>
             </a>
           </div>
