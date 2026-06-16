@@ -26,25 +26,36 @@ export function Hero() {
       const factsEl = factsRef.current
       if (!factsEl) return
 
+      const heroEls =
+        ".hero-badge,.hero-title-line,.hero-subtitle,.hero-cta,.hero-fact"
+
       if (prefersReducedMotion()) {
-        gsap.set(factsEl, { autoAlpha: 1, y: 0 })
+        gsap.set([factsEl, heroEls], { autoAlpha: 1, opacity: 1, y: 0, clearProps: "transform" })
         return
       }
 
+      gsap.set(".hero-badge", { opacity: 0, y: -20 })
+      gsap.set(".hero-title-line", { opacity: 0, y: 72 })
+      gsap.set(".hero-subtitle", { opacity: 0, y: 28 })
+      gsap.set(".hero-cta", { opacity: 0, y: 22 })
       gsap.set(factsEl, { autoAlpha: 0, y: 28 })
+      gsap.set(".hero-fact", { opacity: 0, y: 12 })
+
+      const show = (vars: gsap.TweenVars = {}) =>
+        revealTween({ opacity: 1, y: 0, overwrite: false, ...vars })
 
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } })
 
-      tl.from(".hero-badge", revealTween({ opacity: 0, y: -20, duration: 0.55, stagger: 0.1 }))
-        .from(
+      tl.to(".hero-badge", show({ duration: 0.55, stagger: 0.1 }))
+        .to(
           ".hero-title-line",
-          revealTween({ opacity: 0, y: 72, duration: 1, stagger: 0.14, ease: "power3.out" }),
+          show({ duration: 1, stagger: 0.14 }),
           "-=0.25",
         )
-        .from(".hero-subtitle", revealTween({ opacity: 0, y: 28, duration: 0.75 }), "-=0.4")
-        .from(".hero-cta", revealTween({ opacity: 0, y: 22, duration: 0.55, stagger: 0.1 }), "-=0.45")
-        .to(factsEl, revealTween({ autoAlpha: 1, y: 0, duration: 0.7 }), "-=0.15")
-        .from(".hero-fact", revealTween({ opacity: 0, y: 12, duration: 0.4, stagger: 0.06 }), "-=0.4")
+        .to(".hero-subtitle", show({ duration: 0.75 }), "-=0.4")
+        .to(".hero-cta", show({ duration: 0.55, stagger: 0.1 }), "-=0.45")
+        .to(factsEl, show({ autoAlpha: 1, duration: 0.7 }), "-=0.15")
+        .to(".hero-fact", show({ duration: 0.4, stagger: 0.06 }), "-=0.4")
 
       gsap.to(".hero-video-wrap video", {
         yPercent: 12,
