@@ -28,8 +28,6 @@ export type Dict = {
     cityValue: string
     dates: string
     datesValue: string
-    attendees: string
-    attendeesValue: string
     days: string
     daysValue: string
   }
@@ -93,8 +91,6 @@ export const dict: Record<Lang, Dict> = {
       cityValue: "إسطنبول، تركيا",
       dates: "التاريخ",
       datesValue: "27–28 يونيو 2026",
-      attendees: "الحضور",
-      attendeesValue: "200 طالب + ضيوف",
       days: "المدّة",
       daysValue: "يومان",
     },
@@ -107,7 +103,6 @@ export const dict: Record<Lang, Dict> = {
         "تجمّع إبتكار فريق تطوّعي يجمع طلّاب الجامعات الناطقين بالعربية المهتمّين بالابتكار والتقنية والبحث والتطوير. يهدف إلى تمكينهم وإثراء خبراتهم التقنية عبر أنشطة ومشاريع تلامس حياة الطالب الجامعية وتطوّره في المجال التقني والمهارات المجتمعية.",
       organizerLink: "تعرّف على تجمّع إبتكار",
       stats: [
-        { value: "+200", label: "طالب وضيف" },
         { value: "6", label: "محاضرات رئيسيّة" },
         { value: "9", label: "ورش عمل" },
         { value: "2", label: "يوم مكثّف" },
@@ -208,7 +203,7 @@ export const dict: Record<Lang, Dict> = {
     },
     cta: {
       title: "احجز مقعدك في مؤتمر التّقنيّات الصّاعدة 2026",
-      subtitle: "200 طالب + ضيوف — المقاعد محدودة. التسجيل عبر منصّة خارجيّة.",
+      subtitle: "التسجيل مفتوح — سجّل عبر منصّة أعضاء إبتكار.",
       button: "سجّل مجّانًا",
       note: "تجمّع إبتكار · التسجيل مجّاني للطلاب · إسطنبول 2026",
       comingSoon: "سيُفعَّل رابط التسجيل الخارجي خلال أيّام قليلة.",
@@ -254,8 +249,6 @@ export const dict: Record<Lang, Dict> = {
       cityValue: "İstanbul, Türkiye",
       dates: "Tarih",
       datesValue: "27–28 Haziran 2026",
-      attendees: "Katılımcı",
-      attendeesValue: "200 öğrenci + misafir",
       days: "Süre",
       daysValue: "2 gün",
     },
@@ -268,7 +261,6 @@ export const dict: Record<Lang, Dict> = {
         "İbtikar Topluluğu, inovasyon, teknoloji, araştırma ve geliştirmeyle ilgilenen Arapça konuşan üniversite öğrencilerini bir araya getiren gönüllü bir ekiptir. Öğrencileri güçlendirmeyi ve teknik becerilerini zenginleştirmeyi hedefler.",
       organizerLink: "İbtikar Topluluğu hakkında",
       stats: [
-        { value: "200+", label: "öğrenci ve misafir" },
         { value: "6", label: "ana ders" },
         { value: "9", label: "atölye" },
         { value: "2", label: "yoğun gün" },
@@ -369,7 +361,7 @@ export const dict: Record<Lang, Dict> = {
     },
     cta: {
       title: "Yükselen Teknolojiler Konferansı 2026'da yerini ayırt",
-      subtitle: "200 öğrenci + misafir — kontenjan sınırlı. Kayıt harici bir platform üzerinden yapılacak.",
+      subtitle: "Kayıt açık — İbtikar üye platformu üzerinden kayıt olun.",
       button: "Ücretsiz Kayıt Ol",
       note: "İbtikar Topluluğu · Öğrenciler için ücretsiz · İstanbul 2026",
       comingSoon: "Harici kayıt bağlantısı birkaç gün içinde aktif olacak.",
@@ -415,8 +407,6 @@ export const dict: Record<Lang, Dict> = {
       cityValue: "Istanbul, Türkiye",
       dates: "Dates",
       datesValue: "June 27–28, 2026",
-      attendees: "Attendees",
-      attendeesValue: "200 students + guests",
       days: "Duration",
       daysValue: "2 days",
     },
@@ -429,7 +419,6 @@ export const dict: Record<Lang, Dict> = {
         "Ibtikar Assembly is a volunteer team that brings together Arabic-speaking university students interested in innovation, technology, research and development. It seeks to empower them and enrich their technical expertise through activities and projects that touch student life and community skills.",
       organizerLink: "Learn about Ibtikar Assembly",
       stats: [
-        { value: "200+", label: "students & guests" },
         { value: "6", label: "keynote lectures" },
         { value: "9", label: "workshops" },
         { value: "2", label: "intensive days" },
@@ -530,7 +519,7 @@ export const dict: Record<Lang, Dict> = {
     },
     cta: {
       title: "Reserve your seat at the Emerging Technologies Conference 2026",
-      subtitle: "200 students + guests — limited seats. Registration is via an external platform.",
+      subtitle: "Registration is open — sign up via the Ibtikar members platform.",
       button: "Register for Free",
       note: "Ibtikar Assembly · Free for students · Istanbul 2026",
       comingSoon: "The external registration link will be available in a few days.",

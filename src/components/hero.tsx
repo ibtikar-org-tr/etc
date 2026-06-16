@@ -1,7 +1,7 @@
 "use client"
 
 import { useRef } from "react"
-import { MapPin, Calendar, Users, Clock, ArrowLeft } from "lucide-react"
+import { MapPin, Calendar, Clock, ArrowLeft } from "lucide-react"
 import { useLang } from "./lang-provider"
 import { IBTIKAR_URL, IbtikarLogo } from "./ibtikar-logo"
 import { HeroBackground } from "./hero-background"
@@ -17,7 +17,6 @@ export function Hero() {
   const facts = [
     { icon: MapPin, label: h.city, value: h.cityValue },
     { icon: Calendar, label: h.dates, value: h.datesValue },
-    { icon: Users, label: h.attendees, value: h.attendeesValue },
     { icon: Clock, label: h.days, value: h.daysValue },
   ]
 
@@ -126,7 +125,7 @@ export function Hero() {
         </div>
 
         <div ref={factsRef} className="hero-facts mt-10 lg:mt-14">
-          <div className="grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-border bg-border min-[380px]:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-border bg-border min-[380px]:grid-cols-3 lg:grid-cols-3">
           {facts.map((f) => (
             <div key={f.label} className="hero-fact flex items-center gap-3 bg-card p-3.5 sm:p-4 lg:p-5">
               <div className="grid size-9 shrink-0 place-items-center rounded-lg bg-primary/10 text-primary sm:size-10">

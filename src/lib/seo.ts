@@ -156,7 +156,7 @@ export function getSeoMeta(lang: Lang, page: Page, origin = getSiteOrigin()): Se
       endDate: page === "etc-2024" ? "2024-02-18" : "2026-06-28",
       url: canonical,
       image: ogImage,
-      attendeeCount: page === "etc-2024" ? 150 : 200,
+      attendeeCount: page === "etc-2024" ? 250 : undefined,
     }),
     {
       "@context": "https://schema.org",
