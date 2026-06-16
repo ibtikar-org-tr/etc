@@ -1,8 +1,8 @@
 import { Clock, ExternalLink } from "lucide-react"
 import { useLang } from "./lang-provider"
 
-/** Set when the external registration platform is live. */
-export const REGISTRATION_URL = ""
+export const REGISTRATION_URL =
+  "https://vms.ibtikar.tr/dashboard/event/b1ed6cdc-d9a9-4f08-ac48-54fe3eb52207"
 
 export function Register() {
   const { t } = useLang()
@@ -23,8 +23,14 @@ export function Register() {
               <h2 className="section-title">{c.title}</h2>
               <p className="mt-4 text-base text-muted-foreground sm:text-lg">{c.subtitle}</p>
               <p className="mt-4 flex items-start gap-2 text-sm text-muted-foreground sm:text-base">
-                <Clock className="mt-0.5 size-4 shrink-0 text-primary" />
-                {c.comingSoon}
+                {isAvailable ? (
+                  c.registerVia
+                ) : (
+                  <>
+                    <Clock className="mt-0.5 size-4 shrink-0 text-primary" />
+                    {c.comingSoon}
+                  </>
+                )}
               </p>
               <p className="mt-6 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-primary">
                 <span className="size-1.5 rounded-full bg-primary" />

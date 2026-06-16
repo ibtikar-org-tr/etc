@@ -7,6 +7,7 @@ import { LANGS } from "@/lib/i18n"
 import { buildPath, pagePath } from "@/lib/lang-url"
 import { cn } from "@/lib/utils"
 import { IBTIKAR_URL, IbtikarLogo } from "./ibtikar-logo"
+import { REGISTRATION_URL } from "./register"
 import { gsap, prefersReducedMotion, revealTween, ScrollTrigger, useGSAP } from "@/lib/gsap"
 
 export function SiteHeader() {
@@ -154,7 +155,9 @@ export function SiteHeader() {
 
           {!isArchive && (
             <a
-              href="#register"
+              href={REGISTRATION_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="header-action hidden rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 sm:inline-block"
             >
               {t.nav.register}
@@ -203,7 +206,9 @@ export function SiteHeader() {
                   {t.nav.pastEdition}
                 </a>
                 <a
-                  href="#register"
+                  href={REGISTRATION_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() => setMobileOpen(false)}
                   className="mt-2 rounded-md bg-primary px-4 py-2.5 text-center text-sm font-semibold text-primary-foreground"
                 >

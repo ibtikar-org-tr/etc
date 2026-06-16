@@ -62,7 +62,7 @@ export type Dict = {
     workshops: string
   }
   workshops: { label: string; title: string; subtitle: string; sessions: { name: string; items: Track[] }[] }
-  cta: { title: string; subtitle: string; button: string; note: string; comingSoon: string }
+  cta: { title: string; subtitle: string; button: string; note: string; comingSoon: string; registerVia: string }
   faq: { label: string; title: string; items: { q: string; a: string }[] }
   footer: {
     org: string
@@ -212,6 +212,7 @@ export const dict: Record<Lang, Dict> = {
       button: "سجّل مجّانًا",
       note: "تجمّع إبتكار · التسجيل مجّاني للطلاب · إسطنبول 2026",
       comingSoon: "سيُفعَّل رابط التسجيل الخارجي خلال أيّام قليلة.",
+      registerVia: "سجّل عبر منصّة أعضاء إبتكار — التسجيل مفتوح الآن.",
     },
     faq: {
       label: "الأسئلة الشائعة",
@@ -372,6 +373,7 @@ export const dict: Record<Lang, Dict> = {
       button: "Ücretsiz Kayıt Ol",
       note: "İbtikar Topluluğu · Öğrenciler için ücretsiz · İstanbul 2026",
       comingSoon: "Harici kayıt bağlantısı birkaç gün içinde aktif olacak.",
+      registerVia: "İbtikar üye platformu üzerinden kayıt olun — kayıt şimdi açık.",
     },
     faq: {
       label: "Sıkça Sorulan Sorular",
@@ -532,6 +534,7 @@ export const dict: Record<Lang, Dict> = {
       button: "Register for Free",
       note: "Ibtikar Assembly · Free for students · Istanbul 2026",
       comingSoon: "The external registration link will be available in a few days.",
+      registerVia: "Register through the Ibtikar members platform — registration is now open.",
     },
     faq: {
       label: "FAQ",

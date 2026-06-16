@@ -5,6 +5,7 @@ import { MapPin, Calendar, Users, Clock, ArrowLeft } from "lucide-react"
 import { useLang } from "./lang-provider"
 import { IBTIKAR_URL, IbtikarLogo } from "./ibtikar-logo"
 import { HeroBackground } from "./hero-background"
+import { REGISTRATION_URL } from "./register"
 import { gsap, prefersReducedMotion, revealTween, useGSAP } from "@/lib/gsap"
 
 export function Hero() {
@@ -97,7 +98,9 @@ export function Hero() {
 
         <div className="mt-6 flex w-full flex-col gap-3 sm:mt-8 sm:w-auto sm:flex-row sm:flex-wrap">
           <a
-            href="#register"
+            href={REGISTRATION_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="hero-cta inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 sm:w-auto"
           >
             {h.register}
