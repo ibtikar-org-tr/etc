@@ -222,4 +222,31 @@
     opacity: 1 !important;
     transform: none !important;
   }
+
+  .guests-marquee-track {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+@keyframes guests-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.guests-marquee-track {
+  animation: guests-marquee 40s linear infinite;
+  will-change: transform;
+}
+
+.guests-marquee:hover .guests-marquee-track {
+  animation-play-state: paused;
+}
+
+[dir='rtl'] .guests-marquee-track {
+  animation-direction: reverse;
 }
