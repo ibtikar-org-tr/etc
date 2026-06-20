@@ -18,6 +18,8 @@ type Track = {
   panel?: {
     moderator: string
     moderatorImage?: string
+    moderatorTagline?: string
+    moderatorBio?: string
     guests: { name: string; bio?: string; tagline?: string; imageSlug?: string }[]
   }
 }
@@ -174,8 +176,11 @@ export const dict: Record<Lang, Dict> = {
           duration: "45 دقيقة",
           tags: ["ethics", "panel"],
           panel: {
-            moderator: "عبدالكريم لهموّني",
+            moderator: "عبد الكريم لحموني",
             moderatorImage: "abdulkarim-lahmuni",
+            moderatorTagline: "طبيب ومبرمج — مؤسس تجمّع إبتكار",
+            moderatorBio:
+              "درس الطب البشري في جامعة إسطنبول جراح باشا، ويعمل طبيب طوارئ في ولاية كوجالي. خبير في تطوير البرمجيات ولديه مشاريع ريادية برمجية، ومطوّر full-stack. يمتلك خبرات حاسوبية ورياضية واسعة، وسبق أن ألّف مناهج رياضية لاختبار YÖS قبل سبع سنوات. مهتم بالعمل المجتمعي، وأسّس تجمّع إبتكار قبل ثلاث سنوات — وهو اليوم أكبر تجمّع تقني عربي بين الطلاب في تركيا. يسعى إلى إعادة تشكيل مستقبل التعليم، ولذلك تُعد التقنيات التعليمية المجال الأقرب إليه.",
             guests: [
               {
                 name: "عبدالرحمن رجب",
@@ -419,6 +424,9 @@ export const dict: Record<Lang, Dict> = {
           panel: {
             moderator: "Abdulkarim Lahmuni",
             moderatorImage: "abdulkarim-lahmuni",
+            moderatorTagline: "Doktor ve programcı — İbtikar Topluluğu kurucusu",
+            moderatorBio:
+              "İstanbul Üniversitesi-Cerrahpaşa Tıp Fakültesi mezunu; Kocaeli'de acil servis hekimi. Yazılım geliştirme uzmanı, full-stack geliştirici ve girişimci teknoloji projelerinin sahibi. Yedi yıl önce YÖS matematik müfredatları yazdı. Topluluk çalışmalarına önem verir; üç yıl önce kurduğu İbtikar Topluluğu bugün Türkiye'deki Arapça konuşan öğrenciler arasında en büyük teknoloji topluluğudur. Eğitimin geleceğini yeniden şekillendirmeyi hedefler; eğitim teknolojileri onun için en öncelikli alandır.",
             guests: [
               {
                 name: "Abdurrahman Rajab",
@@ -661,6 +669,9 @@ export const dict: Record<Lang, Dict> = {
           panel: {
             moderator: "Abdulkarim Lahmuni",
             moderatorImage: "abdulkarim-lahmuni",
+            moderatorTagline: "Doctor & programmer — Founder of Ibtikar Assembly",
+            moderatorBio:
+              "He studied human medicine at Istanbul University-Cerrahpaşa and works as an emergency physician in Kocaeli. A software development expert and full-stack developer with entrepreneurial tech projects. He authored YÖS mathematics curricula seven years ago and brings deep experience in computing and mathematics. Passionate about community work, he founded Ibtikar Assembly three years ago — now the largest Arabic-speaking student tech community in Türkiye. He aims to reshape the future of education; educational technologies are the field he cares for most.",
             guests: [
               {
                 name: "Abdurrahman Rajab",
