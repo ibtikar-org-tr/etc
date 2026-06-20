@@ -13,6 +13,10 @@ type Track = {
   tags?: string[]
   speaker?: string
   speakerBio?: string
+  panel?: {
+    moderator: string
+    guests: { name: string; bio?: string }[]
+  }
 }
 
 export type Dict = {
@@ -46,7 +50,15 @@ export type Dict = {
     pastEditionBody: string
     pastEditionLink: string
   }
-  topics: { label: string; title: string; subtitle: string; items: Track[] }
+  topics: {
+    label: string
+    title: string
+    subtitle: string
+    panelType: string
+    panelModerator: string
+    panelGuestLabels: string[]
+    items: Track[]
+  }
   shorts: { label: string; title: string; items: Track[] }
   agenda: {
     label: string
@@ -118,6 +130,9 @@ export const dict: Record<Lang, Dict> = {
       label: "اليوم الأول · المحاضرات النظريّة",
       title: "محاور المؤتمر",
       subtitle: "ستّ محاضرات نظريّة معمّقة، مدّة كلٍّ منها 45 دقيقة.",
+      panelType: "حوار",
+      panelModerator: "قائد الحوار",
+      panelGuestLabels: ["الضيف الأول", "الضيف الثاني", "الضيف الثالث"],
       items: [
         { title: "الذكاء الاصطناعي مفتوح المصدر — امتلك ذكائك الاصطناعي", desc: "محاضرة نظريّة تقدّم مدخلًا في عالم النماذج المفتوحة والقدرة على امتلاك ذكائك الاصطناعي وبنائه وتشغيله.", duration: "45 دقيقة", tags: ["AI", "open-source"] },
         {
@@ -145,7 +160,23 @@ export const dict: Record<Lang, Dict> = {
           tags: ["IoT", "smart-city"],
         },
         { title: "السيادة الرقميّة والتهديد القومي — هل نقلق أم نحذر", desc: "نقاش حول البيانات والبنية التحتية الرقمية والأمن القومي في عالمٍ مترابط.", duration: "45 دقيقة", tags: ["sovereignty", "security"] },
-        { title: "برمجيّات ملطّخة بالدم — هل نحن شركاء في الجريمة", desc: "جلسة نقاشيّة حول أخلاقيّات البرمجة ومسؤوليّة المطوّر في عالمٍ تتقاطع فيه التقنية مع القيم الإنسانيّة.", duration: "45 دقيقة", tags: ["ethics", "panel"] },
+        {
+          title: "برمجيّات ملطّخة بالدم",
+          desc: "حوار حول أخلاقيّات البرمجة ومسؤوليّة المطوّر في عالمٍ تتقاطع فيه التقنية مع القيم الإنسانيّة.",
+          duration: "45 دقيقة",
+          tags: ["ethics", "panel"],
+          panel: {
+            moderator: "عبدالكريم",
+            guests: [
+              { name: "عبدالرحمن رجب" },
+              { name: "عبد الرحمن إسماعيل" },
+              {
+                name: "عمر الخميس",
+                bio: "مهندس طيران بشركة توساش للصناعات الدفاعية. طالب ماجستير بجامعة اسطنبول التقنية. بكالوريوس هندسة طيران من جامعة اسطنبول التقنية.",
+              },
+            ],
+          },
+        },
       ],
     },
     shorts: {
@@ -317,6 +348,9 @@ export const dict: Record<Lang, Dict> = {
       label: "1. Gün · Teorik Dersler",
       title: "Konferans Konuları",
       subtitle: "Her biri 45 dakikalık altı derinlemesine teorik ders.",
+      panelType: "Panel",
+      panelModerator: "Moderatör",
+      panelGuestLabels: ["Birinci Konuk", "İkinci Konuk", "Üçüncü Konuk"],
       items: [
         { title: "Açık Kaynak YZ — Yapay Zekana Sahip Ol", desc: "Açık modeller dünyasına giriş ve yapay zekanı sahiplenme, inşa etme ve çalıştırma.", duration: "45 dk", tags: ["AI", "open-source"] },
         {
@@ -344,7 +378,23 @@ export const dict: Record<Lang, Dict> = {
           tags: ["IoT", "smart-city"],
         },
         { title: "Dijital Egemenlik ve Ulusal Tehdit — Endişe mi, Dikkat mi?", desc: "Veri, dijital altyapı ve ulusal güvenlik üzerine tartışma.", duration: "45 dk", tags: ["sovereignty", "security"] },
-        { title: "Kanla Lekelenmiş Yazılım — Suç Ortağı mıyız?", desc: "Yazılım etiği ve geliştirici sorumluluğu üzerine panel.", duration: "45 dk", tags: ["ethics", "panel"] },
+        {
+          title: "Kanla Lekelenmiş Yazılım",
+          desc: "Yazılım etiği ve geliştirici sorumluluğu üzerine panel tartışması.",
+          duration: "45 dk",
+          tags: ["ethics", "panel"],
+          panel: {
+            moderator: "Abdulkarim",
+            guests: [
+              { name: "Abdurrahman Rajab" },
+              { name: "Abdurrahman Ismail" },
+              {
+                name: "Omar Al-Khamis",
+                bio: "TUSAŞ'ta havacılık mühendisi; İstanbul Teknik Üniversitesi Havacılık Mühendisliği lisans mezunu ve yüksek lisans öğrencisi.",
+              },
+            ],
+          },
+        },
       ],
     },
     shorts: {
@@ -516,6 +566,9 @@ export const dict: Record<Lang, Dict> = {
       label: "Day 1 · Theoretical Lectures",
       title: "Conference Topics",
       subtitle: "Six in-depth theoretical lectures, 45 minutes each.",
+      panelType: "Panel Discussion",
+      panelModerator: "Moderator",
+      panelGuestLabels: ["Guest One", "Guest Two", "Guest Three"],
       items: [
         { title: "Open-Source AI — Own Your AI", desc: "A theoretical introduction to open models and owning, building, and running your own AI.", duration: "45 min", tags: ["AI", "open-source"] },
         {
@@ -543,7 +596,23 @@ export const dict: Record<Lang, Dict> = {
           tags: ["IoT", "smart-city"],
         },
         { title: "Digital Sovereignty & National Threat — Worry or Beware?", desc: "A discussion on data, digital infrastructure, and national security in a connected world.", duration: "45 min", tags: ["sovereignty", "security"] },
-        { title: "Blood-Stained Software — Are We Accomplices?", desc: "A panel discussion on software ethics and developer responsibility.", duration: "45 min", tags: ["ethics", "panel"] },
+        {
+          title: "Blood-Stained Software",
+          desc: "A panel on software ethics and developer responsibility where technology intersects with human values.",
+          duration: "45 min",
+          tags: ["ethics", "panel"],
+          panel: {
+            moderator: "Abdulkarim",
+            guests: [
+              { name: "Abdurrahman Rajab" },
+              { name: "Abdurrahman Ismail" },
+              {
+                name: "Omar Al-Khamis",
+                bio: "Aerospace engineer at TAI (Turkish Aerospace Industries); master's student at Istanbul Technical University with a bachelor's in aerospace engineering.",
+              },
+            ],
+          },
+        },
       ],
     },
     shorts: {

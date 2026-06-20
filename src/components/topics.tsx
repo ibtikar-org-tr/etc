@@ -36,13 +36,34 @@ export function Topics() {
                 </div>
                 <h3 className="mt-5 font-heading text-lg font-bold leading-snug text-balance">{item.title}</h3>
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
-                {item.speaker && (
-                  <div className="mt-4 border-t border-border/60 pt-4">
-                    <p className="text-sm font-semibold text-foreground">{item.speaker}</p>
-                    {item.speakerBio && (
-                      <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{item.speakerBio}</p>
-                    )}
+                {item.panel ? (
+                  <div className="mt-4 space-y-3 border-t border-border/60 pt-4">
+                    <p className="font-mono text-[11px] uppercase tracking-wider text-primary">{tp.panelType}</p>
+                    <div>
+                      <p className="text-xs text-muted-foreground">{tp.panelModerator}</p>
+                      <p className="text-sm font-semibold text-foreground">{item.panel.moderator}</p>
+                    </div>
+                    {item.panel.guests.map((guest, gi) => (
+                      <div key={guest.name}>
+                        <p className="text-xs text-muted-foreground">
+                          {tp.panelGuestLabels[gi] ?? `${gi + 1}`}
+                        </p>
+                        <p className="text-sm font-semibold text-foreground">{guest.name}</p>
+                        {guest.bio && (
+                          <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{guest.bio}</p>
+                        )}
+                      </div>
+                    ))}
                   </div>
+                ) : (
+                  item.speaker && (
+                    <div className="mt-4 border-t border-border/60 pt-4">
+                      <p className="text-sm font-semibold text-foreground">{item.speaker}</p>
+                      {item.speakerBio && (
+                        <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{item.speakerBio}</p>
+                      )}
+                    </div>
+                  )
                 )}
                 <div className="mt-4 flex flex-wrap gap-1.5">
                   {item.tags?.map((tag) => (
