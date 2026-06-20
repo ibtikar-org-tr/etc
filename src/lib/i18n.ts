@@ -13,9 +13,10 @@ type Track = {
   tags?: string[]
   speaker?: string
   speakerBio?: string
+  speakerImage?: string
   panel?: {
     moderator: string
-    guests: { name: string; bio?: string }[]
+    guests: { name: string; bio?: string; imageSlug?: string }[]
   }
 }
 
@@ -156,6 +157,7 @@ export const dict: Record<Lang, Dict> = {
           title: "إنترنت الأشياء",
           desc: "محاضرة نظريّة تستكشف كيف تبني الأجهزة المتّصلة بنية تحتيّة ذكيّة تخدم المجتمعات الصاعدة.",
           speaker: "فراس قراحسن",
+          speakerImage: "firas-qarahsan",
           speakerBio:
             "مهندس كهرباء ورائد أعمال بخبرة تمتد لأكثر من 10 سنوات في قطاع التكنولوجيا وأنظمة التتبع وإدارة الأسطول. يقود شركة menamatix في تطوير حلول برمجية ذكية تساعد الشركات على تحسين كفاءة النقل، متابعة المركبات، وأتمتة العمليات التشغيلية.",
           duration: "45 دقيقة",
@@ -173,10 +175,12 @@ export const dict: Record<Lang, Dict> = {
               { name: "عبدالرحمن رجب" },
               {
                 name: "عبد الرحمن إسماعيل",
+                imageSlug: "abdurrahman-ismail",
                 bio: "مبرمج ومدير تقني يمتلك خبرة تزيد على 12 عامًا في مجال تطوير البرمجيات، ويعمل حاليًا ضمن الفريق التقني في مجموعة مطارات مانشستر (Manchester Airport Group). إلى جانب عمله المهني، يقدّم محتوى تقنيًا متخصصًا في البرمجة والتقنيات الحديثة والذكاء الاصطناعي، مع التركيز على تبسيط المفاهيم ومشاركة الخبرات العملية. يهتم ببناء التطبيقات المعتمدة على الذكاء الاصطناعي، ويشارك من خلال محتواه نصائح وأفكارًا وتجارب عملية تساعد المطورين ورواد الأعمال على الاستفادة من أدوات الـ AI بأفضل صورة ممكنة لزيادة الإنتاجية وتسريع بناء المنتجات الرقمية.",
               },
               {
                 name: "عمر الخميس",
+                imageSlug: "omar-al-khamis",
                 bio: "مهندس طيران بشركة توساش للصناعات الدفاعية. طالب ماجستير بجامعة اسطنبول التقنية. بكالوريوس هندسة طيران من جامعة اسطنبول التقنية.",
               },
             ],
@@ -228,6 +232,7 @@ export const dict: Record<Lang, Dict> = {
               title: "هندسة الأوامر السريعة",
               desc: "تطوير تطبيق برمجي باستخدام هندسة الأوامر والذكاء الاصطناعي.",
               speaker: "ماسة سودان",
+              speakerImage: "masa-soudan",
               speakerBio: "خريجة هندسة برمجيات، شاركت سابقًا في مشاريع ذكاء اصطناعي ضمن Teknofest و TÜBİTAK.",
               tags: ["ai", "prompt-engineering", "vibe-coding", "programming"],
             },
@@ -252,6 +257,7 @@ export const dict: Record<Lang, Dict> = {
               title: "مدخل إلى الذكاء الاصطناعي مفتوح المصدر",
               desc: "استخدام نماذج من Hugging Face لفهم دور النماذج المدرّبة مسبقًا في تأدية المهام.",
               speaker: "محمد إقبال",
+              speakerImage: "m.ikbal",
               speakerBio:
                 "مهندس ميكانيكا طيران وأنظمة تحكم، وطالب دكتوراه في هندسة الطيران والفضاء في جامعة الشرق الأوسط التقنية (METU) في أنقرة. حاصل على البكالوريوس والماجستير في هندسة الطيران والفضاء من الجامعة نفسها، وكانت رسالة الماجستير حول تطوير أنظمة الهبوط الذاتي لطائرات VTOL على المنصات البحرية المتحركة. يعمل مهندس ميكانيكا طيران في ESEN System Integration، ويتخصص في ديناميكا الطيران وأنظمة التوجيه والملاحة والتحكم (GNC) وتطوير خوارزميات الطائرات ثابتة الجناح وVTOL والأنظمة الجوية غير المأهولة، ونشر عدة أبحاث في الأنظمة الجوية الذاتية والتحكم المتقدم.",
               tags: ["ai", "huggingface", "training"],
@@ -260,6 +266,7 @@ export const dict: Record<Lang, Dict> = {
               title: "ابن بكفاءة باستخدام الذكاء الاصطناعي",
               desc: "استخدام أدوات الذكاء الاصطناعي لتعزيز الإنتاجية وتسريع بناء المنتجات الرقمية.",
               speaker: "عبد الرحمن إسماعيل",
+              speakerImage: "abdurrahman-ismail",
               speakerBio:
                 "مبرمج ومدير تقني يمتلك خبرة تزيد على 12 عامًا في مجال تطوير البرمجيات، ويعمل حاليًا ضمن الفريق التقني في مجموعة مطارات مانشستر (Manchester Airport Group). إلى جانب عمله المهني، يقدّم محتوى تقنيًا متخصصًا في البرمجة والتقنيات الحديثة والذكاء الاصطناعي، مع التركيز على تبسيط المفاهيم ومشاركة الخبرات العملية. يهتم ببناء التطبيقات المعتمدة على الذكاء الاصطناعي، ويشارك من خلال محتواه نصائح وأفكارًا وتجارب عملية تساعد المطورين ورواد الأعمال على الاستفادة من أدوات الـ AI بأفضل صورة ممكنة لزيادة الإنتاجية وتسريع بناء المنتجات الرقمية.",
               tags: ["ai", "productivity", "tools"],
@@ -378,6 +385,7 @@ export const dict: Record<Lang, Dict> = {
           title: "Nesnelerin İnterneti",
           desc: "Bağlı cihazların yükselen toplumlar için akıllı altyapı kurması.",
           speaker: "Firas Qarahsan",
+          speakerImage: "firas-qarahsan",
           speakerBio:
             "Teknoloji, takip sistemleri ve filo yönetiminde 10 yılı aşkın deneyime sahip elektrik mühendisi ve girişimci. menamatix'te şirketlerin ulaşım verimliliğini artırmasına, araçları izlemesine ve operasyonel süreçleri otomatikleştirmesine yardımcı olan akıllı yazılım çözümleri geliştiriyor.",
           duration: "45 dk",
@@ -395,10 +403,12 @@ export const dict: Record<Lang, Dict> = {
               { name: "Abdurrahman Rajab" },
               {
                 name: "Abdurrahman Ismail",
+                imageSlug: "abdurrahman-ismail",
                 bio: "12 yılı aşkın yazılım geliştirme deneyimine sahip programcı ve teknik lider; Manchester Airport Group'ta teknik ekipte çalışıyor. Programlama, modern teknolojiler ve yapay zeka alanında uzmanlaşmış teknik içerik üretiyor; kavramları sadeleştirmeye ve pratik deneyimler paylaşmaya odaklanıyor. YZ destekli uygulamalar geliştiriyor ve geliştiricilere ve girişimcilere YZ araçlarından en iyi şekilde yararlanarak verimliliği artırma konusunda pratik ipuçları sunuyor.",
               },
               {
                 name: "Omar Al-Khamis",
+                imageSlug: "omar-al-khamis",
                 bio: "TUSAŞ'ta havacılık mühendisi; İstanbul Teknik Üniversitesi Havacılık Mühendisliği lisans mezunu ve yüksek lisans öğrencisi.",
               },
             ],
@@ -450,6 +460,7 @@ export const dict: Record<Lang, Dict> = {
               title: "Hızlı Prompt Mühendisliği",
               desc: "Prompt mühendisliği ve yapay zeka ile yazılım uygulaması geliştirme.",
               speaker: "Masa Sudan",
+              speakerImage: "masa-soudan",
               speakerBio: "Yazılım mühendisliği mezunu; daha önce Teknofest ve TÜBİTAK kapsamında yapay zeka projelerinde yer aldı.",
               tags: ["ai", "prompt-engineering", "vibe-coding", "programming"],
             },
@@ -474,6 +485,7 @@ export const dict: Record<Lang, Dict> = {
               title: "Açık Kaynak Yapay Zekaya Giriş",
               desc: "Görevleri yerine getirmede önceden eğitilmiş modellerin rolünü anlamak için Hugging Face modelleri.",
               speaker: "Muhammad Iqbal",
+              speakerImage: "m.ikbal",
               speakerBio:
                 "Havacılık ve uzay mühendisliği doktora adayı (ODTÜ, Ankara); havacılık mekaniği mühendisi. ESEN System Integration'da çalışıyor; aerodinamik, GNC sistemleri ve VTOL/İHA algoritmaları üzerine uzmanlaşmış.",
               tags: ["ai", "huggingface", "training"],
@@ -482,6 +494,7 @@ export const dict: Record<Lang, Dict> = {
               title: "Yapay Zeka ile Verimli Ürün Geliştirme",
               desc: "Yapay zeka araçlarıyla verimliliği artırma ve dijital ürünleri daha hızlı inşa etme.",
               speaker: "Abdurrahman Ismail",
+              speakerImage: "abdurrahman-ismail",
               speakerBio:
                 "12 yılı aşkın yazılım geliştirme deneyimine sahip programcı ve teknik lider; Manchester Airport Group'ta teknik ekipte çalışıyor. Programlama, modern teknolojiler ve yapay zeka alanında uzmanlaşmış teknik içerik üretiyor; kavramları sadeleştirmeye ve pratik deneyimler paylaşmaya odaklanıyor. YZ destekli uygulamalar geliştiriyor ve geliştiricilere ve girişimcilere YZ araçlarından en iyi şekilde yararlanarak verimliliği artırma konusunda pratik ipuçları sunuyor.",
               tags: ["ai", "productivity", "tools"],
@@ -600,6 +613,7 @@ export const dict: Record<Lang, Dict> = {
           title: "Internet of Things",
           desc: "How connected devices build intelligent infrastructure for emerging communities.",
           speaker: "Firas Qarahsan",
+          speakerImage: "firas-qarahsan",
           speakerBio:
             "Electrical engineer and entrepreneur with over 10 years of experience in technology, tracking systems, and fleet management. He leads menamatix in developing smart software solutions that help companies improve transport efficiency, track vehicles, and automate operational processes.",
           duration: "45 min",
@@ -617,10 +631,12 @@ export const dict: Record<Lang, Dict> = {
               { name: "Abdurrahman Rajab" },
               {
                 name: "Abdurrahman Ismail",
+                imageSlug: "abdurrahman-ismail",
                 bio: "Programmer and technical lead with over 12 years of software development experience, currently on the technical team at Manchester Airport Group. He creates specialized technical content on programming, modern technologies, and AI, focusing on simplifying concepts and sharing practical expertise. He builds AI-powered applications and shares tips, ideas, and hands-on experiences that help developers and entrepreneurs get the most from AI tools to boost productivity and accelerate building digital products.",
               },
               {
                 name: "Omar Al-Khamis",
+                imageSlug: "omar-al-khamis",
                 bio: "Aerospace engineer at TAI (Turkish Aerospace Industries); master's student at Istanbul Technical University with a bachelor's in aerospace engineering.",
               },
             ],
@@ -672,6 +688,7 @@ export const dict: Record<Lang, Dict> = {
               title: "Rapid Prompt Engineering",
               desc: "Developing a software app using prompt engineering and AI.",
               speaker: "Masa Sudan",
+              speakerImage: "masa-soudan",
               speakerBio: "Software engineering graduate; previously participated in AI projects through Teknofest and TÜBİTAK.",
               tags: ["ai", "prompt-engineering", "vibe-coding", "programming"],
             },
@@ -696,6 +713,7 @@ export const dict: Record<Lang, Dict> = {
               title: "Introduction to Open-Source AI",
               desc: "Using Hugging Face models to understand the role of pre-trained models in performing tasks.",
               speaker: "Muhammad Iqbal",
+              speakerImage: "m.ikbal",
               speakerBio:
                 "Aerospace and control systems engineer; PhD candidate in aerospace engineering at METU, Ankara. Works at ESEN System Integration, specializing in aerodynamics, GNC systems, and fixed-wing, VTOL, and UAV algorithms.",
               tags: ["ai", "huggingface", "training"],
@@ -704,6 +722,7 @@ export const dict: Record<Lang, Dict> = {
               title: "Build Efficiently with AI",
               desc: "Using AI tools to boost productivity and accelerate building digital products.",
               speaker: "Abdurrahman Ismail",
+              speakerImage: "abdurrahman-ismail",
               speakerBio:
                 "Programmer and technical lead with over 12 years of software development experience, currently on the technical team at Manchester Airport Group. He creates specialized technical content on programming, modern technologies, and AI, focusing on simplifying concepts and sharing practical expertise. He builds AI-powered applications and shares tips, ideas, and hands-on experiences that help developers and entrepreneurs get the most from AI tools to boost productivity and accelerate building digital products.",
               tags: ["ai", "productivity", "tools"],

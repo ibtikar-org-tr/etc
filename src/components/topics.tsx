@@ -52,6 +52,7 @@ export function Topics() {
                         key={guest.name}
                         name={guest.name}
                         bio={guest.bio}
+                        imageSlug={guest.imageSlug}
                         showLabel={bioLabels.showSpeakerBio}
                         hideLabel={bioLabels.hideSpeakerBio}
                         roleLabel={tp.panelGuestLabels[gi] ?? `${gi + 1}`}
@@ -64,6 +65,7 @@ export function Topics() {
                       className="mt-4 border-t border-border/60 pt-4"
                       name={item.speaker}
                       bio={item.speakerBio}
+                      imageSlug={item.speakerImage}
                       showLabel={bioLabels.showSpeakerBio}
                       hideLabel={bioLabels.hideSpeakerBio}
                     />

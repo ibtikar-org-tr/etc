@@ -43,6 +43,7 @@ export function Workshops() {
                         className="mt-4 border-t border-border/60 pt-4"
                         name={item.speaker}
                         bio={item.speakerBio}
+                        imageSlug={item.speakerImage}
                         showLabel={bioLabels.showSpeakerBio}
                         hideLabel={bioLabels.hideSpeakerBio}
                       />
