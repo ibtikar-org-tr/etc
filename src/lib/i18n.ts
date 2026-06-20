@@ -126,7 +126,15 @@ export const dict: Record<Lang, Dict> = {
           duration: "45 دقيقة",
           tags: ["agentic-ai", "automation"],
         },
-        { title: "التقنيات في المجال الصحّي", desc: "عناوين مقترحة في المجال الصحّي — التفاصيل قيد التحديد.", duration: "45 دقيقة", tags: ["health-tech"] },
+        {
+          title: "البيانات الحيوية وتغيير مستقبل علاج الأمراض",
+          desc: "محاضرة نظريّة حول دور البيانات الحيوية في تطوير فهم الأمراض وإعادة تشكيل مستقبل العلاج.",
+          speaker: "إسراء موالدي",
+          speakerBio:
+            "باحثة في علوم تحليل البيانات الطبية، حاصلة على البكالوريوس والماجستير في الهندسة الحيوية من جامعة يلدز التقنية.",
+          duration: "45 دقيقة",
+          tags: ["health-tech", "bioinformatics"],
+        },
         {
           title: "إنترنت الأشياء",
           desc: "محاضرة نظريّة تستكشف كيف تبني الأجهزة المتّصلة بنية تحتيّة ذكيّة تخدم المجتمعات الصاعدة.",
@@ -317,7 +325,15 @@ export const dict: Record<Lang, Dict> = {
           duration: "45 dk",
           tags: ["agentic-ai", "automation"],
         },
-        { title: "Sağlık Alanında Teknolojiler", desc: "Sağlık alanında önerilen başlıklar — detaylar belirlenecek.", duration: "45 dk", tags: ["health-tech"] },
+        {
+          title: "Biyoinformatik ve Hastalık Tedavisinin Geleceğini Değiştirmek",
+          desc: "Hastalıkların anlaşılması ve tedavinin geleceğinin yeniden şekillendirilmesinde biyoinformatiğin rolü.",
+          speaker: "Esra Mevludi",
+          speakerBio:
+            "Tıbbi veri analizi bilimleri alanında araştırmacı; Yıldız Teknik Üniversitesi Biyomühendislik lisans ve yüksek lisans mezunu.",
+          duration: "45 dk",
+          tags: ["health-tech", "bioinformatics"],
+        },
         {
           title: "Nesnelerin İnterneti",
           desc: "Bağlı cihazların yükselen toplumlar için akıllı altyapı kurması.",
@@ -508,7 +524,15 @@ export const dict: Record<Lang, Dict> = {
           duration: "45 min",
           tags: ["agentic-ai", "automation"],
         },
-        { title: "Technologies in Healthcare", desc: "Proposed topics in healthcare — details to be confirmed.", duration: "45 min", tags: ["health-tech"] },
+        {
+          title: "Bioinformatics & Changing the Future of Disease Treatment",
+          desc: "A theoretical lecture on the role of bioinformatics in understanding disease and reshaping the future of treatment.",
+          speaker: "Esra Mevludi",
+          speakerBio:
+            "Researcher in medical data analysis sciences; holds bachelor's and master's degrees in bioengineering from Yildiz Technical University.",
+          duration: "45 min",
+          tags: ["health-tech", "bioinformatics"],
+        },
         {
           title: "Internet of Things",
           desc: "How connected devices build intelligent infrastructure for emerging communities.",
