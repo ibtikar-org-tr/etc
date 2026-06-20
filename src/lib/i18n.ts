@@ -177,7 +177,7 @@ export const dict: Record<Lang, Dict> = {
             moderator: "عبدالكريم لهموّني",
             moderatorImage: "abdulkarim-lahmuni",
             guests: [
-              { name: "عبدالرحمن رجب" },
+              { name: "عبدالرحمن رجب", imageSlug: "abdurrahman-rajab.jpeg" },
               {
                 name: "عبد الرحمن إسماعيل",
                 imageSlug: "abdurrahman-ismail",
@@ -414,7 +414,7 @@ export const dict: Record<Lang, Dict> = {
             moderator: "Abdulkarim Lahmuni",
             moderatorImage: "abdulkarim-lahmuni",
             guests: [
-              { name: "Abdurrahman Rajab" },
+              { name: "Abdurrahman Rajab", imageSlug: "abdurrahman-rajab.jpeg" },
               {
                 name: "Abdurrahman Ismail",
                 imageSlug: "abdurrahman-ismail",
@@ -650,7 +650,7 @@ export const dict: Record<Lang, Dict> = {
             moderator: "Abdulkarim Lahmuni",
             moderatorImage: "abdulkarim-lahmuni",
             guests: [
-              { name: "Abdurrahman Rajab" },
+              { name: "Abdurrahman Rajab", imageSlug: "abdurrahman-rajab.jpeg" },
               {
                 name: "Abdurrahman Ismail",
                 imageSlug: "abdurrahman-ismail",

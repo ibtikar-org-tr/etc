@@ -1,12 +1,14 @@
 export const SPEAKER_IMAGE_BASE = "https://files.ibtikar.tr/events/2601/etc-2026/speakers"
 
 export function speakerImageUrl(slug: string) {
-  return `${SPEAKER_IMAGE_BASE}/${slug}.jpg`
+  const file = slug.includes(".") ? slug : `${slug}.jpg`
+  return `${SPEAKER_IMAGE_BASE}/${file}`
 }
 
-/** Slugs match filenames under SPEAKER_IMAGE_BASE (without .jpg). */
+/** Slugs match filenames under SPEAKER_IMAGE_BASE (with or without extension). */
 export const SPEAKER_IMAGE_SLUGS = {
   abdulkarimLahmuni: "abdulkarim-lahmuni",
+  abdurrahmanRajab: "abdurrahman-rajab.jpeg",
   firasQarahsan: "firas-qarahsan",
   abdurrahmanIsmail: "abdurrahman-ismail",
   muhammadIqbal: "m.ikbal",
