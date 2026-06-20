@@ -647,7 +647,8 @@ export const dict: Record<Lang, Dict> = {
           duration: "45 min",
           tags: ["ethics", "panel"],
           panel: {
-            moderator: "Abdulkarim",
+            moderator: "Abdulkarim Lahmuni",
+            moderatorImage: "abdulkarim-lahmuni",
             guests: [
               { name: "Abdurrahman Rajab" },
               {

@@ -43,6 +43,7 @@ export function Topics() {
                     <p className="font-mono text-[11px] uppercase tracking-wider text-primary">{tp.panelType}</p>
                     <SpeakerBioToggle
                       name={item.panel.moderator}
+                      imageSlug={item.panel.moderatorImage}
                       showLabel={bioLabels.showSpeakerBio}
                       hideLabel={bioLabels.hideSpeakerBio}
                       roleLabel={tp.panelModerator}
