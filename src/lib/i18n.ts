@@ -169,7 +169,10 @@ export const dict: Record<Lang, Dict> = {
             moderator: "عبدالكريم",
             guests: [
               { name: "عبدالرحمن رجب" },
-              { name: "عبد الرحمن إسماعيل" },
+              {
+                name: "عبد الرحمن إسماعيل",
+                bio: "مبرمج ومدير تقني يمتلك خبرة تزيد على 12 عامًا في مجال تطوير البرمجيات، ويعمل حاليًا ضمن الفريق التقني في مجموعة مطارات مانشستر (Manchester Airport Group). إلى جانب عمله المهني، يقدّم محتوى تقنيًا متخصصًا في البرمجة والتقنيات الحديثة والذكاء الاصطناعي، مع التركيز على تبسيط المفاهيم ومشاركة الخبرات العملية. يهتم ببناء التطبيقات المعتمدة على الذكاء الاصطناعي، ويشارك من خلال محتواه نصائح وأفكارًا وتجارب عملية تساعد المطورين ورواد الأعمال على الاستفادة من أدوات الـ AI بأفضل صورة ممكنة لزيادة الإنتاجية وتسريع بناء المنتجات الرقمية.",
+              },
               {
                 name: "عمر الخميس",
                 bio: "مهندس طيران بشركة توساش للصناعات الدفاعية. طالب ماجستير بجامعة اسطنبول التقنية. بكالوريوس هندسة طيران من جامعة اسطنبول التقنية.",
@@ -254,9 +257,9 @@ export const dict: Record<Lang, Dict> = {
             {
               title: "ابن بكفاءة باستخدام الذكاء الاصطناعي",
               desc: "استخدام أدوات الذكاء الاصطناعي لتعزيز الإنتاجية وتسريع بناء المنتجات الرقمية.",
-              speaker: "عبدالرحمن إسماعيل",
+              speaker: "عبد الرحمن إسماعيل",
               speakerBio:
-                "مبرمج ومدير تقني بخبرة تزيد على 12 عامًا في تطوير البرمجيات، يعمل ضمن الفريق التقني في مجموعة مطارات مانشستر (Manchester Airport Group). يقدّم محتوى تقنيًا في البرمجة والتقنيات الحديثة والذكاء الاصطناعي، ويهتم ببناء التطبيقات المعتمدة على AI ومشاركة تجارب عملية تساعد المطورين ورواد الأعمال على الاستفادة من أدوات الذكاء الاصطناعي لزيادة الإنتاجية وتسريع بناء المنتجات الرقمية.",
+                "مبرمج ومدير تقني يمتلك خبرة تزيد على 12 عامًا في مجال تطوير البرمجيات، ويعمل حاليًا ضمن الفريق التقني في مجموعة مطارات مانشستر (Manchester Airport Group). إلى جانب عمله المهني، يقدّم محتوى تقنيًا متخصصًا في البرمجة والتقنيات الحديثة والذكاء الاصطناعي، مع التركيز على تبسيط المفاهيم ومشاركة الخبرات العملية. يهتم ببناء التطبيقات المعتمدة على الذكاء الاصطناعي، ويشارك من خلال محتواه نصائح وأفكارًا وتجارب عملية تساعد المطورين ورواد الأعمال على الاستفادة من أدوات الـ AI بأفضل صورة ممكنة لزيادة الإنتاجية وتسريع بناء المنتجات الرقمية.",
               tags: ["ai", "productivity", "tools"],
             },
           ],
@@ -387,7 +390,10 @@ export const dict: Record<Lang, Dict> = {
             moderator: "Abdulkarim",
             guests: [
               { name: "Abdurrahman Rajab" },
-              { name: "Abdurrahman Ismail" },
+              {
+                name: "Abdurrahman Ismail",
+                bio: "12 yılı aşkın yazılım geliştirme deneyimine sahip programcı ve teknik lider; Manchester Airport Group'ta teknik ekipte çalışıyor. Programlama, modern teknolojiler ve yapay zeka alanında uzmanlaşmış teknik içerik üretiyor; kavramları sadeleştirmeye ve pratik deneyimler paylaşmaya odaklanıyor. YZ destekli uygulamalar geliştiriyor ve geliştiricilere ve girişimcilere YZ araçlarından en iyi şekilde yararlanarak verimliliği artırma konusunda pratik ipuçları sunuyor.",
+              },
               {
                 name: "Omar Al-Khamis",
                 bio: "TUSAŞ'ta havacılık mühendisi; İstanbul Teknik Üniversitesi Havacılık Mühendisliği lisans mezunu ve yüksek lisans öğrencisi.",
@@ -474,7 +480,7 @@ export const dict: Record<Lang, Dict> = {
               desc: "Yapay zeka araçlarıyla verimliliği artırma ve dijital ürünleri daha hızlı inşa etme.",
               speaker: "Abdurrahman Ismail",
               speakerBio:
-                "12 yılı aşkın yazılım geliştirme deneyimine sahip programcı ve teknik lider; Manchester Airport Group'ta çalışıyor. YZ destekli uygulamalar geliştiriyor ve geliştiricilere yönelik teknik içerik üretiyor.",
+                "12 yılı aşkın yazılım geliştirme deneyimine sahip programcı ve teknik lider; Manchester Airport Group'ta teknik ekipte çalışıyor. Programlama, modern teknolojiler ve yapay zeka alanında uzmanlaşmış teknik içerik üretiyor; kavramları sadeleştirmeye ve pratik deneyimler paylaşmaya odaklanıyor. YZ destekli uygulamalar geliştiriyor ve geliştiricilere ve girişimcilere YZ araçlarından en iyi şekilde yararlanarak verimliliği artırma konusunda pratik ipuçları sunuyor.",
               tags: ["ai", "productivity", "tools"],
             },
           ],
@@ -605,7 +611,10 @@ export const dict: Record<Lang, Dict> = {
             moderator: "Abdulkarim",
             guests: [
               { name: "Abdurrahman Rajab" },
-              { name: "Abdurrahman Ismail" },
+              {
+                name: "Abdurrahman Ismail",
+                bio: "Programmer and technical lead with over 12 years of software development experience, currently on the technical team at Manchester Airport Group. He creates specialized technical content on programming, modern technologies, and AI, focusing on simplifying concepts and sharing practical expertise. He builds AI-powered applications and shares tips, ideas, and hands-on experiences that help developers and entrepreneurs get the most from AI tools to boost productivity and accelerate building digital products.",
+              },
               {
                 name: "Omar Al-Khamis",
                 bio: "Aerospace engineer at TAI (Turkish Aerospace Industries); master's student at Istanbul Technical University with a bachelor's in aerospace engineering.",
@@ -692,7 +701,7 @@ export const dict: Record<Lang, Dict> = {
               desc: "Using AI tools to boost productivity and accelerate building digital products.",
               speaker: "Abdurrahman Ismail",
               speakerBio:
-                "Programmer and technical lead with over 12 years of software development experience, currently at Manchester Airport Group. Builds AI-powered applications and creates technical content helping developers and entrepreneurs increase productivity.",
+                "Programmer and technical lead with over 12 years of software development experience, currently on the technical team at Manchester Airport Group. He creates specialized technical content on programming, modern technologies, and AI, focusing on simplifying concepts and sharing practical expertise. He builds AI-powered applications and shares tips, ideas, and hands-on experiences that help developers and entrepreneurs get the most from AI tools to boost productivity and accelerate building digital products.",
               tags: ["ai", "productivity", "tools"],
             },
           ],
