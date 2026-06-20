@@ -172,27 +172,52 @@ export const dict: Record<Lang, Dict> = {
         {
           name: "الفقرة الأولى",
           items: [
-            { title: "ورشة عمل في التقنيّات الطبيّة", desc: "ورشة تطبيقيّة في التقنيات الطبيّة — التفاصيل قيد التحديد.", tags: ["health-tech", "r-programming", "python", "analytics"] },
-            { title: "هندسة الأوامر السريعة — ابنِ تطبيقك في نصف ساعة", desc: "تطوير تطبيق برمجي باستخدام هندسة الأوامر والذكاء الاصطناعي.", tags: ["ai", "prompt-engineering", "vibe-coding", "programming"] },
-            { title: "ورشة عمل في DeepMind و VLLM", desc: "ورشة تطبيقيّة في تشغيل النماذج الكبيرة بكفاءة باستخدام قواعد البيانات الشعاعيّة.", tags: ["ai", "vector-database", "vllm", "python"] },
+            {
+              title: "تحليل الأعراض الطبية واستخلاص الأنماط باستخدام لغة R",
+              desc: "ورشة تطبيقيّة لتحليل الأعراض الطبية واستخلاص الأنماط باستخدام لغة R.",
+              speaker: "إسراء موالدي",
+              speakerBio:
+                "باحثة في علوم تحليل البيانات الطبية، حاصلة على البكالوريوس والماجستير في الهندسة الحيوية من جامعة يلدز التقنية.",
+              tags: ["health-tech", "r-programming", "python", "analytics"],
+            },
+            {
+              title: "هندسة الأوامر السريعة",
+              desc: "تطوير تطبيق برمجي باستخدام هندسة الأوامر والذكاء الاصطناعي.",
+              speaker: "ماسة سودان",
+              speakerBio: "خريجة هندسة برمجيات، شاركت سابقًا في مشاريع ذكاء اصطناعي ضمن Teknofest و TÜBİTAK.",
+              tags: ["ai", "prompt-engineering", "vibe-coding", "programming"],
+            },
+            {
+              title: "ورشة عمل في DeepMind و VLLM",
+              desc: "ورشة تطبيقيّة في تشغيل النماذج الكبيرة بكفاءة باستخدام قواعد البيانات الشعاعيّة.",
+              speaker: "أسامة شبيب",
+              tags: ["ai", "vector-database", "vllm", "python"],
+            },
           ],
         },
         {
           name: "الفقرة الثانية",
           items: [
             {
-              title: "ورشة عمل في مهارات الأمن السّيبراني — محاكاة الاختراق",
+              title: "ورشة عمل في مهارات الأمن السّيبراني",
               desc: "تطبيق سيناريوهات محاكاة لاختبار الاختراق وفحص الثغرات الشائعة، بالإضافة إلى تجربة استغلال هذه الثغرات.",
+              speaker: "أحمد شمس الدين",
               tags: ["security", "pentest"],
             },
             {
-              title: "ورشة عمل في نماذج الذكاء الاصطناعي مفتوحة المصدر وتدريبها",
+              title: "مدخل إلى الذكاء الاصطناعي مفتوح المصدر",
               desc: "استخدام نماذج من Hugging Face لفهم دور النماذج المدرّبة مسبقًا في تأدية المهام.",
+              speaker: "محمد إقبال",
+              speakerBio:
+                "مهندس ميكانيكا طيران وأنظمة تحكم، وطالب دكتوراه في هندسة الطيران والفضاء في جامعة الشرق الأوسط التقنية (METU) في أنقرة. حاصل على البكالوريوس والماجستير في هندسة الطيران والفضاء من الجامعة نفسها، وكانت رسالة الماجستير حول تطوير أنظمة الهبوط الذاتي لطائرات VTOL على المنصات البحرية المتحركة. يعمل مهندس ميكانيكا طيران في ESEN System Integration، ويتخصص في ديناميكا الطيران وأنظمة التوجيه والملاحة والتحكم (GNC) وتطوير خوارزميات الطائرات ثابتة الجناح وVTOL والأنظمة الجوية غير المأهولة، ونشر عدة أبحاث في الأنظمة الجوية الذاتية والتحكم المتقدم.",
               tags: ["ai", "huggingface", "training"],
             },
             {
-              title: "ورشة عمل في أدوات الذكاء الاصطناعي المجّانيّة بفعّاليّة",
-              desc: "استخدام مجموعة من أدوات الذكاء الاصطناعي المجانية المصممة لتعزيز الإنتاجية وتسهيل سير العمل، مع تمارين عملية في معالجة البيانات وإدارة المشاريع.",
+              title: "ابن بكفاءة باستخدام الذكاء الاصطناعي",
+              desc: "استخدام أدوات الذكاء الاصطناعي لتعزيز الإنتاجية وتسريع بناء المنتجات الرقمية.",
+              speaker: "عبدالرحمن إسماعيل",
+              speakerBio:
+                "مبرمج ومدير تقني بخبرة تزيد على 12 عامًا في تطوير البرمجيات، يعمل ضمن الفريق التقني في مجموعة مطارات مانشستر (Manchester Airport Group). يقدّم محتوى تقنيًا في البرمجة والتقنيات الحديثة والذكاء الاصطناعي، ويهتم ببناء التطبيقات المعتمدة على AI ومشاركة تجارب عملية تساعد المطورين ورواد الأعمال على الاستفادة من أدوات الذكاء الاصطناعي لزيادة الإنتاجية وتسريع بناء المنتجات الرقمية.",
               tags: ["ai", "productivity", "tools"],
             },
           ],
@@ -338,27 +363,52 @@ export const dict: Record<Lang, Dict> = {
         {
           name: "Birinci Oturum",
           items: [
-            { title: "Tıbbi Teknolojiler Atölyesi", desc: "Tıbbi teknolojilerde uygulamalı atölye — detaylar belirlenecek.", tags: ["health-tech", "r-programming", "python", "analytics"] },
-            { title: "Hızlı Prompt Mühendisliği — Yarım Saatte Uygulama", desc: "Prompt mühendisliği ve yapay zeka ile yazılım uygulaması geliştirme.", tags: ["ai", "prompt-engineering", "vibe-coding", "programming"] },
-            { title: "DeepMind ve VLLM Atölyesi", desc: "Vektör veritabanlarıyla büyük modelleri verimli çalıştırma.", tags: ["ai", "vector-database", "vllm", "python"] },
+            {
+              title: "R ile Tıbbi Semptom Analizi ve Örüntü Çıkarımı",
+              desc: "R programlama dili kullanarak tıbbi semptomları analiz etme ve örüntüleri çıkarma atölyesi.",
+              speaker: "Esra Mevludi",
+              speakerBio:
+                "Tıbbi veri analizi bilimleri alanında araştırmacı; Yıldız Teknik Üniversitesi Biyomühendislik lisans ve yüksek lisans mezunu.",
+              tags: ["health-tech", "r-programming", "python", "analytics"],
+            },
+            {
+              title: "Hızlı Prompt Mühendisliği",
+              desc: "Prompt mühendisliği ve yapay zeka ile yazılım uygulaması geliştirme.",
+              speaker: "Masa Sudan",
+              speakerBio: "Yazılım mühendisliği mezunu; daha önce Teknofest ve TÜBİTAK kapsamında yapay zeka projelerinde yer aldı.",
+              tags: ["ai", "prompt-engineering", "vibe-coding", "programming"],
+            },
+            {
+              title: "DeepMind ve VLLM Atölyesi",
+              desc: "Vektör veritabanlarıyla büyük modelleri verimli çalıştırma.",
+              speaker: "Osama Shabaib",
+              tags: ["ai", "vector-database", "vllm", "python"],
+            },
           ],
         },
         {
           name: "İkinci Oturum",
           items: [
             {
-              title: "Siber Güvenlik Becerileri — Sızma Simülasyonu",
+              title: "Siber Güvenlik Becerileri Atölyesi",
               desc: "Sızma testi simülasyon senaryoları, yaygın zafiyetlerin taranması ve istismar deneyimi.",
+              speaker: "Ahmed Shams al-Din",
               tags: ["security", "pentest"],
             },
             {
-              title: "Açık Kaynak YZ Modelleri ve Eğitimi",
+              title: "Açık Kaynak Yapay Zekaya Giriş",
               desc: "Görevleri yerine getirmede önceden eğitilmiş modellerin rolünü anlamak için Hugging Face modelleri.",
+              speaker: "Muhammad Iqbal",
+              speakerBio:
+                "Havacılık ve uzay mühendisliği doktora adayı (ODTÜ, Ankara); havacılık mekaniği mühendisi. ESEN System Integration'da çalışıyor; aerodinamik, GNC sistemleri ve VTOL/İHA algoritmaları üzerine uzmanlaşmış.",
               tags: ["ai", "huggingface", "training"],
             },
             {
-              title: "Ücretsiz YZ Araçlarını Etkin Kullanma",
-              desc: "Verimliliği artırmak ve iş akışını kolaylaştırmak için ücretsiz YZ araçları; veri işleme ve proje yönetiminde pratik uygulamalar.",
+              title: "Yapay Zeka ile Verimli Ürün Geliştirme",
+              desc: "Yapay zeka araçlarıyla verimliliği artırma ve dijital ürünleri daha hızlı inşa etme.",
+              speaker: "Abdurrahman Ismail",
+              speakerBio:
+                "12 yılı aşkın yazılım geliştirme deneyimine sahip programcı ve teknik lider; Manchester Airport Group'ta çalışıyor. YZ destekli uygulamalar geliştiriyor ve geliştiricilere yönelik teknik içerik üretiyor.",
               tags: ["ai", "productivity", "tools"],
             },
           ],
@@ -504,27 +554,52 @@ export const dict: Record<Lang, Dict> = {
         {
           name: "Session One",
           items: [
-            { title: "Medical Technologies Workshop", desc: "Hands-on workshop in medical technologies — details to be confirmed.", tags: ["health-tech", "r-programming", "python", "analytics"] },
-            { title: "Rapid Prompt Engineering — Build Your App in 30 Min", desc: "Developing a software app using prompt engineering and AI.", tags: ["ai", "prompt-engineering", "vibe-coding", "programming"] },
-            { title: "DeepMind & VLLM Workshop", desc: "Running large models efficiently with vector databases.", tags: ["ai", "vector-database", "vllm", "python"] },
+            {
+              title: "Medical Symptom Analysis & Pattern Extraction with R",
+              desc: "A hands-on workshop on analyzing medical symptoms and extracting patterns using the R language.",
+              speaker: "Esra Mevludi",
+              speakerBio:
+                "Researcher in medical data analysis sciences; holds bachelor's and master's degrees in bioengineering from Yildiz Technical University.",
+              tags: ["health-tech", "r-programming", "python", "analytics"],
+            },
+            {
+              title: "Rapid Prompt Engineering",
+              desc: "Developing a software app using prompt engineering and AI.",
+              speaker: "Masa Sudan",
+              speakerBio: "Software engineering graduate; previously participated in AI projects through Teknofest and TÜBİTAK.",
+              tags: ["ai", "prompt-engineering", "vibe-coding", "programming"],
+            },
+            {
+              title: "DeepMind & VLLM Workshop",
+              desc: "Running large models efficiently with vector databases.",
+              speaker: "Osama Shabaib",
+              tags: ["ai", "vector-database", "vllm", "python"],
+            },
           ],
         },
         {
           name: "Session Two",
           items: [
             {
-              title: "Cybersecurity Skills — Hack Simulation",
+              title: "Cybersecurity Skills Workshop",
               desc: "Simulating penetration testing scenarios, scanning common vulnerabilities, and experiencing exploitation techniques.",
+              speaker: "Ahmed Shams al-Din",
               tags: ["security", "pentest"],
             },
             {
-              title: "Open-Source AI Models & Training",
+              title: "Introduction to Open-Source AI",
               desc: "Using Hugging Face models to understand the role of pre-trained models in performing tasks.",
+              speaker: "Muhammad Iqbal",
+              speakerBio:
+                "Aerospace and control systems engineer; PhD candidate in aerospace engineering at METU, Ankara. Works at ESEN System Integration, specializing in aerodynamics, GNC systems, and fixed-wing, VTOL, and UAV algorithms.",
               tags: ["ai", "huggingface", "training"],
             },
             {
-              title: "Using Free AI Tools Effectively",
-              desc: "Free AI tools designed to boost productivity and streamline workflows, with practical exercises in data processing and project management.",
+              title: "Build Efficiently with AI",
+              desc: "Using AI tools to boost productivity and accelerate building digital products.",
+              speaker: "Abdurrahman Ismail",
+              speakerBio:
+                "Programmer and technical lead with over 12 years of software development experience, currently at Manchester Airport Group. Builds AI-powered applications and creates technical content helping developers and entrepreneurs increase productivity.",
               tags: ["ai", "productivity", "tools"],
             },
           ],
