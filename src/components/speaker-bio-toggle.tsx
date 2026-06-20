@@ -6,6 +6,7 @@ import { speakerImageUrl } from "@/lib/speaker-images"
 
 type SpeakerBioToggleProps = {
   name: string
+  tagline?: string
   bio?: string
   imageSlug?: string
   showLabel: string
@@ -16,6 +17,7 @@ type SpeakerBioToggleProps = {
 
 export function SpeakerBioToggle({
   name,
+  tagline,
   bio,
   imageSlug,
   showLabel,
@@ -29,21 +31,21 @@ export function SpeakerBioToggle({
   return (
     <div className={className}>
       {roleLabel && <p className="mb-1.5 text-xs text-muted-foreground">{roleLabel}</p>}
-      <div className="flex gap-3">
+      <div className="flex items-start gap-3">
         {imageUrl && (
           <img
             src={imageUrl}
             alt={name}
-            width={44}
-            height={44}
+            width={56}
+            height={56}
             loading="lazy"
             decoding="async"
-            className="size-11 shrink-0 rounded-full border border-border object-cover"
+            className="size-14 shrink-0 rounded-lg border border-border object-cover"
           />
         )}
         <div className="min-w-0 flex-1">
-          <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
-            <p className="text-sm font-semibold text-foreground">{name}</p>
+          <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
+            <p className="text-sm font-semibold leading-snug text-foreground">{name}</p>
             {bio && (
               <button
                 type="button"
@@ -57,7 +59,12 @@ export function SpeakerBioToggle({
               </button>
             )}
           </div>
-          {bio && open && <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{bio}</p>}
+          {tagline && (
+            <p className="mt-1 text-xs leading-snug text-muted-foreground">{tagline}</p>
+          )}
+          {bio && open && (
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{bio}</p>
+          )}
         </div>
       </div>
     </div>

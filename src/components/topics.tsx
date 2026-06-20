@@ -51,6 +51,7 @@ export function Topics() {
                       <SpeakerBioToggle
                         key={guest.name}
                         name={guest.name}
+                        tagline={guest.tagline}
                         bio={guest.bio}
                         imageSlug={guest.imageSlug}
                         showLabel={bioLabels.showSpeakerBio}
@@ -64,6 +65,7 @@ export function Topics() {
                     <SpeakerBioToggle
                       className="mt-4 border-t border-border/60 pt-4"
                       name={item.speaker}
+                      tagline={item.speakerTagline}
                       bio={item.speakerBio}
                       imageSlug={item.speakerImage}
                       showLabel={bioLabels.showSpeakerBio}
