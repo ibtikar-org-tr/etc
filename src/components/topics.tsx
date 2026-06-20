@@ -2,12 +2,14 @@
 
 import { Cpu, Bot, HeartPulse, Wifi, ShieldAlert, Scale } from "lucide-react"
 import { useLang } from "./lang-provider"
+import { SpeakerBioToggle } from "./speaker-bio-toggle"
 
 const icons = [Cpu, Bot, HeartPulse, Wifi, ShieldAlert, Scale]
 
 export function Topics() {
   const { t } = useLang()
   const tp = t.topics
+  const bioLabels = t.common
 
   return (
     <section id="topics" className="section-pad">
@@ -39,30 +41,32 @@ export function Topics() {
                 {item.panel ? (
                   <div className="mt-4 space-y-3 border-t border-border/60 pt-4">
                     <p className="font-mono text-[11px] uppercase tracking-wider text-primary">{tp.panelType}</p>
-                    <div>
-                      <p className="text-xs text-muted-foreground">{tp.panelModerator}</p>
-                      <p className="text-sm font-semibold text-foreground">{item.panel.moderator}</p>
-                    </div>
+                    <SpeakerBioToggle
+                      name={item.panel.moderator}
+                      showLabel={bioLabels.showSpeakerBio}
+                      hideLabel={bioLabels.hideSpeakerBio}
+                      roleLabel={tp.panelModerator}
+                    />
                     {item.panel.guests.map((guest, gi) => (
-                      <div key={guest.name}>
-                        <p className="text-xs text-muted-foreground">
-                          {tp.panelGuestLabels[gi] ?? `${gi + 1}`}
-                        </p>
-                        <p className="text-sm font-semibold text-foreground">{guest.name}</p>
-                        {guest.bio && (
-                          <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{guest.bio}</p>
-                        )}
-                      </div>
+                      <SpeakerBioToggle
+                        key={guest.name}
+                        name={guest.name}
+                        bio={guest.bio}
+                        showLabel={bioLabels.showSpeakerBio}
+                        hideLabel={bioLabels.hideSpeakerBio}
+                        roleLabel={tp.panelGuestLabels[gi] ?? `${gi + 1}`}
+                      />
                     ))}
                   </div>
                 ) : (
                   item.speaker && (
-                    <div className="mt-4 border-t border-border/60 pt-4">
-                      <p className="text-sm font-semibold text-foreground">{item.speaker}</p>
-                      {item.speakerBio && (
-                        <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{item.speakerBio}</p>
-                      )}
-                    </div>
+                    <SpeakerBioToggle
+                      className="mt-4 border-t border-border/60 pt-4"
+                      name={item.speaker}
+                      bio={item.speakerBio}
+                      showLabel={bioLabels.showSpeakerBio}
+                      hideLabel={bioLabels.hideSpeakerBio}
+                    />
                   )
                 )}
                 <div className="mt-4 flex flex-wrap gap-1.5">

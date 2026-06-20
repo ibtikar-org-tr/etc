@@ -1,10 +1,12 @@
 "use client"
 
 import { useLang } from "./lang-provider"
+import { SpeakerBioToggle } from "./speaker-bio-toggle"
 
 export function Workshops() {
   const { t } = useLang()
   const w = t.workshops
+  const bioLabels = t.common
 
   return (
     <section id="workshops" className="section-pad">
@@ -37,12 +39,13 @@ export function Workshops() {
                     <h4 className="font-heading text-base font-bold leading-snug text-balance">{item.title}</h4>
                     <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
                     {item.speaker && (
-                      <div className="mt-4 border-t border-border/60 pt-4">
-                        <p className="text-sm font-semibold text-foreground">{item.speaker}</p>
-                        {item.speakerBio && (
-                          <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{item.speakerBio}</p>
-                        )}
-                      </div>
+                      <SpeakerBioToggle
+                        className="mt-4 border-t border-border/60 pt-4"
+                        name={item.speaker}
+                        bio={item.speakerBio}
+                        showLabel={bioLabels.showSpeakerBio}
+                        hideLabel={bioLabels.hideSpeakerBio}
+                      />
                     )}
                     <div className="mt-4 flex flex-wrap gap-1.5">
                       {item.tags?.map((tag) => (

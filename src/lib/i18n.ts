@@ -21,6 +21,7 @@ type Track = {
 
 export type Dict = {
   dir: "rtl" | "ltr"
+  common: { showSpeakerBio: string; hideSpeakerBio: string }
   nav: { about: string; agenda: string; topics: string; workshops: string; faq: string; register: string; pastEdition: string }
   hero: {
     badge: string
@@ -91,6 +92,7 @@ export type Dict = {
 export const dict: Record<Lang, Dict> = {
   ar: {
     dir: "rtl",
+    common: { showSpeakerBio: "عرض النبذة", hideSpeakerBio: "إخفاء" },
     nav: { about: "عن المؤتمر", agenda: "الجدول", topics: "المحاور", workshops: "ورش العمل", faq: "الأسئلة", register: "سجّل الآن", pastEdition: "ETC 2024" },
     hero: {
       badge: "إسطنبول · 27–28 يونيو 2026",
@@ -312,6 +314,7 @@ export const dict: Record<Lang, Dict> = {
 
   tr: {
     dir: "ltr",
+    common: { showSpeakerBio: "Biyografiyi göster", hideSpeakerBio: "Gizle" },
     nav: { about: "Hakkında", agenda: "Program", topics: "Konular", workshops: "Atölyeler", faq: "SSS", register: "Kayıt Ol", pastEdition: "ETC 2024" },
     hero: {
       badge: "İstanbul · 27–28 Haziran 2026",
@@ -533,6 +536,7 @@ export const dict: Record<Lang, Dict> = {
 
   en: {
     dir: "ltr",
+    common: { showSpeakerBio: "Show bio", hideSpeakerBio: "Hide" },
     nav: { about: "About", agenda: "Agenda", topics: "Topics", workshops: "Workshops", faq: "FAQ", register: "Register", pastEdition: "ETC 2024" },
     hero: {
       badge: "Istanbul · June 27–28, 2026",
