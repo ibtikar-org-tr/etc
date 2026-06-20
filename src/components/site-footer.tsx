@@ -24,6 +24,7 @@ export function SiteFooter() {
         { href: "#topics", label: t.nav.topics },
         { href: "#agenda", label: t.nav.agenda },
         { href: "#workshops", label: t.nav.workshops },
+        { href: "#guests", label: t.nav.guests },
         { href: "#faq", label: t.nav.faq },
         { href: archiveHref, label: t.nav.pastEdition },
       ]

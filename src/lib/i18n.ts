@@ -27,7 +27,7 @@ type Track = {
 export type Dict = {
   dir: "rtl" | "ltr"
   common: { showSpeakerBio: string; hideSpeakerBio: string }
-  nav: { about: string; agenda: string; topics: string; workshops: string; faq: string; register: string; pastEdition: string }
+  nav: { about: string; agenda: string; topics: string; workshops: string; guests: string; faq: string; register: string; pastEdition: string }
   hero: {
     badge: string
     organizer: string
@@ -80,6 +80,7 @@ export type Dict = {
     workshops: string
   }
   workshops: { label: string; title: string; subtitle: string; sessions: { name: string; items: Track[] }[] }
+  guests: { label: string; title: string; subtitle: string }
   cta: { title: string; subtitle: string; button: string; note: string; comingSoon: string; registerVia: string }
   faq: { label: string; title: string; items: { q: string; a: string }[] }
   footer: {
@@ -98,7 +99,7 @@ export const dict: Record<Lang, Dict> = {
   ar: {
     dir: "rtl",
     common: { showSpeakerBio: "عرض النبذة", hideSpeakerBio: "إخفاء" },
-    nav: { about: "عن المؤتمر", agenda: "الجدول", topics: "المحاور", workshops: "ورش العمل", faq: "الأسئلة", register: "سجّل الآن", pastEdition: "ETC 2024" },
+    nav: { about: "عن المؤتمر", agenda: "الجدول", topics: "المحاور", workshops: "ورش العمل", guests: "الضيوف", faq: "الأسئلة", register: "سجّل الآن", pastEdition: "ETC 2024" },
     hero: {
       badge: "إسطنبول · 27–28 يونيو 2026",
       organizer: "ينظّمه تجمّع إبتكار",
@@ -309,6 +310,11 @@ export const dict: Record<Lang, Dict> = {
         },
       ],
     },
+    guests: {
+      label: "ضيوف المؤتمر",
+      title: "المتحدثون والضيوف",
+      subtitle: "تعرّف على متحدثي وضيوف مؤتمر التّقنيّات الصّاعدة 2026.",
+    },
     cta: {
       title: "احجز مقعدك في مؤتمر التّقنيّات الصّاعدة 2026",
       subtitle: "التسجيل مفتوح — سجّل عبر منصّة أعضاء إبتكار.",
@@ -344,7 +350,7 @@ export const dict: Record<Lang, Dict> = {
   tr: {
     dir: "ltr",
     common: { showSpeakerBio: "Biyografiyi göster", hideSpeakerBio: "Gizle" },
-    nav: { about: "Hakkında", agenda: "Program", topics: "Konular", workshops: "Atölyeler", faq: "SSS", register: "Kayıt Ol", pastEdition: "ETC 2024" },
+    nav: { about: "Hakkında", agenda: "Program", topics: "Konular", workshops: "Atölyeler", guests: "Konuklar", faq: "SSS", register: "Kayıt Ol", pastEdition: "ETC 2024" },
     hero: {
       badge: "İstanbul · 27–28 Haziran 2026",
       organizer: "İbtikar Topluluğu düzenliyor",
@@ -554,6 +560,11 @@ export const dict: Record<Lang, Dict> = {
         },
       ],
     },
+    guests: {
+      label: "Konferans Konukları",
+      title: "Konuşmacılar ve Konuklar",
+      subtitle: "ETC 2026 konuşmacıları ve konuklarıyla tanışın.",
+    },
     cta: {
       title: "Yükselen Teknolojiler Konferansı 2026'da yerini ayırt",
       subtitle: "Kayıt açık — İbtikar üye platformu üzerinden kayıt olun.",
@@ -589,7 +600,7 @@ export const dict: Record<Lang, Dict> = {
   en: {
     dir: "ltr",
     common: { showSpeakerBio: "Show bio", hideSpeakerBio: "Hide" },
-    nav: { about: "About", agenda: "Agenda", topics: "Topics", workshops: "Workshops", faq: "FAQ", register: "Register", pastEdition: "ETC 2024" },
+    nav: { about: "About", agenda: "Agenda", topics: "Topics", workshops: "Workshops", guests: "Guests", faq: "FAQ", register: "Register", pastEdition: "ETC 2024" },
     hero: {
       badge: "Istanbul · June 27–28, 2026",
       organizer: "Hosted by Ibtikar Assembly",
@@ -799,6 +810,11 @@ export const dict: Record<Lang, Dict> = {
           ],
         },
       ],
+    },
+    guests: {
+      label: "Conference Guests",
+      title: "Speakers & Guests",
+      subtitle: "Meet the speakers and guests of the Emerging Technologies Conference 2026.",
     },
     cta: {
       title: "Reserve your seat at the Emerging Technologies Conference 2026",

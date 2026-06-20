@@ -7,6 +7,7 @@ import { Topics } from "@/components/topics"
 import { Shorts } from "@/components/shorts"
 import { Agenda } from "@/components/agenda"
 import { Workshops } from "@/components/workshops"
+import { Guests } from "@/components/guests"
 import { Faq } from "@/components/faq"
 import { Register } from "@/components/register"
 import { SiteFooter } from "@/components/site-footer"
@@ -22,6 +23,7 @@ function HomePage() {
       <Shorts />
       <Agenda />
       <Workshops />
+      <Guests />
       <Faq />
       <Register />
     </>
