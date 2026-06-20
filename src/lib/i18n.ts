@@ -261,6 +261,9 @@ export const dict: Record<Lang, Dict> = {
               desc: "ورشة تطبيقيّة في تشغيل النماذج الكبيرة بكفاءة باستخدام قواعد البيانات الشعاعيّة.",
               speaker: "أسامة شبيب",
               speakerImage: "osama-shbib.jpeg",
+              speakerTagline: "باحث ذكاء اصطناعي — TÜBİTAK BİLGEM · Cosmos AI",
+              speakerBio:
+                "باحث في الذكاء الاصطناعي في TÜBİTAK BİLGEM، وعضو في مجموعة COSMOS AI البحثية في قسم هندسة الحاسوب بجامعة يلدز التقنية. حاصل على بكالوريوس هندسة الحاسوب من YTÜ. عمل سابقًا مهندس تعلّم آلة في NewMind AI، حيث طوّر خطوط RAG وضبط نماذج اللغة الكبيرة وحلول chatbot قابلة للنشر. شارك في أبحاث تحسين نماذج اللغة التركية وتطوير Cosmos-LLaVA للتعليمات البصرية. حائز على جائزة أفضل ورقة في UBMK 2025 والمركز الأول في فئة الضبط الدقيق في TEKNOFEST T3 AI Hackathon.",
               tags: ["ai", "vector-database", "vllm", "python"],
             },
           ],
@@ -509,8 +512,11 @@ export const dict: Record<Lang, Dict> = {
             {
               title: "DeepMind ve VLLM Atölyesi",
               desc: "Vektör veritabanlarıyla büyük modelleri verimli çalıştırma.",
-              speaker: "Osama Shabaib",
+              speaker: "Osama SHBIB",
               speakerImage: "osama-shbib.jpeg",
+              speakerTagline: "YZ Araştırmacısı — TÜBİTAK BİLGEM · Cosmos AI",
+              speakerBio:
+                "TÜBİTAK BİLGEM'de yapay zeka araştırmacısı; YTÜ Bilgisayar Mühendisliği COSMOS AI Araştırma Grubu üyesi. Yıldız Teknik Üniversitesi bilgisayar mühendisliği mezunu. NewMind AI'da makine öğrenmesi mühendisi olarak RAG hatları, LLM ince ayarı ve Docker/FastAPI ile ölçeklenebilir ML çözümleri geliştirdi. Türkçe dil modelleri ve Cosmos-LLaVA görsel talimat modeli üzerine araştırmalara katkıda bulundu. UBMK 2025 En İyi Makale Ödülü; TEKNOFEST T3 AI Hackathon ince ayar kategorisi birinciliği.",
               tags: ["ai", "vector-database", "vllm", "python"],
             },
           ],
@@ -760,8 +766,11 @@ export const dict: Record<Lang, Dict> = {
             {
               title: "DeepMind & VLLM Workshop",
               desc: "Running large models efficiently with vector databases.",
-              speaker: "Osama Shabaib",
+              speaker: "Osama SHBIB",
               speakerImage: "osama-shbib.jpeg",
+              speakerTagline: "AI Researcher — TÜBİTAK BİLGEM · Cosmos AI",
+              speakerBio:
+                "AI researcher at TÜBİTAK BİLGEM and research team member at the COSMOS AI Research Group (YTU Computer Engineering). Holds a bachelor's in computer engineering from Yıldız Technical University. Previously worked as a machine learning engineer at NewMind AI, building RAG pipelines, fine-tuning LLMs, and deploying scalable ML solutions with Docker and FastAPI. Co-authored research on Turkish language models and visual instruction tuning (Cosmos-LLaVA). Best Paper Award at UBMK 2025; 1st place in the finetuning category at TEKNOFEST T3 AI Hackathon.",
               tags: ["ai", "vector-database", "vllm", "python"],
             },
           ],
