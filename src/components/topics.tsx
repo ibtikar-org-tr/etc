@@ -1,10 +1,10 @@
 "use client"
 
-import { Cpu, Bot, HeartPulse, Wifi, ShieldAlert, Scale } from "lucide-react"
+import { Bot, Cpu, Cog, HeartPulse, Plane, Scale, ShieldAlert, Wifi } from "lucide-react"
 import { useLang } from "./lang-provider"
 import { SpeakerBioToggle } from "./speaker-bio-toggle"
 
-const icons = [Cpu, Bot, HeartPulse, Wifi, ShieldAlert, Scale]
+const icons = [HeartPulse, Plane, Wifi, Scale, Bot, ShieldAlert, Cpu, Cog]
 
 export function Topics() {
   const { t } = useLang()

@@ -14,26 +14,16 @@ type AgendaRow = {
 }
 
 export function Agenda() {
-  const { t, lang } = useLang()
+  const { t } = useLang()
   const ag = t.agenda
   const [day, setDay] = useState<1 | 2>(1)
   const tableRef = useRef<HTMLDivElement>(null)
-  const lunch = lang === "ar" ? "استراحة الغداء" : lang === "tr" ? "Öğle Arası" : "Lunch Break"
-
-  const day1: AgendaRow[] = [
-    { time: "10:30 – 10:45", title: t.shorts.items[0].title, type: "—", highlight: true },
-    { time: "10:45 – 11:30", title: t.topics.items[0].title, type: ag.lectures },
-    { time: "11:30 – 11:45", title: t.shorts.items[1].title, type: "—", highlight: true },
-    { time: "11:45 – 12:30", title: t.topics.items[1].title, type: ag.lectures },
-    { time: "12:30 – 13:15", title: t.topics.items[2].title, type: ag.lectures },
-    { time: "13:15 – 14:15", title: lunch, type: "—", highlight: true },
-    { time: "14:15 – 15:00", title: t.topics.items[3].title, type: ag.lectures },
-    { time: "15:00 – 15:25", title: t.shorts.items[3].title, type: "—", highlight: true },
-    { time: "15:25 – 16:10", title: t.topics.items[4].title, type: ag.lectures },
-    { time: "16:10 – 16:25", title: t.shorts.items[4].title, type: "—", highlight: true },
-    { time: "16:25 – 17:10", title: t.topics.items[5].title, type: ag.lectures },
-    { time: "17:10 – 18:00", title: t.shorts.items[2].title, type: "—", highlight: true },
-  ]
+  const day1: AgendaRow[] = ag.day1Rows.map((row) => ({
+    time: row.time,
+    title: row.title,
+    type: row.lecture ? ag.lectures : "—",
+    highlight: row.highlight,
+  }))
 
   const day2: AgendaRow[] = t.workshops.sessions.flatMap((s, si) => {
     const times = ["10:30 – 12:00", "12:30 – 14:00", "14:30 – 16:00"]
@@ -60,7 +50,7 @@ export function Agenda() {
         revealTween({ opacity: 1, x: 0, duration: 0.45, stagger: 0.035 }),
       )
     },
-    { scope: tableRef, dependencies: [day, lang], revertOnUpdate: true },
+    { scope: tableRef, dependencies: [day, t], revertOnUpdate: true },
   )
 
   return (

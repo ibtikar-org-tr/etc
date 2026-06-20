@@ -78,6 +78,7 @@ export type Dict = {
     speaker: string
     lectures: string
     workshops: string
+    day1Rows: { time: string; title: string; highlight?: boolean; lecture?: boolean }[]
   }
   workshops: { label: string; title: string; subtitle: string; sessions: { name: string; items: Track[] }[] }
   guests: { label: string; title: string; subtitle: string }
@@ -125,7 +126,7 @@ export const dict: Record<Lang, Dict> = {
         "تجمّع إبتكار فريق تطوّعي يجمع طلّاب الجامعات الناطقين بالعربية المهتمّين بالابتكار والتقنية والبحث والتطوير. يهدف إلى تمكينهم وإثراء خبراتهم التقنية عبر أنشطة ومشاريع تلامس حياة الطالب الجامعية وتطوّره في المجال التقني والمهارات المجتمعية.",
       organizerLink: "تعرّف على تجمّع إبتكار",
       stats: [
-        { value: "6", label: "محاضرات رئيسيّة" },
+        { value: "8", label: "محاضرات رئيسيّة" },
         { value: "9", label: "ورش عمل" },
         { value: "2", label: "يوم مكثّف" },
       ],
@@ -137,15 +138,15 @@ export const dict: Record<Lang, Dict> = {
     topics: {
       label: "اليوم الأول · المحاضرات النظريّة",
       title: "محاور المؤتمر",
-      subtitle: "ستّ محاضرات نظريّة معمّقة، مدّة كلٍّ منها 45 دقيقة.",
+      subtitle: "ثمان محاضرات نظريّة معمّقة، مدّة كلٍّ منها 45 دقيقة.",
       panelType: "حوار",
       panelModerator: "قائد الحوار",
       panelGuestLabels: ["الضيف الأول", "الضيف الثاني", "الضيف الثالث"],
       items: [
         { title: "الذكاء الاصطناعي مفتوح المصدر — امتلك ذكائك الاصطناعي", desc: "محاضرة نظريّة تقدّم مدخلًا في عالم النماذج المفتوحة والقدرة على امتلاك ذكائك الاصطناعي وبنائه وتشغيله.", duration: "45 دقيقة", tags: ["AI", "open-source"] },
         {
-          title: "الذكاء الاصطناعي الوكيل في عصرٍ متسارع",
-          desc: "تتمحور المحاضرة حول تطوّر الأنظمة الذكية المستقلة التي تتّخذ القرارات وتنفّذ المهام بكفاءة عالية، واستعراض كيفية بناء وكلاء ذكيّين قادرين على التعاون والتكيّف مع بيئات معقّدة، مع تسليط الضوء على التطبيقات العملية والتحديات التي تواجه تطويرها.",
+          title: "استخدام الذكاء الاصطناعي الوكيل في المجال البنكي",
+          desc: "تتمحور المحاضرة حول تطبيقات الذكاء الاصطناعي الوكيل في القطاع المصرفي، وبناء أنظمة ذكية قادرة على اتخاذ القرارات وتنفيذ المهام بكفاءة في بيئات مالية معقّدة.",
           duration: "45 دقيقة",
           tags: ["agentic-ai", "automation"],
         },
@@ -161,8 +162,14 @@ export const dict: Record<Lang, Dict> = {
           tags: ["health-tech", "bioinformatics"],
         },
         {
-          title: "إنترنت الأشياء",
-          desc: "محاضرة نظريّة تستكشف كيف تبني الأجهزة المتّصلة بنية تحتيّة ذكيّة تخدم المجتمعات الصاعدة.",
+          title: "من الطائرة إلى المنظومة: هندسة الأنظمة المسيرة",
+          desc: "محاضرة نظريّة حول هندسة الأنظمة المسيرة وانتقالها من منصّات الطيران إلى منظومات متكاملة قابلة للتوسّع.",
+          duration: "45 دقيقة",
+          tags: ["drones", "systems-engineering"],
+        },
+        {
+          title: "انترنت الأشياء: الثورة الصامتة التي لم نستعد لها بعد",
+          desc: "محاضرة نظريّة تستكشف كيف تبني الأجهزة المتّصلة بنية تحتيّة ذكيّة تخدم المجتمعات الصاعدة، والتحدّيات التي لم نستعد لها بعد.",
           speaker: "فراس قراحسن",
           speakerImage: "firas-qarahsan",
           speakerTagline: "مؤسس شركة menamatix",
@@ -205,6 +212,12 @@ export const dict: Record<Lang, Dict> = {
             ],
           },
         },
+        {
+          title: "الأتمتة وعالمها",
+          desc: "محاضرة نظريّة حول الأتمتة وتطبيقاتها في مختلف القطاعات، وكيف تعيد تشكيل عالم العمل والتقنية.",
+          duration: "45 دقيقة",
+          tags: ["automation", "robotics"],
+        },
       ],
     },
     shorts: {
@@ -222,7 +235,7 @@ export const dict: Record<Lang, Dict> = {
       label: "الجدول الزمني",
       title: "برنامج المؤتمر",
       day1: "اليوم الأول",
-      day1date: "السبت · 27 يونيو · 10:30–18:00 · إسطنبول — Seyrantepe TÜGVA",
+      day1date: "السبت · 27 يونيو · 10:00–19:00 · إسطنبول — Seyrantepe TÜGVA",
       day2: "اليوم الثاني",
       day2date: "الأحد · 28 يونيو · ورش العمل · إسطنبول — Florya TÜGVA",
       time: "الوقت",
@@ -230,6 +243,22 @@ export const dict: Record<Lang, Dict> = {
       speaker: "النوع",
       lectures: "محاضرات",
       workshops: "ورش عمل",
+      day1Rows: [
+        { time: "10:00 – 10:30", title: "تواصل وتشبيك", highlight: true },
+        { time: "10:30 – 11:00", title: "مقدمة المؤتمر", highlight: true },
+        { time: "11:00 – 11:45", title: "البيانات الحيوية وتغيير مستقبل علاج الأمراض", lecture: true },
+        { time: "11:45 – 12:30", title: "من الطائرة إلى المنظومة: هندسة الأنظمة المسيرة", lecture: true },
+        { time: "12:30 – 13:00", title: "كلمة إدارة ابتكار", highlight: true },
+        { time: "13:00 – 14:00", title: "استراحة غداء وصلاة", highlight: true },
+        { time: "14:00 – 14:45", title: "انترنت الأشياء: الثورة الصامتة التي لم نستعد لها بعد", lecture: true },
+        { time: "14:45 – 15:30", title: "برمجيّات ملطّخة بالدم", lecture: true },
+        { time: "15:30 – 16:15", title: "استخدام الذكاء الاصطناعي الوكيل في المجال البنكي", lecture: true },
+        { time: "16:15 – 16:30", title: "مسابقة انضمام", highlight: true },
+        { time: "16:30 – 17:15", title: "السيادة الرقميّة والتهديد القومي", lecture: true },
+        { time: "17:15 – 18:00", title: "الذكاء الاصطناعي مفتوح المصدر", lecture: true },
+        { time: "18:00 – 18:45", title: "الأتمتة وعالمها", lecture: true },
+        { time: "18:45 – 19:00", title: "خاتمة المؤتمر", highlight: true },
+      ],
     },
     workshops: {
       label: "اليوم الثاني · ورش العمل",
@@ -336,7 +365,7 @@ export const dict: Record<Lang, Dict> = {
       title: "كل ما تحتاج معرفته",
       items: [
         { q: "من يُنظّم المؤتمر؟", a: "يُنظّم المؤتمر تجمّع إبتكار، الفريق التطوّعي الذي يجمع طلّاب الجامعات الناطقين بالعربية المهتمّين بالابتكار والتقنية. تعرّف أكثر على ibtikar.org.tr" },
-        { q: "أين ومتى يُقام المؤتمر؟", a: "يُقام المؤتمر في إسطنبول: اليوم الأول السبت 27 يونيو (10:30–18:00) في Seyrantepe TÜGVA للمحاضرات النظريّة، واليوم الثاني الأحد 28 يونيو في Florya TÜGVA لورش العمل." },
+        { q: "أين ومتى يُقام المؤتمر؟", a: "يُقام المؤتمر في إسطنبول: اليوم الأول السبت 27 يونيو (10:00–19:00) في Seyrantepe TÜGVA للمحاضرات النظريّة، واليوم الثاني الأحد 28 يونيو في Florya TÜGVA لورش العمل." },
         { q: "هل التسجيل مجّاني؟", a: "نعم، التسجيل مجّاني للطلاب مع عدد محدود من المقاعد." },
         { q: "ما اللغات المعتمدة في المؤتمر؟", a: "تُقدَّم الفعاليّات بالعربيّة، وبعضها بالتركيّة والإنجليزيّة." },
         { q: "هل أحتاج خبرة تقنيّة مسبقة لحضور الورش؟", a: "صُمّمت معظم الورش كمدخل للمجال، لذا تناسب المبتدئين والمتوسّطين." },
@@ -384,7 +413,7 @@ export const dict: Record<Lang, Dict> = {
         "İbtikar Topluluğu, inovasyon, teknoloji, araştırma ve geliştirmeyle ilgilenen Arapça konuşan üniversite öğrencilerini bir araya getiren gönüllü bir ekiptir. Öğrencileri güçlendirmeyi ve teknik becerilerini zenginleştirmeyi hedefler.",
       organizerLink: "İbtikar Topluluğu hakkında",
       stats: [
-        { value: "6", label: "ana ders" },
+        { value: "8", label: "ana ders" },
         { value: "9", label: "atölye" },
         { value: "2", label: "yoğun gün" },
       ],
@@ -396,15 +425,15 @@ export const dict: Record<Lang, Dict> = {
     topics: {
       label: "1. Gün · Teorik Dersler",
       title: "Konferans Konuları",
-      subtitle: "Her biri 45 dakikalık altı derinlemesine teorik ders.",
+      subtitle: "Her biri 45 dakikalık sekiz derinlemesine teorik ders.",
       panelType: "Panel",
       panelModerator: "Moderatör",
       panelGuestLabels: ["Birinci Konuk", "İkinci Konuk", "Üçüncü Konuk"],
       items: [
         { title: "Açık Kaynak YZ — Yapay Zekana Sahip Ol", desc: "Açık modeller dünyasına giriş ve yapay zekanı sahiplenme, inşa etme ve çalıştırma.", duration: "45 dk", tags: ["AI", "open-source"] },
         {
-          title: "Hızlanan Çağda Ajan Tabanlı YZ",
-          desc: "Karar veren ve görevleri verimli yürüten otonom sistemlerin evrimi; karmaşık ortamlara uyum sağlayan ajanlar inşa etmek, pratik uygulamalar ve geliştirme zorlukları.",
+          title: "Bankacılıkta Ajan Yapay Zeka",
+          desc: "Bankacılık sektöründe ajan tabanlı yapay zekanın uygulamaları; karmaşık finansal ortamlarda karar veren ve görevleri verimli yürüten akıllı sistemler inşa etmek.",
           duration: "45 dk",
           tags: ["agentic-ai", "automation"],
         },
@@ -420,8 +449,14 @@ export const dict: Record<Lang, Dict> = {
           tags: ["health-tech", "bioinformatics"],
         },
         {
-          title: "Nesnelerin İnterneti",
-          desc: "Bağlı cihazların yükselen toplumlar için akıllı altyapı kurması.",
+          title: "Uçaktan Sisteme: İnsansız Sistem Mühendisliği",
+          desc: "İnsansız sistem mühendisliği ve hava platformlarından ölçeklenebilir bütünleşik sistemlere geçiş.",
+          duration: "45 dk",
+          tags: ["drones", "systems-engineering"],
+        },
+        {
+          title: "Nesnelerin İnterneti: Henüz Hazırlanmadığımız Sessiz Devrim",
+          desc: "Bağlı cihazların yükselen toplumlar için akıllı altyapı kurması ve henüz hazırlanmadığımız zorluklar.",
           speaker: "Firas Qarahsan",
           speakerImage: "firas-qarahsan",
           speakerTagline: "menamatix kurucusu",
@@ -464,6 +499,12 @@ export const dict: Record<Lang, Dict> = {
             ],
           },
         },
+        {
+          title: "Otomasyon ve Dünyası",
+          desc: "Otomasyonun farklı sektörlerdeki uygulamaları ve iş ile teknoloji dünyasını nasıl yeniden şekillendirdiği.",
+          duration: "45 dk",
+          tags: ["automation", "robotics"],
+        },
       ],
     },
     shorts: {
@@ -481,7 +522,7 @@ export const dict: Record<Lang, Dict> = {
       label: "Zaman Çizelgesi",
       title: "Konferans Programı",
       day1: "1. Gün",
-      day1date: "Cumartesi · 27 Haz · 10:30–18:00 · İstanbul — Seyrantepe TÜGVA",
+      day1date: "Cumartesi · 27 Haz · 10:00–19:00 · İstanbul — Seyrantepe TÜGVA",
       day2: "2. Gün",
       day2date: "Pazar · 28 Haz · Atölyeler · İstanbul — Florya TÜGVA",
       time: "Saat",
@@ -489,6 +530,22 @@ export const dict: Record<Lang, Dict> = {
       speaker: "Tür",
       lectures: "Dersler",
       workshops: "Atölyeler",
+      day1Rows: [
+        { time: "10:00 – 10:30", title: "Networking ve Tanışma", highlight: true },
+        { time: "10:30 – 11:00", title: "Konferans Açılışı", highlight: true },
+        { time: "11:00 – 11:45", title: "Biyoinformatik ve Hastalık Tedavisinin Geleceğini Değiştirmek", lecture: true },
+        { time: "11:45 – 12:30", title: "Uçaktan Sisteme: İnsansız Sistem Mühendisliği", lecture: true },
+        { time: "12:30 – 13:00", title: "İbtikar Yönetimi Konuşması", highlight: true },
+        { time: "13:00 – 14:00", title: "Öğle Yemeği ve Namaz Molası", highlight: true },
+        { time: "14:00 – 14:45", title: "Nesnelerin İnterneti: Henüz Hazırlanmadığımız Sessiz Devrim", lecture: true },
+        { time: "14:45 – 15:30", title: "Kanla Lekelenmiş Yazılım", lecture: true },
+        { time: "15:30 – 16:15", title: "Bankacılıkta Ajan Yapay Zeka", lecture: true },
+        { time: "16:15 – 16:30", title: "Katılım Yarışması", highlight: true },
+        { time: "16:30 – 17:15", title: "Dijital Egemenlik ve Ulusal Tehdit", lecture: true },
+        { time: "17:15 – 18:00", title: "Açık Kaynak Yapay Zeka", lecture: true },
+        { time: "18:00 – 18:45", title: "Otomasyon ve Dünyası", lecture: true },
+        { time: "18:45 – 19:00", title: "Konferans Kapanışı", highlight: true },
+      ],
     },
     workshops: {
       label: "2. Gün · Atölyeler",
@@ -594,7 +651,7 @@ export const dict: Record<Lang, Dict> = {
       title: "Bilmen gereken her şey",
       items: [
         { q: "Konferansı kim düzenliyor?", a: "Konferans, inovasyon ve teknolojiyle ilgilenen Arapça konuşan üniversite öğrencilerini bir araya getiren gönüllü ekip İbtikar Topluluğu tarafından düzenlenmektedir. Daha fazlası için ibtikar.org.tr" },
-        { q: "Konferans nerede ve ne zaman?", a: "Konferans İstanbul'da: 1. gün 27 Haziran Cumartesi (10:30–18:00) Seyrantepe TÜGVA'da teorik dersler; 2. gün 28 Haziran Pazar Florya TÜGVA'da atölyeler." },
+        { q: "Konferans nerede ve ne zaman?", a: "Konferans İstanbul'da: 1. gün 27 Haziran Cumartesi (10:00–19:00) Seyrantepe TÜGVA'da teorik dersler; 2. gün 28 Haziran Pazar Florya TÜGVA'da atölyeler." },
         { q: "Kayıt ücretsiz mi?", a: "Evet, öğrenciler için kayıt ücretsizdir ve kontenjan sınırlıdır." },
         { q: "Konferansın dilleri nelerdir?", a: "Etkinlikler Arapça sunulur, bazıları Türkçe ve İngilizcedir." },
         { q: "Atölyeler için ön deneyim gerekli mi?", a: "Çoğu atölye alana giriş olarak tasarlandı, başlangıç ve orta seviyeye uygundur." },
@@ -642,7 +699,7 @@ export const dict: Record<Lang, Dict> = {
         "Ibtikar Assembly is a volunteer team that brings together Arabic-speaking university students interested in innovation, technology, research and development. It seeks to empower them and enrich their technical expertise through activities and projects that touch student life and community skills.",
       organizerLink: "Learn about Ibtikar Assembly",
       stats: [
-        { value: "6", label: "keynote lectures" },
+        { value: "8", label: "keynote lectures" },
         { value: "9", label: "workshops" },
         { value: "2", label: "intensive days" },
       ],
@@ -654,15 +711,15 @@ export const dict: Record<Lang, Dict> = {
     topics: {
       label: "Day 1 · Theoretical Lectures",
       title: "Conference Topics",
-      subtitle: "Six in-depth theoretical lectures, 45 minutes each.",
+      subtitle: "Eight in-depth theoretical lectures, 45 minutes each.",
       panelType: "Panel Discussion",
       panelModerator: "Moderator",
       panelGuestLabels: ["Guest One", "Guest Two", "Guest Three"],
       items: [
         { title: "Open-Source AI — Own Your AI", desc: "A theoretical introduction to open models and owning, building, and running your own AI.", duration: "45 min", tags: ["AI", "open-source"] },
         {
-          title: "Agentic AI in a Fast-Moving Era",
-          desc: "The evolution of autonomous intelligent systems that make decisions and execute tasks efficiently; building agents that collaborate and adapt to complex environments, with practical applications and development challenges.",
+          title: "Agentic AI in Banking",
+          desc: "Applications of agentic AI in the banking sector; building intelligent systems that make decisions and execute tasks efficiently in complex financial environments.",
           duration: "45 min",
           tags: ["agentic-ai", "automation"],
         },
@@ -678,8 +735,14 @@ export const dict: Record<Lang, Dict> = {
           tags: ["health-tech", "bioinformatics"],
         },
         {
-          title: "Internet of Things",
-          desc: "How connected devices build intelligent infrastructure for emerging communities.",
+          title: "From Aircraft to System: Uncrewed Systems Engineering",
+          desc: "A theoretical lecture on uncrewed systems engineering and the shift from aerial platforms to scalable integrated systems.",
+          duration: "45 min",
+          tags: ["drones", "systems-engineering"],
+        },
+        {
+          title: "Internet of Things: The Silent Revolution We Aren't Ready For",
+          desc: "How connected devices build intelligent infrastructure for emerging communities — and the challenges we aren't ready for yet.",
           speaker: "Firas Qarahsan",
           speakerImage: "firas-qarahsan",
           speakerTagline: "Founder of menamatix",
@@ -722,6 +785,12 @@ export const dict: Record<Lang, Dict> = {
             ],
           },
         },
+        {
+          title: "Automation and Its World",
+          desc: "A theoretical lecture on automation across industries and how it is reshaping work and technology.",
+          duration: "45 min",
+          tags: ["automation", "robotics"],
+        },
       ],
     },
     shorts: {
@@ -739,7 +808,7 @@ export const dict: Record<Lang, Dict> = {
       label: "Timeline",
       title: "Conference Program",
       day1: "Day 1",
-      day1date: "Saturday · Jun 27 · 10:30–18:00 · Istanbul — Seyrantepe TÜGVA",
+      day1date: "Saturday · Jun 27 · 10:00–19:00 · Istanbul — Seyrantepe TÜGVA",
       day2: "Day 2",
       day2date: "Sunday · Jun 28 · Workshops · Istanbul — Florya TÜGVA",
       time: "Time",
@@ -747,6 +816,22 @@ export const dict: Record<Lang, Dict> = {
       speaker: "Type",
       lectures: "Lectures",
       workshops: "Workshops",
+      day1Rows: [
+        { time: "10:00 – 10:30", title: "Networking & Meet-up", highlight: true },
+        { time: "10:30 – 11:00", title: "Conference Opening", highlight: true },
+        { time: "11:00 – 11:45", title: "Bioinformatics & Changing the Future of Disease Treatment", lecture: true },
+        { time: "11:45 – 12:30", title: "From Aircraft to System: Uncrewed Systems Engineering", lecture: true },
+        { time: "12:30 – 13:00", title: "Ibtikar Management Address", highlight: true },
+        { time: "13:00 – 14:00", title: "Lunch Break & Prayer", highlight: true },
+        { time: "14:00 – 14:45", title: "Internet of Things: The Silent Revolution We Aren't Ready For", lecture: true },
+        { time: "14:45 – 15:30", title: "Blood-Stained Software", lecture: true },
+        { time: "15:30 – 16:15", title: "Agentic AI in Banking", lecture: true },
+        { time: "16:15 – 16:30", title: "Join Quiz", highlight: true },
+        { time: "16:30 – 17:15", title: "Digital Sovereignty & National Threat", lecture: true },
+        { time: "17:15 – 18:00", title: "Open-Source AI", lecture: true },
+        { time: "18:00 – 18:45", title: "Automation and Its World", lecture: true },
+        { time: "18:45 – 19:00", title: "Conference Closing", highlight: true },
+      ],
     },
     workshops: {
       label: "Day 2 · Workshops",
@@ -853,7 +938,7 @@ export const dict: Record<Lang, Dict> = {
       title: "Everything you need to know",
       items: [
         { q: "Who organizes the conference?", a: "The conference is organized by Ibtikar Assembly, a volunteer team of Arabic-speaking university students passionate about innovation and technology. Learn more at ibtikar.org.tr" },
-        { q: "Where and when is the conference?", a: "In Istanbul: Day 1, Saturday June 27 (10:30–18:00) at Seyrantepe TÜGVA for lectures; Day 2, Sunday June 28 at Florya TÜGVA for workshops." },
+        { q: "Where and when is the conference?", a: "In Istanbul: Day 1, Saturday June 27 (10:00–19:00) at Seyrantepe TÜGVA for lectures; Day 2, Sunday June 28 at Florya TÜGVA for workshops." },
         { q: "Is registration free?", a: "Yes, registration is free for students with a limited number of seats." },
         { q: "What languages are used?", a: "Sessions are delivered in Arabic, with some in Turkish and English." },
         { q: "Do I need prior technical experience for workshops?", a: "Most workshops are designed as an introduction, suitable for beginners and intermediates." },
