@@ -246,7 +246,3 @@
 .guests-marquee:hover .guests-marquee-track {
   animation-play-state: paused;
 }
-
-[dir='rtl'] .guests-marquee-track {
-  animation-direction: reverse;
-}

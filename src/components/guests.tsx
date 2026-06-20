@@ -19,7 +19,7 @@ function GuestCard({ profile }: { profile: GuestProfile }) {
         className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/5"
         aria-hidden
       />
-      <div className="absolute inset-x-0 bottom-0 p-4 pt-10">
+      <div className="absolute inset-x-0 bottom-0 p-4 pt-10" dir="auto">
         <h3 className="font-heading text-base font-bold leading-snug text-white">{profile.name}</h3>
         {profile.tagline && (
           <p className="mt-1 line-clamp-2 text-xs leading-snug text-white/85">{profile.tagline}</p>
@@ -47,7 +47,7 @@ export function Guests() {
         </div>
       </div>
 
-      <div className="guests-marquee anim-panel relative mt-12">
+      <div className="guests-marquee anim-panel relative mt-12" dir="ltr">
         <div className="pointer-events-none absolute inset-y-0 start-0 z-10 w-12 bg-gradient-to-r from-background to-transparent sm:w-20" />
         <div className="pointer-events-none absolute inset-y-0 end-0 z-10 w-12 bg-gradient-to-l from-background to-transparent sm:w-20" />
         <div className="guests-marquee-track flex w-max flex-nowrap gap-4 px-4 sm:gap-5 sm:px-6">
