@@ -16,31 +16,6 @@ type SpeakerBioToggleProps = {
   className?: string
 }
 
-function SpeakerAvatar({
-  name,
-  imageUrl,
-  expanded,
-}: {
-  name: string
-  imageUrl?: string
-  expanded?: boolean
-}) {
-  if (!imageUrl) return null
-
-  return (
-    <img
-      src={imageUrl}
-      alt={name}
-      loading="lazy"
-      decoding="async"
-      className={cn(
-        "shrink-0 border border-border object-cover transition-all duration-300 ease-out",
-        expanded ? "size-24 rounded-xl shadow-md" : "size-14 rounded-lg",
-      )}
-    />
-  )
-}
-
 export function SpeakerBioToggle({
   name,
   tagline,
@@ -53,7 +28,8 @@ export function SpeakerBioToggle({
 }: SpeakerBioToggleProps) {
   const [open, setOpen] = useState(false)
   const imageUrl = imageSlug ? speakerImageUrl(imageSlug) : undefined
-  const toggleLabel = open ? hideLabel : showLabel
+
+  const toggle = () => setOpen((v) => !v)
 
   return (
     <div className={className}>
@@ -62,48 +38,122 @@ export function SpeakerBioToggle({
         <>
           <button
             type="button"
-            onClick={() => setOpen((v) => !v)}
+            onClick={toggle}
             aria-expanded={open}
             className={cn(
-              "flex w-full items-start gap-3 rounded-xl border border-transparent p-2 text-start transition-colors duration-300",
-              open && "border-border/40 bg-secondary/20",
-              "hover:border-border/60 hover:bg-secondary/30",
+              "group w-full overflow-hidden rounded-xl text-start transition-colors duration-300",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40",
+              open
+                ? "border border-border/60 bg-card"
+                : "border border-transparent p-2 hover:border-border/60 hover:bg-secondary/30",
             )}
           >
-            <SpeakerAvatar name={name} imageUrl={imageUrl} expanded={open} />
-            <div className="min-w-0 flex-1 self-center">
-              <div className="flex items-start justify-between gap-3">
-                <div className="min-w-0">
-                  <p className="text-sm font-semibold leading-snug text-foreground">{name}</p>
-                  {tagline && (
-                    <p className="mt-1 text-xs leading-snug text-muted-foreground">{tagline}</p>
-                  )}
-                </div>
-                <span className="inline-flex shrink-0 items-center gap-1 pt-0.5 text-xs font-medium text-primary sm:text-sm">
-                  {toggleLabel}
-                  <ChevronDown
-                    className={cn("size-4 transition-transform duration-300 ease-out", open && "rotate-180")}
-                    aria-hidden
+            <div
+              className={cn(
+                "transition-all duration-500 ease-out",
+                open ? "max-h-0 overflow-hidden opacity-0" : "max-h-40 opacity-100",
+              )}
+              aria-hidden={open}
+            >
+              <div className="flex items-start gap-3">
+                {imageUrl && (
+                  <img
+                    src={imageUrl}
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                    className="size-14 shrink-0 rounded-lg border border-border object-cover"
                   />
-                </span>
+                )}
+                <div className="min-w-0 flex-1 self-center">
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="min-w-0">
+                      <p className="text-sm font-semibold leading-snug text-foreground">{name}</p>
+                      {tagline && (
+                        <p className="mt-1 text-xs leading-snug text-muted-foreground">{tagline}</p>
+                      )}
+                    </div>
+                    <span className="inline-flex shrink-0 items-center gap-1 pt-0.5 text-xs font-medium text-primary sm:text-sm">
+                      {showLabel}
+                      <ChevronDown className="size-4" aria-hidden />
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              className={cn(
+                "grid transition-all duration-500 ease-out",
+                open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
+              )}
+              aria-hidden={!open}
+            >
+              <div className="overflow-hidden">
+                {imageUrl ? (
+                  <div className="relative aspect-[4/3] w-full min-h-52 sm:min-h-60">
+                    <img
+                      src={imageUrl}
+                      alt={name}
+                      loading="lazy"
+                      decoding="async"
+                      className="absolute inset-0 h-full w-full object-cover object-[center_20%]"
+                    />
+                    <div
+                      className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-black/5"
+                      aria-hidden
+                    />
+                    <span className="absolute end-3 top-3 inline-flex items-center gap-1 rounded-full bg-black/45 px-2.5 py-1 text-xs font-medium text-white backdrop-blur-sm sm:text-sm">
+                      {hideLabel}
+                      <ChevronDown className="size-4 rotate-180" aria-hidden />
+                    </span>
+                    <div className="absolute inset-x-0 bottom-0 p-4 pt-10">
+                      <p className="font-heading text-base font-bold leading-snug text-white sm:text-lg">{name}</p>
+                      {tagline && (
+                        <p className="mt-1 text-xs leading-snug text-white/85 sm:text-sm">{tagline}</p>
+                      )}
+                    </div>
+                  </div>
+                ) : (
+                  <div className="flex items-start justify-between gap-3 p-4">
+                    <div className="min-w-0">
+                      <p className="text-sm font-semibold leading-snug text-foreground">{name}</p>
+                      {tagline && (
+                        <p className="mt-1 text-xs leading-snug text-muted-foreground">{tagline}</p>
+                      )}
+                    </div>
+                    <span className="inline-flex shrink-0 items-center gap-1 text-xs font-medium text-primary sm:text-sm">
+                      {hideLabel}
+                      <ChevronDown className="size-4 rotate-180" aria-hidden />
+                    </span>
+                  </div>
+                )}
               </div>
             </div>
           </button>
+
           <div
             className={cn(
-              "grid transition-[grid-template-rows,opacity,margin] duration-300 ease-out",
-              open ? "mt-2 grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
+              "grid transition-[grid-template-rows,opacity,margin] duration-500 ease-out",
+              open ? "mt-3 grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
             )}
           >
             <div className="overflow-hidden">
-              <p className="px-2 text-sm leading-relaxed text-muted-foreground">{bio}</p>
+              <p className="px-1 text-sm leading-relaxed text-muted-foreground">{bio}</p>
             </div>
           </div>
         </>
       ) : (
         <div className="flex items-start gap-3 p-2">
-          <SpeakerAvatar name={name} imageUrl={imageUrl} />
+          {imageUrl && (
+            <img
+              src={imageUrl}
+              alt={name}
+              loading="lazy"
+              decoding="async"
+              className="size-14 shrink-0 rounded-lg border border-border object-cover"
+            />
+          )}
           <div className="min-w-0 flex-1">
             <p className="text-sm font-semibold leading-snug text-foreground">{name}</p>
             {tagline && (
