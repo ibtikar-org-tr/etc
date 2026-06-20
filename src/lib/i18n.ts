@@ -153,6 +153,7 @@ export const dict: Record<Lang, Dict> = {
           title: "البيانات الحيوية وتغيير مستقبل علاج الأمراض",
           desc: "محاضرة نظريّة حول دور البيانات الحيوية في تطوير فهم الأمراض وإعادة تشكيل مستقبل العلاج.",
           speaker: "إسراء موالدي",
+          speakerImage: "isra-mavaldi.jpeg",
           speakerTagline: "باحثة في تحليل البيانات الطبية — جامعة يلدز التقنية",
           speakerBio:
             "باحثة في علوم تحليل البيانات الطبية، حاصلة على البكالوريوس والماجستير في الهندسة الحيوية من جامعة يلدز التقنية.",
@@ -242,6 +243,7 @@ export const dict: Record<Lang, Dict> = {
               title: "تحليل الأعراض الطبية واستخلاص الأنماط باستخدام لغة R",
               desc: "ورشة تطبيقيّة لتحليل الأعراض الطبية واستخلاص الأنماط باستخدام لغة R.",
               speaker: "إسراء موالدي",
+              speakerImage: "isra-mavaldi.jpeg",
               speakerTagline: "باحثة في تحليل البيانات الطبية — جامعة يلدز التقنية",
               speakerBio:
                 "باحثة في علوم تحليل البيانات الطبية، حاصلة على البكالوريوس والماجستير في الهندسة الحيوية من جامعة يلدز التقنية.",
@@ -407,6 +409,7 @@ export const dict: Record<Lang, Dict> = {
           title: "Biyoinformatik ve Hastalık Tedavisinin Geleceğini Değiştirmek",
           desc: "Hastalıkların anlaşılması ve tedavinin geleceğinin yeniden şekillendirilmesinde biyoinformatiğin rolü.",
           speaker: "Esra Mevludi",
+          speakerImage: "isra-mavaldi.jpeg",
           speakerTagline: "Tıbbi veri analizi araştırmacısı — YTÜ",
           speakerBio:
             "Tıbbi veri analizi bilimleri alanında araştırmacı; Yıldız Teknik Üniversitesi Biyomühendislik lisans ve yüksek lisans mezunu.",
@@ -496,6 +499,7 @@ export const dict: Record<Lang, Dict> = {
               title: "R ile Tıbbi Semptom Analizi ve Örüntü Çıkarımı",
               desc: "R programlama dili kullanarak tıbbi semptomları analiz etme ve örüntüleri çıkarma atölyesi.",
               speaker: "Esra Mevludi",
+              speakerImage: "isra-mavaldi.jpeg",
               speakerBio:
                 "Tıbbi veri analizi bilimleri alanında araştırmacı; Yıldız Teknik Üniversitesi Biyomühendislik lisans ve yüksek lisans mezunu.",
               tags: ["health-tech", "r-programming", "python", "analytics"],
@@ -660,6 +664,7 @@ export const dict: Record<Lang, Dict> = {
           title: "Bioinformatics & Changing the Future of Disease Treatment",
           desc: "A theoretical lecture on the role of bioinformatics in understanding disease and reshaping the future of treatment.",
           speaker: "Esra Mevludi",
+          speakerImage: "isra-mavaldi.jpeg",
           speakerTagline: "Medical data analysis researcher — YTU",
           speakerBio:
             "Researcher in medical data analysis sciences; holds bachelor's and master's degrees in bioengineering from Yildiz Technical University.",
@@ -749,6 +754,7 @@ export const dict: Record<Lang, Dict> = {
               title: "Medical Symptom Analysis & Pattern Extraction with R",
               desc: "A hands-on workshop on analyzing medical symptoms and extracting patterns using the R language.",
               speaker: "Esra Mevludi",
+              speakerImage: "isra-mavaldi.jpeg",
               speakerTagline: "Medical data analysis researcher — YTU",
               speakerBio:
                 "Researcher in medical data analysis sciences; holds bachelor's and master's degrees in bioengineering from Yildiz Technical University.",

@@ -15,6 +15,7 @@ export const SPEAKER_IMAGE_SLUGS = {
   masaSoudan: "masa-soudan",
   omarAlKhamis: "omar-al-khamis",
   osamaShbib: "osama-shbib.jpeg",
+  israMavaldi: "isra-mavaldi.jpeg",
   hazemKhulousi: "hazem-khulousi",
   moustafaIsmail: "moustafa-ismail",
 } as const
