@@ -6,6 +6,7 @@ export function speakerImageUrl(slug: string) {
 
 /** Slugs match filenames under SPEAKER_IMAGE_BASE (without .jpg). */
 export const SPEAKER_IMAGE_SLUGS = {
+  abdulkarimLahmuni: "abdulkarim-lahmuni",
   firasQarahsan: "firas-qarahsan",
   abdurrahmanIsmail: "abdurrahman-ismail",
   muhammadIqbal: "m.ikbal",

@@ -17,6 +17,7 @@ type Track = {
   speakerImage?: string
   panel?: {
     moderator: string
+    moderatorImage?: string
     guests: { name: string; bio?: string; tagline?: string; imageSlug?: string }[]
   }
 }
@@ -173,7 +174,8 @@ export const dict: Record<Lang, Dict> = {
           duration: "45 دقيقة",
           tags: ["ethics", "panel"],
           panel: {
-            moderator: "عبدالكريم",
+            moderator: "عبدالكريم لهموّني",
+            moderatorImage: "abdulkarim-lahmuni",
             guests: [
               { name: "عبدالرحمن رجب" },
               {
@@ -409,7 +411,8 @@ export const dict: Record<Lang, Dict> = {
           duration: "45 dk",
           tags: ["ethics", "panel"],
           panel: {
-            moderator: "Abdulkarim",
+            moderator: "Abdulkarim Lahmuni",
+            moderatorImage: "abdulkarim-lahmuni",
             guests: [
               { name: "Abdurrahman Rajab" },
               {
