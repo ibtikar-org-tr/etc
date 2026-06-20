@@ -36,6 +36,14 @@ export function Topics() {
                 </div>
                 <h3 className="mt-5 font-heading text-lg font-bold leading-snug text-balance">{item.title}</h3>
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
+                {item.speaker && (
+                  <div className="mt-4 border-t border-border/60 pt-4">
+                    <p className="text-sm font-semibold text-foreground">{item.speaker}</p>
+                    {item.speakerBio && (
+                      <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{item.speakerBio}</p>
+                    )}
+                  </div>
+                )}
                 <div className="mt-4 flex flex-wrap gap-1.5">
                   {item.tags?.map((tag) => (
                     <span

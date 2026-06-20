@@ -11,6 +11,8 @@ type Track = {
   desc: string
   duration?: string
   tags?: string[]
+  speaker?: string
+  speakerBio?: string
 }
 
 export type Dict = {
@@ -125,7 +127,15 @@ export const dict: Record<Lang, Dict> = {
           tags: ["agentic-ai", "automation"],
         },
         { title: "التقنيات في المجال الصحّي", desc: "عناوين مقترحة في المجال الصحّي — التفاصيل قيد التحديد.", duration: "45 دقيقة", tags: ["health-tech"] },
-        { title: "إنترنت الأشياء — تقنيات ذكيّة لمجتمع صاعد", desc: "محاضرة نظريّة تستكشف كيف تبني الأجهزة المتّصلة بنية تحتيّة ذكيّة تخدم المجتمعات الصاعدة.", duration: "45 دقيقة", tags: ["IoT", "smart-city"] },
+        {
+          title: "إنترنت الأشياء",
+          desc: "محاضرة نظريّة تستكشف كيف تبني الأجهزة المتّصلة بنية تحتيّة ذكيّة تخدم المجتمعات الصاعدة.",
+          speaker: "فراس قراحسن",
+          speakerBio:
+            "مهندس كهرباء ورائد أعمال بخبرة تمتد لأكثر من 10 سنوات في قطاع التكنولوجيا وأنظمة التتبع وإدارة الأسطول. يقود شركة menamatix في تطوير حلول برمجية ذكية تساعد الشركات على تحسين كفاءة النقل، متابعة المركبات، وأتمتة العمليات التشغيلية.",
+          duration: "45 دقيقة",
+          tags: ["IoT", "smart-city"],
+        },
         { title: "السيادة الرقميّة والتهديد القومي — هل نقلق أم نحذر", desc: "نقاش حول البيانات والبنية التحتية الرقمية والأمن القومي في عالمٍ مترابط.", duration: "45 دقيقة", tags: ["sovereignty", "security"] },
         { title: "برمجيّات ملطّخة بالدم — هل نحن شركاء في الجريمة", desc: "جلسة نقاشيّة حول أخلاقيّات البرمجة ومسؤوليّة المطوّر في عالمٍ تتقاطع فيه التقنية مع القيم الإنسانيّة.", duration: "45 دقيقة", tags: ["ethics", "panel"] },
       ],
@@ -283,7 +293,15 @@ export const dict: Record<Lang, Dict> = {
           tags: ["agentic-ai", "automation"],
         },
         { title: "Sağlık Alanında Teknolojiler", desc: "Sağlık alanında önerilen başlıklar — detaylar belirlenecek.", duration: "45 dk", tags: ["health-tech"] },
-        { title: "Nesnelerin İnterneti — Yükselen Toplumlar İçin Akıllı Teknolojiler", desc: "Bağlı cihazların yükselen toplumlar için akıllı altyapı kurması.", duration: "45 dk", tags: ["IoT", "smart-city"] },
+        {
+          title: "Nesnelerin İnterneti",
+          desc: "Bağlı cihazların yükselen toplumlar için akıllı altyapı kurması.",
+          speaker: "Firas Qarahsan",
+          speakerBio:
+            "Teknoloji, takip sistemleri ve filo yönetiminde 10 yılı aşkın deneyime sahip elektrik mühendisi ve girişimci. menamatix'te şirketlerin ulaşım verimliliğini artırmasına, araçları izlemesine ve operasyonel süreçleri otomatikleştirmesine yardımcı olan akıllı yazılım çözümleri geliştiriyor.",
+          duration: "45 dk",
+          tags: ["IoT", "smart-city"],
+        },
         { title: "Dijital Egemenlik ve Ulusal Tehdit — Endişe mi, Dikkat mi?", desc: "Veri, dijital altyapı ve ulusal güvenlik üzerine tartışma.", duration: "45 dk", tags: ["sovereignty", "security"] },
         { title: "Kanla Lekelenmiş Yazılım — Suç Ortağı mıyız?", desc: "Yazılım etiği ve geliştirici sorumluluğu üzerine panel.", duration: "45 dk", tags: ["ethics", "panel"] },
       ],
@@ -441,7 +459,15 @@ export const dict: Record<Lang, Dict> = {
           tags: ["agentic-ai", "automation"],
         },
         { title: "Technologies in Healthcare", desc: "Proposed topics in healthcare — details to be confirmed.", duration: "45 min", tags: ["health-tech"] },
-        { title: "IoT — Smart Tech for a Rising Society", desc: "How connected devices build intelligent infrastructure for emerging communities.", duration: "45 min", tags: ["IoT", "smart-city"] },
+        {
+          title: "Internet of Things",
+          desc: "How connected devices build intelligent infrastructure for emerging communities.",
+          speaker: "Firas Qarahsan",
+          speakerBio:
+            "Electrical engineer and entrepreneur with over 10 years of experience in technology, tracking systems, and fleet management. He leads menamatix in developing smart software solutions that help companies improve transport efficiency, track vehicles, and automate operational processes.",
+          duration: "45 min",
+          tags: ["IoT", "smart-city"],
+        },
         { title: "Digital Sovereignty & National Threat — Worry or Beware?", desc: "A discussion on data, digital infrastructure, and national security in a connected world.", duration: "45 min", tags: ["sovereignty", "security"] },
         { title: "Blood-Stained Software — Are We Accomplices?", desc: "A panel discussion on software ethics and developer responsibility.", duration: "45 min", tags: ["ethics", "panel"] },
       ],
