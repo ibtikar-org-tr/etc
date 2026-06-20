@@ -177,7 +177,12 @@ export const dict: Record<Lang, Dict> = {
             moderator: "عبدالكريم لهموّني",
             moderatorImage: "abdulkarim-lahmuni",
             guests: [
-              { name: "عبدالرحمن رجب", imageSlug: "abdurrahman-rajab.jpeg" },
+              {
+                name: "عبدالرحمن رجب",
+                imageSlug: "abdurrahman-rajab.jpeg",
+                tagline: "مهندس برمجيات — بودكاست Hadith Tech — بناء مجتمعات",
+                bio: "مهندس حاسوب شغوف بحلّ المشكلات المعقّدة وبناء المجتمعات. مهندس برمجيات ومقدّم بودكاست Hadith Tech وبنّاء مجتمعات. تعلّم البرمجة خلال الجامعة، ثم تبنّى فكرة علوم الحاسوب الشاملة عبر البودكاست الذي يقدّمه. عمل مع الفئات الأقل حظًا، والتقنيات الناشئة، والواقع الافتراضي، وبناء المجتمعات. تطوّع مع عدة منظمات غير حكومية في منطقة الشرق الأوسط وشمال أفريقيا، وساعد في تمكينها من التقنيات. يرحّب بالتحديات التي تمكّن الناس وتدفع التقنيات قدمًا حول العالم.",
+              },
               {
                 name: "عبد الرحمن إسماعيل",
                 imageSlug: "abdurrahman-ismail",
@@ -415,7 +420,12 @@ export const dict: Record<Lang, Dict> = {
             moderator: "Abdulkarim Lahmuni",
             moderatorImage: "abdulkarim-lahmuni",
             guests: [
-              { name: "Abdurrahman Rajab", imageSlug: "abdurrahman-rajab.jpeg" },
+              {
+                name: "Abdurrahman Rajab",
+                imageSlug: "abdurrahman-rajab.jpeg",
+                tagline: "Yazılım mühendisi — Hadith Tech podcast — Topluluk oluşturucu",
+                bio: "Karmaşık sorunları çözmeyi ve topluluklar inşa etmeyi seven bir bilgisayar mühendisi. Yazılım mühendisi, Hadith Tech podcast sunucusu ve topluluk oluşturucu. Programlamayı üniversitede öğrendi ve ardından sunduğu podcast aracılığıyla kapsayıcı bilgisayar bilimlerini benimsedi. Kariyeri boyunca dezavantajlı gruplarla, yükselen teknolojilerle, sanal gerçeklikle ve topluluk inşasıyla çalıştı. MENA bölgesindeki birçok STK'da gönüllü olarak teknolojiden yararlanmalarına yardımcı oldu. İnsanları güçlendiren ve teknolojiyi dünya çapında ilerleten yeni zorluklara açıktır.",
+              },
               {
                 name: "Abdurrahman Ismail",
                 imageSlug: "abdurrahman-ismail",
@@ -652,7 +662,12 @@ export const dict: Record<Lang, Dict> = {
             moderator: "Abdulkarim Lahmuni",
             moderatorImage: "abdulkarim-lahmuni",
             guests: [
-              { name: "Abdurrahman Rajab", imageSlug: "abdurrahman-rajab.jpeg" },
+              {
+                name: "Abdurrahman Rajab",
+                imageSlug: "abdurrahman-rajab.jpeg",
+                tagline: "Software engineer — Hadith Tech podcast — Community builder",
+                bio: "A computer engineer passionate about solving complex problems and building communities. Software engineer, host of the Hadith Tech podcast, and community builder. He learned programming at university and has since championed inclusive computer science through his podcast. His work spans underserved communities, emerging technologies, virtual reality, and community building. He has volunteered with several NGOs across the MENA region, helping them leverage technology. He welcomes new challenges that empower people and advance technology worldwide.",
+              },
               {
                 name: "Abdurrahman Ismail",
                 imageSlug: "abdurrahman-ismail",
