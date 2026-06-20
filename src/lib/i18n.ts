@@ -164,11 +164,16 @@ export const dict: Record<Lang, Dict> = {
         {
           title: "من الطائرة إلى المنظومة: هندسة الأنظمة المسيرة",
           desc: "محاضرة نظريّة حول هندسة الأنظمة المسيرة وانتقالها من منصّات الطيران إلى منظومات متكاملة قابلة للتوسّع.",
+          speaker: "حازم خلوصي",
+          speakerImage: "hazem-khulousi",
+          speakerTagline: "مهندس طيران — ESEN · METU",
+          speakerBio:
+            "مهندس ميكانيكا طيران وأنظمة تحكم، وطالب دكتوراه في هندسة الطيران والفضاء في جامعة الشرق الأوسط التقنية (METU) في أنقرة. حصل على درجتي البكالوريوس والماجستير في هندسة الطيران والفضاء من الجامعة نفسها، وكانت رسالة الماجستير حول تطوير أنظمة الهبوط الذاتي لطائرات الإقلاع والهبوط العمودي (VTOL) على المنصات البحرية المتحركة. وتتركز دراساته الحالية في مرحلة الدكتوراه على الأنظمة الجوية الذاتية، وديناميكا الطيران، وأنظمة التحكم المتقدمة للطائرات المأهولة وغير المأهولة. يعمل مهندس ميكانيكا طيران في شركة ESEN System Integration، ويتخصص في ديناميكا الطيران، وأنظمة التوجيه والملاحة والتحكم (GNC)، وتطوير الخوارزميات الخاصة بالطائرات ثابتة الجناح وطائرات الإقلاع والهبوط العمودي (VTOL) والأنظمة الجوية غير المأهولة. تركز أبحاثه وأعماله على الأنظمة الجوية الذاتية، والتحكم المتقدم، وهبوط طائرات VTOL على المنصات المتحركة، وقد نشر عدة أبحاث علمية في هذا المجال.",
           duration: "45 دقيقة",
           tags: ["drones", "systems-engineering"],
         },
         {
-          title: "انترنت الأشياء: الثورة الصامتة التي لم نستعد لها بعد",
+          title: "انترنت الأشياء الثورة الصامتة التي لم نستعد لها بعد",
           desc: "محاضرة نظريّة تستكشف كيف تبني الأجهزة المتّصلة بنية تحتيّة ذكيّة تخدم المجتمعات الصاعدة، والتحدّيات التي لم نستعد لها بعد.",
           speaker: "فراس قراحسن",
           speakerImage: "firas-qarahsan",
@@ -250,7 +255,7 @@ export const dict: Record<Lang, Dict> = {
         { time: "11:45 – 12:30", title: "من الطائرة إلى المنظومة: هندسة الأنظمة المسيرة", lecture: true },
         { time: "12:30 – 13:00", title: "كلمة إدارة ابتكار", highlight: true },
         { time: "13:00 – 14:00", title: "استراحة غداء وصلاة", highlight: true },
-        { time: "14:00 – 14:45", title: "انترنت الأشياء: الثورة الصامتة التي لم نستعد لها بعد", lecture: true },
+        { time: "14:00 – 14:45", title: "انترنت الأشياء الثورة الصامتة التي لم نستعد لها بعد", lecture: true },
         { time: "14:45 – 15:30", title: "برمجيّات ملطّخة بالدم", lecture: true },
         { time: "15:30 – 16:15", title: "استخدام الذكاء الاصطناعي الوكيل في المجال البنكي", lecture: true },
         { time: "16:15 – 16:30", title: "مسابقة انضمام", highlight: true },
@@ -451,6 +456,11 @@ export const dict: Record<Lang, Dict> = {
         {
           title: "Uçaktan Sisteme: İnsansız Sistem Mühendisliği",
           desc: "İnsansız sistem mühendisliği ve hava platformlarından ölçeklenebilir bütünleşik sistemlere geçiş.",
+          speaker: "Hazem Khulousi",
+          speakerImage: "hazem-khulousi",
+          speakerTagline: "Havacılık mühendisi — ESEN · ODTÜ",
+          speakerBio:
+            "Havacılık ve kontrol sistemleri mühendisi; Ankara'da Orta Doğu Teknik Üniversitesi'nde (ODTÜ) havacılık ve uzay mühendisliği doktora adayı. ODTÜ'den havacılık ve uzay mühendisliği lisans ve yüksek lisans derecelerine sahip; yüksek lisans tezi hareketli deniz platformlarında VTOL uçaklar için otonom iniş sistemleri üzerineydi. Doktora çalışmaları otonom hava sistemleri, uçuş dinamiği ve insanlı/insansız hava araçları için ileri kontrol üzerine odaklanıyor. ESEN System Integration'da havacılık mühendisi olarak çalışıyor; uçuş dinamiği, GNC sistemleri ve sabit kanat, VTOL ve insansız hava sistemleri algoritmalarında uzmanlaşmış. Otonom hava sistemleri, ileri kontrol ve hareketli platformlarda VTOL inişi üzerine birçok bilimsel yayını bulunuyor.",
           duration: "45 dk",
           tags: ["drones", "systems-engineering"],
         },
@@ -737,6 +747,11 @@ export const dict: Record<Lang, Dict> = {
         {
           title: "From Aircraft to System: Uncrewed Systems Engineering",
           desc: "A theoretical lecture on uncrewed systems engineering and the shift from aerial platforms to scalable integrated systems.",
+          speaker: "Hazem Khulousi",
+          speakerImage: "hazem-khulousi",
+          speakerTagline: "Aerospace engineer — ESEN · METU",
+          speakerBio:
+            "Aerospace and control systems engineer; PhD candidate in aerospace engineering at Middle East Technical University (METU) in Ankara. Holds bachelor's and master's degrees in aerospace engineering from METU; his master's thesis focused on autonomous landing systems for VTOL aircraft on moving marine platforms. His doctoral research focuses on autonomous aerial systems, flight dynamics, and advanced control for manned and unmanned aircraft. Works as an aerospace engineer at ESEN System Integration, specializing in flight dynamics, GNC systems, and algorithms for fixed-wing, VTOL, and uncrewed aerial systems. His research spans autonomous aerial systems, advanced control, and VTOL landing on moving platforms, with several published papers in the field.",
           duration: "45 min",
           tags: ["drones", "systems-engineering"],
         },
