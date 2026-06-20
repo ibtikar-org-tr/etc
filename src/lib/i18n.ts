@@ -278,7 +278,7 @@ export const dict: Record<Lang, Dict> = {
               title: "مدخل إلى الذكاء الاصطناعي مفتوح المصدر",
               desc: "استخدام نماذج من Hugging Face لفهم دور النماذج المدرّبة مسبقًا في تأدية المهام.",
               speaker: "محمد إقبال",
-              speakerImage: "m.ikbal",
+              speakerImage: "m.ikbal.jpg",
               speakerTagline: "مهندس طيران — ESEN · METU",
               speakerBio:
                 "مهندس ميكانيكا طيران وأنظمة تحكم، وطالب دكتوراه في هندسة الطيران والفضاء في جامعة الشرق الأوسط التقنية (METU) في أنقرة. حاصل على البكالوريوس والماجستير في هندسة الطيران والفضاء من الجامعة نفسها، وكانت رسالة الماجستير حول تطوير أنظمة الهبوط الذاتي لطائرات VTOL على المنصات البحرية المتحركة. يعمل مهندس ميكانيكا طيران في ESEN System Integration، ويتخصص في ديناميكا الطيران وأنظمة التوجيه والملاحة والتحكم (GNC) وتطوير خوارزميات الطائرات ثابتة الجناح وVTOL والأنظمة الجوية غير المأهولة، ونشر عدة أبحاث في الأنظمة الجوية الذاتية والتحكم المتقدم.",
@@ -528,7 +528,7 @@ export const dict: Record<Lang, Dict> = {
               title: "Açık Kaynak Yapay Zekaya Giriş",
               desc: "Görevleri yerine getirmede önceden eğitilmiş modellerin rolünü anlamak için Hugging Face modelleri.",
               speaker: "Muhammad Iqbal",
-              speakerImage: "m.ikbal",
+              speakerImage: "m.ikbal.jpg",
               speakerTagline: "Havacılık mühendisi — ESEN · ODTÜ",
               speakerBio:
                 "Havacılık ve uzay mühendisliği doktora adayı (ODTÜ, Ankara); havacılık mekaniği mühendisi. ESEN System Integration'da çalışıyor; aerodinamik, GNC sistemleri ve VTOL/İHA algoritmaları üzerine uzmanlaşmış.",
@@ -779,7 +779,7 @@ export const dict: Record<Lang, Dict> = {
               title: "Introduction to Open-Source AI",
               desc: "Using Hugging Face models to understand the role of pre-trained models in performing tasks.",
               speaker: "Muhammad Iqbal",
-              speakerImage: "m.ikbal",
+              speakerImage: "m.ikbal.jpg",
               speakerTagline: "Aerospace engineer — ESEN · METU",
               speakerBio:
                 "Aerospace and control systems engineer; PhD candidate in aerospace engineering at METU, Ankara. Works at ESEN System Integration, specializing in aerodynamics, GNC systems, and fixed-wing, VTOL, and UAV algorithms.",
