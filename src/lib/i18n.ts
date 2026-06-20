@@ -277,6 +277,9 @@ export const dict: Record<Lang, Dict> = {
               title: "ورشة عمل في مهارات الأمن السّيبراني",
               desc: "تطبيق سيناريوهات محاكاة لاختبار الاختراق وفحص الثغرات الشائعة، بالإضافة إلى تجربة استغلال هذه الثغرات.",
               speaker: "أحمد شمس الدين",
+              speakerTagline: "مطوّر برمجيات — اختبار اختراق · DevOps",
+              speakerBio:
+                "مطوّر برمجيات متخصص في أنظمة الخلفية القابلة للتوسّع وممارسات DevOps وأنظمة التحكم بالإصدارات. طالب هندسة برمجيات في İstanbul Aydın University (تبادل Erasmus+ في VSB Ostrava). حاصل على شهادات eJPT وINE Junior Penetration Tester وHackviser CAPT؛ ضمن أفضل 10 في BEING-WISE CTF. خبرة في EARTech وBluLogix وHesco Engineering Services وMevhibe Teknoloji.",
               tags: ["security", "pentest"],
             },
             {
@@ -531,7 +534,10 @@ export const dict: Record<Lang, Dict> = {
             {
               title: "Siber Güvenlik Becerileri Atölyesi",
               desc: "Sızma testi simülasyon senaryoları, yaygın zafiyetlerin taranması ve istismar deneyimi.",
-              speaker: "Ahmed Shams al-Din",
+              speaker: "Ahmad Shamsddin",
+              speakerTagline: "Yazılım Geliştirici — Sızma Testi · DevOps",
+              speakerBio:
+                "Ölçeklenebilir arka uç sistemler, DevOps ve sürüm kontrolü konularında uzmanlaşmış yazılım geliştirici. İstanbul Aydın Üniversitesi yazılım mühendisliği öğrencisi (VSB Ostrava Erasmus+). eJPT, INE Junior Penetration Tester ve Hackviser CAPT sertifikalarına sahip; BEING-WISE CTF ilk 10. EARTech, BluLogix, Hesco Engineering Services ve Mevhibe Teknoloji deneyimi.",
               tags: ["security", "pentest"],
             },
             {
@@ -787,7 +793,10 @@ export const dict: Record<Lang, Dict> = {
             {
               title: "Cybersecurity Skills Workshop",
               desc: "Simulating penetration testing scenarios, scanning common vulnerabilities, and experiencing exploitation techniques.",
-              speaker: "Ahmed Shams al-Din",
+              speaker: "Ahmad Shamsddin",
+              speakerTagline: "Software Developer — Penetration Testing · DevOps",
+              speakerBio:
+                "Software developer specializing in scalable back-end systems, DevOps, and version control. Bachelor's student in software engineering at Istanbul Aydin University (Erasmus+ at VSB Ostrava). Certified in penetration testing (eJPT, INE Junior Penetration Tester, Hackviser CAPT); BEING-WISE CTF top 10. Experience at EARTech, BluLogix, Hesco Engineering Services, and Mevhibe Teknoloji.",
               tags: ["security", "pentest"],
             },
             {
