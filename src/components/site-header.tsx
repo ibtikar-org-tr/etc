@@ -37,24 +37,67 @@ export function SiteHeader() {
 
   useGSAP(
     () => {
-      if (prefersReducedMotion()) return
-
-      gsap.from(".header-brand", revealTween({ opacity: 0, x: -24, duration: 0.7, ease: "power3.out" }))
-      gsap.from(".header-nav-link", revealTween({
-        opacity: 0,
-        y: -12,
-        duration: 0.5,
-        stagger: 0.07,
-        delay: 0.15,
-      }))
-      gsap.from(".header-action", revealTween({
-        opacity: 0,
-        x: 20,
+      const scope = headerRef.current
+      const animated = ".header-brand,.header-nav-link,.header-action"
+      const isVisible = (el: HTMLElement) => window.getComputedStyle(el).display !== "none"
+      const actionReveal = revealTween({
+        opacity: 1,
+        x: 0,
         duration: 0.6,
         stagger: 0.08,
         delay: 0.2,
         ease: "power3.out",
-      }))
+        clearProps: "opacity,transform",
+      })
+
+      if (prefersReducedMotion()) {
+        gsap.set(animated, { opacity: 1, x: 0, y: 0, clearProps: "opacity,transform" })
+        return
+      }
+
+      gsap.fromTo(
+        ".header-brand",
+        { opacity: 0, x: -24 },
+        revealTween({ opacity: 1, x: 0, duration: 0.7, ease: "power3.out", clearProps: "opacity,transform" }),
+      )
+      gsap.fromTo(
+        ".header-nav-link",
+        { opacity: 0, y: -12 },
+        revealTween({
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          stagger: 0.07,
+          delay: 0.15,
+          clearProps: "opacity,transform",
+        }),
+      )
+
+      const visibleActions = gsap.utils
+        .toArray<HTMLElement>(".header-action", scope)
+        .filter(isVisible)
+      if (visibleActions.length) {
+        gsap.fromTo(visibleActions, { opacity: 0, x: 20 }, actionReveal)
+      }
+
+      const mm = gsap.matchMedia()
+      mm.add("(min-width: 640px)", () => {
+        const register = scope?.querySelector<HTMLElement>(".header-action-register")
+        if (!register || !isVisible(register) || visibleActions.includes(register)) return
+
+        gsap.fromTo(
+          register,
+          { opacity: 0, x: 20 },
+          revealTween({
+            opacity: 1,
+            x: 0,
+            duration: 0.6,
+            delay: 0.36,
+            ease: "power3.out",
+            clearProps: "opacity,transform",
+          }),
+        )
+      })
 
       ScrollTrigger.create({
         start: 60,
@@ -62,6 +105,8 @@ export function SiteHeader() {
         onEnter: () => headerRef.current?.classList.add("header-scrolled"),
         onLeaveBack: () => headerRef.current?.classList.remove("header-scrolled"),
       })
+
+      return () => mm.revert()
     },
     { scope: headerRef, dependencies: [lang, page], revertOnUpdate: true },
   )
@@ -158,7 +203,7 @@ export function SiteHeader() {
               href={REGISTRATION_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="header-action hidden rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 sm:inline-block"
+              className="header-action header-action-register hidden rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 sm:inline-block"
             >
               {t.nav.register}
             </a>
