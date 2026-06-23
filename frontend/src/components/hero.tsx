@@ -127,13 +127,13 @@ export function Hero() {
         <div ref={factsRef} className="hero-facts mt-10 lg:mt-14">
           <div className="grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-border bg-border min-[380px]:grid-cols-3 lg:grid-cols-3">
           {facts.map((f) => (
-            <div key={f.label} className="hero-fact flex items-center gap-3 bg-card p-3.5 sm:p-4 lg:p-5">
-              <div className="grid size-9 shrink-0 place-items-center rounded-lg bg-primary/10 text-primary sm:size-10">
-                <f.icon className="size-4 sm:size-5" />
+            <div key={f.label} className="hero-fact flex items-center gap-4 bg-card p-4 sm:gap-4 sm:p-5 lg:p-6">
+              <div className="grid size-11 shrink-0 place-items-center rounded-lg bg-primary/10 text-primary sm:size-12">
+                <f.icon className="size-5 sm:size-6" />
               </div>
               <div className="min-w-0">
-                <div className="text-xs text-muted-foreground">{f.label}</div>
-                <div className="text-sm font-semibold leading-snug text-balance">{f.value}</div>
+                <div className="text-sm text-muted-foreground sm:text-base">{f.label}</div>
+                <div className="text-base font-bold leading-snug text-balance sm:text-lg">{f.value}</div>
               </div>
             </div>
           ))}

@@ -141,7 +141,7 @@ export function SiteHeader() {
             className="shrink-0 transition-opacity hover:opacity-80"
             aria-label="Ibtikar Assembly"
           >
-            <IbtikarLogo className="h-5 w-auto max-[359px]:max-w-[4.5rem] sm:h-8 sm:max-w-none" />
+            <IbtikarLogo className="h-8 w-auto max-[359px]:max-w-[6.5rem] sm:h-10 sm:max-w-none lg:h-11" />
           </a>
         </div>
 
