@@ -13,7 +13,7 @@ export const SPEAKER_IMAGE_SLUGS = {
   abdurrahmanIsmail: "abdurrahman-ismail",
   muhammadIqbal: "m.ikbal",
   masaSoudan: "masa-soudan",
-  omarAlKhamis: "omar-al-khamis",
+  omarKhamis: "omar-al-khamis",
   osamaShbib: "osama-shbib.jpeg",
   israMavaldi: "isra-mavaldi.jpeg",
   hazemKhulousi: "hazem-khulousi",

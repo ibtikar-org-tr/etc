@@ -209,7 +209,7 @@ export const dict: Record<Lang, Dict> = {
                 bio: "مبرمج ومدير تقني يمتلك خبرة تزيد على 12 عامًا في مجال تطوير البرمجيات، ويعمل حاليًا ضمن الفريق التقني في مجموعة مطارات مانشستر (Manchester Airport Group). إلى جانب عمله المهني، يقدّم محتوى تقنيًا متخصصًا في البرمجة والتقنيات الحديثة والذكاء الاصطناعي، مع التركيز على تبسيط المفاهيم ومشاركة الخبرات العملية. يهتم ببناء التطبيقات المعتمدة على الذكاء الاصطناعي، ويشارك من خلال محتواه نصائح وأفكارًا وتجارب عملية تساعد المطورين ورواد الأعمال على الاستفادة من أدوات الـ AI بأفضل صورة ممكنة لزيادة الإنتاجية وتسريع بناء المنتجات الرقمية.",
               },
               {
-                name: "عمر الخميس",
+                name: "عمر خميس",
                 imageSlug: "omar-al-khamis",
                 tagline: "مهندس طيران — TUSAŞ · İTÜ",
                 bio: "مهندس طيران بشركة توساش للصناعات الدفاعية. طالب ماجستير بجامعة اسطنبول التقنية. بكالوريوس هندسة طيران من جامعة اسطنبول التقنية.",
@@ -501,7 +501,7 @@ export const dict: Record<Lang, Dict> = {
                 bio: "12 yılı aşkın yazılım geliştirme deneyimine sahip programcı ve teknik lider; Manchester Airport Group'ta teknik ekipte çalışıyor. Programlama, modern teknolojiler ve yapay zeka alanında uzmanlaşmış teknik içerik üretiyor; kavramları sadeleştirmeye ve pratik deneyimler paylaşmaya odaklanıyor. YZ destekli uygulamalar geliştiriyor ve geliştiricilere ve girişimcilere YZ araçlarından en iyi şekilde yararlanarak verimliliği artırma konusunda pratik ipuçları sunuyor.",
               },
               {
-                name: "Omar Al-Khamis",
+                name: "Omar Khamis",
                 imageSlug: "omar-al-khamis",
                 tagline: "Havacılık mühendisi — TUSAŞ · İTÜ",
                 bio: "TUSAŞ'ta havacılık mühendisi; İstanbul Teknik Üniversitesi Havacılık Mühendisliği lisans mezunu ve yüksek lisans öğrencisi.",
@@ -792,7 +792,7 @@ export const dict: Record<Lang, Dict> = {
                 bio: "Programmer and technical lead with over 12 years of software development experience, currently on the technical team at Manchester Airport Group. He creates specialized technical content on programming, modern technologies, and AI, focusing on simplifying concepts and sharing practical expertise. He builds AI-powered applications and shares tips, ideas, and hands-on experiences that help developers and entrepreneurs get the most from AI tools to boost productivity and accelerate building digital products.",
               },
               {
-                name: "Omar Al-Khamis",
+                name: "Omar Khamis",
                 imageSlug: "omar-al-khamis",
                 tagline: "Aerospace engineer — TAI · ITU",
                 bio: "Aerospace engineer at TAI (Turkish Aerospace Industries); master's student at Istanbul Technical University with a bachelor's in aerospace engineering.",
