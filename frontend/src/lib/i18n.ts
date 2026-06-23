@@ -169,7 +169,7 @@ export const dict: Record<Lang, Dict> = {
         },
         {
           title: "استخدام الذكاء الاصطناعي في أنظمة الحماية للمجال البنكي",
-          desc: "تتمحور المحاضرة حول تطبيقات الذكاء الاصطناعي في أنظمة الحماية للقطاع المصرفي، وبناء أنظمة أمنية ذكية للمصادقة والحماية في بيئات مالية معقّدة.",
+          desc: "تتمحور المحاضرة حول الثغرات الحالية وأنظمة الحماية في المجال البنكي، وتقنيات الذكاء الاصطناعي الصاعدة لسد تلك الثغرات.",
           speaker: "مصطفى اسماعيل",
           speakerImage: "moustafa-ismail",
           speakerTagline: "طالب ماجستير هندسة حاسوب — ODTÜ",
@@ -523,7 +523,7 @@ export const dict: Record<Lang, Dict> = {
         },
         {
           title: "Bankacılıkta SiberGüvenlik Sistemlerinde Yapay Zeka",
-          desc: "Bankacılık sektöründe sibergüvenlik sistemlerinde yapay zekanın uygulamaları; karmaşık finansal ortamlarda akıllı güvenlik ve kimlik doğrulama sistemleri inşa etmek.",
+          desc: "Ders, bankacılık alanındaki mevcut güvenlik açıkları ve koruma sistemleri ile bu açıkları kapatmak için yükselen yapay zeka teknolojileri üzerine odaklanıyor.",
           speaker: "Mustafa İsmail",
           speakerImage: "moustafa-ismail",
           speakerTagline: "Bilgisayar mühendisliği yüksek lisans öğrencisi — ODTÜ",
@@ -876,7 +876,7 @@ export const dict: Record<Lang, Dict> = {
         },
         {
           title: "AI for Cybersecurity Systems in Banking",
-          desc: "Applications of artificial intelligence in cybersecurity systems for the banking sector; building intelligent security and authentication systems in complex financial environments.",
+          desc: "The lecture focuses on current vulnerabilities and protection systems in banking, and emerging AI techniques to close those gaps.",
           speaker: "Moustafa Ismail",
           speakerImage: "moustafa-ismail",
           speakerTagline: "MSc student in computer engineering — ODTÜ",
