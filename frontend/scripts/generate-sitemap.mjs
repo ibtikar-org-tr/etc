@@ -5,13 +5,13 @@ import { fileURLToPath } from "node:url"
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const origin = (process.env.VITE_SITE_URL ?? "https://etc.ibtikar.tr").replace(/\/$/, "")
 const langs = ["ar", "tr", "en"]
-const pages = ["", "/etc-2024", "/startups"]
+const pages = ["", "/etc-2024", "/2026/startups"]
 
 const urls = pages.flatMap((page) =>
   langs.map((lang) => {
     const loc = `${origin}/${lang}${page}`
-    const priority = page === "" ? (lang === "ar" ? "1.0" : "0.9") : page === "/startups" ? "0.8" : "0.7"
-    const changefreq = page === "" ? "weekly" : page === "/startups" ? "weekly" : "monthly"
+    const priority = page === "" ? (lang === "ar" ? "1.0" : "0.9") : page === "/2026/startups" ? "0.8" : "0.7"
+    const changefreq = page === "" ? "weekly" : page === "/2026/startups" ? "weekly" : "monthly"
     return `  <url>
     <loc>${loc}</loc>
     <changefreq>${changefreq}</changefreq>

@@ -32,17 +32,17 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://etc.ibtikar.tr/ar/startups</loc>
+    <loc>https://etc.ibtikar.tr/ar/2026/startups</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://etc.ibtikar.tr/tr/startups</loc>
+    <loc>https://etc.ibtikar.tr/tr/2026/startups</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://etc.ibtikar.tr/en/startups</loc>
+    <loc>https://etc.ibtikar.tr/en/2026/startups</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>

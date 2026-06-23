@@ -26,7 +26,7 @@ export function readLangFromUrl(): Lang {
 
 export function buildPath(lang: Lang, page: Page = "home"): string {
   if (page === "etc-2024") return `/${lang}/etc-2024`
-  if (page === "startups") return `/${lang}/startups`
+  if (page === "startups") return `/${lang}/2026/startups`
   return `/${lang}`
 }
 
