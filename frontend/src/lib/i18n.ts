@@ -253,7 +253,7 @@ export const dict: Record<Lang, Dict> = {
           title: "برمجة المسيّرات: المهارات والأدوات وفرص المستقبل",
           desc: "محاضرة نظريّة حول مهارات وأدوات برمجة المسيّرات وآفاق هذا المجال.",
           speaker: "محمد فريد الحافظ",
-          speakerImage: "muhammad-farid-al-hafiz",
+          speakerImage: "muhammad-farid-al-hafiz.jpeg",
           speakerTagline: "مهندس تحكم في المسيرات — جامعة يلدز التقنية",
           speakerBio:
             "مهندس تحكم في المسيرات الحربية. خريج هندسة تحكم و اتمتة من جامعة يلدز التقنية. شاركت في مسابقات التكنوفست عدة مرات. حاصل على المركز الاول في مسابقة التقنيات التعليمية 2023 في التكنوفست.",
@@ -593,7 +593,7 @@ export const dict: Record<Lang, Dict> = {
           title: "İHA Programlama: Beceriler, Araçlar ve Gelecek Fırsatları",
           desc: "İHA programlamada beceriler, araçlar ve bu alandaki gelecek fırsatları üzerine teorik bir ders.",
           speaker: "Muhammed Farid El-Hafız",
-          speakerImage: "muhammad-farid-al-hafiz",
+          speakerImage: "muhammad-farid-al-hafiz.jpeg",
           speakerTagline: "İHA kontrol mühendisi — YTÜ",
           speakerBio:
             "Askeri İHA'larda kontrol mühendisi. Yıldız Teknik Üniversitesi Kontrol ve Otomasyon Mühendisliği mezunu. Teknofest yarışmalarına birçok kez katıldı. 2023 Teknofest Eğitim Teknolojileri yarışmasında birincilik ödülü aldı.",
@@ -932,7 +932,7 @@ export const dict: Record<Lang, Dict> = {
           title: "Drone Programming: Skills, Tools, and Future Opportunities",
           desc: "A theoretical lecture on drone programming skills, tools, and future opportunities in the field.",
           speaker: "Muhammad Farid Al-Hafiz",
-          speakerImage: "muhammad-farid-al-hafiz",
+          speakerImage: "muhammad-farid-al-hafiz.jpeg",
           speakerTagline: "Drone control engineer — YTU",
           speakerBio:
             "Control engineer for military drones. Graduate of control and automation engineering from Yildiz Technical University. Participated in Teknofest competitions multiple times. Won first place in the 2023 Educational Technologies competition at Teknofest.",
