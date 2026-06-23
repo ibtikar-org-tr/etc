@@ -1,11 +1,11 @@
 "use client"
 
-import { Bot, Cpu, Cog, HeartPulse, Plane, Scale, ShieldAlert, Wifi } from "lucide-react"
+import { Bot, Cog, HeartPulse, Plane, Scale, ShieldAlert, ShieldCheck, Wifi } from "lucide-react"
 import type { Dict } from "@/lib/i18n"
 import { useLang } from "./lang-provider"
 import { SpeakerBioToggle } from "./speaker-bio-toggle"
 
-const icons = [HeartPulse, Plane, Wifi, Scale, Bot, ShieldAlert, Cpu, Cog]
+const icons = [Bot, ShieldCheck, HeartPulse, Plane, Wifi, Cog, ShieldAlert, Scale]
 
 type TopicItem = Dict["topics"]["items"][number]
 
