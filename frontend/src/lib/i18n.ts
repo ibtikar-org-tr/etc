@@ -224,7 +224,7 @@ export const dict: Record<Lang, Dict> = {
               "رائد أعمال ومهندس مختص في الأمن السيبراني والذكاء الاصطناعي، حاصل على الماجستير في الذكاء الاصطناعي من جامعة ODTU. مؤسس @ [AuthDeep](https://authdeep.com)، بخبرة في بناء حلول برمجية مؤسسية وأنظمة معقّدة بالتعاون مع شركات عالمية.",
             guests: [
               { name: "أحمد شمس الدين", imageSlug: "ahmad-shamsddin.jpg" },
-              { name: "يوسف بكارة", imageSlug: "male-avatar" },
+              { name: "يوسم كبّارة", imageSlug: "yusuf-kabbara.jpeg" },
               { name: "أسامة صيام", imageSlug: "male-avatar", tagline: "مختص أمن التطبيقات والأمن السيبراني — ماجستير أمن سيبراني", bio: "أسامة صيام مختص في أمن التطبيقات والأمن السيبراني، يمتلك خبرة تزيد عن تسع سنوات في مجالات DevSecOps، واختبار الاختراق، وأمن تطبيقات الويب والجوال والسحابة. يحمل درجة الماجستير في الأمن السيبراني، إضافة إلى شهادات مهنية متخصصة مثل Burp Suite Certified Practitioner وCertified AI/ML Pentester." },
             ],
           },
@@ -592,7 +592,7 @@ export const dict: Record<Lang, Dict> = {
               "Siber güvenlik ve yapay zeka alanında uzmanlaşmış girişimci ve mühendis; ODTÜ'den yapay zeka yüksek lisans derecesine sahip. Kurucu @ [AuthDeep](https://authdeep.com); küresel şirketlerle iş birliği içinde kurumsal yazılım çözümleri ve karmaşık sistemler inşa etme deneyimine sahip.",
             guests: [
               { name: "Ahmed Shams al-Din", imageSlug: "ahmad-shamsddin.jpg" },
-              { name: "Yusuf Bakara", imageSlug: "male-avatar" },
+              { name: "Yusuf KABBARA", imageSlug: "yusuf-kabbara.jpeg" },
               { name: "Osama Siam", imageSlug: "male-avatar", tagline: "Uygulama güvenliği uzmanı — siber güvenlik yüksek lisansı", bio: "Uygulama güvenliği ve siber güvenlik uzmanı; DevSecOps, sızma testi ve web, mobil ve bulut uygulama güvenliğinde 9 yılı aşkın deneyime sahip. Siber güvenlik yüksek lisans derecesinin yanı sıra Burp Suite Certified Practitioner ve Certified AI/ML Pentester gibi profesyonel sertifikalara sahip." },
             ],
           },
@@ -959,7 +959,7 @@ export const dict: Record<Lang, Dict> = {
               "Entrepreneur and engineer specializing in cybersecurity and artificial intelligence, with a master's degree in AI from ODTU. Founder @ [AuthDeep](https://authdeep.com), with experience building enterprise software solutions and complex systems in collaboration with global companies.",
             guests: [
               { name: "Ahmad Shams al-Din", imageSlug: "ahmad-shamsddin.jpg" },
-              { name: "Youssef Bakara", imageSlug: "male-avatar" },
+              { name: "Yusuf KABBARA", imageSlug: "yusuf-kabbara.jpeg" },
               { name: "Osama Siam", imageSlug: "male-avatar", tagline: "Application security specialist — MSc Cybersecurity", bio: "Application security and cybersecurity specialist with over nine years of experience in DevSecOps, penetration testing, and web, mobile, and cloud application security. Holds a master's degree in cybersecurity, along with professional certifications including Burp Suite Certified Practitioner and Certified AI/ML Pentester." },
             ],
           },
