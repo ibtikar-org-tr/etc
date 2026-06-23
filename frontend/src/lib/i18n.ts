@@ -571,7 +571,7 @@ export const dict: Record<Lang, Dict> = {
           duration: "45 dk",
           tags: ["sovereignty", "security", "panel"],
           panel: {
-            moderator: "Abdullah Da'mash",
+            moderator: "Abdullah Damash",
             moderatorImage: "abduallah-damash",
             moderatorTagline: "Kıdemli YZ ve Siber Güvenlik Mühendisi — MLOps · DevOps",
             moderatorBio:
@@ -924,7 +924,7 @@ export const dict: Record<Lang, Dict> = {
           duration: "45 min",
           tags: ["sovereignty", "security", "panel"],
           panel: {
-            moderator: "Abdullah Da'mash",
+            moderator: "Abdullah Damash",
             moderatorImage: "abduallah-damash",
             moderatorTagline: "Senior AI & Cybersecurity Engineer — MLOps · DevOps",
             moderatorBio:
