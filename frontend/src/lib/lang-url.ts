@@ -1,6 +1,6 @@
 import type { Lang } from "@/lib/i18n"
 
-export type Page = "home" | "etc-2024"
+export type Page = "home" | "etc-2024" | "startups"
 
 export function isLang(value: string | null | undefined): value is Lang {
   return value === "ar" || value === "tr" || value === "en"
@@ -8,7 +8,9 @@ export function isLang(value: string | null | undefined): value is Lang {
 
 export function readPageFromUrl(): Page {
   const parts = window.location.pathname.split("/").filter(Boolean)
-  return parts.includes("etc-2024") ? "etc-2024" : "home"
+  if (parts.includes("etc-2024")) return "etc-2024"
+  if (parts.includes("startups")) return "startups"
+  return "home"
 }
 
 export function readLangFromUrl(): Lang {
@@ -23,7 +25,9 @@ export function readLangFromUrl(): Lang {
 }
 
 export function buildPath(lang: Lang, page: Page = "home"): string {
-  return page === "etc-2024" ? `/${lang}/etc-2024` : `/${lang}`
+  if (page === "etc-2024") return `/${lang}/etc-2024`
+  if (page === "startups") return `/${lang}/startups`
+  return `/${lang}`
 }
 
 export function langPath(lang: Lang): string {

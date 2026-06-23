@@ -8,11 +8,12 @@ import { Shorts } from "@/components/shorts"
 import { Agenda } from "@/components/agenda"
 import { Workshops } from "@/components/workshops"
 import { Guests } from "@/components/guests"
-import { StartupBooth } from "@/components/startup-booth"
 import { Faq } from "@/components/faq"
 import { Register } from "@/components/register"
+import { StartupBoothTeaser } from "@/components/startup-booth"
 import { SiteFooter } from "@/components/site-footer"
 import { Etc2024Page } from "@/components/etc-2024-page"
+import { StartupsPage } from "@/components/startups-page"
 import { SeoHead } from "@/components/seo-head"
 
 function HomePage() {
@@ -25,20 +26,30 @@ function HomePage() {
       <Agenda />
       <Workshops />
       <Guests />
-      <StartupBooth />
       <Faq />
       <Register />
+      <StartupBoothTeaser />
     </>
   )
 }
 
 function AppContent() {
   const { page } = useLang()
+
+  const main =
+    page === "etc-2024" ? (
+      <Etc2024Page />
+    ) : page === "startups" ? (
+      <StartupsPage />
+    ) : (
+      <HomePage />
+    )
+
   return (
     <SiteAnimations>
       <SeoHead />
       <SiteHeader />
-      <main>{page === "etc-2024" ? <Etc2024Page /> : <HomePage />}</main>
+      <main>{main}</main>
       <SiteFooter />
     </SiteAnimations>
   )

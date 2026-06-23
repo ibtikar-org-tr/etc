@@ -2,15 +2,16 @@
 
 import { useLang } from "./lang-provider"
 import { IBTIKAR_URL, IbtikarLogo } from "./ibtikar-logo"
-import { STARTUP_BOOTH_URL } from "./startup-booth"
 import { buildPath, pagePath } from "@/lib/lang-url"
 
 export function SiteFooter() {
   const { lang, page, t, t2024 } = useLang()
   const f = t.footer
   const isArchive = page === "etc-2024"
+  const isStartups = page === "startups"
   const homeHref = buildPath(lang, "home")
   const archiveHref = pagePath(lang, "etc-2024")
+  const startupsHref = pagePath(lang, "startups")
 
   const navLinks = isArchive
     ? [
@@ -20,15 +21,22 @@ export function SiteFooter() {
         { href: `${archiveHref}#gallery`, label: t2024.nav.gallery },
         { href: homeHref, label: t2024.nav.backTo2026 },
       ]
-    : [
-        { href: "#about", label: t.nav.about },
-        { href: "#topics", label: t.nav.topics },
-        { href: "#agenda", label: t.nav.agenda },
-        { href: "#workshops", label: t.nav.workshops },
-        { href: "#guests", label: t.nav.guests },
-        { href: "#faq", label: t.nav.faq },
-        { href: archiveHref, label: t.nav.pastEdition },
-      ]
+    : isStartups
+      ? [
+          { href: `${homeHref}#about`, label: t.nav.about },
+          { href: `${homeHref}#agenda`, label: t.nav.agenda },
+          { href: `${homeHref}#workshops`, label: t.nav.workshops },
+          { href: homeHref, label: t.startupBooth.backToHome },
+        ]
+      : [
+          { href: "#about", label: t.nav.about },
+          { href: "#topics", label: t.nav.topics },
+          { href: "#agenda", label: t.nav.agenda },
+          { href: "#workshops", label: t.nav.workshops },
+          { href: "#guests", label: t.nav.guests },
+          { href: "#faq", label: t.nav.faq },
+          { href: archiveHref, label: t.nav.pastEdition },
+        ]
 
   return (
     <footer className="border-t border-border bg-card/30">
@@ -95,9 +103,7 @@ export function SiteFooter() {
               {!isArchive && (
                 <li>
                   <a
-                    href={STARTUP_BOOTH_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href={startupsHref}
                     className="text-sm text-primary transition-colors hover:underline"
                   >
                     {f.startupBooth}

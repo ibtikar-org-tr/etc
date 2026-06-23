@@ -99,6 +99,49 @@ const HOME_SEO: Record<Lang, Omit<SeoMeta, "path" | "canonical" | "ogImage" | "o
   },
 }
 
+const STARTUPS_SEO: Record<Lang, Omit<SeoMeta, "path" | "canonical" | "ogImage" | "ogLocale" | "alternates" | "jsonLd">> = {
+  ar: {
+    title: "جناح الشركات الناشئة · ETC 2026 · تجمّع إبتكار",
+    description:
+      "قدّم طلبًا للمشاركة بجناح عرض في مؤتمر التّقنيّات الصّاعدة 2026 في إسطنبول. مخصّص للشركات الناشئة — وليس لتسجيل حضور الطلاب.",
+    keywords:
+      "جناح الشركات الناشئة, ETC 2026, إبتكار, شركات ناشئة, جناح عرض, مؤتمر تقني إسطنبول",
+    robots: "index, follow, max-image-preview:large, max-snippet:-1",
+  },
+  tr: {
+    title: "Girişim Standı · ETC 2026 · İbtikar",
+    description:
+      "Yükselen Teknolojiler Konferansı 2026'da girişim standında yer almak için başvurun. Girişimler içindir — öğrenci kaydı değildir.",
+    keywords:
+      "girişim standı, ETC 2026, İbtikar, startup booth, İstanbul teknoloji konferansı",
+    robots: "index, follow, max-image-preview:large, max-snippet:-1",
+  },
+  en: {
+    title: "Startup Booth · ETC 2026 · Ibtikar",
+    description:
+      "Apply for an exhibition booth at the Emerging Technologies Conference 2026 in Istanbul. For startups — not student attendance registration.",
+    keywords:
+      "startup booth, ETC 2026, Ibtikar Assembly, exhibition booth, Istanbul tech conference",
+    robots: "index, follow, max-image-preview:large, max-snippet:-1",
+  },
+}
+
+function pageSeo(page: Page, lang: Lang) {
+  if (page === "etc-2024") return ARCHIVE_SEO[lang]
+  if (page === "startups") return STARTUPS_SEO[lang]
+  return HOME_SEO[lang]
+}
+
+function eventYear(page: Page) {
+  if (page === "etc-2024") return "2024"
+  return "2026"
+}
+
+function eventDates(page: Page) {
+  if (page === "etc-2024") return { start: "2024-02-17", end: "2024-02-18", attendeeCount: 250 as number | undefined }
+  return { start: "2026-06-27", end: "2026-06-28", attendeeCount: undefined as number | undefined }
+}
+
 const ARCHIVE_SEO: Record<Lang, Omit<SeoMeta, "path" | "canonical" | "ogImage" | "ogLocale" | "alternates" | "jsonLd">> = {
   ar: {
     title: "مؤتمر التّقنيّات الصّاعدة 2024 · أرشيف · تجمّع إبتكار",
@@ -137,26 +180,45 @@ function alternatesFor(page: Page, origin: string): SeoMeta["alternates"] {
 export function getSeoMeta(lang: Lang, page: Page, origin = getSiteOrigin()): SeoMeta {
   const path = buildPath(lang, page)
   const canonical = pageUrl(lang, page, origin)
-  const base = page === "etc-2024" ? ARCHIVE_SEO[lang] : HOME_SEO[lang]
+  const base = pageSeo(page, lang)
   const ogImage = page === "etc-2024" ? ETC_2024_HERO_IMAGE : absoluteUrl("/square_logo.svg", origin)
+  const year = eventYear(page)
+  const dates = eventDates(page)
 
   const eventName =
-    lang === "ar"
-      ? `مؤتمر التّقنيّات الصّاعدة ${page === "etc-2024" ? "2024" : "2026"}`
-      : lang === "tr"
-        ? `Yükselen Teknolojiler Konferansı ${page === "etc-2024" ? "2024" : "2026"}`
-        : `Emerging Technologies Conference ${page === "etc-2024" ? "2024" : "2026"}`
+    page === "startups"
+      ? lang === "ar"
+        ? "جناح الشركات الناشئة · ETC 2026"
+        : lang === "tr"
+          ? "Girişim Standı · ETC 2026"
+          : "Startup Booth · ETC 2026"
+      : lang === "ar"
+        ? `مؤتمر التّقنيّات الصّاعدة ${year}`
+        : lang === "tr"
+          ? `Yükselen Teknolojiler Konferansı ${year}`
+          : `Emerging Technologies Conference ${year}`
+
+  const breadcrumbCurrent =
+    page === "etc-2024"
+      ? "ETC 2024"
+      : page === "startups"
+        ? lang === "ar"
+          ? "جناح الشركات الناشئة"
+          : lang === "tr"
+            ? "Girişim Standı"
+            : "Startup Booth"
+        : null
 
   const jsonLd: Record<string, unknown>[] = [
     websiteJsonLd(origin),
     eventJsonLd({
       name: eventName,
       description: base.description,
-      startDate: page === "etc-2024" ? "2024-02-17" : "2026-06-27",
-      endDate: page === "etc-2024" ? "2024-02-18" : "2026-06-28",
+      startDate: dates.start,
+      endDate: dates.end,
       url: canonical,
       image: ogImage,
-      attendeeCount: page === "etc-2024" ? 250 : undefined,
+      attendeeCount: dates.attendeeCount,
     }),
     {
       "@context": "https://schema.org",
@@ -168,12 +230,12 @@ export function getSeoMeta(lang: Lang, page: Page, origin = getSiteOrigin()): Se
           name: lang === "ar" ? "الرئيسية" : lang === "tr" ? "Ana Sayfa" : "Home",
           item: pageUrl(lang, "home", origin),
         },
-        ...(page === "etc-2024"
+        ...(breadcrumbCurrent
           ? [
               {
                 "@type": "ListItem",
                 position: 2,
-                name: "ETC 2024",
+                name: breadcrumbCurrent,
                 item: canonical,
               },
             ]

@@ -17,8 +17,12 @@ export function SiteHeader() {
   const [langOpen, setLangOpen] = useState(false)
 
   const isArchive = page === "etc-2024"
+  const isStartups = page === "startups"
   const homeHref = buildPath(lang, "home")
   const archiveHref = pagePath(lang, "etc-2024")
+  const startupsHref = pagePath(lang, "startups")
+
+  const brandHref = isArchive ? `${archiveHref}#top` : isStartups ? `${startupsHref}#top` : `${homeHref}#top`
 
   const links = isArchive
     ? [
@@ -27,14 +31,16 @@ export function SiteHeader() {
         { href: "#workshops", label: t2024.nav.workshops },
         { href: "#gallery", label: t2024.nav.gallery },
       ]
-    : [
-        { href: "#about", label: t.nav.about },
-        { href: "#topics", label: t.nav.topics },
-        { href: "#agenda", label: t.nav.agenda },
-        { href: "#workshops", label: t.nav.workshops },
-        { href: "#guests", label: t.nav.guests },
-        { href: "#faq", label: t.nav.faq },
-      ]
+    : isStartups
+      ? []
+      : [
+          { href: "#about", label: t.nav.about },
+          { href: "#topics", label: t.nav.topics },
+          { href: "#agenda", label: t.nav.agenda },
+          { href: "#workshops", label: t.nav.workshops },
+          { href: "#guests", label: t.nav.guests },
+          { href: "#faq", label: t.nav.faq },
+        ]
 
   useGSAP(
     () => {
@@ -120,9 +126,9 @@ export function SiteHeader() {
       <div className="mx-auto flex h-14 max-w-7xl items-center justify-between gap-2 px-3 sm:h-16 sm:gap-4 sm:px-6 lg:px-8">
         <div className="header-brand flex min-w-0 items-center gap-1.5 sm:gap-3">
           <a
-            href={isArchive ? `${archiveHref}#top` : `${homeHref}#top`}
+            href={brandHref}
             className="shrink-0 font-heading text-xs font-extrabold leading-none tracking-tight transition-colors hover:text-primary min-[360px]:text-sm sm:text-base"
-            aria-label={isArchive ? "ETC 2024" : "ETC 2026"}
+            aria-label={isArchive ? "ETC 2024" : isStartups ? t.startupBooth.badge : "ETC 2026"}
           >
             ETC<span className="text-primary">.</span>
             <span className="max-[359px]:hidden"> {isArchive ? "2024" : "2026"}</span>
@@ -155,6 +161,13 @@ export function SiteHeader() {
               className="header-nav-link text-sm font-medium text-primary transition-colors hover:text-primary/80"
             >
               {t2024.nav.backTo2026}
+            </a>
+          ) : isStartups ? (
+            <a
+              href={homeHref}
+              className="header-nav-link text-sm font-medium text-primary transition-colors hover:text-primary/80"
+            >
+              {t.startupBooth.backToHome}
             </a>
           ) : (
             <a
@@ -199,7 +212,7 @@ export function SiteHeader() {
             )}
           </div>
 
-          {!isArchive && (
+          {!isArchive && !isStartups && (
             <a
               href={REGISTRATION_URL}
               target="_blank"
@@ -241,6 +254,14 @@ export function SiteHeader() {
                 className="min-h-11 py-3 text-sm font-medium text-primary"
               >
                 {t2024.nav.backTo2026}
+              </a>
+            ) : isStartups ? (
+              <a
+                href={homeHref}
+                onClick={() => setMobileOpen(false)}
+                className="min-h-11 py-3 text-sm font-medium text-primary"
+              >
+                {t.startupBooth.backToHome}
               </a>
             ) : (
               <>

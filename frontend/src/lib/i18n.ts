@@ -82,7 +82,18 @@ export type Dict = {
   }
   workshops: { label: string; title: string; subtitle: string; sessions: { name: string; items: Track[] }[] }
   guests: { label: string; title: string; subtitle: string }
-  startupBooth: { title: string; subtitle: string; button: string; note: string; applyVia: string }
+  startupBooth: {
+    title: string
+    subtitle: string
+    button: string
+    note: string
+    applyVia: string
+    badge: string
+    backToHome: string
+    disclaimer: string
+    teaser: string
+    teaserLink: string
+  }
   cta: { title: string; subtitle: string; button: string; note: string; comingSoon: string; registerVia: string }
   faq: { label: string; title: string; items: { q: string; a: string }[] }
   footer: {
@@ -413,6 +424,11 @@ export const dict: Record<Lang, Dict> = {
       button: "قدّم طلبك الآن",
       note: "ETC 2026 · مساحة عرض للشركات الناشئة",
       applyVia: "التقديم مفتوح الآن عبر نموذج الطلب الإلكتروني.",
+      badge: "جناح الشركات الناشئة",
+      backToHome: "العودة إلى مؤتمر ETC 2026",
+      disclaimer: "هذا الطلب مخصّص للشركات الناشئة الراغبة في المشاركة بجناح عرض، وليس لتسجيل حضور الطلاب.",
+      teaser: "هل تمثّل شركة ناشئة؟",
+      teaserLink: "قدّم طلب جناح",
     },
     cta: {
       title: "احجز مقعدك في مؤتمر التّقنيّات الصّاعدة 2026",
@@ -431,7 +447,7 @@ export const dict: Record<Lang, Dict> = {
         { q: "هل التسجيل مجّاني؟", a: "نعم، التسجيل مجّاني للطلاب مع عدد محدود من المقاعد." },
         { q: "ما اللغات المعتمدة في المؤتمر؟", a: "تُقدَّم الفعاليّات بالعربيّة، وبعضها بالتركيّة والإنجليزيّة." },
         { q: "هل أحتاج خبرة تقنيّة مسبقة لحضور الورش؟", a: "صُمّمت معظم الورش كمدخل للمجال، لذا تناسب المبتدئين والمتوسّطين." },
-        { q: "كيف تتقدّم الشركات الناشئة لحجز جناح؟", a: "يمكن للشركات الناشئة التقديم عبر نموذج الطلب المخصّص على الرابط المباشر في قسم جناح الشركات الناشئة في الموقع." },
+        { q: "كيف تتقدّم الشركات الناشئة لحجز جناح؟", a: "يمكن للشركات الناشئة التقديم عبر صفحة جناح الشركات الناشئة على الموقع (/startups)، وليس عبر نموذج تسجيل الطلاب." },
         { q: "هل سأحصل على شهادة حضور؟", a: "نعم، يحصل المشاركون على شهادة حضور رقميّة بعد المؤتمر." },
       ],
     },
@@ -761,6 +777,11 @@ export const dict: Record<Lang, Dict> = {
       button: "Hemen Başvur",
       note: "ETC 2026 · Girişim standı başvuruları açık",
       applyVia: "Başvurular çevrimiçi form üzerinden şimdi açık.",
+      badge: "Girişim Standı",
+      backToHome: "ETC 2026 konferansına dön",
+      disclaimer: "Bu başvuru, standda yer almak isteyen girişimler içindir; öğrenci katılım kaydı değildir.",
+      teaser: "Bir girişimi mi temsil ediyorsunuz?",
+      teaserLink: "Stand başvurusu yap",
     },
     cta: {
       title: "Yükselen Teknolojiler Konferansı 2026'da yerini ayırt",
@@ -779,7 +800,7 @@ export const dict: Record<Lang, Dict> = {
         { q: "Kayıt ücretsiz mi?", a: "Evet, öğrenciler için kayıt ücretsizdir ve kontenjan sınırlıdır." },
         { q: "Konferansın dilleri nelerdir?", a: "Etkinlikler Arapça sunulur, bazıları Türkçe ve İngilizcedir." },
         { q: "Atölyeler için ön deneyim gerekli mi?", a: "Çoğu atölye alana giriş olarak tasarlandı, başlangıç ve orta seviyeye uygundur." },
-        { q: "Girişimler stand başvurusunu nasıl yapabilir?", a: "Girişimler, sitedeki Girişim Standı bölümündeki başvuru formu bağlantısı üzerinden başvurabilir." },
+        { q: "Girişimler stand başvurusunu nasıl yapabilir?", a: "Girişimler, sitedeki Girişim Standı sayfası (/startups) üzerinden başvurabilir; öğrenci kayıt formu üzerinden değil." },
         { q: "Katılım sertifikası alacak mıyım?", a: "Evet, katılımcılar konferans sonrası dijital katılım sertifikası alır." },
       ],
     },
@@ -1110,6 +1131,11 @@ export const dict: Record<Lang, Dict> = {
       button: "Apply Now",
       note: "ETC 2026 · Startup booth applications open",
       applyVia: "Applications are now open via the online application form.",
+      badge: "Startup Booth",
+      backToHome: "Back to ETC 2026",
+      disclaimer: "This application is for startups seeking an exhibition booth — not for student attendance registration.",
+      teaser: "Representing a startup?",
+      teaserLink: "Apply for a booth",
     },
     cta: {
       title: "Reserve your seat at the Emerging Technologies Conference 2026",
@@ -1128,7 +1154,7 @@ export const dict: Record<Lang, Dict> = {
         { q: "Is registration free?", a: "Yes, registration is free for students with a limited number of seats." },
         { q: "What languages are used?", a: "Sessions are delivered in Arabic, with some in Turkish and English." },
         { q: "Do I need prior technical experience for workshops?", a: "Most workshops are designed as an introduction, suitable for beginners and intermediates." },
-        { q: "How can startups apply for a booth?", a: "Startups can apply through the dedicated application form linked in the Startup Booth section on this site." },
+        { q: "How can startups apply for a booth?", a: "Startups can apply on the dedicated Startup Booth page on this site (/startups) — not through the student registration form." },
         { q: "Will I get a certificate?", a: "Yes, participants receive a digital certificate of attendance after the conference." },
       ],
     },
