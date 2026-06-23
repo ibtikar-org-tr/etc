@@ -18,8 +18,8 @@ export function collectGuestsWithImages(dict: Dict): GuestProfile[] {
     speakerTagline?: string
   }) => {
     const slug = entry.imageSlug ?? entry.speakerImage
-    if (!slug || seen.has(slug)) return
-    seen.add(slug)
+    if (!slug || seen.has(entry.name)) return
+    seen.add(entry.name)
     guests.push({
       name: entry.name,
       tagline: entry.tagline ?? entry.speakerTagline,

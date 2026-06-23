@@ -2,6 +2,7 @@ export const SPEAKER_IMAGE_BASE = "https://files.ibtikar.tr/events/2601/etc-2026
 
 const LOCAL_SPEAKER_IMAGES: Record<string, string> = {
   "female-avatar": "/female-avatar.svg",
+  "male-avatar": "/male-avatar.svg",
 }
 
 export function isSpeakerAvatar(slug: string) {
@@ -28,14 +29,13 @@ export const SPEAKER_IMAGE_SLUGS = {
   omarKhamis: "omar-al-khamis",
   osamaShbib: "osama-shbib.jpeg",
   femaleAvatar: "female-avatar",
+  maleAvatar: "male-avatar",
   hazemKhulousi: "hazem-khulousi",
   moustafaIsmail: "moustafa-ismail",
   muhammadFaridAlHafiz: "muhammad-farid-al-hafiz.jpeg",
   moustafaAbdulAziz: "moustafa-abdul-aziz",
   abduallahDamash: "abduallah-damash",
   ahmadShamsddin: "ahmad-shamsddin.jpg",
-  youssefBakara: "youssef-bakara",
-  osamaSiam: "osama-siam",
 } as const
 
 export type SpeakerImageSlug = (typeof SPEAKER_IMAGE_SLUGS)[keyof typeof SPEAKER_IMAGE_SLUGS]
