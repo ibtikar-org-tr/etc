@@ -208,7 +208,7 @@ export const dict: Record<Lang, Dict> = {
             moderatorImage: "abduallah-damash",
             moderatorTagline: "مهندس ذكاء اصطناعي وأمن سيبراني — MLOps · DevOps",
             moderatorBio:
-              "خبرة تزيد على 5 سنوات في MLOps والذكاء الاصطناعي وDevOps وتطوير البرمجيات وإدارة المشاريع والأنظمة المعقّدة. قاد فريقًا لتعزيز التعاون والأداء. حاصل على شهادات من Azure وIBM وGoogle وإدارة المشاريع والأمن السيبراني. مهارات قوية في العرض والتوثيق، مع خبرة في التعاون مع Microsoft وMcKinsey بالإضافة إلى شركات كبرى.",
+              "رائد أعمال ومهندس مختص في الأمن السيبراني والذكاء الاصطناعي، حاصل على الماجستير في الذكاء الاصطناعي من جامعة ODTU. مؤسس AuthDeep، بخبرة في بناء حلول برمجية مؤسسية وأنظمة معقّدة بالتعاون مع شركات عالمية.",
             guests: [
               { name: "أحمد شمس الدين", imageSlug: "ahmad-shamsddin.jpg" },
               { name: "يوسف بكارة", imageSlug: "youssef-bakara" },
@@ -548,7 +548,7 @@ export const dict: Record<Lang, Dict> = {
             moderatorImage: "abduallah-damash",
             moderatorTagline: "Kıdemli YZ ve Siber Güvenlik Mühendisi — MLOps · DevOps",
             moderatorBio:
-              "MLOps, yapay zeka, DevOps, yazılım geliştirme ve karmaşık proje ve sistem yönetiminde 5 yılı aşkın deneyim. İş birliği ve performansı artırmak için bir ekibe liderlik etti. Azure, IBM, Google, proje yönetimi ve siber güvenlik alanlarında sertifikalı. Microsoft ve McKinsey ile büyük kurumsal şirketlerde çalışma deneyimi; güçlü sunum ve dokümantasyon becerileri.",
+              "Siber güvenlik ve yapay zeka alanında uzmanlaşmış girişimci ve mühendis; ODTÜ'den yapay zeka yüksek lisans derecesine sahip. AuthDeep kurucusu; küresel şirketlerle iş birliği içinde kurumsal yazılım çözümleri ve karmaşık sistemler inşa etme deneyimine sahip.",
             guests: [
               { name: "Ahmed Shams al-Din", imageSlug: "ahmad-shamsddin.jpg" },
               { name: "Yusuf Bakara", imageSlug: "youssef-bakara" },
@@ -887,7 +887,7 @@ export const dict: Record<Lang, Dict> = {
             moderatorImage: "abduallah-damash",
             moderatorTagline: "Senior AI & Cybersecurity Engineer — MLOps · DevOps",
             moderatorBio:
-              "Over 5 years of experience in MLOps, AI areas, DevOps, software development, and managing complex projects and systems. Led a team to enhance collaboration and performance. Certified from Azure, IBM, Google, Project Management, and Cybersecurity. Strong presentation and documentation skills, with experience collaborating with Microsoft and McKinsey in addition to large enterprise companies.",
+              "Entrepreneur and engineer specializing in cybersecurity and artificial intelligence, with a master's degree in AI from ODTU. Founder of AuthDeep, with experience building enterprise software solutions and complex systems in collaboration with global companies.",
             guests: [
               { name: "Ahmad Shams al-Din", imageSlug: "ahmad-shamsddin.jpg" },
               { name: "Youssef Bakara", imageSlug: "youssef-bakara" },
