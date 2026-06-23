@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { ChevronDown } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { speakerImageUrl } from "@/lib/speaker-images"
+import { speakerImageUrl, isSpeakerAvatar } from "@/lib/speaker-images"
 
 const BIO_LINK_RE = /\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g
 
@@ -68,6 +68,7 @@ export function SpeakerBioToggle({
 }: SpeakerBioToggleProps) {
   const [open, setOpen] = useState(false)
   const imageUrl = imageSlug ? speakerImageUrl(imageSlug) : undefined
+  const avatar = imageSlug ? isSpeakerAvatar(imageSlug) : false
 
   const toggle = () => setOpen((v) => !v)
 
@@ -102,7 +103,10 @@ export function SpeakerBioToggle({
                     alt=""
                     loading="lazy"
                     decoding="async"
-                    className="size-14 shrink-0 rounded-lg border border-border object-cover"
+                    className={cn(
+                      "size-14 shrink-0 rounded-lg border border-border",
+                      avatar ? "bg-muted object-contain p-1.5" : "object-cover",
+                    )}
                   />
                 )}
                 <div className="min-w-0 flex-1 self-center">
@@ -131,16 +135,29 @@ export function SpeakerBioToggle({
             >
               <div className="overflow-hidden">
                 {imageUrl ? (
-                  <div className="relative aspect-[4/3] w-full min-h-52 sm:min-h-60">
+                  <div
+                    className={cn(
+                      "relative aspect-[4/3] w-full min-h-52 sm:min-h-60",
+                      avatar && "bg-muted",
+                    )}
+                  >
                     <img
                       src={imageUrl}
                       alt={name}
                       loading="lazy"
                       decoding="async"
-                      className="absolute inset-0 h-full w-full object-cover object-[center_20%]"
+                      className={cn(
+                        "absolute inset-0 h-full w-full",
+                        avatar ? "object-contain p-10 sm:p-14" : "object-cover object-[center_20%]",
+                      )}
                     />
                     <div
-                      className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-black/5"
+                      className={cn(
+                        "absolute inset-0",
+                        avatar
+                          ? "bg-gradient-to-t from-black/75 via-black/20 to-transparent"
+                          : "bg-gradient-to-t from-black/90 via-black/45 to-black/5",
+                      )}
                       aria-hidden
                     />
                     <span className="absolute end-3 top-3 inline-flex items-center gap-1 rounded-full bg-black/45 px-2.5 py-1 text-xs font-medium text-white backdrop-blur-sm sm:text-sm">
@@ -191,7 +208,10 @@ export function SpeakerBioToggle({
               alt={name}
               loading="lazy"
               decoding="async"
-              className="size-14 shrink-0 rounded-lg border border-border object-cover"
+              className={cn(
+                "size-14 shrink-0 rounded-lg border border-border",
+                avatar ? "bg-muted object-contain p-1.5" : "object-cover",
+              )}
             />
           )}
           <div className="min-w-0 flex-1">

@@ -1,6 +1,17 @@
 export const SPEAKER_IMAGE_BASE = "https://files.ibtikar.tr/events/2601/etc-2026/speakers"
 
+const LOCAL_SPEAKER_IMAGES: Record<string, string> = {
+  "female-avatar": "/female-avatar.svg",
+}
+
+export function isSpeakerAvatar(slug: string) {
+  return slug in LOCAL_SPEAKER_IMAGES
+}
+
 export function speakerImageUrl(slug: string) {
+  const local = LOCAL_SPEAKER_IMAGES[slug]
+  if (local) return local
+
   const file = slug.includes(".") ? slug : `${slug}.jpg`
   return `${SPEAKER_IMAGE_BASE}/${file}`
 }
@@ -16,7 +27,7 @@ export const SPEAKER_IMAGE_SLUGS = {
   masaSoudan: "masa-soudan",
   omarKhamis: "omar-al-khamis",
   osamaShbib: "osama-shbib.jpeg",
-  israMavaldi: "isra-mavaldi.jpeg",
+  femaleAvatar: "female-avatar",
   hazemKhulousi: "hazem-khulousi",
   moustafaIsmail: "moustafa-ismail",
   muhammadFaridAlHafiz: "muhammad-farid-al-hafiz.jpeg",

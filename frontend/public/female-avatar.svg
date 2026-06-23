@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none" role="img" aria-label="">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="400" y2="400" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2a1848"/>
+      <stop offset="1" stop-color="#1a1030"/>
+    </linearGradient>
+    <linearGradient id="figure" x1="200" y1="72" x2="200" y2="328" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#d8c4f0"/>
+      <stop offset="1" stop-color="#a78bfa"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#bg)"/>
+  <circle cx="200" cy="148" r="58" fill="url(#figure)" opacity="0.95"/>
+  <path
+    d="M92 332c12-62 52-96 108-96s96 34 108 96"
+    fill="url(#figure)"
+    opacity="0.95"
+  />
+</svg>

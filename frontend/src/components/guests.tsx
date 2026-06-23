@@ -3,9 +3,12 @@
 import { useMemo } from "react"
 import { useLang } from "./lang-provider"
 import { collectGuestsWithImages, type GuestProfile } from "@/lib/guests"
-import { speakerImageUrl } from "@/lib/speaker-images"
+import { speakerImageUrl, isSpeakerAvatar } from "@/lib/speaker-images"
+import { cn } from "@/lib/utils"
 
 function GuestCard({ profile }: { profile: GuestProfile }) {
+  const avatar = isSpeakerAvatar(profile.imageSlug)
+
   return (
     <article className="group relative h-52 w-64 shrink-0 overflow-hidden rounded-2xl border border-border bg-card sm:h-56 sm:w-72">
       <img
@@ -13,7 +16,12 @@ function GuestCard({ profile }: { profile: GuestProfile }) {
         alt={profile.name}
         loading="lazy"
         decoding="async"
-        className="absolute inset-0 h-full w-full object-cover object-[center_20%] transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+        className={cn(
+          "absolute inset-0 h-full w-full transition-transform duration-500 ease-out",
+          avatar
+            ? "object-contain p-10"
+            : "object-cover object-[center_20%] group-hover:scale-[1.03]",
+        )}
       />
       <div
         className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/5"
