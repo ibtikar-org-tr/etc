@@ -4,12 +4,17 @@ on:
   push:
     branches:
       - main
+    paths:
+      - "frontend/**"
   workflow_dispatch:
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     environment: main
+    defaults:
+      run:
+        working-directory: frontend
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
