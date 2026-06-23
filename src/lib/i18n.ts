@@ -206,8 +206,7 @@ export const dict: Record<Lang, Dict> = {
           panel: {
             moderator: "عبدالله دماش",
             moderatorImage: "abduallah-damash",
-            moderatorTagline:
-              "ماجستير ذكاء اصطناعي | مهندس ذكاء اصطناعي وأمن سيبراني | مهندس DevOps | معتمد من Google وIBM وMicrosoft | مدير مشاريع ومنتجات | مهندس MLOps",
+            moderatorTagline: "مهندس ذكاء اصطناعي وأمن سيبراني — MLOps · DevOps",
             moderatorBio:
               "خبرة تزيد على 5 سنوات في MLOps والذكاء الاصطناعي وDevOps وتطوير البرمجيات وإدارة المشاريع والأنظمة المعقّدة. قاد فريقًا لتعزيز التعاون والأداء. حاصل على شهادات من Azure وIBM وGoogle وإدارة المشاريع والأمن السيبراني. مهارات قوية في العرض والتوثيق، مع خبرة في التعاون مع Microsoft وMcKinsey بالإضافة إلى شركات كبرى.",
             guests: [
@@ -547,8 +546,7 @@ export const dict: Record<Lang, Dict> = {
           panel: {
             moderator: "Abduallah Damash",
             moderatorImage: "abduallah-damash",
-            moderatorTagline:
-              "YZ Yüksek Lisans | Kıdemli YZ ve Siber Güvenlik Mühendisi | Kıdemli DevOps Mühendisi | Google, IBM ve Microsoft Sertifikalı | Proje ve Ürün Yöneticisi | MLOps Mühendisi",
+            moderatorTagline: "Kıdemli YZ ve Siber Güvenlik Mühendisi — MLOps · DevOps",
             moderatorBio:
               "MLOps, yapay zeka, DevOps, yazılım geliştirme ve karmaşık proje ve sistem yönetiminde 5 yılı aşkın deneyim. İş birliği ve performansı artırmak için bir ekibe liderlik etti. Azure, IBM, Google, proje yönetimi ve siber güvenlik alanlarında sertifikalı. Microsoft ve McKinsey ile büyük kurumsal şirketlerde çalışma deneyimi; güçlü sunum ve dokümantasyon becerileri.",
             guests: [
@@ -887,8 +885,7 @@ export const dict: Record<Lang, Dict> = {
           panel: {
             moderator: "Abduallah Damash",
             moderatorImage: "abduallah-damash",
-            moderatorTagline:
-              "M.S. AI | Senior AI & Cybersecurity Engineer | Senior DevOps Engineer | Google & IBM & Microsoft Certified | Project Manager | Product Manager | MLOps Engineer",
+            moderatorTagline: "Senior AI & Cybersecurity Engineer — MLOps · DevOps",
             moderatorBio:
               "Over 5 years of experience in MLOps, AI areas, DevOps, software development, and managing complex projects and systems. Led a team to enhance collaboration and performance. Certified from Azure, IBM, Google, Project Management, and Cybersecurity. Strong presentation and documentation skills, with experience collaborating with Microsoft and McKinsey in addition to large enterprise companies.",
             guests: [
