@@ -217,11 +217,11 @@ export const dict: Record<Lang, Dict> = {
           duration: "45 دقيقة",
           tags: ["sovereignty", "security", "panel"],
           panel: {
-            moderator: "عبدالله دماش",
+            moderator: "عبدالله دعمش",
             moderatorImage: "abduallah-damash",
             moderatorTagline: "مهندس ذكاء اصطناعي وأمن سيبراني — MLOps · DevOps",
             moderatorBio:
-              "رائد أعمال ومهندس مختص في الأمن السيبراني والذكاء الاصطناعي، حاصل على الماجستير في الذكاء الاصطناعي من جامعة ODTU. مؤسس AuthDeep، بخبرة في بناء حلول برمجية مؤسسية وأنظمة معقّدة بالتعاون مع شركات عالمية.",
+              "رائد أعمال ومهندس مختص في الأمن السيبراني والذكاء الاصطناعي، حاصل على الماجستير في الذكاء الاصطناعي من جامعة ODTU. مؤسس @ [AuthDeep](https://authdeep.com)، بخبرة في بناء حلول برمجية مؤسسية وأنظمة معقّدة بالتعاون مع شركات عالمية.",
             guests: [
               { name: "أحمد شمس الدين", imageSlug: "ahmad-shamsddin.jpg" },
               { name: "يوسف بكارة", imageSlug: "youssef-bakara" },
@@ -571,11 +571,11 @@ export const dict: Record<Lang, Dict> = {
           duration: "45 dk",
           tags: ["sovereignty", "security", "panel"],
           panel: {
-            moderator: "Abduallah Damash",
+            moderator: "Abdullah Da'mash",
             moderatorImage: "abduallah-damash",
             moderatorTagline: "Kıdemli YZ ve Siber Güvenlik Mühendisi — MLOps · DevOps",
             moderatorBio:
-              "Siber güvenlik ve yapay zeka alanında uzmanlaşmış girişimci ve mühendis; ODTÜ'den yapay zeka yüksek lisans derecesine sahip. AuthDeep kurucusu; küresel şirketlerle iş birliği içinde kurumsal yazılım çözümleri ve karmaşık sistemler inşa etme deneyimine sahip.",
+              "Siber güvenlik ve yapay zeka alanında uzmanlaşmış girişimci ve mühendis; ODTÜ'den yapay zeka yüksek lisans derecesine sahip. Kurucu @ [AuthDeep](https://authdeep.com); küresel şirketlerle iş birliği içinde kurumsal yazılım çözümleri ve karmaşık sistemler inşa etme deneyimine sahip.",
             guests: [
               { name: "Ahmed Shams al-Din", imageSlug: "ahmad-shamsddin.jpg" },
               { name: "Yusuf Bakara", imageSlug: "youssef-bakara" },
@@ -924,11 +924,11 @@ export const dict: Record<Lang, Dict> = {
           duration: "45 min",
           tags: ["sovereignty", "security", "panel"],
           panel: {
-            moderator: "Abduallah Damash",
+            moderator: "Abdullah Da'mash",
             moderatorImage: "abduallah-damash",
             moderatorTagline: "Senior AI & Cybersecurity Engineer — MLOps · DevOps",
             moderatorBio:
-              "Entrepreneur and engineer specializing in cybersecurity and artificial intelligence, with a master's degree in AI from ODTU. Founder of AuthDeep, with experience building enterprise software solutions and complex systems in collaboration with global companies.",
+              "Entrepreneur and engineer specializing in cybersecurity and artificial intelligence, with a master's degree in AI from ODTU. Founder @ [AuthDeep](https://authdeep.com), with experience building enterprise software solutions and complex systems in collaboration with global companies.",
             guests: [
               { name: "Ahmad Shams al-Din", imageSlug: "ahmad-shamsddin.jpg" },
               { name: "Youssef Bakara", imageSlug: "youssef-bakara" },
