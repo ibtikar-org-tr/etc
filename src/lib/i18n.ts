@@ -143,10 +143,25 @@ export const dict: Record<Lang, Dict> = {
       panelModerator: "قائد الحوار",
       panelGuestLabels: ["الضيف الأول", "الضيف الثاني", "الضيف الثالث"],
       items: [
-        { title: "الذكاء الاصطناعي مفتوح المصدر — امتلك ذكائك الاصطناعي", desc: "محاضرة نظريّة تقدّم مدخلًا في عالم النماذج المفتوحة والقدرة على امتلاك ذكائك الاصطناعي وبنائه وتشغيله.", duration: "45 دقيقة", tags: ["AI", "open-source"] },
+        {
+          title: "الذكاء الاصطناعي مفتوح المصدر في الرؤية الحاسوبية",
+          desc: "محاضرة نظريّة تقدّم مدخلًا في عالم النماذج المفتوحة والقدرة على امتلاك ذكائك الاصطناعي وبنائه وتشغيله.",
+          speaker: "محمد إمهان",
+          speakerImage: "muhammad-imhan",
+          speakerTagline: "معيد وباحث — جامعة إسطنبول التقنية",
+          speakerBio:
+            "طالب ماجستير في هندسة الحاسوب بجامعة إسطنبول التقنية وأعمل معيد وباحث هناك. مهتم بمجالات الذكاء الاصطناعي، الرؤية الحاسوبية، والتعلم العميق. يعمل على مشاريع بحثية وتطبيقية تهدف إلى استخدام الذكاء الاصطناعي في حل مشكلات واقعية.",
+          duration: "45 دقيقة",
+          tags: ["AI", "open-source", "computer-vision"],
+        },
         {
           title: "استخدام الذكاء الاصطناعي الوكيل في المجال البنكي",
           desc: "تتمحور المحاضرة حول تطبيقات الذكاء الاصطناعي الوكيل في القطاع المصرفي، وبناء أنظمة ذكية قادرة على اتخاذ القرارات وتنفيذ المهام بكفاءة في بيئات مالية معقّدة.",
+          speaker: "مصطفى اسماعيل",
+          speakerImage: "moustafa-ismail",
+          speakerTagline: "طالب ماجستير هندسة حاسوب — ODTÜ",
+          speakerBio:
+            "انا خريج هندسة كمبيوتر من اوتو، كنت الاول علي القسم. و حاليا بعمل ماجستير في اوتو هندسة كمبيوتر في classification of np complete instances. و بشتغل في استخدام الذكاء الصناعي لانظمة ال authentication للبنوك",
           duration: "45 دقيقة",
           tags: ["agentic-ai", "automation"],
         },
@@ -157,7 +172,7 @@ export const dict: Record<Lang, Dict> = {
           speakerImage: "isra-mavaldi.jpeg",
           speakerTagline: "باحثة في تحليل البيانات الطبية — جامعة يلدز التقنية",
           speakerBio:
-            "باحثة في علوم تحليل البيانات الطبية، حاصلة على البكالوريوس والماجستير في الهندسة الحيوية من جامعة يلدز التقنية.",
+            "إسراء موالدي باحثة في علوم تحليل البيانات الطبية، حاصلة على البكالوريوس والماجستير في الهندسة الحيوية من جامعة يلدز التقنية.",
           duration: "45 دقيقة",
           tags: ["health-tech", "bioinformatics"],
         },
@@ -168,7 +183,7 @@ export const dict: Record<Lang, Dict> = {
           speakerImage: "hazem-khulousi",
           speakerTagline: "مهندس طيران — ESEN · METU",
           speakerBio:
-            "مهندس ميكانيكا طيران وأنظمة تحكم، وطالب دكتوراه في هندسة الطيران والفضاء في جامعة الشرق الأوسط التقنية (METU) في أنقرة. حصل على درجتي البكالوريوس والماجستير في هندسة الطيران والفضاء من الجامعة نفسها، وكانت رسالة الماجستير حول تطوير أنظمة الهبوط الذاتي لطائرات الإقلاع والهبوط العمودي (VTOL) على المنصات البحرية المتحركة. وتتركز دراساته الحالية في مرحلة الدكتوراه على الأنظمة الجوية الذاتية، وديناميكا الطيران، وأنظمة التحكم المتقدمة للطائرات المأهولة وغير المأهولة. يعمل مهندس ميكانيكا طيران في شركة ESEN System Integration، ويتخصص في ديناميكا الطيران، وأنظمة التوجيه والملاحة والتحكم (GNC)، وتطوير الخوارزميات الخاصة بالطائرات ثابتة الجناح وطائرات الإقلاع والهبوط العمودي (VTOL) والأنظمة الجوية غير المأهولة. تركز أبحاثه وأعماله على الأنظمة الجوية الذاتية، والتحكم المتقدم، وهبوط طائرات VTOL على المنصات المتحركة، وقد نشر عدة أبحاث علمية في هذا المجال.",
+            "مهندس ميكانيكا طيران وأنظمة تحكم، وطالب دكتوراه في هندسة الطيران والفضاء في جامعة الشرق الأوسط التقنية (METU) في أنقرة. حصلت على درجتي البكالوريوس والماجستير في هندسة الطيران والفضاء من الجامعة نفسها، وكانت رسالتي للماجستير حول تطوير أنظمة الهبوط الذاتي لطائرات الإقلاع والهبوط العمودي (VTOL) على المنصات البحرية المتحركة. وتتركز دراساتي الحالية في مرحلة الدكتوراه على الأنظمة الجوية الذاتية، وديناميكا الطيران، وأنظمة التحكم المتقدمة للطائرات المأهولة وغير المأهولة. أعمل مهندس ميكانيكا طيران في شركة ESEN System Integration، وأتخصص في ديناميكا الطيران، وأنظمة التوجيه والملاحة والتحكم (GNC)، وتطوير الخوارزميات الخاصة بالطائرات ثابتة الجناح وطائرات الإقلاع والهبوط العمودي (VTOL) والأنظمة الجوية غير المأهولة. تركز أبحاثي وأعمالي على الأنظمة الجوية الذاتية، والتحكم المتقدم، وهبوط طائرات VTOL على المنصات المتحركة، وقد نشرت عدة أبحاث علمية في هذا المجال.",
           duration: "45 دقيقة",
           tags: ["drones", "systems-engineering"],
         },
@@ -179,7 +194,7 @@ export const dict: Record<Lang, Dict> = {
           speakerImage: "firas-qarahsan",
           speakerTagline: "مؤسس شركة menamatix",
           speakerBio:
-            "مهندس كهرباء ورائد أعمال بخبرة تمتد لأكثر من 10 سنوات في قطاع التكنولوجيا وأنظمة التتبع وإدارة الأسطول. يقود شركة menamatix في تطوير حلول برمجية ذكية تساعد الشركات على تحسين كفاءة النقل، متابعة المركبات، وأتمتة العمليات التشغيلية.",
+            "فراس قراحسن مهندس كهرباء ورائد أعمال بخبرة تمتد لأكثر من 10 سنوات في قطاع التكنولوجيا وأنظمة التتبع وإدارة الأسطول. يقود شركة menamatix في تطوير حلول برمجية ذكية تساعد الشركات على تحسين كفاءة النقل، متابعة المركبات، وأتمتة العمليات التشغيلية.",
           duration: "45 دقيقة",
           tags: ["IoT", "smart-city"],
         },
@@ -218,10 +233,15 @@ export const dict: Record<Lang, Dict> = {
           },
         },
         {
-          title: "الأتمتة وعالمها",
-          desc: "محاضرة نظريّة حول الأتمتة وتطبيقاتها في مختلف القطاعات، وكيف تعيد تشكيل عالم العمل والتقنية.",
+          title: "برمجة المسيّرات: المهارات والأدوات وفرص المستقبل",
+          desc: "محاضرة نظريّة حول مهارات وأدوات برمجة المسيّرات وآفاق هذا المجال.",
+          speaker: "محمد فريد الحافظ",
+          speakerImage: "muhammad-farid-al-hafiz",
+          speakerTagline: "مهندس تحكم في المسيرات — جامعة يلدز التقنية",
+          speakerBio:
+            "مهندس تحكم في المسيرات الحربية. خريج هندسة تحكم و اتمتة من جامعة يلدز التقنية. شاركت في مسابقات التكنوفست عدة مرات. حاصل على المركز الاول في مسابقة التقنيات التعليمية 2023 في التكنوفست.",
           duration: "45 دقيقة",
-          tags: ["automation", "robotics"],
+          tags: ["drones", "programming", "robotics"],
         },
       ],
     },
@@ -260,8 +280,8 @@ export const dict: Record<Lang, Dict> = {
         { time: "15:30 – 16:15", title: "استخدام الذكاء الاصطناعي الوكيل في المجال البنكي", lecture: true },
         { time: "16:15 – 16:30", title: "مسابقة انضمام", highlight: true },
         { time: "16:30 – 17:15", title: "السيادة الرقميّة والتهديد القومي", lecture: true },
-        { time: "17:15 – 18:00", title: "الذكاء الاصطناعي مفتوح المصدر", lecture: true },
-        { time: "18:00 – 18:45", title: "الأتمتة وعالمها", lecture: true },
+        { time: "17:15 – 18:00", title: "الذكاء الاصطناعي مفتوح المصدر في الرؤية الحاسوبية", lecture: true },
+        { time: "18:00 – 18:45", title: "برمجة المسيّرات: المهارات والأدوات وفرص المستقبل", lecture: true },
         { time: "18:45 – 19:00", title: "خاتمة المؤتمر", highlight: true },
       ],
     },
@@ -280,7 +300,7 @@ export const dict: Record<Lang, Dict> = {
               speakerImage: "isra-mavaldi.jpeg",
               speakerTagline: "باحثة في تحليل البيانات الطبية — جامعة يلدز التقنية",
               speakerBio:
-                "باحثة في علوم تحليل البيانات الطبية، حاصلة على البكالوريوس والماجستير في الهندسة الحيوية من جامعة يلدز التقنية.",
+                "إسراء موالدي باحثة في علوم تحليل البيانات الطبية، حاصلة على البكالوريوس والماجستير في الهندسة الحيوية من جامعة يلدز التقنية.",
               tags: ["health-tech", "r-programming", "python", "analytics"],
             },
             {
@@ -289,7 +309,8 @@ export const dict: Record<Lang, Dict> = {
               speaker: "ماسة سودان",
               speakerImage: "masa-soudan",
               speakerTagline: "مهندسة برمجيات — Teknofest · TÜBİTAK",
-              speakerBio: "خريجة هندسة برمجيات، شاركت سابقًا في مشاريع ذكاء اصطناعي ضمن Teknofest و TÜBİTAK.",
+              speakerBio:
+                "خريجة هندسة برمجيات عندي مشاريع سابقة بالذكاء الاصطناعي شاركت فيهم من قبل ب Teknofest و Tubitak",
               tags: ["ai", "prompt-engineering", "vibe-coding", "programming"],
             },
             {
@@ -323,17 +344,17 @@ export const dict: Record<Lang, Dict> = {
               speakerImage: "m.ikbal.jpg",
               speakerTagline: "مهندس طيران — ESEN · METU",
               speakerBio:
-                "مهندس ميكانيكا طيران وأنظمة تحكم، وطالب دكتوراه في هندسة الطيران والفضاء في جامعة الشرق الأوسط التقنية (METU) في أنقرة. حاصل على البكالوريوس والماجستير في هندسة الطيران والفضاء من الجامعة نفسها، وكانت رسالة الماجستير حول تطوير أنظمة الهبوط الذاتي لطائرات VTOL على المنصات البحرية المتحركة. يعمل مهندس ميكانيكا طيران في ESEN System Integration، ويتخصص في ديناميكا الطيران وأنظمة التوجيه والملاحة والتحكم (GNC) وتطوير خوارزميات الطائرات ثابتة الجناح وVTOL والأنظمة الجوية غير المأهولة، ونشر عدة أبحاث في الأنظمة الجوية الذاتية والتحكم المتقدم.",
+                "مهندس ميكانيكا طيران وأنظمة تحكم، وطالب دكتوراه في هندسة الطيران والفضاء في جامعة الشرق الأوسط التقنية (METU) في أنقرة. حصلت على درجتي البكالوريوس والماجستير في هندسة الطيران والفضاء من الجامعة نفسها، وكانت رسالتي للماجستير حول تطوير أنظمة الهبوط الذاتي لطائرات الإقلاع والهبوط العمودي (VTOL) على المنصات البحرية المتحركة. وتتركز دراساتي الحالية في مرحلة الدكتوراه على الأنظمة الجوية الذاتية، وديناميكا الطيران، وأنظمة التحكم المتقدمة للطائرات المأهولة وغير المأهولة. أعمل مهندس ميكانيكا طيران في شركة ESEN System Integration، وأتخصص في ديناميكا الطيران، وأنظمة التوجيه والملاحة والتحكم (GNC)، وتطوير الخوارزميات الخاصة بالطائرات ثابتة الجناح وطائرات الإقلاع والهبوط العمودي (VTOL) والأنظمة الجوية غير المأهولة. تركز أبحاثي وأعمالي على الأنظمة الجوية الذاتية، والتحكم المتقدم، وهبوط طائرات VTOL على المنصات المتحركة، وقد نشرت عدة أبحاث علمية في هذا المجال.",
               tags: ["ai", "huggingface", "training"],
             },
             {
               title: "ابن بكفاءة باستخدام الذكاء الاصطناعي",
               desc: "استخدام أدوات الذكاء الاصطناعي لتعزيز الإنتاجية وتسريع بناء المنتجات الرقمية.",
-              speaker: "عبد الرحمن إسماعيل",
+              speaker: "عبدالرحمن إسماعيل",
               speakerImage: "abdurrahman-ismail",
               speakerTagline: "مدير تقني — Manchester Airport Group",
               speakerBio:
-                "مبرمج ومدير تقني يمتلك خبرة تزيد على 12 عامًا في مجال تطوير البرمجيات، ويعمل حاليًا ضمن الفريق التقني في مجموعة مطارات مانشستر (Manchester Airport Group). إلى جانب عمله المهني، يقدّم محتوى تقنيًا متخصصًا في البرمجة والتقنيات الحديثة والذكاء الاصطناعي، مع التركيز على تبسيط المفاهيم ومشاركة الخبرات العملية. يهتم ببناء التطبيقات المعتمدة على الذكاء الاصطناعي، ويشارك من خلال محتواه نصائح وأفكارًا وتجارب عملية تساعد المطورين ورواد الأعمال على الاستفادة من أدوات الـ AI بأفضل صورة ممكنة لزيادة الإنتاجية وتسريع بناء المنتجات الرقمية.",
+                "عبد الرحمن إسماعيل مبرمج ومدير تقني يمتلك خبرة تزيد على 12 عامًا في مجال تطوير البرمجيات، ويعمل حاليًا ضمن الفريق التقني في مجموعة مطارات مانشستر (Manchester Airport Group). إلى جانب عمله المهني، يقدّم محتوى تقنيًا متخصصًا في البرمجة والتقنيات الحديثة والذكاء الاصطناعي، مع التركيز على تبسيط المفاهيم ومشاركة الخبرات العملية. يهتم ببناء التطبيقات المعتمدة على الذكاء الاصطناعي، ويشارك من خلال محتواه نصائح وأفكارًا وتجارب عملية تساعد المطورين ورواد الأعمال على الاستفادة من أدوات الـ AI بأفضل صورة ممكنة لزيادة الإنتاجية وتسريع بناء المنتجات الرقمية.",
               tags: ["ai", "productivity", "tools"],
             },
           ],
@@ -347,7 +368,16 @@ export const dict: Record<Lang, Dict> = {
               desc: "استكشاف الخدمات المصغّرة والواجهات المصغّرة وربط الوحدات وserverless وزمن المعالجة.",
               tags: ["micro-services", "micro-frontends", "module-federation", "serverless", "cpu-time"],
             },
-            { title: "استخدام أنظمة إدارة الموارد العصريّة ERP", desc: "مدخل عملي إلى برمجيّات إدارة الموارد في المؤسسات الحديثة.", tags: ["erp", "management-software"] },
+            {
+              title: "أنظمة إدارة الموارد ERP ومستقبلها",
+              desc: "مدخل عملي إلى برمجيّات إدارة الموارد في المؤسسات الحديثة.",
+              speaker: "مصطفى عبد العزيز",
+              speakerImage: "moustafa-abdul-aziz",
+              speakerTagline: "مهندس ومبرمج — ERP",
+              speakerBio:
+                "مهندس ومبرمج خريج هندسة حاسوب عمل على الكثير من مشاريع ال ERP كمبرمج ومدير مشروع",
+              tags: ["erp", "management-software"],
+            },
           ],
         },
       ],
@@ -435,10 +465,25 @@ export const dict: Record<Lang, Dict> = {
       panelModerator: "Moderatör",
       panelGuestLabels: ["Birinci Konuk", "İkinci Konuk", "Üçüncü Konuk"],
       items: [
-        { title: "Açık Kaynak YZ — Yapay Zekana Sahip Ol", desc: "Açık modeller dünyasına giriş ve yapay zekanı sahiplenme, inşa etme ve çalıştırma.", duration: "45 dk", tags: ["AI", "open-source"] },
+        {
+          title: "Bilgisayarlı Görüde Açık Kaynak Yapay Zeka",
+          desc: "Açık modeller dünyasına giriş ve yapay zekanı sahiplenme, inşa etme ve çalıştırma.",
+          speaker: "Muhammed İmhan",
+          speakerImage: "muhammad-imhan",
+          speakerTagline: "Araştırma görevlisi — İTÜ",
+          speakerBio:
+            "İstanbul Teknik Üniversitesi'nde bilgisayar mühendisliği yüksek lisans öğrencisi; aynı üniversitede araştırma görevlisi ve araştırmacı olarak çalışıyor. Yapay zeka, bilgisayarlı görü ve derin öğrenme alanlarıyla ilgileniyor. Yapay zekayı gerçek dünya sorunlarını çözmek için kullanmayı hedefleyen araştırma ve uygulama projeleri üzerinde çalışıyor.",
+          duration: "45 dk",
+          tags: ["AI", "open-source", "computer-vision"],
+        },
         {
           title: "Bankacılıkta Ajan Yapay Zeka",
           desc: "Bankacılık sektöründe ajan tabanlı yapay zekanın uygulamaları; karmaşık finansal ortamlarda karar veren ve görevleri verimli yürüten akıllı sistemler inşa etmek.",
+          speaker: "Mustafa İsmail",
+          speakerImage: "moustafa-ismail",
+          speakerTagline: "Bilgisayar mühendisliği yüksek lisans öğrencisi — ODTÜ",
+          speakerBio:
+            "ODTÜ bilgisayar mühendisliği mezunuyum; bölüm birincisiydim. Şu anda ODTÜ'de bilgisayar mühendisliği yüksek lisansında, NP-complete örneklerinin sınıflandırılması üzerine çalışıyorum. Bankacılıkta kimlik doğrulama sistemlerinde yapay zekanın kullanımı üzerine çalışıyorum.",
           duration: "45 dk",
           tags: ["agentic-ai", "automation"],
         },
@@ -510,10 +555,15 @@ export const dict: Record<Lang, Dict> = {
           },
         },
         {
-          title: "Otomasyon ve Dünyası",
-          desc: "Otomasyonun farklı sektörlerdeki uygulamaları ve iş ile teknoloji dünyasını nasıl yeniden şekillendirdiği.",
+          title: "İHA Programlama: Beceriler, Araçlar ve Gelecek Fırsatları",
+          desc: "İHA programlamada beceriler, araçlar ve bu alandaki gelecek fırsatları üzerine teorik bir ders.",
+          speaker: "Muhammed Farid El-Hafız",
+          speakerImage: "muhammad-farid-al-hafiz",
+          speakerTagline: "İHA kontrol mühendisi — YTÜ",
+          speakerBio:
+            "Askeri İHA'larda kontrol mühendisi. Yıldız Teknik Üniversitesi Kontrol ve Otomasyon Mühendisliği mezunu. Teknofest yarışmalarına birçok kez katıldı. 2023 Teknofest Eğitim Teknolojileri yarışmasında birincilik ödülü aldı.",
           duration: "45 dk",
-          tags: ["automation", "robotics"],
+          tags: ["drones", "programming", "robotics"],
         },
       ],
     },
@@ -552,8 +602,8 @@ export const dict: Record<Lang, Dict> = {
         { time: "15:30 – 16:15", title: "Bankacılıkta Ajan Yapay Zeka", lecture: true },
         { time: "16:15 – 16:30", title: "Katılım Yarışması", highlight: true },
         { time: "16:30 – 17:15", title: "Dijital Egemenlik ve Ulusal Tehdit", lecture: true },
-        { time: "17:15 – 18:00", title: "Açık Kaynak Yapay Zeka", lecture: true },
-        { time: "18:00 – 18:45", title: "Otomasyon ve Dünyası", lecture: true },
+        { time: "17:15 – 18:00", title: "Bilgisayarlı Görüde Açık Kaynak Yapay Zeka", lecture: true },
+        { time: "18:00 – 18:45", title: "İHA Programlama: Beceriler, Araçlar ve Gelecek Fırsatları", lecture: true },
         { time: "18:45 – 19:00", title: "Konferans Kapanışı", highlight: true },
       ],
     },
@@ -580,7 +630,8 @@ export const dict: Record<Lang, Dict> = {
               speaker: "Masa Sudan",
               speakerImage: "masa-soudan",
               speakerTagline: "Yazılım mühendisi — Teknofest · TÜBİTAK",
-              speakerBio: "Yazılım mühendisliği mezunu; daha önce Teknofest ve TÜBİTAK kapsamında yapay zeka projelerinde yer aldı.",
+              speakerBio:
+                "Yazılım mühendisliği mezunuyum. Daha önce Teknofest ve TÜBİTAK kapsamında yapay zeka projelerine katıldım.",
               tags: ["ai", "prompt-engineering", "vibe-coding", "programming"],
             },
             {
@@ -614,7 +665,7 @@ export const dict: Record<Lang, Dict> = {
               speakerImage: "m.ikbal.jpg",
               speakerTagline: "Havacılık mühendisi — ESEN · ODTÜ",
               speakerBio:
-                "Havacılık ve uzay mühendisliği doktora adayı (ODTÜ, Ankara); havacılık mekaniği mühendisi. ESEN System Integration'da çalışıyor; aerodinamik, GNC sistemleri ve VTOL/İHA algoritmaları üzerine uzmanlaşmış.",
+                "Havacılık ve kontrol sistemleri mühendisi; Ankara'da Orta Doğu Teknik Üniversitesi'nde (ODTÜ) havacılık ve uzay mühendisliği doktora adayı. ODTÜ'den havacılık ve uzay mühendisliği lisans ve yüksek lisans derecelerine sahip; yüksek lisans tezi hareketli deniz platformlarında VTOL uçaklar için otonom iniş sistemleri üzerineydi. Doktora çalışmaları otonom hava sistemleri, uçuş dinamiği ve insanlı/insansız hava araçları için ileri kontrol üzerine odaklanıyor. ESEN System Integration'da havacılık mühendisi olarak çalışıyor; uçuş dinamiği, GNC sistemleri ve sabit kanat, VTOL ve insansız hava sistemleri algoritmalarında uzmanlaşmış. Otonom hava sistemleri, ileri kontrol ve hareketli platformlarda VTOL inişi üzerine birçok bilimsel yayını bulunuyor.",
               tags: ["ai", "huggingface", "training"],
             },
             {
@@ -624,7 +675,7 @@ export const dict: Record<Lang, Dict> = {
               speakerImage: "abdurrahman-ismail",
               speakerTagline: "Teknik lider — Manchester Airport Group",
               speakerBio:
-                "12 yılı aşkın yazılım geliştirme deneyimine sahip programcı ve teknik lider; Manchester Airport Group'ta teknik ekipte çalışıyor. Programlama, modern teknolojiler ve yapay zeka alanında uzmanlaşmış teknik içerik üretiyor; kavramları sadeleştirmeye ve pratik deneyimler paylaşmaya odaklanıyor. YZ destekli uygulamalar geliştiriyor ve geliştiricilere ve girişimcilere YZ araçlarından en iyi şekilde yararlanarak verimliliği artırma konusunda pratik ipuçları sunuyor.",
+                "Abdurrahman Ismail, programcı ve teknik lider; 12 yılı aşkın yazılım geliştirme deneyimine sahip ve Manchester Airport Group'ta teknik ekipte çalışıyor. Programlama, modern teknolojiler ve yapay zeka alanında uzmanlaşmış teknik içerik üretiyor; kavramları sadeleştirmeye ve pratik deneyimler paylaşmaya odaklanıyor. YZ destekli uygulamalar geliştiriyor ve geliştiricilere ve girişimcilere YZ araçlarından en iyi şekilde yararlanarak verimliliği artırma ve dijital ürünleri hızlandırma konusunda pratik ipuçları sunuyor.",
               tags: ["ai", "productivity", "tools"],
             },
           ],
@@ -638,7 +689,16 @@ export const dict: Record<Lang, Dict> = {
               desc: "Mikro servisler, mikro önyüzler, modül federasyonu, serverless ve CPU süresi.",
               tags: ["micro-services", "micro-frontends", "module-federation", "serverless", "cpu-time"],
             },
-            { title: "Modern ERP Kaynak Yönetim Sistemleri", desc: "Modern kurumlarda kaynak yönetimi yazılımlarına pratik giriş.", tags: ["erp", "management-software"] },
+            {
+              title: "ERP Kaynak Yönetim Sistemleri ve Gelecekleri",
+              desc: "Modern kurumlarda kaynak yönetimi yazılımlarına pratik giriş.",
+              speaker: "Mustafa Abdülaziz",
+              speakerImage: "moustafa-abdul-aziz",
+              speakerTagline: "Mühendis ve programcı — ERP",
+              speakerBio:
+                "Mühendis ve programcı; bilgisayar mühendisliği mezunu. Birçok ERP projesinde programcı ve proje yöneticisi olarak çalıştı.",
+              tags: ["erp", "management-software"],
+            },
           ],
         },
       ],
@@ -726,10 +786,25 @@ export const dict: Record<Lang, Dict> = {
       panelModerator: "Moderator",
       panelGuestLabels: ["Guest One", "Guest Two", "Guest Three"],
       items: [
-        { title: "Open-Source AI — Own Your AI", desc: "A theoretical introduction to open models and owning, building, and running your own AI.", duration: "45 min", tags: ["AI", "open-source"] },
+        {
+          title: "Open-Source AI in Computer Vision",
+          desc: "A theoretical introduction to open models and owning, building, and running your own AI.",
+          speaker: "Muhammad Imhan",
+          speakerImage: "muhammad-imhan",
+          speakerTagline: "Teaching assistant & researcher — ITU",
+          speakerBio:
+            "Master's student in computer engineering at Istanbul Technical University; works as a teaching assistant and researcher there. Interested in artificial intelligence, computer vision, and deep learning. Works on research and applied projects aimed at using AI to solve real-world problems.",
+          duration: "45 min",
+          tags: ["AI", "open-source", "computer-vision"],
+        },
         {
           title: "Agentic AI in Banking",
           desc: "Applications of agentic AI in the banking sector; building intelligent systems that make decisions and execute tasks efficiently in complex financial environments.",
+          speaker: "Moustafa Ismail",
+          speakerImage: "moustafa-ismail",
+          speakerTagline: "MSc student in computer engineering — ODTÜ",
+          speakerBio:
+            "I'm a computer engineering graduate from ODTU, where I ranked first in my department. I'm currently pursuing a master's in computer engineering at ODTU, focusing on classification of NP-complete instances. I work on using AI for authentication systems in banking.",
           duration: "45 min",
           tags: ["agentic-ai", "automation"],
         },
@@ -801,10 +876,15 @@ export const dict: Record<Lang, Dict> = {
           },
         },
         {
-          title: "Automation and Its World",
-          desc: "A theoretical lecture on automation across industries and how it is reshaping work and technology.",
+          title: "Drone Programming: Skills, Tools, and Future Opportunities",
+          desc: "A theoretical lecture on drone programming skills, tools, and future opportunities in the field.",
+          speaker: "Muhammad Farid Al-Hafiz",
+          speakerImage: "muhammad-farid-al-hafiz",
+          speakerTagline: "Drone control engineer — YTU",
+          speakerBio:
+            "Control engineer for military drones. Graduate of control and automation engineering from Yildiz Technical University. Participated in Teknofest competitions multiple times. Won first place in the 2023 Educational Technologies competition at Teknofest.",
           duration: "45 min",
-          tags: ["automation", "robotics"],
+          tags: ["drones", "programming", "robotics"],
         },
       ],
     },
@@ -843,8 +923,8 @@ export const dict: Record<Lang, Dict> = {
         { time: "15:30 – 16:15", title: "Agentic AI in Banking", lecture: true },
         { time: "16:15 – 16:30", title: "Join Quiz", highlight: true },
         { time: "16:30 – 17:15", title: "Digital Sovereignty & National Threat", lecture: true },
-        { time: "17:15 – 18:00", title: "Open-Source AI", lecture: true },
-        { time: "18:00 – 18:45", title: "Automation and Its World", lecture: true },
+        { time: "17:15 – 18:00", title: "Open-Source AI in Computer Vision", lecture: true },
+        { time: "18:00 – 18:45", title: "Drone Programming: Skills, Tools, and Future Opportunities", lecture: true },
         { time: "18:45 – 19:00", title: "Conference Closing", highlight: true },
       ],
     },
@@ -872,7 +952,8 @@ export const dict: Record<Lang, Dict> = {
               speaker: "Masa Sudan",
               speakerImage: "masa-soudan",
               speakerTagline: "Software engineer — Teknofest · TÜBİTAK",
-              speakerBio: "Software engineering graduate; previously participated in AI projects through Teknofest and TÜBİTAK.",
+              speakerBio:
+                "Software engineering graduate. I've worked on previous AI projects through Teknofest and TÜBİTAK.",
               tags: ["ai", "prompt-engineering", "vibe-coding", "programming"],
             },
             {
@@ -906,7 +987,7 @@ export const dict: Record<Lang, Dict> = {
               speakerImage: "m.ikbal.jpg",
               speakerTagline: "Aerospace engineer — ESEN · METU",
               speakerBio:
-                "Aerospace and control systems engineer; PhD candidate in aerospace engineering at METU, Ankara. Works at ESEN System Integration, specializing in aerodynamics, GNC systems, and fixed-wing, VTOL, and UAV algorithms.",
+                "Aerospace and control systems engineer; PhD candidate in aerospace engineering at Middle East Technical University (METU) in Ankara. Holds bachelor's and master's degrees in aerospace engineering from METU; his master's thesis focused on autonomous landing systems for VTOL aircraft on moving marine platforms. His doctoral research focuses on autonomous aerial systems, flight dynamics, and advanced control for manned and unmanned aircraft. Works as an aerospace engineer at ESEN System Integration, specializing in flight dynamics, GNC systems, and algorithms for fixed-wing, VTOL, and uncrewed aerial systems. His research spans autonomous aerial systems, advanced control, and VTOL landing on moving platforms, with several published papers in the field.",
               tags: ["ai", "huggingface", "training"],
             },
             {
@@ -916,7 +997,7 @@ export const dict: Record<Lang, Dict> = {
               speakerImage: "abdurrahman-ismail",
               speakerTagline: "Technical lead — Manchester Airport Group",
               speakerBio:
-                "Programmer and technical lead with over 12 years of software development experience, currently on the technical team at Manchester Airport Group. He creates specialized technical content on programming, modern technologies, and AI, focusing on simplifying concepts and sharing practical expertise. He builds AI-powered applications and shares tips, ideas, and hands-on experiences that help developers and entrepreneurs get the most from AI tools to boost productivity and accelerate building digital products.",
+                "Abdurrahman Ismail is a programmer and technical lead with over 12 years of software development experience, currently on the technical team at Manchester Airport Group. He creates specialized technical content on programming, modern technologies, and AI, focusing on simplifying concepts and sharing practical expertise. He builds AI-powered applications and shares tips, ideas, and hands-on experiences that help developers and entrepreneurs get the most from AI tools to boost productivity and accelerate building digital products.",
               tags: ["ai", "productivity", "tools"],
             },
           ],
@@ -930,7 +1011,16 @@ export const dict: Record<Lang, Dict> = {
               desc: "Microservices, micro-frontends, module federation, serverless, and CPU time.",
               tags: ["micro-services", "micro-frontends", "module-federation", "serverless", "cpu-time"],
             },
-            { title: "Modern ERP Resource Management Systems", desc: "A practical introduction to resource management software in modern enterprises.", tags: ["erp", "management-software"] },
+            {
+              title: "ERP Resource Management Systems and Their Future",
+              desc: "A practical introduction to resource management software in modern enterprises.",
+              speaker: "Moustafa Abdul Aziz",
+              speakerImage: "moustafa-abdul-aziz",
+              speakerTagline: "Engineer & programmer — ERP",
+              speakerBio:
+                "Engineer and programmer; computer engineering graduate who has worked on many ERP projects as a programmer and project manager.",
+              tags: ["erp", "management-software"],
+            },
           ],
         },
       ],
