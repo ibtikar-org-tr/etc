@@ -96,7 +96,7 @@ export function Hero() {
         </div>
 
         <h1 className="mt-5 max-w-4xl font-heading text-[2rem] font-extrabold leading-[1.08] tracking-tight text-balance sm:mt-6 sm:text-5xl lg:text-7xl">
-          <span className="hero-title-line block">{h.titleTop}</span>
+          <span className="hero-title-line block mb-2">{h.titleTop}</span>
           <span className="hero-title-line block bg-gradient-to-l from-violet-400 via-purple-400 to-fuchsia-300 bg-clip-text text-transparent">
             {h.titleBottom}
           </span>
