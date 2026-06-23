@@ -2,6 +2,7 @@
 
 import { useLang } from "./lang-provider"
 import { IBTIKAR_URL, IbtikarLogo } from "./ibtikar-logo"
+import { STARTUP_BOOTH_URL } from "./startup-booth"
 import { buildPath, pagePath } from "@/lib/lang-url"
 
 export function SiteFooter() {
@@ -91,6 +92,18 @@ export function SiteFooter() {
                   {f.volunteer}
                 </a>
               </li>
+              {!isArchive && (
+                <li>
+                  <a
+                    href={STARTUP_BOOTH_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-primary transition-colors hover:underline"
+                  >
+                    {f.startupBooth}
+                  </a>
+                </li>
+              )}
             </ul>
           </div>
         </div>

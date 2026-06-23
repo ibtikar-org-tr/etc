@@ -5,6 +5,46 @@ import { ChevronDown } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { speakerImageUrl } from "@/lib/speaker-images"
 
+const BIO_LINK_RE = /\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g
+
+function BioText({ text }: { text: string }) {
+  const parts: Array<{ type: "text"; value: string } | { type: "link"; label: string; href: string }> = []
+  let lastIndex = 0
+
+  for (const match of text.matchAll(BIO_LINK_RE)) {
+    const index = match.index ?? 0
+    if (index > lastIndex) {
+      parts.push({ type: "text", value: text.slice(lastIndex, index) })
+    }
+    parts.push({ type: "link", label: match[1], href: match[2] })
+    lastIndex = index + match[0].length
+  }
+
+  if (lastIndex < text.length) {
+    parts.push({ type: "text", value: text.slice(lastIndex) })
+  }
+
+  return (
+    <p className="px-1 text-sm leading-relaxed text-muted-foreground">
+      {parts.map((part, index) =>
+        part.type === "link" ? (
+          <a
+            key={index}
+            href={part.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium text-primary underline underline-offset-2 hover:text-primary/80"
+          >
+            {part.label}
+          </a>
+        ) : (
+          <span key={index}>{part.value}</span>
+        ),
+      )}
+    </p>
+  )
+}
+
 type SpeakerBioToggleProps = {
   name: string
   tagline?: string
@@ -139,7 +179,7 @@ export function SpeakerBioToggle({
             )}
           >
             <div className="overflow-hidden">
-              <p className="px-1 text-sm leading-relaxed text-muted-foreground">{bio}</p>
+              <BioText text={bio} />
             </div>
           </div>
         </>
