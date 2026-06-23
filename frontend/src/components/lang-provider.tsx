@@ -4,8 +4,8 @@ import { createContext, useCallback, useContext, useEffect, useState } from "rea
 import { dict, type Dict, type Lang } from "@/lib/i18n"
 import { dict2024, type Dict2024 } from "@/lib/i18n-2024"
 import {
-  buildPath,
   migrateLegacyLangQuery,
+  pathMatchesPage,
   readLangFromUrl,
   readPageFromUrl,
   writeLangToUrl,
@@ -38,7 +38,7 @@ export function LangProvider({ children }: { children: React.ReactNode }) {
     const currentPage = readPageFromUrl()
     setLangState(currentLang)
     setPage(currentPage)
-    if (window.location.pathname !== buildPath(currentLang, currentPage)) {
+    if (!pathMatchesPage(window.location.pathname, currentLang, currentPage)) {
       writeLangToUrl(currentLang, true)
     }
   }, [])
