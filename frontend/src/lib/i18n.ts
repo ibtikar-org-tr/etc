@@ -223,7 +223,11 @@ export const dict: Record<Lang, Dict> = {
             moderatorBio:
               "رائد أعمال ومهندس مختص في الأمن السيبراني والذكاء الاصطناعي، حاصل على الماجستير في الذكاء الاصطناعي من جامعة ODTU. مؤسس @ [AuthDeep](https://authdeep.com)، بخبرة في بناء حلول برمجية مؤسسية وأنظمة معقّدة بالتعاون مع شركات عالمية.",
             guests: [
-              { name: "أحمد شمس الدين", imageSlug: "ahmad-shamsddin.jpg" },
+              {
+                name: "أحمد شمس الدين",
+                imageSlug: "ahmad-shamsddin.jpg",
+                tagline: "مهندس برمجيات ومختبر اختراق — الأمن الهجومي وتطوير أدوات الأمن السيبراني",
+              },
               {
                 name: "يوسف كبارة",
                 imageSlug: "yusuf-kabbara.jpeg",
@@ -368,7 +372,7 @@ export const dict: Record<Lang, Dict> = {
               desc: "تطبيق سيناريوهات محاكاة لاختبار الاختراق وفحص الثغرات الشائعة، بالإضافة إلى تجربة استغلال هذه الثغرات.",
               speaker: "أحمد شمس الدين",
               speakerImage: "ahmad-shamsddin.jpg",
-              speakerTagline: "مطوّر برمجيات — اختبار اختراق · DevOps",
+              speakerTagline: "مهندس برمجيات ومختبر اختراق — الأمن الهجومي وتطوير أدوات الأمن السيبراني",
               speakerBio:
                 "مطوّر برمجيات متخصص في أنظمة الخلفية القابلة للتوسّع وممارسات DevOps وأنظمة التحكم بالإصدارات. طالب هندسة برمجيات في İstanbul Aydın University (تبادل Erasmus+ في VSB Ostrava). حاصل على شهادات eJPT وINE Junior Penetration Tester وHackviser CAPT؛ ضمن أفضل 10 في BEING-WISE CTF. خبرة في EARTech وBluLogix وHesco Engineering Services وMevhibe Teknoloji.",
               tags: ["security", "pentest"],
@@ -596,7 +600,11 @@ export const dict: Record<Lang, Dict> = {
             moderatorBio:
               "Siber güvenlik ve yapay zeka alanında uzmanlaşmış girişimci ve mühendis; ODTÜ'den yapay zeka yüksek lisans derecesine sahip. Kurucu @ [AuthDeep](https://authdeep.com); küresel şirketlerle iş birliği içinde kurumsal yazılım çözümleri ve karmaşık sistemler inşa etme deneyimine sahip.",
             guests: [
-              { name: "Ahmed Shams al-Din", imageSlug: "ahmad-shamsddin.jpg" },
+              {
+                name: "Ahmed Shams al-Din",
+                imageSlug: "ahmad-shamsddin.jpg",
+                tagline: "Yazılım mühendisi ve sızma testi uzmanı — saldırı güvenliği ve siber güvenlik araçları",
+              },
               {
                 name: "Yusuf KABBARA",
                 imageSlug: "yusuf-kabbara.jpeg",
@@ -740,7 +748,7 @@ export const dict: Record<Lang, Dict> = {
               desc: "Sızma testi simülasyon senaryoları, yaygın zafiyetlerin taranması ve istismar deneyimi.",
               speaker: "Ahmad Shamsddin",
               speakerImage: "ahmad-shamsddin.jpg",
-              speakerTagline: "Yazılım Geliştirici — Sızma Testi · DevOps",
+              speakerTagline: "Yazılım mühendisi ve sızma testi uzmanı — saldırı güvenliği ve siber güvenlik araçları",
               speakerBio:
                 "Ölçeklenebilir arka uç sistemler, DevOps ve sürüm kontrolü konularında uzmanlaşmış yazılım geliştirici. İstanbul Aydın Üniversitesi yazılım mühendisliği öğrencisi (VSB Ostrava Erasmus+). eJPT, INE Junior Penetration Tester ve Hackviser CAPT sertifikalarına sahip; BEING-WISE CTF ilk 10. EARTech, BluLogix, Hesco Engineering Services ve Mevhibe Teknoloji deneyimi.",
               tags: ["security", "pentest"],
@@ -968,7 +976,11 @@ export const dict: Record<Lang, Dict> = {
             moderatorBio:
               "Entrepreneur and engineer specializing in cybersecurity and artificial intelligence, with a master's degree in AI from ODTU. Founder @ [AuthDeep](https://authdeep.com), with experience building enterprise software solutions and complex systems in collaboration with global companies.",
             guests: [
-              { name: "Ahmad Shams al-Din", imageSlug: "ahmad-shamsddin.jpg" },
+              {
+                name: "Ahmad Shams al-Din",
+                imageSlug: "ahmad-shamsddin.jpg",
+                tagline: "Software engineer & penetration tester — offensive security and security tooling",
+              },
               {
                 name: "Yusuf KABBARA",
                 imageSlug: "yusuf-kabbara.jpeg",
@@ -1113,7 +1125,7 @@ export const dict: Record<Lang, Dict> = {
               desc: "Simulating penetration testing scenarios, scanning common vulnerabilities, and experiencing exploitation techniques.",
               speaker: "Ahmad Shamsddin",
               speakerImage: "ahmad-shamsddin.jpg",
-              speakerTagline: "Software Developer — Penetration Testing · DevOps",
+              speakerTagline: "Software engineer & penetration tester — offensive security and security tooling",
               speakerBio:
                 "Software developer specializing in scalable back-end systems, DevOps, and version control. Bachelor's student in software engineering at Istanbul Aydin University (Erasmus+ at VSB Ostrava). Certified in penetration testing (eJPT, INE Junior Penetration Tester, Hackviser CAPT); BEING-WISE CTF top 10. Experience at EARTech, BluLogix, Hesco Engineering Services, and Mevhibe Teknoloji.",
               tags: ["security", "pentest"],
