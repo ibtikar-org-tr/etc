@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "etc-ms",
+  "name": "etc-be",
   "main": "src/index.ts",
   "compatibility_date": "2026-06-23"
   // "compatibility_flags": [

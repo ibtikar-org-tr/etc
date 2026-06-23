@@ -1,5 +1,5 @@
 {
-  "name": "etc-ms",
+  "name": "etc-be",
   "type": "module",
   "scripts": {
     "dev": "wrangler dev",
