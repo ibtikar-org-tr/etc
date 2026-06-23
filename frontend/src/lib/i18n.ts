@@ -393,10 +393,24 @@ export const dict: Record<Lang, Dict> = {
         {
           name: "الفقرة الثالثة",
           items: [
-            { title: "ورشة DevOps — CI/CD", desc: "ورشة تطبيقيّة في بناء خطوط التكامل والنشر المستمر.", tags: ["git", "programming", "devops", "ci-cd"] },
+            {
+              title: "ورشة DevOps — CI/CD",
+              desc: "ورشة تطبيقيّة في بناء خطوط التكامل والنشر المستمر.",
+              speaker: "عبدالله دعمش",
+              speakerImage: "abduallah-damash",
+              speakerTagline: "مهندس ذكاء اصطناعي وأمن سيبراني — MLOps · DevOps",
+              speakerBio:
+                "رائد أعمال ومهندس مختص في الأمن السيبراني والذكاء الاصطناعي، حاصل على الماجستير في الذكاء الاصطناعي من جامعة ODTU. مؤسس @ [AuthDeep](https://authdeep.com)، بخبرة في بناء حلول برمجية مؤسسية وأنظمة معقّدة بالتعاون مع شركات عالمية.",
+              tags: ["git", "programming", "devops", "ci-cd"],
+            },
             {
               title: "اكتساب استراتيجية اختيار البنية الأفضل للأكواد البرمجيّة",
               desc: "استكشاف الخدمات المصغّرة والواجهات المصغّرة وربط الوحدات وserverless وزمن المعالجة.",
+              speaker: "عبد الكريم لحموني",
+              speakerImage: "abdulkarim-lahmuni",
+              speakerTagline: "طبيب ومبرمج — مؤسس تجمّع إبتكار",
+              speakerBio:
+                "درس الطب البشري في جامعة إسطنبول جراح باشا، ويعمل طبيب طوارئ في ولاية كوجالي. خبير في تطوير البرمجيات ولديه مشاريع ريادية برمجية، ومطوّر full-stack. يمتلك خبرات حاسوبية ورياضية واسعة، وسبق أن ألّف مناهج رياضية لاختبار YÖS قبل سبع سنوات. مهتم بالعمل المجتمعي، وأسّس تجمّع إبتكار قبل ثلاث سنوات — وهو اليوم أكبر تجمّع تقني عربي بين الطلاب في تركيا. يسعى إلى إعادة تشكيل مستقبل التعليم، ولذلك تُعد التقنيات التعليمية المجال الأقرب إليه. مؤسس @ [ClinicDeep](https://clinicdeep.com) · مؤسس @ [98tools](https://98tools.com).",
               tags: ["micro-services", "micro-frontends", "module-federation", "serverless", "cpu-time"],
             },
             {
@@ -746,10 +760,24 @@ export const dict: Record<Lang, Dict> = {
         {
           name: "Üçüncü Oturum",
           items: [
-            { title: "DevOps — CI/CD Atölyesi", desc: "Sürekli entegrasyon ve dağıtım hatları kurma.", tags: ["git", "programming", "devops", "ci-cd"] },
+            {
+              title: "DevOps — CI/CD Atölyesi",
+              desc: "Sürekli entegrasyon ve dağıtım hatları kurma.",
+              speaker: "Abdullah Damash",
+              speakerImage: "abduallah-damash",
+              speakerTagline: "Kıdemli YZ ve Siber Güvenlik Mühendisi — MLOps · DevOps",
+              speakerBio:
+                "Siber güvenlik ve yapay zeka alanında uzmanlaşmış girişimci ve mühendis; ODTÜ'den yapay zeka yüksek lisans derecesine sahip. Kurucu @ [AuthDeep](https://authdeep.com); küresel şirketlerle iş birliği içinde kurumsal yazılım çözümleri ve karmaşık sistemler inşa etme deneyimine sahip.",
+              tags: ["git", "programming", "devops", "ci-cd"],
+            },
             {
               title: "En İyi Kod Mimarisi Seçme Stratejisi",
               desc: "Mikro servisler, mikro önyüzler, modül federasyonu, serverless ve CPU süresi.",
+              speaker: "Abdulkarim Lahmuni",
+              speakerImage: "abdulkarim-lahmuni",
+              speakerTagline: "Doktor ve programcı — İbtikar Topluluğu kurucusu",
+              speakerBio:
+                "İstanbul Üniversitesi-Cerrahpaşa Tıp Fakültesi mezunu; Kocaeli'de acil servis hekimi. Yazılım geliştirme uzmanı, full-stack geliştirici ve girişimci teknoloji projelerinin sahibi. Yedi yıl önce YÖS matematik müfredatları yazdı. Topluluk çalışmalarına önem verir; üç yıl önce kurduğu İbtikar Topluluğu bugün Türkiye'deki Arapça konuşan öğrenciler arasında en büyük teknoloji topluluğudur. Eğitimin geleceğini yeniden şekillendirmeyi hedefler; eğitim teknolojileri onun için en öncelikli alandır. Kurucu @ [ClinicDeep](https://clinicdeep.com) · Kurucu @ [98tools](https://98tools.com).",
               tags: ["micro-services", "micro-frontends", "module-federation", "serverless", "cpu-time"],
             },
             {
@@ -1100,10 +1128,24 @@ export const dict: Record<Lang, Dict> = {
         {
           name: "Session Three",
           items: [
-            { title: "DevOps — CI/CD Workshop", desc: "Building continuous integration and deployment pipelines.", tags: ["git", "programming", "devops", "ci-cd"] },
+            {
+              title: "DevOps — CI/CD Workshop",
+              desc: "Building continuous integration and deployment pipelines.",
+              speaker: "Abdullah Damash",
+              speakerImage: "abduallah-damash",
+              speakerTagline: "Senior AI & Cybersecurity Engineer — MLOps · DevOps",
+              speakerBio:
+                "Entrepreneur and engineer specializing in cybersecurity and artificial intelligence, with a master's degree in AI from ODTU. Founder @ [AuthDeep](https://authdeep.com), with experience building enterprise software solutions and complex systems in collaboration with global companies.",
+              tags: ["git", "programming", "devops", "ci-cd"],
+            },
             {
               title: "Choosing the Best Code Architecture",
               desc: "Microservices, micro-frontends, module federation, serverless, and CPU time.",
+              speaker: "Abdulkarim Lahmuni",
+              speakerImage: "abdulkarim-lahmuni",
+              speakerTagline: "Doctor & programmer — Founder of Ibtikar Assembly",
+              speakerBio:
+                "He studied human medicine at Istanbul University-Cerrahpaşa and works as an emergency physician in Kocaeli. A software development expert and full-stack developer with entrepreneurial tech projects. He authored YÖS mathematics curricula seven years ago and brings deep experience in computing and mathematics. Passionate about community work, he founded Ibtikar Assembly three years ago — now the largest Arabic-speaking student tech community in Türkiye. He aims to reshape the future of education; educational technologies are the field he cares for most. Founder @ [ClinicDeep](https://clinicdeep.com) · Founder @ [98tools](https://98tools.com).",
               tags: ["micro-services", "micro-frontends", "module-federation", "serverless", "cpu-time"],
             },
             {
