@@ -65,7 +65,6 @@ export type Dict = {
     panelGuestLabels: string[]
     items: Track[]
   }
-  shorts: { label: string; title: string; items: Track[] }
   agenda: {
     label: string
     title: string
@@ -287,17 +286,6 @@ export const dict: Record<Lang, Dict> = {
           duration: "45 دقيقة",
           tags: ["drones", "programming", "robotics"],
         },
-      ],
-    },
-    shorts: {
-      label: "فقرات قصيرة بين المحاضرات",
-      title: "لحظات مميّزة",
-      items: [
-        { title: "مقدّمة المؤتمر", desc: "كلمة مسؤول المؤتمر.", duration: "15 دقيقة" },
-        { title: "كلمة رائد أعمال", desc: "نستضيف شخصًا رائد أعمال يحكي عن تجربته في شركته التقنيّة المتخصّصة.", duration: "15 دقيقة" },
-        { title: "كلمة مسؤول", desc: "إذا استطعنا استضافة مسؤول معيّن، سواء في الحكومة أو النقابة أو التجمّع.", duration: "15 دقيقة" },
-        { title: "كلمة إدارة إبتكار", desc: "الحديث عن آخر التطوّرات في إبتكار والخطط المستقبليّة، مع إمكان عرض فيديو.", duration: "25 دقيقة" },
-        { title: "مسابقة قصيرة", desc: "مسابقة تتضمّن أسئلة عن محاضرة المقاطعة.", duration: "15 دقيقة" },
       ],
     },
     agenda: {
@@ -671,17 +659,6 @@ export const dict: Record<Lang, Dict> = {
         },
       ],
     },
-    shorts: {
-      label: "Dersler Arası Kısa Bölümler",
-      title: "Öne Çıkan Anlar",
-      items: [
-        { title: "Konferans Açılışı", desc: "Konferans sorumlusunun konuşması.", duration: "15 dk" },
-        { title: "Girişimci Konuşması", desc: "Uzmanlaşmış bir teknoloji şirketindeki deneyimini anlatan girişimci.", duration: "15 dk" },
-        { title: "Yetkili Konuşması", desc: "Mümkünse devlet, oda veya birlikten bir yetkili.", duration: "15 dk" },
-        { title: "İbtikar Yönetimi", desc: "İbtikar'ın son gelişmeleri ve gelecek planları; video gösterimi mümkün.", duration: "25 dk" },
-        { title: "Kısa Yarışma", desc: "Önceki dersteki konular hakkında sorular.", duration: "15 dk" },
-      ],
-    },
     agenda: {
       label: "Zaman Çizelgesi",
       title: "Konferans Programı",
@@ -1050,17 +1027,6 @@ export const dict: Record<Lang, Dict> = {
           duration: "45 min",
           tags: ["drones", "programming", "robotics"],
         },
-      ],
-    },
-    shorts: {
-      label: "Short Segments Between Lectures",
-      title: "Highlight Moments",
-      items: [
-        { title: "Conference Opening", desc: "Opening remarks by the conference lead.", duration: "15 min" },
-        { title: "Entrepreneur Talk", desc: "An entrepreneur shares their journey in a specialized tech company.", duration: "15 min" },
-        { title: "Official Address", desc: "Hosting an official from government, union, or the assembly if possible.", duration: "15 min" },
-        { title: "Ibtikar Management", desc: "Latest developments at Ibtikar and future plans; video showcase if available.", duration: "25 min" },
-        { title: "Quick Quiz", desc: "Questions about the preceding lecture.", duration: "15 min" },
       ],
     },
     agenda: {
