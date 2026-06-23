@@ -21,6 +21,10 @@ export const SPEAKER_IMAGE_SLUGS = {
   moustafaIsmail: "moustafa-ismail",
   muhammadFaridAlHafiz: "muhammad-farid-al-hafiz",
   moustafaAbdulAziz: "moustafa-abdul-aziz",
+  abdullahDamish: "abdullah-damish",
+  ahmadShamsddin: "ahmad-shamsddin.jpg",
+  youssefBakara: "youssef-bakara",
+  osamaSiam: "osama-siam",
 } as const
 
 export type SpeakerImageSlug = (typeof SPEAKER_IMAGE_SLUGS)[keyof typeof SPEAKER_IMAGE_SLUGS]

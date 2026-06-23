@@ -198,7 +198,21 @@ export const dict: Record<Lang, Dict> = {
           duration: "45 دقيقة",
           tags: ["IoT", "smart-city"],
         },
-        { title: "السيادة الرقميّة والتهديد القومي — هل نقلق أم نحذر", desc: "نقاش حول البيانات والبنية التحتية الرقمية والأمن القومي في عالمٍ مترابط.", duration: "45 دقيقة", tags: ["sovereignty", "security"] },
+        {
+          title: "السيادة الرقميّة والتهديد القومي",
+          desc: "خليط بين عرض سلايد ومناقشة حول البيانات والبنية التحتية الرقمية والأمن القومي في عالمٍ مترابط.",
+          duration: "45 دقيقة",
+          tags: ["sovereignty", "security", "panel"],
+          panel: {
+            moderator: "عبدالله دعمش",
+            moderatorImage: "abdullah-damish",
+            guests: [
+              { name: "أحمد شمس الدين", imageSlug: "ahmad-shamsddin.jpg" },
+              { name: "يوسف بكارة", imageSlug: "youssef-bakara" },
+              { name: "أسامة صيام", imageSlug: "osama-siam" },
+            ],
+          },
+        },
         {
           title: "برمجيّات ملطّخة بالدم",
           desc: "حوار حول أخلاقيّات البرمجة ومسؤوليّة المطوّر في عالمٍ تتقاطع فيه التقنية مع القيم الإنسانيّة.",
@@ -332,6 +346,7 @@ export const dict: Record<Lang, Dict> = {
               title: "ورشة عمل في مهارات الأمن السّيبراني",
               desc: "تطبيق سيناريوهات محاكاة لاختبار الاختراق وفحص الثغرات الشائعة، بالإضافة إلى تجربة استغلال هذه الثغرات.",
               speaker: "أحمد شمس الدين",
+              speakerImage: "ahmad-shamsddin.jpg",
               speakerTagline: "مطوّر برمجيات — اختبار اختراق · DevOps",
               speakerBio:
                 "مطوّر برمجيات متخصص في أنظمة الخلفية القابلة للتوسّع وممارسات DevOps وأنظمة التحكم بالإصدارات. طالب هندسة برمجيات في İstanbul Aydın University (تبادل Erasmus+ في VSB Ostrava). حاصل على شهادات eJPT وINE Junior Penetration Tester وHackviser CAPT؛ ضمن أفضل 10 في BEING-WISE CTF. خبرة في EARTech وBluLogix وHesco Engineering Services وMevhibe Teknoloji.",
@@ -520,7 +535,21 @@ export const dict: Record<Lang, Dict> = {
           duration: "45 dk",
           tags: ["IoT", "smart-city"],
         },
-        { title: "Dijital Egemenlik ve Ulusal Tehdit — Endişe mi, Dikkat mi?", desc: "Veri, dijital altyapı ve ulusal güvenlik üzerine tartışma.", duration: "45 dk", tags: ["sovereignty", "security"] },
+        {
+          title: "Dijital Egemenlik ve Ulusal Tehdit",
+          desc: "Bağlantılı bir dünyada veri, dijital altyapı ve ulusal güvenlik üzerine slayt sunumu ve tartışma karışımı.",
+          duration: "45 dk",
+          tags: ["sovereignty", "security", "panel"],
+          panel: {
+            moderator: "Abdullah Damish",
+            moderatorImage: "abdullah-damish",
+            guests: [
+              { name: "Ahmed Shams al-Din", imageSlug: "ahmad-shamsddin.jpg" },
+              { name: "Yusuf Bakara", imageSlug: "youssef-bakara" },
+              { name: "Osama Siam", imageSlug: "osama-siam" },
+            ],
+          },
+        },
         {
           title: "Kanla Lekelenmiş Yazılım",
           desc: "Yazılım etiği ve geliştirici sorumluluğu üzerine panel tartışması.",
@@ -653,6 +682,7 @@ export const dict: Record<Lang, Dict> = {
               title: "Siber Güvenlik Becerileri Atölyesi",
               desc: "Sızma testi simülasyon senaryoları, yaygın zafiyetlerin taranması ve istismar deneyimi.",
               speaker: "Ahmad Shamsddin",
+              speakerImage: "ahmad-shamsddin.jpg",
               speakerTagline: "Yazılım Geliştirici — Sızma Testi · DevOps",
               speakerBio:
                 "Ölçeklenebilir arka uç sistemler, DevOps ve sürüm kontrolü konularında uzmanlaşmış yazılım geliştirici. İstanbul Aydın Üniversitesi yazılım mühendisliği öğrencisi (VSB Ostrava Erasmus+). eJPT, INE Junior Penetration Tester ve Hackviser CAPT sertifikalarına sahip; BEING-WISE CTF ilk 10. EARTech, BluLogix, Hesco Engineering Services ve Mevhibe Teknoloji deneyimi.",
@@ -841,7 +871,21 @@ export const dict: Record<Lang, Dict> = {
           duration: "45 min",
           tags: ["IoT", "smart-city"],
         },
-        { title: "Digital Sovereignty & National Threat — Worry or Beware?", desc: "A discussion on data, digital infrastructure, and national security in a connected world.", duration: "45 min", tags: ["sovereignty", "security"] },
+        {
+          title: "Digital Sovereignty & National Threat",
+          desc: "A mix of slides and discussion on data, digital infrastructure, and national security in a connected world.",
+          duration: "45 min",
+          tags: ["sovereignty", "security", "panel"],
+          panel: {
+            moderator: "Abdullah Damish",
+            moderatorImage: "abdullah-damish",
+            guests: [
+              { name: "Ahmad Shams al-Din", imageSlug: "ahmad-shamsddin.jpg" },
+              { name: "Youssef Bakara", imageSlug: "youssef-bakara" },
+              { name: "Osama Siam", imageSlug: "osama-siam" },
+            ],
+          },
+        },
         {
           title: "Blood-Stained Software",
           desc: "A panel on software ethics and developer responsibility where technology intersects with human values.",
@@ -975,6 +1019,7 @@ export const dict: Record<Lang, Dict> = {
               title: "Cybersecurity Skills Workshop",
               desc: "Simulating penetration testing scenarios, scanning common vulnerabilities, and experiencing exploitation techniques.",
               speaker: "Ahmad Shamsddin",
+              speakerImage: "ahmad-shamsddin.jpg",
               speakerTagline: "Software Developer — Penetration Testing · DevOps",
               speakerBio:
                 "Software developer specializing in scalable back-end systems, DevOps, and version control. Bachelor's student in software engineering at Istanbul Aydin University (Erasmus+ at VSB Ostrava). Certified in penetration testing (eJPT, INE Junior Penetration Tester, Hackviser CAPT); BEING-WISE CTF top 10. Experience at EARTech, BluLogix, Hesco Engineering Services, and Mevhibe Teknoloji.",
