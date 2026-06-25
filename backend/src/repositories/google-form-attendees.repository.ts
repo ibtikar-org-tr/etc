@@ -22,7 +22,6 @@ export const DEFAULT_SHEET_COLUMN_MAP: SheetColumnMap = {
   'رقم الهاتف': 'phone',
   'البريد الإلكتروني': 'email',
   'اختر التذكرة التي تريدها': 'ticket_label',
-  'البريد الإلكتروني': 'email',
   'Email Address': 'email',
   Email: 'email',
   email: 'email',
