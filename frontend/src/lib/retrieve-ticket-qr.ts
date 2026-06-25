@@ -33,7 +33,7 @@ function parseLookupValue(value: string): { email?: string; membershipNumber?: s
 }
 
 function apiBaseUrl(): string {
-  const configured = import.meta.env.VITE_ETC_API_URL?.trim()
+  const configured = import.meta.env.VITE_ETC_BE?.trim()
   return configured ? configured.replace(/\/$/, "") : ""
 }
 
