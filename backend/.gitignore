@@ -31,3 +31,7 @@ lerna-debug.log*
 
 # misc
 .DS_Store
+
+# local config
+wrangler.local.jsonc
+worker-configuration.d.ts

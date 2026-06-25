@@ -2,37 +2,29 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "etc-be",
   "main": "src/index.ts",
-  "compatibility_date": "2026-06-23"
-  // "compatibility_flags": [
-  //   "nodejs_compat"
-  // ],
-  // "vars": {
-  //   "MY_VAR": "my-variable"
-  // },
-  // "kv_namespaces": [
-  //   {
-  //     "binding": "MY_KV_NAMESPACE",
-  //     "id": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-  //   }
-  // ],
-  // "r2_buckets": [
-  //   {
-  //     "binding": "MY_BUCKET",
-  //     "bucket_name": "my-bucket"
-  //   }
-  // ],
-  // "d1_databases": [
-  //   {
-  //     "binding": "MY_DB",
-  //     "database_name": "my-database",
-  //     "database_id": ""
-  //   }
-  // ],
-  // "ai": {
-  //   "binding": "AI"
-  // },
-  // "observability": {
-  //   "enabled": true,
-  //   "head_sampling_rate": 1
-  // }
+  "compatibility_date": "2026-06-23",
+  "d1_databases": [
+    {
+      "binding": "MEMBERS_DB",
+      "database_name": "membership-app-database",
+      "database_id": "00000000-0000-0000-0000-000000000000",
+      "remote": true
+    },
+    {
+      "binding": "VMS_DB",
+      "database_name": "vms-database",
+      "database_id": "00000000-0000-0000-0000-000000000001",
+      "remote": true
+    }
+  ],
+  "vars": {
+    "ETC_2026_EVENT_ID": "b1ed6cdc-d9a9-4f08-ac48-54fe3eb52207",
+    "FRONTEND_BASE_URL": "https://etc.ibtikar.tr"
+  },
+  "observability": {
+    "enabled": true
+  },
+  "dev": {
+    "port": 5939
+  }
 }

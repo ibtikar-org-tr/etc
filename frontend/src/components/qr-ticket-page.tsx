@@ -8,15 +8,13 @@ import { retrieveTicketQr, TicketQrError, type TicketQrResult } from "@/lib/retr
 import { Button } from "@/components/ui/button"
 import { gsap, prefersReducedMotion, revealTween, useGSAP } from "@/lib/gsap"
 
-const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-
 export function QrTicketPage() {
   const { lang, t } = useLang()
   const c = t.ticketQr
   const sectionRef = useRef<HTMLElement>(null)
   const homeHref = buildPath(lang, "home")
 
-  const [email, setEmail] = useState("")
+  const [lookup, setLookup] = useState("")
   const [fieldError, setFieldError] = useState<string | null>(null)
   const [requestError, setRequestError] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
@@ -42,13 +40,18 @@ export function QrTicketPage() {
     setFieldError(null)
     setRequestError(null)
 
-    const trimmed = email.trim()
+    const trimmed = lookup.trim()
     if (!trimmed) {
-      setFieldError(c.errors.emailRequired)
+      setFieldError(c.errors.identifierRequired)
       return
     }
-    if (!EMAIL_PATTERN.test(trimmed)) {
-      setFieldError(c.errors.emailInvalid)
+    const isEmail = trimmed.includes('@')
+    if (isEmail && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed)) {
+      setFieldError(c.errors.identifierInvalid)
+      return
+    }
+    if (!isEmail && !/^[A-Za-z0-9-]+$/.test(trimmed)) {
+      setFieldError(c.errors.identifierInvalid)
       return
     }
 
@@ -153,19 +156,18 @@ export function QrTicketPage() {
         ) : (
           <form onSubmit={handleSubmit} className="qr-ticket-el mt-10 space-y-5" noValidate>
             <div>
-              <label htmlFor="ticket-email" className="mb-2 block text-sm font-medium">
-                {c.emailLabel}
+              <label htmlFor="ticket-lookup" className="mb-2 block text-sm font-medium">
+                {c.identifierLabel}
               </label>
               <input
-                id="ticket-email"
-                name="email"
-                type="email"
-                autoComplete="email"
-                inputMode="email"
-                placeholder={c.emailPlaceholder}
-                value={email}
+                id="ticket-lookup"
+                name="lookup"
+                type="text"
+                autoComplete="username"
+                placeholder={c.identifierPlaceholder}
+                value={lookup}
                 onChange={(event) => {
-                  setEmail(event.target.value)
+                  setLookup(event.target.value)
                   setFieldError(null)
                   setRequestError(null)
                 }}
