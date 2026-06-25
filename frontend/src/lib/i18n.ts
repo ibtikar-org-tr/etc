@@ -93,6 +93,34 @@ export type Dict = {
     teaser: string
     teaserLink: string
   }
+  ticketQr: {
+    badge: string
+    title: string
+    subtitle: string
+    backToHome: string
+    note: string
+    emailLabel: string
+    emailPlaceholder: string
+    submit: string
+    loading: string
+    successTitle: string
+    successHint: string
+    qrAlt: string
+    attendeeLabel: string
+    ticketTypeLabel: string
+    download: string
+    tryAnother: string
+    teaser: string
+    teaserLink: string
+    errors: {
+      emailRequired: string
+      emailInvalid: string
+      notFound: string
+      notApproved: string
+      notAvailable: string
+      generic: string
+    }
+  }
   cta: { title: string; subtitle: string; button: string; note: string; comingSoon: string; registerVia: string }
   faq: { label: string; title: string; items: { q: string; a: string }[] }
   footer: {
@@ -104,6 +132,7 @@ export type Dict = {
     contact: string
     volunteer: string
     startupBooth: string
+    entranceQr: string
     website: string
   }
 }
@@ -446,6 +475,34 @@ export const dict: Record<Lang, Dict> = {
       teaser: "هل تمثّل شركة ناشئة؟",
       teaserLink: "قدّم طلب جناح",
     },
+    ticketQr: {
+      badge: "رمز الدخول",
+      title: "احصل على رمز QR للدخول",
+      subtitle: "أدخل البريد الإلكتروني الذي سجّلت به في المؤتمر لعرض رمز الدخول الخاص بك.",
+      backToHome: "العودة إلى مؤتمر ETC 2026",
+      note: "ETC 2026 · للمسجّلين فقط",
+      emailLabel: "البريد الإلكتروني",
+      emailPlaceholder: "name@example.com",
+      submit: "عرض رمز الدخول",
+      loading: "جارٍ البحث…",
+      successTitle: "رمز الدخول جاهز",
+      successHint: "اعرض هذا الرمز عند مدخل القاعة. يمكنك حفظ الصورة على هاتفك.",
+      qrAlt: "رمز QR للدخول إلى مؤتمر ETC 2026",
+      attendeeLabel: "الاسم",
+      ticketTypeLabel: "نوع التذكرة",
+      download: "تحميل الرمز",
+      tryAnother: "بحث جديد",
+      teaser: "سجّلت مسبقًا؟",
+      teaserLink: "احصل على رمز الدخول",
+      errors: {
+        emailRequired: "يرجى إدخال البريد الإلكتروني.",
+        emailInvalid: "يرجى إدخال بريد إلكتروني صالح.",
+        notFound: "لم نعثر على تسجيل بهذا البريد. تأكّد من البريد أو سجّل عبر منصّة إبتكار.",
+        notApproved: "تسجيلك قيد المراجعة. سيظهر رمز الدخول بعد اعتماد الحضور.",
+        notAvailable: "خدمة استرجاع رمز الدخول غير متاحة حاليًا. حاول لاحقًا.",
+        generic: "تعذّر استرجاع رمز الدخول. حاول مرة أخرى.",
+      },
+    },
     cta: {
       title: "احجز مقعدك في مؤتمر التّقنيّات الصّاعدة 2026",
       subtitle: "التسجيل مفتوح — سجّل عبر منصّة أعضاء إبتكار.",
@@ -476,6 +533,7 @@ export const dict: Record<Lang, Dict> = {
       contact: "تواصل",
       volunteer: "تطوّع معنا",
       startupBooth: "جناح الشركات الناشئة",
+      entranceQr: "رمز الدخول",
       website: "ibtikar.org.tr",
     },
   },
@@ -816,6 +874,34 @@ export const dict: Record<Lang, Dict> = {
       teaser: "Bir girişimi mi temsil ediyorsunuz?",
       teaserLink: "Stand başvurusu yap",
     },
+    ticketQr: {
+      badge: "Giriş QR Kodu",
+      title: "Giriş QR kodunuzu alın",
+      subtitle: "Konferansa kayıt olurken kullandığınız e-posta adresini girerek giriş QR kodunuzu görüntüleyin.",
+      backToHome: "ETC 2026 konferansına dön",
+      note: "ETC 2026 · Yalnızca kayıtlı katılımcılar",
+      emailLabel: "E-posta",
+      emailPlaceholder: "name@example.com",
+      submit: "QR kodumu göster",
+      loading: "Aranıyor…",
+      successTitle: "Giriş kodunuz hazır",
+      successHint: "Salon girişinde bu kodu gösterin. Görseli telefonunuza kaydedebilirsiniz.",
+      qrAlt: "ETC 2026 konferansı giriş QR kodu",
+      attendeeLabel: "Ad",
+      ticketTypeLabel: "Bilet türü",
+      download: "Kodu indir",
+      tryAnother: "Yeniden ara",
+      teaser: "Zaten kayıt oldunuz mu?",
+      teaserLink: "Giriş QR kodunuzu alın",
+      errors: {
+        emailRequired: "Lütfen e-posta adresinizi girin.",
+        emailInvalid: "Lütfen geçerli bir e-posta adresi girin.",
+        notFound: "Bu e-posta ile kayıt bulunamadı. Adresi kontrol edin veya İbtikar platformundan kayıt olun.",
+        notApproved: "Kaydınız inceleniyor. Katılım onaylandıktan sonra giriş kodunuz görünecek.",
+        notAvailable: "Giriş kodu hizmeti şu anda kullanılamıyor. Lütfen daha sonra tekrar deneyin.",
+        generic: "Giriş kodu alınamadı. Lütfen tekrar deneyin.",
+      },
+    },
     cta: {
       title: "Yükselen Teknolojiler Konferansı 2026'da yerini ayırt",
       subtitle: "Kayıt açık — İbtikar üye platformu üzerinden kayıt olun.",
@@ -846,6 +932,7 @@ export const dict: Record<Lang, Dict> = {
       contact: "İletişim",
       volunteer: "Gönüllü Ol",
       startupBooth: "Girişim Standı",
+      entranceQr: "Giriş QR Kodu",
       website: "ibtikar.org.tr",
     },
   },
@@ -1187,6 +1274,34 @@ export const dict: Record<Lang, Dict> = {
       teaser: "Representing a startup?",
       teaserLink: "Apply for a booth",
     },
+    ticketQr: {
+      badge: "Entrance QR",
+      title: "Get your entrance QR code",
+      subtitle: "Enter the email you used to register for the conference to view your entrance QR code.",
+      backToHome: "Back to ETC 2026",
+      note: "ETC 2026 · Registered attendees only",
+      emailLabel: "Email",
+      emailPlaceholder: "name@example.com",
+      submit: "Show my QR code",
+      loading: "Looking up…",
+      successTitle: "Your entrance code is ready",
+      successHint: "Show this code at the venue entrance. You can save the image to your phone.",
+      qrAlt: "ETC 2026 conference entrance QR code",
+      attendeeLabel: "Name",
+      ticketTypeLabel: "Ticket type",
+      download: "Download code",
+      tryAnother: "Look up again",
+      teaser: "Already registered?",
+      teaserLink: "Get your entrance QR",
+      errors: {
+        emailRequired: "Please enter your email address.",
+        emailInvalid: "Please enter a valid email address.",
+        notFound: "No registration found for this email. Check the address or register via the Ibtikar platform.",
+        notApproved: "Your registration is under review. Your entrance code will appear once attendance is approved.",
+        notAvailable: "The entrance code service is not available yet. Please try again later.",
+        generic: "Could not retrieve your entrance code. Please try again.",
+      },
+    },
     cta: {
       title: "Reserve your seat at the Emerging Technologies Conference 2026",
       subtitle: "Registration is open — sign up via the Ibtikar members platform.",
@@ -1217,6 +1332,7 @@ export const dict: Record<Lang, Dict> = {
       contact: "Contact",
       volunteer: "Volunteer With Us",
       startupBooth: "Startup Booth",
+      entranceQr: "Entrance QR",
       website: "ibtikar.org.tr",
     },
   },

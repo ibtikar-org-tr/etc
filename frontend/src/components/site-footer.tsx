@@ -9,9 +9,11 @@ export function SiteFooter() {
   const f = t.footer
   const isArchive = page === "etc-2024"
   const isStartups = page === "startups"
+  const isTicketQr = page === "ticket-qr"
   const homeHref = buildPath(lang, "home")
   const archiveHref = pagePath(lang, "etc-2024")
   const startupsHref = pagePath(lang, "startups")
+  const ticketQrHref = pagePath(lang, "ticket-qr")
 
   const navLinks = isArchive
     ? [
@@ -28,7 +30,14 @@ export function SiteFooter() {
           { href: `${homeHref}#workshops`, label: t.nav.workshops },
           { href: homeHref, label: t.startupBooth.backToHome },
         ]
-      : [
+      : isTicketQr
+        ? [
+            { href: `${homeHref}#about`, label: t.nav.about },
+            { href: `${homeHref}#agenda`, label: t.nav.agenda },
+            { href: `${homeHref}#register`, label: t.nav.register },
+            { href: homeHref, label: t.ticketQr.backToHome },
+          ]
+        : [
           { href: "#about", label: t.nav.about },
           { href: "#topics", label: t.nav.topics },
           { href: "#agenda", label: t.nav.agenda },
@@ -101,14 +110,24 @@ export function SiteFooter() {
                 </a>
               </li>
               {!isArchive && (
-                <li>
-                  <a
-                    href={startupsHref}
-                    className="text-sm text-primary transition-colors hover:underline"
-                  >
-                    {f.startupBooth}
-                  </a>
-                </li>
+                <>
+                  <li>
+                    <a
+                      href={ticketQrHref}
+                      className="text-sm text-primary transition-colors hover:underline"
+                    >
+                      {f.entranceQr}
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href={startupsHref}
+                      className="text-sm text-primary transition-colors hover:underline"
+                    >
+                      {f.startupBooth}
+                    </a>
+                  </li>
+                </>
               )}
             </ul>
           </div>

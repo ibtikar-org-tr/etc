@@ -18,11 +18,19 @@ export function SiteHeader() {
 
   const isArchive = page === "etc-2024"
   const isStartups = page === "startups"
+  const isTicketQr = page === "ticket-qr"
   const homeHref = buildPath(lang, "home")
   const archiveHref = pagePath(lang, "etc-2024")
   const startupsHref = pagePath(lang, "startups")
+  const ticketQrHref = pagePath(lang, "ticket-qr")
 
-  const brandHref = isArchive ? `${archiveHref}#top` : isStartups ? `${startupsHref}#top` : `${homeHref}#top`
+  const brandHref = isArchive
+    ? `${archiveHref}#top`
+    : isStartups
+      ? `${startupsHref}#top`
+      : isTicketQr
+        ? `${ticketQrHref}#top`
+        : `${homeHref}#top`
 
   const links = isArchive
     ? [
@@ -33,7 +41,9 @@ export function SiteHeader() {
       ]
     : isStartups
       ? []
-      : [
+      : isTicketQr
+        ? []
+        : [
           { href: "#about", label: t.nav.about },
           { href: "#topics", label: t.nav.topics },
           { href: "#agenda", label: t.nav.agenda },
@@ -128,7 +138,7 @@ export function SiteHeader() {
           <a
             href={brandHref}
             className="shrink-0 font-heading text-xs font-extrabold leading-none tracking-tight transition-colors hover:text-primary min-[360px]:text-sm sm:text-base"
-            aria-label={isArchive ? "ETC 2024" : isStartups ? t.startupBooth.badge : "ETC 2026"}
+            aria-label={isArchive ? "ETC 2024" : isStartups ? t.startupBooth.badge : isTicketQr ? t.ticketQr.badge : "ETC 2026"}
           >
             ETC<span className="text-primary">.</span>
             <span className="max-[359px]:hidden"> {isArchive ? "2024" : "2026"}</span>
@@ -168,6 +178,13 @@ export function SiteHeader() {
               className="header-nav-link text-sm font-medium text-primary transition-colors hover:text-primary/80"
             >
               {t.startupBooth.backToHome}
+            </a>
+          ) : isTicketQr ? (
+            <a
+              href={homeHref}
+              className="header-nav-link text-sm font-medium text-primary transition-colors hover:text-primary/80"
+            >
+              {t.ticketQr.backToHome}
             </a>
           ) : (
             <a
@@ -212,7 +229,7 @@ export function SiteHeader() {
             )}
           </div>
 
-          {!isArchive && !isStartups && (
+          {!isArchive && !isStartups && !isTicketQr && (
             <a
               href={REGISTRATION_URL}
               target="_blank"
@@ -262,6 +279,14 @@ export function SiteHeader() {
                 className="min-h-11 py-3 text-sm font-medium text-primary"
               >
                 {t.startupBooth.backToHome}
+              </a>
+            ) : isTicketQr ? (
+              <a
+                href={homeHref}
+                onClick={() => setMobileOpen(false)}
+                className="min-h-11 py-3 text-sm font-medium text-primary"
+              >
+                {t.ticketQr.backToHome}
               </a>
             ) : (
               <>

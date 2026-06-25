@@ -126,9 +126,34 @@ const STARTUPS_SEO: Record<Lang, Omit<SeoMeta, "path" | "canonical" | "ogImage" 
   },
 }
 
+const TICKET_QR_SEO: Record<Lang, Omit<SeoMeta, "path" | "canonical" | "ogImage" | "ogLocale" | "alternates" | "jsonLd">> = {
+  ar: {
+    title: "رمز الدخول · ETC 2026 · تجمّع إبتكار",
+    description:
+      "استرجع رمز QR للدخول إلى مؤتمر التّقنيّات الصّاعدة 2026 في إسطنبول باستخدام البريد الإلكتروني المسجّل.",
+    keywords: "رمز الدخول, QR, ETC 2026, إبتكار, تذكرة المؤتمر, إسطنبول",
+    robots: "noindex, follow",
+  },
+  tr: {
+    title: "Giriş QR Kodu · ETC 2026 · İbtikar",
+    description:
+      "Kayıt olduğunuz e-posta ile Yükselen Teknolojiler Konferansı 2026 giriş QR kodunuzu alın.",
+    keywords: "giriş QR kodu, ETC 2026, İbtikar, konferans bileti, İstanbul",
+    robots: "noindex, follow",
+  },
+  en: {
+    title: "Entrance QR Code · ETC 2026 · Ibtikar",
+    description:
+      "Retrieve your entrance QR code for the Emerging Technologies Conference 2026 in Istanbul using your registration email.",
+    keywords: "entrance QR code, ETC 2026, Ibtikar Assembly, conference ticket, Istanbul",
+    robots: "noindex, follow",
+  },
+}
+
 function pageSeo(page: Page, lang: Lang) {
   if (page === "etc-2024") return ARCHIVE_SEO[lang]
   if (page === "startups") return STARTUPS_SEO[lang]
+  if (page === "ticket-qr") return TICKET_QR_SEO[lang]
   return HOME_SEO[lang]
 }
 
@@ -192,6 +217,12 @@ export function getSeoMeta(lang: Lang, page: Page, origin = getSiteOrigin()): Se
         : lang === "tr"
           ? "Girişim Standı · ETC 2026"
           : "Startup Booth · ETC 2026"
+      : page === "ticket-qr"
+        ? lang === "ar"
+          ? "رمز الدخول · ETC 2026"
+          : lang === "tr"
+            ? "Giriş QR Kodu · ETC 2026"
+            : "Entrance QR · ETC 2026"
       : lang === "ar"
         ? `مؤتمر التّقنيّات الصّاعدة ${year}`
         : lang === "tr"
@@ -207,7 +238,13 @@ export function getSeoMeta(lang: Lang, page: Page, origin = getSiteOrigin()): Se
           : lang === "tr"
             ? "Girişim Standı"
             : "Startup Booth"
-        : null
+        : page === "ticket-qr"
+          ? lang === "ar"
+            ? "رمز الدخول"
+            : lang === "tr"
+              ? "Giriş QR Kodu"
+              : "Entrance QR"
+          : null
 
   const jsonLd: Record<string, unknown>[] = [
     websiteJsonLd(origin),

@@ -1,6 +1,6 @@
 import type { Lang } from "@/lib/i18n"
 
-export type Page = "home" | "etc-2024" | "startups"
+export type Page = "home" | "etc-2024" | "startups" | "ticket-qr"
 
 type ArchiveSegment = "etc-2024" | "2024"
 
@@ -24,6 +24,7 @@ export function readArchiveSegment(pathname = window.location.pathname): Archive
 export function readPageFromUrl(): Page {
   const parts = pathParts(window.location.pathname)
   if (parts.includes("startups")) return "startups"
+  if (parts.includes("qr")) return "ticket-qr"
   if (isArchivePath(parts)) return "etc-2024"
   return "home"
 }
@@ -34,6 +35,7 @@ export function pathMatchesPage(pathname: string, lang: Lang, page: Page): boole
   if (page === "home") return parts.length === 1
   if (page === "etc-2024") return parts.length === 2 && isArchivePath(parts)
   if (page === "startups") return parts.includes("2026") && parts.includes("startups")
+  if (page === "ticket-qr") return parts.includes("2026") && parts.includes("qr")
   return false
 }
 
@@ -51,6 +53,7 @@ export function readLangFromUrl(): Lang {
 export function buildPath(lang: Lang, page: Page = "home", archiveSegment?: ArchiveSegment): string {
   if (page === "etc-2024") return `/${lang}/${archiveSegment ?? "2024"}`
   if (page === "startups") return `/${lang}/2026/startups`
+  if (page === "ticket-qr") return `/${lang}/2026/qr`
   return `/${lang}`
 }
 
