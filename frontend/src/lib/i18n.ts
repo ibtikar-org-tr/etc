@@ -101,8 +101,16 @@ export type Dict = {
     note: string
     emailLabel: string
     emailPlaceholder: string
-    identifierLabel: string
-    identifierPlaceholder: string
+    membershipNumberLabel: string
+    membershipNumberPlaceholder: string
+    phoneLabel: string
+    lookupMethodLabel: string
+    lookupMethodPlaceholder: string
+    lookupOptions: {
+      email: string
+      membershipNumber: string
+      phoneNumber: string
+    }
     submit: string
     loading: string
     successTitle: string
@@ -117,8 +125,8 @@ export type Dict = {
     errors: {
       emailRequired: string
       emailInvalid: string
-      identifierRequired: string
-      identifierInvalid: string
+      selectionRequired: string
+      valueRequired: string
       notFound: string
       notApproved: string
       notAvailable: string
@@ -482,13 +490,21 @@ export const dict: Record<Lang, Dict> = {
     ticketQr: {
       badge: "رمز الدخول",
       title: "احصل على رمز QR للدخول",
-      subtitle: "أدخل البريد الإلكتروني أو رقم العضوية الذي سجّلت به في المؤتمر لعرض رمز الدخول الخاص بك.",
+      subtitle: "اختر طريقة البحث، ثم أدخل البريد الإلكتروني أو رقم العضوية أو رقم الهاتف الذي سجّلت به في المؤتمر.",
       backToHome: "العودة إلى مؤتمر ETC 2026",
       note: "ETC 2026 · للمسجّلين فقط",
       emailLabel: "البريد الإلكتروني",
       emailPlaceholder: "name@example.com",
-      identifierLabel: "البريد الإلكتروني أو رقم العضوية",
-      identifierPlaceholder: "name@example.com أو 2501001",
+      membershipNumberLabel: "رقم العضوية",
+      membershipNumberPlaceholder: "2501001",
+      phoneLabel: "رقم الهاتف",
+      lookupMethodLabel: "طريقة البحث",
+      lookupMethodPlaceholder: "اختر أحد الخيارات",
+      lookupOptions: {
+        email: "البريد الإلكتروني",
+        membershipNumber: "رقم العضوية",
+        phoneNumber: "رقم الهاتف",
+      },
       submit: "عرض رمز الدخول",
       loading: "جارٍ البحث…",
       successTitle: "رمز الدخول جاهز",
@@ -503,9 +519,9 @@ export const dict: Record<Lang, Dict> = {
       errors: {
         emailRequired: "يرجى إدخال البريد الإلكتروني.",
         emailInvalid: "يرجى إدخال بريد إلكتروني صالح.",
-        identifierRequired: "يرجى إدخال البريد الإلكتروني أو رقم العضوية.",
-        identifierInvalid: "يرجى إدخال بريد إلكتروني أو رقم عضوية صالح.",
-        notFound: "لم نعثر على تسجيل بهذا البريد. تأكّد من البريد أو سجّل عبر منصّة إبتكار.",
+        selectionRequired: "يرجى اختيار طريقة البحث أولًا.",
+        valueRequired: "يرجى إدخال قيمة الحقل المختار.",
+        notFound: "لم نعثر على تسجيل بهذه البيانات. تأكّد من المعلومات أو سجّل عبر منصّة إبتكار.",
         notApproved: "تسجيلك قيد المراجعة. سيظهر رمز الدخول بعد اعتماد الحضور.",
         notAvailable: "خدمة استرجاع رمز الدخول غير متاحة حاليًا. حاول لاحقًا.",
         generic: "تعذّر استرجاع رمز الدخول. حاول مرة أخرى.",
@@ -885,13 +901,21 @@ export const dict: Record<Lang, Dict> = {
     ticketQr: {
       badge: "Giriş QR Kodu",
       title: "Giriş QR kodunuzu alın",
-      subtitle: "Konferansa kayıt olurken kullandığınız e-posta adresini veya üyelik numaranızı girerek giriş QR kodunuzu görüntüleyin.",
+      subtitle: "Arama yöntemini seçin, ardından kayıt olurken kullandığınız e-posta, üyelik numarası veya telefon numarasını girin.",
       backToHome: "ETC 2026 konferansına dön",
       note: "ETC 2026 · Yalnızca kayıtlı katılımcılar",
       emailLabel: "E-posta",
       emailPlaceholder: "name@example.com",
-      identifierLabel: "E-posta veya üyelik numarası",
-      identifierPlaceholder: "name@example.com veya 2501001",
+      membershipNumberLabel: "Üyelik numarası",
+      membershipNumberPlaceholder: "2501001",
+      phoneLabel: "Telefon numarası",
+      lookupMethodLabel: "Arama yöntemi",
+      lookupMethodPlaceholder: "Bir seçenek seçin",
+      lookupOptions: {
+        email: "E-posta",
+        membershipNumber: "Üyelik numarası",
+        phoneNumber: "Telefon numarası",
+      },
       submit: "QR kodumu göster",
       loading: "Aranıyor…",
       successTitle: "Giriş kodunuz hazır",
@@ -906,9 +930,9 @@ export const dict: Record<Lang, Dict> = {
       errors: {
         emailRequired: "Lütfen e-posta adresinizi girin.",
         emailInvalid: "Lütfen geçerli bir e-posta adresi girin.",
-        identifierRequired: "Lütfen e-posta adresinizi veya üyelik numaranızı girin.",
-        identifierInvalid: "Lütfen geçerli bir e-posta adresi veya üyelik numarası girin.",
-        notFound: "Bu e-posta ile kayıt bulunamadı. Adresi kontrol edin veya İbtikar platformundan kayıt olun.",
+        selectionRequired: "Lütfen önce bir arama yöntemi seçin.",
+        valueRequired: "Lütfen seçilen alan için bir değer girin.",
+        notFound: "Bu bilgilerle kayıt bulunamadı. Bilgileri kontrol edin veya İbtikar platformundan kayıt olun.",
         notApproved: "Kaydınız inceleniyor. Katılım onaylandıktan sonra giriş kodunuz görünecek.",
         notAvailable: "Giriş kodu hizmeti şu anda kullanılamıyor. Lütfen daha sonra tekrar deneyin.",
         generic: "Giriş kodu alınamadı. Lütfen tekrar deneyin.",
@@ -1289,13 +1313,21 @@ export const dict: Record<Lang, Dict> = {
     ticketQr: {
       badge: "Entrance QR",
       title: "Get your entrance QR code",
-      subtitle: "Enter the email or membership number you used to register for the conference to view your entrance QR code.",
+      subtitle: "Choose a lookup method, then enter the email, membership number, or phone number you used to register.",
       backToHome: "Back to ETC 2026",
       note: "ETC 2026 · Registered attendees only",
       emailLabel: "Email",
       emailPlaceholder: "name@example.com",
-      identifierLabel: "Email or membership number",
-      identifierPlaceholder: "name@example.com or 2501001",
+      membershipNumberLabel: "Membership number",
+      membershipNumberPlaceholder: "2501001",
+      phoneLabel: "Phone number",
+      lookupMethodLabel: "Lookup method",
+      lookupMethodPlaceholder: "Choose an option",
+      lookupOptions: {
+        email: "Email",
+        membershipNumber: "Membership number",
+        phoneNumber: "Phone number",
+      },
       submit: "Show my QR code",
       loading: "Looking up…",
       successTitle: "Your entrance code is ready",
@@ -1310,9 +1342,9 @@ export const dict: Record<Lang, Dict> = {
       errors: {
         emailRequired: "Please enter your email address.",
         emailInvalid: "Please enter a valid email address.",
-        identifierRequired: "Please enter your email or membership number.",
-        identifierInvalid: "Please enter a valid email address or membership number.",
-        notFound: "No registration found for this email. Check the address or register via the Ibtikar platform.",
+        selectionRequired: "Please choose a lookup method first.",
+        valueRequired: "Please enter a value for the selected field.",
+        notFound: "No registration found for these details. Check your information or register via the Ibtikar platform.",
         notApproved: "Your registration is under review. Your entrance code will appear once attendance is approved.",
         notAvailable: "The entrance code service is not available yet. Please try again later.",
         generic: "Could not retrieve your entrance code. Please try again.",

@@ -3,8 +3,14 @@
 import { useRef, useState, type FormEvent } from "react"
 import { ArrowLeft, Download, QrCode, RotateCcw, Ticket } from "lucide-react"
 import { useLang } from "./lang-provider"
+import { PhoneNumberField } from "./phone-number-field"
 import { buildPath } from "@/lib/lang-url"
-import { retrieveTicketQr, TicketQrError, type TicketQrResult } from "@/lib/retrieve-ticket-qr"
+import {
+  retrieveTicketQr,
+  TicketQrError,
+  type TicketQrLookupOption,
+  type TicketQrResult,
+} from "@/lib/retrieve-ticket-qr"
 import { Button } from "@/components/ui/button"
 import { gsap, prefersReducedMotion, revealTween, useGSAP } from "@/lib/gsap"
 
@@ -12,10 +18,14 @@ export function QrTicketPage() {
   const { lang, t } = useLang()
   const c = t.ticketQr
   const sectionRef = useRef<HTMLElement>(null)
-  const homeHref = buildPath(lang, "home")
+  const homeHref = buildPath(lang)
 
-  const [lookup, setLookup] = useState("")
-  const [fieldError, setFieldError] = useState<string | null>(null)
+  const [lookupOption, setLookupOption] = useState<TicketQrLookupOption | "">("")
+  const [emailValue, setEmailValue] = useState("")
+  const [membershipNumberValue, setMembershipNumberValue] = useState("")
+  const [phoneNumberValue, setPhoneNumberValue] = useState("")
+  const [showSelectionError, setShowSelectionError] = useState(false)
+  const [showValueError, setShowValueError] = useState(false)
   const [requestError, setRequestError] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
   const [result, setResult] = useState<TicketQrResult | null>(null)
@@ -35,29 +45,46 @@ export function QrTicketPage() {
     return c.errors.generic
   }
 
+  function resetErrors() {
+    setShowSelectionError(false)
+    setShowValueError(false)
+    setRequestError(null)
+  }
+
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    setFieldError(null)
-    setRequestError(null)
+    resetErrors()
 
-    const trimmed = lookup.trim()
-    if (!trimmed) {
-      setFieldError(c.errors.identifierRequired)
+    if (!lookupOption) {
+      setShowSelectionError(true)
       return
     }
-    const isEmail = trimmed.includes('@')
-    if (isEmail && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed)) {
-      setFieldError(c.errors.identifierInvalid)
+
+    const isEmailValid = emailValue.trim().length > 0 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue.trim())
+    const isMembershipValid = membershipNumberValue.trim().length > 0
+    const phoneDigitsCount = phoneNumberValue.replace(/\D/g, "").length
+    const isPhoneValid = phoneDigitsCount >= 7
+
+    const hasValidValueByOption =
+      (lookupOption === "email" && isEmailValid) ||
+      (lookupOption === "membershipNumber" && isMembershipValid) ||
+      (lookupOption === "phoneNumber" && isPhoneValid)
+
+    if (!hasValidValueByOption) {
+      setShowValueError(true)
       return
     }
-    if (!isEmail && !/^[A-Za-z0-9-]+$/.test(trimmed)) {
-      setFieldError(c.errors.identifierInvalid)
-      return
-    }
+
+    const lookup =
+      lookupOption === "email"
+        ? ({ type: "email", value: emailValue.trim() } as const)
+        : lookupOption === "membershipNumber"
+          ? ({ type: "membershipNumber", value: membershipNumberValue.trim() } as const)
+          : ({ type: "phoneNumber", value: phoneNumberValue.trim() } as const)
 
     setLoading(true)
     try {
-      const ticket = await retrieveTicketQr(trimmed)
+      const ticket = await retrieveTicketQr(lookup)
       setResult(ticket)
     } catch (error) {
       if (error instanceof TicketQrError) {
@@ -72,12 +99,14 @@ export function QrTicketPage() {
 
   function resetLookup() {
     setResult(null)
-    setRequestError(null)
-    setFieldError(null)
+    resetErrors()
   }
 
   const inputClass =
     "w-full rounded-lg border border-border bg-background/80 px-4 py-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary/50 focus:ring-3 focus:ring-primary/20"
+
+  const selectClass =
+    "w-full rounded-lg border border-border bg-background/80 px-4 py-3 text-sm text-foreground outline-none transition-colors focus:border-primary/50 focus:ring-3 focus:ring-primary/20"
 
   return (
     <section ref={sectionRef} id="top" className="relative pt-24 sm:pt-32 lg:pt-36">
@@ -156,31 +185,95 @@ export function QrTicketPage() {
         ) : (
           <form onSubmit={handleSubmit} className="qr-ticket-el mt-10 space-y-5" noValidate>
             <div>
-              <label htmlFor="ticket-lookup" className="mb-2 block text-sm font-medium">
-                {c.identifierLabel}
+              <label htmlFor="lookup-option" className="mb-2 block text-sm font-medium">
+                {c.lookupMethodLabel}
               </label>
-              <input
-                id="ticket-lookup"
-                name="lookup"
-                type="text"
-                autoComplete="username"
-                placeholder={c.identifierPlaceholder}
-                value={lookup}
+              <select
+                id="lookup-option"
+                name="lookup-option"
+                value={lookupOption}
                 onChange={(event) => {
-                  setLookup(event.target.value)
-                  setFieldError(null)
-                  setRequestError(null)
+                  setLookupOption(event.target.value as TicketQrLookupOption | "")
+                  resetErrors()
                 }}
-                className={inputClass}
-                aria-invalid={Boolean(fieldError)}
+                className={selectClass}
                 disabled={loading}
-              />
-              {fieldError && (
-                <p className="mt-2 text-sm text-destructive" role="alert">
-                  {fieldError}
-                </p>
-              )}
+              >
+                <option value="">{c.lookupMethodPlaceholder}</option>
+                <option value="email">{c.lookupOptions.email}</option>
+                <option value="membershipNumber">{c.lookupOptions.membershipNumber}</option>
+                <option value="phoneNumber">{c.lookupOptions.phoneNumber}</option>
+              </select>
             </div>
+
+            {lookupOption === "email" ? (
+              <div>
+                <label htmlFor="ticket-email" className="mb-2 block text-sm font-medium">
+                  {c.emailLabel}
+                </label>
+                <input
+                  id="ticket-email"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  inputMode="email"
+                  placeholder={c.emailPlaceholder}
+                  value={emailValue}
+                  onChange={(event) => {
+                    setEmailValue(event.target.value)
+                    resetErrors()
+                  }}
+                  className={inputClass}
+                  disabled={loading}
+                />
+              </div>
+            ) : null}
+
+            {lookupOption === "membershipNumber" ? (
+              <div>
+                <label htmlFor="membership-number" className="mb-2 block text-sm font-medium">
+                  {c.membershipNumberLabel}
+                </label>
+                <input
+                  id="membership-number"
+                  name="membership-number"
+                  type="text"
+                  autoComplete="username"
+                  placeholder={c.membershipNumberPlaceholder}
+                  value={membershipNumberValue}
+                  onChange={(event) => {
+                    setMembershipNumberValue(event.target.value)
+                    resetErrors()
+                  }}
+                  className={inputClass}
+                  disabled={loading}
+                />
+              </div>
+            ) : null}
+
+            {lookupOption === "phoneNumber" ? (
+              <PhoneNumberField
+                label={c.phoneLabel}
+                value={phoneNumberValue}
+                onChange={(value) => {
+                  setPhoneNumberValue(value)
+                  resetErrors()
+                }}
+                required
+              />
+            ) : null}
+
+            {showSelectionError ? (
+              <p className="text-sm text-destructive" role="alert">
+                {c.errors.selectionRequired}
+              </p>
+            ) : null}
+
+            {showValueError ? (
+              <p className="text-sm text-destructive" role="alert">
+                {c.errors.valueRequired}
+              </p>
+            ) : null}
 
             {requestError && (
               <div

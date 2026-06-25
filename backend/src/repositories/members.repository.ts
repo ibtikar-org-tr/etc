@@ -30,6 +30,26 @@ export async function getUserByMembershipNumber(db: D1DatabaseLike, membershipNu
     .first<UserRow>()
 }
 
+function normalizePhone(phone: string): string {
+  return phone.replace(/\D/g, '')
+}
+
+export async function getUserByPhone(db: D1DatabaseLike, phone: string): Promise<UserRow | null> {
+  const normalizedPhone = normalizePhone(phone.trim())
+  if (!normalizedPhone) return null
+
+  return db
+    .prepare(
+      `SELECT u.membership_number, u.email
+       FROM users u
+       LEFT JOIN user_info ui ON ui.membership_number = u.membership_number
+       WHERE REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(COALESCE(ui.phone_number, ''), ' ', ''), '-', ''), '(', ''), ')', ''), '+', '') = ?
+       LIMIT 1`,
+    )
+    .bind(normalizedPhone)
+    .first<UserRow>()
+}
+
 export async function getMemberDisplayName(db: D1DatabaseLike, membershipNumber: string): Promise<string> {
   const row = await db
     .prepare(

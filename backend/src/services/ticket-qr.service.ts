@@ -4,12 +4,14 @@ import {
   getMemberDisplayName,
   getUserByEmail,
   getUserByMembershipNumber,
+  getUserByPhone,
 } from '../repositories/members.repository'
 import type { AppBindings } from '../types/bindings'
 
 export type TicketQrLookupInput = {
   email?: string
   membershipNumber?: string
+  phone?: string
 }
 
 export type TicketQrLookupResult = {
@@ -34,16 +36,18 @@ export class TicketQrLookupError extends Error {
 function normalizeLookupInput(input: TicketQrLookupInput) {
   const email = input.email?.trim().toLowerCase() || undefined
   const membershipNumber = input.membershipNumber?.trim() || undefined
+  const phone = input.phone?.trim() || undefined
+  const provided = [email, membershipNumber, phone].filter(Boolean).length
 
-  if (!email && !membershipNumber) {
-    throw new TicketQrLookupError('invalid_input', 'Email or membership number is required.')
+  if (provided === 0) {
+    throw new TicketQrLookupError('invalid_input', 'Email, membership number, or phone is required.')
   }
 
-  if (email && membershipNumber) {
-    throw new TicketQrLookupError('invalid_input', 'Provide either email or membership number, not both.')
+  if (provided > 1) {
+    throw new TicketQrLookupError('invalid_input', 'Provide only one lookup value.')
   }
 
-  return { email, membershipNumber }
+  return { email, membershipNumber, phone }
 }
 
 function assertRegistrationEligible(
@@ -62,11 +66,13 @@ export async function lookupTicketQr(
   env: AppBindings,
   input: TicketQrLookupInput,
 ): Promise<TicketQrLookupResult> {
-  const { email, membershipNumber } = normalizeLookupInput(input)
+  const { email, membershipNumber, phone } = normalizeLookupInput(input)
 
   const member = email
     ? await getUserByEmail(env.MEMBERS_DB, email)
-    : await getUserByMembershipNumber(env.MEMBERS_DB, membershipNumber!)
+    : membershipNumber
+      ? await getUserByMembershipNumber(env.MEMBERS_DB, membershipNumber)
+      : await getUserByPhone(env.MEMBERS_DB, phone!)
 
   if (!member) {
     throw new TicketQrLookupError('not_found')
