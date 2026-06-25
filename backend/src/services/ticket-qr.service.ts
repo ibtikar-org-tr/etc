@@ -48,7 +48,6 @@ function normalizeLookupInput(input: TicketQrLookupInput) {
 
 function assertRegistrationEligible(
   registration: Awaited<ReturnType<typeof getEventRegistrationByEventAndMember>>,
-  ticket: Awaited<ReturnType<typeof getEventTicketById>>,
 ) {
   if (!registration) {
     throw new TicketQrLookupError('not_found')
@@ -56,14 +55,6 @@ function assertRegistrationEligible(
 
   if (registration.status !== 'registered' && registration.status !== 'attended') {
     throw new TicketQrLookupError('not_found')
-  }
-
-  if (ticket?.currency_price && !registration.payment_approved_by) {
-    throw new TicketQrLookupError('not_approved')
-  }
-
-  if (!registration.attendance_approved_by) {
-    throw new TicketQrLookupError('not_approved')
   }
 }
 
@@ -88,7 +79,7 @@ export async function lookupTicketQr(
   )
 
   const ticket = registration ? await getEventTicketById(env.VMS_DB, registration.ticket_id) : null
-  assertRegistrationEligible(registration, ticket)
+  assertRegistrationEligible(registration)
 
   const attendeeName = await getMemberDisplayName(env.MEMBERS_DB, member.membership_number)
   const qrPayload = `${member.membership_number}:${member.email}:${env.ETC_2026_EVENT_ID}`
