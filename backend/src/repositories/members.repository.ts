@@ -1,4 +1,5 @@
 import type { D1DatabaseLike } from '../types/bindings'
+import { normalizePhone } from '../utils/phone'
 
 interface UserRow {
   membership_number: string
@@ -28,10 +29,6 @@ export async function getUserByMembershipNumber(db: D1DatabaseLike, membershipNu
     .prepare('SELECT membership_number, email FROM users WHERE membership_number = ? LIMIT 1')
     .bind(normalized)
     .first<UserRow>()
-}
-
-function normalizePhone(phone: string): string {
-  return phone.replace(/\D/g, '')
 }
 
 export async function getUserByPhone(db: D1DatabaseLike, phone: string): Promise<UserRow | null> {

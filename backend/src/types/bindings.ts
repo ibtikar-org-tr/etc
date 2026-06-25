@@ -17,4 +17,8 @@ export interface AppBindings {
   VMS_DB: D1DatabaseLike
   ETC_2026_EVENT_ID: string
   FRONTEND_BASE_URL?: string
+  ETC_GOOGLE_SHEET_ID?: string
+  ETC_GOOGLE_SHEET_RANGE?: string
+  ETC_GOOGLE_SHEET_COLUMN_MAP?: string
+  GOOGLE_SERVICE_ACCOUNT_JSON?: string
 }

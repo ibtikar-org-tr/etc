@@ -38,7 +38,9 @@ jobs:
           | .d1_databases[1].database_id = $dbid1
           | .d1_databases[1].database_name = $dbname1
           | .vars.ETC_2026_EVENT_ID = $etc2026EventId
-          | .vars.FRONTEND_BASE_URL = $frontendBaseUrl'
+          | .vars.FRONTEND_BASE_URL = $frontendBaseUrl
+          | .vars.ETC_GOOGLE_SHEET_ID = $googleSheetId
+          | .vars.ETC_GOOGLE_SHEET_RANGE = $googleSheetRange'
 
           jq \
             --arg dbid0 "${{ vars.MEMBERS_DB_ID }}" \
@@ -47,6 +49,8 @@ jobs:
             --arg dbname1 "${{ vars.VMS_DB_NAME }}" \
             --arg frontendBaseUrl "${{ vars.FRONTEND_BASE_URL }}" \
             --arg etc2026EventId "${{ vars.ETC_2026_EVENT_ID }}" \
+            --arg googleSheetId "${{ vars.ETC_GOOGLE_SHEET_ID }}" \
+            --arg googleSheetRange "${{ vars.ETC_GOOGLE_SHEET_RANGE }}" \
             "$jq_filter" \
             wrangler.jsonc > wrangler.local.jsonc
 
