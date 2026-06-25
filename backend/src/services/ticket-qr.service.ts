@@ -6,7 +6,6 @@ import {
   getUserByMembershipNumber,
 } from '../repositories/members.repository'
 import type { AppBindings } from '../types/bindings'
-import { registrationQrDataUrl } from '../utils/qr-code'
 
 export type TicketQrLookupInput = {
   email?: string
@@ -16,7 +15,7 @@ export type TicketQrLookupInput = {
 export type TicketQrLookupResult = {
   attendeeName: string
   ticketLabel: string
-  qrCodeDataUrl: string
+  qrPayload: string
   registrationId: string
 }
 
@@ -92,12 +91,12 @@ export async function lookupTicketQr(
   assertRegistrationEligible(registration, ticket)
 
   const attendeeName = await getMemberDisplayName(env.MEMBERS_DB, member.membership_number)
-  const qrCodeDataUrl = await registrationQrDataUrl(registration!.id)
+  const qrPayload = `${member.membership_number}:${member.email}:${env.ETC_2026_EVENT_ID}`
 
   return {
     attendeeName,
     ticketLabel: ticket?.name ?? 'ETC 2026',
-    qrCodeDataUrl,
+    qrPayload,
     registrationId: registration!.id,
   }
 }

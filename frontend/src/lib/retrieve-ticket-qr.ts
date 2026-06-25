@@ -1,11 +1,15 @@
 /** ETC 2026 event id on the VMS platform. */
 export const ETC_2026_EVENT_ID = "b1ed6cdc-d9a9-4f08-ac48-54fe3eb52207"
 
-export type TicketQrResult = {
+export type TicketQrApiResponse = {
   attendeeName: string
   ticketLabel: string
-  qrCodeDataUrl: string
+  qrPayload: string
   registrationId: string
+}
+
+export type TicketQrResult = TicketQrApiResponse & {
+  qrCodeDataUrl: string
 }
 
 export type TicketQrErrorCode = "not_found" | "not_approved" | "not_available" | "generic"
@@ -65,5 +69,9 @@ export async function retrieveTicketQr(lookup: string): Promise<TicketQrResult> 
     throw new TicketQrError(code)
   }
 
-  return (await response.json()) as TicketQrResult
+  const data = (await response.json()) as TicketQrApiResponse
+  const { qrPayloadToDataUrl } = await import("@/lib/qr-code")
+  const qrCodeDataUrl = await qrPayloadToDataUrl(data.qrPayload)
+
+  return { ...data, qrCodeDataUrl }
 }
