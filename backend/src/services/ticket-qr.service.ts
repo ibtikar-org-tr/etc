@@ -112,7 +112,7 @@ async function lookupGoogleFormTicket(
   const spreadsheetId = env.ETC_GOOGLE_SHEET_ID?.trim()
   if (!spreadsheetId) return null
 
-  const credentials = parseGoogleCredentials(env.GOOGLE_SERVICE_ACCOUNT_JSON)
+  const credentials = parseGoogleCredentials(env.GOOGLE_API_KEY)
   if (!credentials) return null
 
   const range = env.ETC_GOOGLE_SHEET_RANGE?.trim() || 'Form Responses 1!A:K'

@@ -94,8 +94,16 @@ async function getAccessToken(credentials: GoogleServiceAccountCredentials): Pro
   return cachedAccessToken
 }
 
-export function parseGoogleCredentials(raw: string | undefined): GoogleServiceAccountCredentials | null {
-  if (!raw?.trim()) return null
+export function parseGoogleCredentials(
+  raw: string | GoogleServiceAccountCredentials | undefined,
+): GoogleServiceAccountCredentials | null {
+  if (!raw) return null
+
+  if (typeof raw === 'object') {
+    return raw
+  }
+
+  if (!raw.trim()) return null
 
   try {
     return JSON.parse(raw) as GoogleServiceAccountCredentials

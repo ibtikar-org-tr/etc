@@ -58,3 +58,11 @@ jobs:
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: wrangler deploy --config wrangler.local.jsonc
+
+      - name: Set secrets in Worker
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          echo '${{ secrets.GOOGLE_API_KEY }}' > GOOGLE_API.json
+          wrangler secret put GOOGLE_API_KEY --config wrangler.local.jsonc < GOOGLE_API.json
+          rm GOOGLE_API.json

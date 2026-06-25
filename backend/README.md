@@ -26,10 +26,10 @@ Ticket QR lookup checks VMS first, then falls back to a Google Sheets tab (form 
 
 1. Share the sheet with your Google service account email.
 2. Set `ETC_GOOGLE_SHEET_ID` in `wrangler.jsonc` / GitHub environment vars.
-3. Put credentials in `.dev.vars` locally (`GOOGLE_SERVICE_ACCOUNT_JSON`) or as a Worker secret in production:
+3. Put credentials in `.dev.vars` locally (`GOOGLE_API_KEY`) or as a Worker secret in production:
 
 ```txt
-wrangler secret put GOOGLE_SERVICE_ACCOUNT_JSON
+wrangler secret put GOOGLE_API_KEY
 ```
 
 Optional vars:

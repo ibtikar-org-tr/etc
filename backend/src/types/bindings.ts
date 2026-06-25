@@ -20,5 +20,5 @@ export interface AppBindings {
   ETC_GOOGLE_SHEET_ID?: string
   ETC_GOOGLE_SHEET_RANGE?: string
   ETC_GOOGLE_SHEET_COLUMN_MAP?: string
-  GOOGLE_SERVICE_ACCOUNT_JSON?: string
+  GOOGLE_API_KEY?: string
 }
