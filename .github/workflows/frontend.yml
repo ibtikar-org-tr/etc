@@ -1,4 +1,4 @@
-name: Deploy to Cloudflare Worker (main branch)
+name: (main) [frontend] Deploy to Cloudflare Worker
 
 on:
   push:
