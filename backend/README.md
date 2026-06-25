@@ -34,7 +34,7 @@ wrangler secret put GOOGLE_SERVICE_ACCOUNT_JSON
 
 Optional vars:
 
-- `ETC_GOOGLE_SHEET_RANGE` — default `Form Responses 1!A:Z`
+- `ETC_GOOGLE_SHEET_RANGE` — default `Form Responses 1!A:K`
 - `ETC_GOOGLE_SHEET_COLUMN_MAP` — JSON header → field map override
 
 QR payload for sheet-only attendees uses `membership_number:email:event_id` where `membership_number` comes from the sheet column, or `GF{phone}` / `GF{row}` when absent.

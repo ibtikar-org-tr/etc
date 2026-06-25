@@ -1,5 +1,5 @@
 import { fetchSheetValues, type GoogleServiceAccountCredentials } from '../utils/google-sheets'
-import { normalizePhone } from '../utils/phone'
+import { normalizePhone, phonesMatch } from '../utils/phone'
 
 export type SheetAttendee = {
   rowNumber: number
@@ -10,14 +10,22 @@ export type SheetAttendee = {
   ticketLabel?: string
 }
 
-export type SheetColumnMap = Record<string, 'email' | 'phone' | 'membership_number' | 'name' | 'ticket_label'>
+export type SheetColumnMap = Record<
+  string,
+  'email' | 'phone' | 'membership_number' | 'name' | 'name_en' | 'ticket_label'
+>
 
+/** ETC 2026 Google Form columns (A–K). */
 export const DEFAULT_SHEET_COLUMN_MAP: SheetColumnMap = {
+  'الاسم الكامل': 'name',
+  'Ad soyad': 'name_en',
+  'رقم الهاتف': 'phone',
+  'البريد الإلكتروني': 'email',
+  'اختر التذكرة التي تريدها': 'ticket_label',
   'البريد الإلكتروني': 'email',
   'Email Address': 'email',
   Email: 'email',
   email: 'email',
-  'رقم الهاتف': 'phone',
   'Phone number': 'phone',
   Phone: 'phone',
   phone: 'phone',
@@ -25,7 +33,6 @@ export const DEFAULT_SHEET_COLUMN_MAP: SheetColumnMap = {
   'Membership number': 'membership_number',
   membership_number: 'membership_number',
   الاسم: 'name',
-  'الاسم الكامل': 'name',
   Name: 'name',
   'Full name': 'name',
   'Full Name': 'name',
@@ -54,6 +61,9 @@ function rowToAttendee(
   columnMap: SheetColumnMap,
   rowNumber: number,
 ): SheetAttendee | null {
+  let nameAr = ''
+  let nameEn = ''
+
   const attendee: Partial<SheetAttendee> = { rowNumber }
 
   headers.forEach((header, index) => {
@@ -64,7 +74,8 @@ function rowToAttendee(
     if (field === 'email') attendee.email = value.toLowerCase()
     if (field === 'phone') attendee.phone = value
     if (field === 'membership_number') attendee.membershipNumber = value
-    if (field === 'name') attendee.name = value
+    if (field === 'name') nameAr = value
+    if (field === 'name_en') nameEn = value
     if (field === 'ticket_label') attendee.ticketLabel = value
   })
 
@@ -72,9 +83,11 @@ function rowToAttendee(
     return null
   }
 
+  const displayName = nameAr.trim() || nameEn.trim() || attendee.email || attendee.phone || 'ETC 2026 Attendee'
+
   return {
     rowNumber,
-    name: attendee.name?.trim() || attendee.email || attendee.phone || 'ETC 2026 Attendee',
+    name: displayName,
     email: attendee.email ?? '',
     phone: attendee.phone,
     membershipNumber: attendee.membershipNumber,
@@ -91,11 +104,8 @@ function matchesLookup(attendee: SheetAttendee, kind: LookupKind, value: string)
     return attendee.membershipNumber?.trim() === value.trim()
   }
 
-  const normalizedLookup = normalizePhone(value)
-  if (!normalizedLookup) return false
-
-  const attendeePhone = attendee.phone ? normalizePhone(attendee.phone) : ''
-  return attendeePhone === normalizedLookup
+  if (!attendee.phone) return false
+  return phonesMatch(attendee.phone, value)
 }
 
 let cachedRows: { key: string; fetchedAt: number; rows: string[][] } | null = null

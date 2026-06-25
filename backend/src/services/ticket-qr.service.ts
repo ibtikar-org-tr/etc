@@ -115,7 +115,7 @@ async function lookupGoogleFormTicket(
   const credentials = parseGoogleCredentials(env.GOOGLE_SERVICE_ACCOUNT_JSON)
   if (!credentials) return null
 
-  const range = env.ETC_GOOGLE_SHEET_RANGE?.trim() || 'Form Responses 1!A:Z'
+  const range = env.ETC_GOOGLE_SHEET_RANGE?.trim() || 'Form Responses 1!A:K'
 
   const attendee = await findGoogleFormAttendee({
     credentials,
