@@ -437,13 +437,13 @@ export const dict: Record<Lang, Dict> = {
           name: "الفقرة الثالثة",
           items: [
             {
-              title: "مدخل إلى الذكاء الاصطناعي مفتوح المصدر",
-              desc: "استخدام نماذج من Hugging Face لفهم دور النماذج المدرّبة مسبقًا في تأدية المهام.",
-              speaker: "محمد إقبال",
+              title: "ورشة عمل: مدخل إلى الذكاء الاصطناعي مفتوح المصدر",
+              desc: "من الرؤية الحاسوبية الصناعية والحلول الطبية إلى التنبؤ المالي — البرمجيات مفتوحة المصدر هي مفتاح الابتكار القادم. يرشدكم المهندس محمد إقبال البوشي عبر خطوات عملية لتخصيص النماذج المفتوحة وبناء منتجكم الخاص.",
+              speaker: "محمد إقبال البوشي",
               speakerImage: "m.ikbal.jpg",
-              speakerTagline: "مهندس طيران — ESEN · METU",
+              speakerTagline: "مهندس وباحث — الذكاء الاصطناعي والرؤية الحاسوبية · جامعة إسطنبول التقنية",
               speakerBio:
-                "مهندس ميكانيكا طيران وأنظمة تحكم، وطالب دكتوراه في هندسة الطيران والفضاء في جامعة الشرق الأوسط التقنية (METU) في أنقرة. حصلت على درجتي البكالوريوس والماجستير في هندسة الطيران والفضاء من الجامعة نفسها، وكانت رسالتي للماجستير حول تطوير أنظمة الهبوط الذاتي لطائرات الإقلاع والهبوط العمودي (VTOL) على المنصات البحرية المتحركة. وتتركز دراساتي الحالية في مرحلة الدكتوراه على الأنظمة الجوية الذاتية، وديناميكا الطيران، وأنظمة التحكم المتقدمة للطائرات المأهولة وغير المأهولة. أعمل مهندس ميكانيكا طيران في شركة ESEN System Integration، وأتخصص في ديناميكا الطيران، وأنظمة التوجيه والملاحة والتحكم (GNC)، وتطوير الخوارزميات الخاصة بالطائرات ثابتة الجناح وطائرات الإقلاع والهبوط العمودي (VTOL) والأنظمة الجوية غير المأهولة. تركز أبحاثي وأعمالي على الأنظمة الجوية الذاتية، والتحكم المتقدم، وهبوط طائرات VTOL على المنصات المتحركة، وقد نشرت عدة أبحاث علمية في هذا المجال.",
+                "مهندس وباحث متخصص في الذكاء الاصطناعي والرؤية الحاسوبية، حاصل على بكالوريوس في الهندسة الكهربائية والإلكترونية، ويستكمل حالياً دراسته العليا في علوم الحاسوب بجامعة إسطنبول التقنية. يعمل على تطوير الحلول الطبية الذكية القائمة على معالجة الصور والإشارات، وبناء أنظمة الرؤية الحاسوبية الصناعية لضمان جودة الإنتاج والكشف عن العيوب، وتطوير نماذج التنبؤ المالي ومنصات الذكاء الاصطناعي للأعمال.",
               tags: ["ai", "huggingface", "training"],
             },
             {
@@ -848,13 +848,13 @@ export const dict: Record<Lang, Dict> = {
           name: "Üçüncü Oturum",
           items: [
             {
-              title: "Açık Kaynak Yapay Zekaya Giriş",
-              desc: "Görevleri yerine getirmede önceden eğitilmiş modellerin rolünü anlamak için Hugging Face modelleri.",
-              speaker: "Muhammad Iqbal",
+              title: "Atölye: Açık Kaynak Yapay Zekaya Giriş",
+              desc: "Endüstriyel bilgisayarlı görüden tıbbi çözümlere, finansal tahminden iş yapay zekası platformlarına — açık kaynak yazılım geleceğin inovasyonunun anahtarıdır. Mühendis Muhammad Iqbal Al-Boushi, açık modelleri özelleştirme ve kendi ürününüzü geliştirme adımlarında size rehberlik edecek.",
+              speaker: "Muhammad Iqbal Al-Boushi",
               speakerImage: "m.ikbal.jpg",
-              speakerTagline: "Havacılık mühendisi — ESEN · ODTÜ",
+              speakerTagline: "Mühendis ve araştırmacı — YZ ve bilgisayarlı görü · İTÜ",
               speakerBio:
-                "Havacılık ve kontrol sistemleri mühendisi; Ankara'da Orta Doğu Teknik Üniversitesi'nde (ODTÜ) havacılık ve uzay mühendisliği doktora adayı. ODTÜ'den havacılık ve uzay mühendisliği lisans ve yüksek lisans derecelerine sahip; yüksek lisans tezi hareketli deniz platformlarında VTOL uçaklar için otonom iniş sistemleri üzerineydi. Doktora çalışmaları otonom hava sistemleri, uçuş dinamiği ve insanlı/insansız hava araçları için ileri kontrol üzerine odaklanıyor. ESEN System Integration'da havacılık mühendisi olarak çalışıyor; uçuş dinamiği, GNC sistemleri ve sabit kanat, VTOL ve insansız hava sistemleri algoritmalarında uzmanlaşmış. Otonom hava sistemleri, ileri kontrol ve hareketli platformlarda VTOL inişi üzerine birçok bilimsel yayını bulunuyor.",
+                "Yapay zeka ve bilgisayarlı görü alanında uzmanlaşmış mühendis ve araştırmacı. Elektrik ve elektronik mühendisliği lisans derecesine sahip; şu anda İstanbul Teknik Üniversitesi'nde bilgisayar bilimleri yüksek lisansına devam ediyor. Görüntü ve sinyal işlemeye dayalı akıllı tıbbi çözümler, üretim kalitesi ve hata tespiti için endüstriyel bilgisayarlı görü sistemleri ile finansal tahmin modelleri ve iş yapay zekası platformları geliştiriyor.",
               tags: ["ai", "huggingface", "training"],
             },
             {
@@ -1260,13 +1260,13 @@ export const dict: Record<Lang, Dict> = {
           name: "Session Three",
           items: [
             {
-              title: "Introduction to Open-Source AI",
-              desc: "Using Hugging Face models to understand the role of pre-trained models in performing tasks.",
-              speaker: "Muhammad Iqbal",
+              title: "Workshop: Introduction to Open-Source AI",
+              desc: "From industrial computer vision and medical solutions to financial forecasting — open-source software is the key to the next wave of innovation. Engineer Muhammad Iqbal Al-Boushi will guide you through practical steps to customize open models and build your own product.",
+              speaker: "Muhammad Iqbal Al-Boushi",
               speakerImage: "m.ikbal.jpg",
-              speakerTagline: "Aerospace engineer — ESEN · METU",
+              speakerTagline: "Engineer & researcher — AI & computer vision · Istanbul Technical University",
               speakerBio:
-                "Aerospace and control systems engineer; PhD candidate in aerospace engineering at Middle East Technical University (METU) in Ankara. Holds bachelor's and master's degrees in aerospace engineering from METU; his master's thesis focused on autonomous landing systems for VTOL aircraft on moving marine platforms. His doctoral research focuses on autonomous aerial systems, flight dynamics, and advanced control for manned and unmanned aircraft. Works as an aerospace engineer at ESEN System Integration, specializing in flight dynamics, GNC systems, and algorithms for fixed-wing, VTOL, and uncrewed aerial systems. His research spans autonomous aerial systems, advanced control, and VTOL landing on moving platforms, with several published papers in the field.",
+                "Engineer and researcher specializing in artificial intelligence and computer vision. Holds a bachelor's degree in electrical and electronics engineering and is currently pursuing graduate studies in computer science at Istanbul Technical University. His work spans intelligent medical solutions based on image and signal processing, industrial computer vision systems for quality assurance and defect detection, and financial prediction models and business AI platforms.",
               tags: ["ai", "huggingface", "training"],
             },
             {
