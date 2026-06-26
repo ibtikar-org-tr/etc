@@ -3,7 +3,6 @@
 import { useRef, useState, type FormEvent } from "react"
 import { ArrowLeft, Download, QrCode, RotateCcw, Ticket } from "lucide-react"
 import { useLang } from "./lang-provider"
-import { PhoneNumberField } from "./phone-number-field"
 import { buildPath } from "@/lib/lang-url"
 import {
   retrieveTicketQr,
@@ -23,7 +22,6 @@ export function QrTicketPage() {
   const [lookupOption, setLookupOption] = useState<TicketQrLookupOption | "">("")
   const [emailValue, setEmailValue] = useState("")
   const [membershipNumberValue, setMembershipNumberValue] = useState("")
-  const [phoneNumberValue, setPhoneNumberValue] = useState("")
   const [showSelectionError, setShowSelectionError] = useState(false)
   const [showValueError, setShowValueError] = useState(false)
   const [requestError, setRequestError] = useState<string | null>(null)
@@ -62,13 +60,10 @@ export function QrTicketPage() {
 
     const isEmailValid = emailValue.trim().length > 0 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue.trim())
     const isMembershipValid = membershipNumberValue.trim().length > 0
-    const phoneDigitsCount = phoneNumberValue.replace(/\D/g, "").length
-    const isPhoneValid = phoneDigitsCount >= 7
 
     const hasValidValueByOption =
       (lookupOption === "email" && isEmailValid) ||
-      (lookupOption === "membershipNumber" && isMembershipValid) ||
-      (lookupOption === "phoneNumber" && isPhoneValid)
+      (lookupOption === "membershipNumber" && isMembershipValid)
 
     if (!hasValidValueByOption) {
       setShowValueError(true)
@@ -78,9 +73,7 @@ export function QrTicketPage() {
     const lookup =
       lookupOption === "email"
         ? ({ type: "email", value: emailValue.trim() } as const)
-        : lookupOption === "membershipNumber"
-          ? ({ type: "membershipNumber", value: membershipNumberValue.trim() } as const)
-          : ({ type: "phoneNumber", value: phoneNumberValue.trim() } as const)
+        : ({ type: "membershipNumber", value: membershipNumberValue.trim() } as const)
 
     setLoading(true)
     try {
@@ -202,7 +195,6 @@ export function QrTicketPage() {
                 <option value="">{c.lookupMethodPlaceholder}</option>
                 <option value="email">{c.lookupOptions.email}</option>
                 <option value="membershipNumber">{c.lookupOptions.membershipNumber}</option>
-                <option value="phoneNumber">{c.lookupOptions.phoneNumber}</option>
               </select>
             </div>
 
@@ -249,18 +241,6 @@ export function QrTicketPage() {
                   disabled={loading}
                 />
               </div>
-            ) : null}
-
-            {lookupOption === "phoneNumber" ? (
-              <PhoneNumberField
-                label={c.phoneLabel}
-                value={phoneNumberValue}
-                onChange={(value) => {
-                  setPhoneNumberValue(value)
-                  resetErrors()
-                }}
-                required
-              />
             ) : null}
 
             {showSelectionError ? (

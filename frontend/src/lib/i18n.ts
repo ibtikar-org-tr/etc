@@ -103,13 +103,11 @@ export type Dict = {
     emailPlaceholder: string
     membershipNumberLabel: string
     membershipNumberPlaceholder: string
-    phoneLabel: string
     lookupMethodLabel: string
     lookupMethodPlaceholder: string
     lookupOptions: {
       email: string
       membershipNumber: string
-      phoneNumber: string
     }
     submit: string
     loading: string
@@ -490,20 +488,18 @@ export const dict: Record<Lang, Dict> = {
     ticketQr: {
       badge: "رمز الدخول",
       title: "احصل على رمز QR للدخول",
-      subtitle: "اختر طريقة البحث، ثم أدخل البريد الإلكتروني أو رقم العضوية أو رقم الهاتف الذي سجّلت به في المؤتمر.",
+      subtitle: "اختر طريقة البحث، ثم أدخل البريد الإلكتروني أو رقم العضوية الذي سجّلت به في المؤتمر.",
       backToHome: "العودة إلى مؤتمر ETC 2026",
       note: "ETC 2026 · للمسجّلين فقط",
       emailLabel: "البريد الإلكتروني",
       emailPlaceholder: "name@example.com",
       membershipNumberLabel: "رقم العضوية",
       membershipNumberPlaceholder: "2501001",
-      phoneLabel: "رقم الهاتف",
       lookupMethodLabel: "طريقة البحث",
       lookupMethodPlaceholder: "اختر أحد الخيارات",
       lookupOptions: {
         email: "البريد الإلكتروني",
         membershipNumber: "رقم العضوية",
-        phoneNumber: "رقم الهاتف",
       },
       submit: "عرض رمز الدخول",
       loading: "جارٍ البحث…",
@@ -901,20 +897,18 @@ export const dict: Record<Lang, Dict> = {
     ticketQr: {
       badge: "Giriş QR Kodu",
       title: "Giriş QR kodunuzu alın",
-      subtitle: "Arama yöntemini seçin, ardından kayıt olurken kullandığınız e-posta, üyelik numarası veya telefon numarasını girin.",
+      subtitle: "Arama yöntemini seçin, ardından kayıt olurken kullandığınız e-posta veya üyelik numarasını girin.",
       backToHome: "ETC 2026 konferansına dön",
       note: "ETC 2026 · Yalnızca kayıtlı katılımcılar",
       emailLabel: "E-posta",
       emailPlaceholder: "name@example.com",
       membershipNumberLabel: "Üyelik numarası",
       membershipNumberPlaceholder: "2501001",
-      phoneLabel: "Telefon numarası",
       lookupMethodLabel: "Arama yöntemi",
       lookupMethodPlaceholder: "Bir seçenek seçin",
       lookupOptions: {
         email: "E-posta",
         membershipNumber: "Üyelik numarası",
-        phoneNumber: "Telefon numarası",
       },
       submit: "QR kodumu göster",
       loading: "Aranıyor…",
@@ -1313,20 +1307,18 @@ export const dict: Record<Lang, Dict> = {
     ticketQr: {
       badge: "Entrance QR",
       title: "Get your entrance QR code",
-      subtitle: "Choose a lookup method, then enter the email, membership number, or phone number you used to register.",
+      subtitle: "Choose a lookup method, then enter the email or membership number you used to register.",
       backToHome: "Back to ETC 2026",
       note: "ETC 2026 · Registered attendees only",
       emailLabel: "Email",
       emailPlaceholder: "name@example.com",
       membershipNumberLabel: "Membership number",
       membershipNumberPlaceholder: "2501001",
-      phoneLabel: "Phone number",
       lookupMethodLabel: "Lookup method",
       lookupMethodPlaceholder: "Choose an option",
       lookupOptions: {
         email: "Email",
         membershipNumber: "Membership number",
-        phoneNumber: "Phone number",
       },
       submit: "Show my QR code",
       loading: "Looking up…",

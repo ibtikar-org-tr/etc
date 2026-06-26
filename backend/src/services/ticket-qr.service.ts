@@ -8,7 +8,6 @@ import {
   getMemberDisplayName,
   getUserByEmail,
   getUserByMembershipNumber,
-  getUserByPhone,
 } from '../repositories/members.repository'
 import type { AppBindings } from '../types/bindings'
 import { parseGoogleCredentials } from '../utils/google-sheets'
@@ -16,7 +15,6 @@ import { parseGoogleCredentials } from '../utils/google-sheets'
 export type TicketQrLookupInput = {
   email?: string
   membershipNumber?: string
-  phone?: string
 }
 
 export type TicketQrLookupResult = {
@@ -39,18 +37,17 @@ export class TicketQrLookupError extends Error {
 }
 
 type NormalizedLookup = {
-  kind: 'email' | 'membership_number' | 'phone'
+  kind: 'email' | 'membership_number'
   value: string
 }
 
 function normalizeLookupInput(input: TicketQrLookupInput): NormalizedLookup {
   const email = input.email?.trim().toLowerCase() || undefined
   const membershipNumber = input.membershipNumber?.trim() || undefined
-  const phone = input.phone?.trim() || undefined
-  const provided = [email, membershipNumber, phone].filter(Boolean).length
+  const provided = [email, membershipNumber].filter(Boolean).length
 
   if (provided === 0) {
-    throw new TicketQrLookupError('invalid_input', 'Email, membership number, or phone is required.')
+    throw new TicketQrLookupError('invalid_input', 'Email or membership number is required.')
   }
 
   if (provided > 1) {
@@ -58,8 +55,7 @@ function normalizeLookupInput(input: TicketQrLookupInput): NormalizedLookup {
   }
 
   if (email) return { kind: 'email', value: email }
-  if (membershipNumber) return { kind: 'membership_number', value: membershipNumber }
-  return { kind: 'phone', value: phone! }
+  return { kind: 'membership_number', value: membershipNumber! }
 }
 
 function assertRegistrationEligible(
@@ -79,9 +75,7 @@ async function lookupVmsTicket(
   const member =
     lookup.kind === 'email'
       ? await getUserByEmail(env.MEMBERS_DB, lookup.value)
-      : lookup.kind === 'membership_number'
-        ? await getUserByMembershipNumber(env.MEMBERS_DB, lookup.value)
-        : await getUserByPhone(env.MEMBERS_DB, lookup.value)
+      : await getUserByMembershipNumber(env.MEMBERS_DB, lookup.value)
 
   if (!member) return null
 
