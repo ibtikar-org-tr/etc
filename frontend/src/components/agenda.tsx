@@ -21,12 +21,12 @@ export function Agenda() {
   const day1: AgendaRow[] = ag.day1Rows.map((row) => ({
     time: row.time,
     title: row.title,
-    type: row.lecture ? ag.lectures : "—",
+    type: row.speaker ?? "—",
     highlight: row.highlight,
   }))
 
   const day2: AgendaRow[] = t.workshops.sessions.flatMap((s, si) => {
-    const times = ["10:30 – 12:00", "12:30 – 14:00", "14:30 – 16:00"]
+    const times = ["11:00 – 12:30", "13:00 – 14:30", "15:00 – 16:30"]
     return [
       { time: times[si], title: s.name, type: ag.workshops, highlight: true, header: true },
       ...s.items.map((it) => ({

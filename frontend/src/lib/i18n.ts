@@ -77,7 +77,7 @@ export type Dict = {
     speaker: string
     lectures: string
     workshops: string
-    day1Rows: { time: string; title: string; highlight?: boolean; lecture?: boolean }[]
+    day1Rows: { time: string; title: string; highlight?: boolean; speaker?: string }[]
   }
   workshops: { label: string; title: string; subtitle: string; sessions: { name: string; items: Track[] }[] }
   guests: { label: string; title: string; subtitle: string }
@@ -189,32 +189,21 @@ export const dict: Record<Lang, Dict> = {
     topics: {
       label: "اليوم الأول · المحاضرات النظريّة",
       title: "محاور المؤتمر",
-      subtitle: "ثمان محاضرات نظريّة معمّقة، مدّة كلٍّ منها 45 دقيقة.",
+      subtitle: "ثماني فقرات نظريّة وحوارية ضمن برنامج اليوم الأول.",
       panelType: "حوار",
       panelModerator: "قائد الحوار",
       panelGuestLabels: ["الضيف الأول", "الضيف الثاني", "الضيف الثالث"],
       items: [
         {
-          title: "الذكاء الاصطناعي مفتوح المصدر في الرؤية الحاسوبية",
+          title: "الذكاء الاصطناعي مفتوح المصدر",
           desc: "محاضرة نظريّة تقدّم مدخلًا في عالم النماذج المفتوحة والقدرة على امتلاك ذكائك الاصطناعي وبنائه وتشغيله.",
           speaker: "محمد إمهان",
           speakerImage: "muhammad-imhan",
           speakerTagline: "معيد وباحث — جامعة إسطنبول التقنية",
           speakerBio:
             "طالب ماجستير في هندسة الحاسوب بجامعة إسطنبول التقنية وأعمل معيد وباحث هناك. مهتم بمجالات الذكاء الاصطناعي، الرؤية الحاسوبية، والتعلم العميق. يعمل على مشاريع بحثية وتطبيقية تهدف إلى استخدام الذكاء الاصطناعي في حل مشكلات واقعية.",
-          duration: "45 دقيقة",
+          duration: "30 دقيقة",
           tags: ["AI", "open-source", "computer-vision"],
-        },
-        {
-          title: "استخدام الذكاء الاصطناعي في أنظمة الحماية للمجال البنكي",
-          desc: "تتمحور المحاضرة حول الثغرات الحالية وأنظمة الحماية في المجال البنكي، وتقنيات الذكاء الاصطناعي الصاعدة لسد تلك الثغرات.",
-          speaker: "مصطفى اسماعيل",
-          speakerImage: "moustafa-ismail",
-          speakerTagline: "طالب ماجستير هندسة حاسوب — ODTÜ",
-          speakerBio:
-            "انا خريج هندسة كمبيوتر من اوتو، كنت الاول علي القسم. و حاليا بعمل ماجستير في اوتو هندسة كمبيوتر في classification of np complete instances. و بشتغل في استخدام الذكاء الصناعي لانظمة ال authentication للبنوك",
-          duration: "45 دقيقة",
-          tags: ["AI", "security", "banking"],
         },
         {
           title: "البيانات الحيوية وتغيير مستقبل علاج الأمراض",
@@ -224,7 +213,7 @@ export const dict: Record<Lang, Dict> = {
           speakerTagline: "باحثة في تحليل البيانات الطبية — جامعة يلدز التقنية",
           speakerBio:
             "إسراء موالدي باحثة في علوم تحليل البيانات الطبية، حاصلة على البكالوريوس والماجستير في الهندسة الحيوية من جامعة يلدز التقنية.",
-          duration: "45 دقيقة",
+          duration: "30 دقيقة",
           tags: ["health-tech", "bioinformatics"],
         },
         {
@@ -235,7 +224,7 @@ export const dict: Record<Lang, Dict> = {
           speakerTagline: "مهندس طيران — ESEN · METU",
           speakerBio:
             "مهندس ميكانيكا طيران وأنظمة تحكم، وطالب دكتوراه في هندسة الطيران والفضاء في جامعة الشرق الأوسط التقنية (METU) في أنقرة. حصلت على درجتي البكالوريوس والماجستير في هندسة الطيران والفضاء من الجامعة نفسها، وكانت رسالتي للماجستير حول تطوير أنظمة الهبوط الذاتي لطائرات الإقلاع والهبوط العمودي (VTOL) على المنصات البحرية المتحركة. وتتركز دراساتي الحالية في مرحلة الدكتوراه على الأنظمة الجوية الذاتية، وديناميكا الطيران، وأنظمة التحكم المتقدمة للطائرات المأهولة وغير المأهولة. أعمل مهندس ميكانيكا طيران في شركة ESEN System Integration، وأتخصص في ديناميكا الطيران، وأنظمة التوجيه والملاحة والتحكم (GNC)، وتطوير الخوارزميات الخاصة بالطائرات ثابتة الجناح وطائرات الإقلاع والهبوط العمودي (VTOL) والأنظمة الجوية غير المأهولة. تركز أبحاثي وأعمالي على الأنظمة الجوية الذاتية، والتحكم المتقدم، وهبوط طائرات VTOL على المنصات المتحركة، وقد نشرت عدة أبحاث علمية في هذا المجال.",
-          duration: "45 دقيقة",
+          duration: "30 دقيقة",
           tags: ["drones", "systems-engineering"],
         },
         {
@@ -246,40 +235,8 @@ export const dict: Record<Lang, Dict> = {
           speakerTagline: "مؤسس شركة menamatix",
           speakerBio:
             "فراس قراحسن مهندس كهرباء ورائد أعمال بخبرة تمتد لأكثر من 10 سنوات في قطاع التكنولوجيا وأنظمة التتبع وإدارة الأسطول. يقود شركة menamatix في تطوير حلول برمجية ذكية تساعد الشركات على تحسين كفاءة النقل، متابعة المركبات، وأتمتة العمليات التشغيلية.",
-          duration: "45 دقيقة",
+          duration: "30 دقيقة",
           tags: ["IoT", "smart-city"],
-        },
-        {
-          title: "السيادة الرقميّة والتهديد القومي",
-          desc: "خليط بين عرض سلايد ومناقشة حول البيانات والبنية التحتية الرقمية والأمن القومي في عالمٍ مترابط.",
-          duration: "45 دقيقة",
-          tags: ["sovereignty", "security", "panel"],
-          panel: {
-            moderator: "عبدالله دعمش",
-            moderatorImage: "abduallah-damash",
-            moderatorTagline: "مهندس ذكاء اصطناعي وأمن سيبراني — MLOps · DevOps",
-            moderatorBio:
-              "رائد أعمال ومهندس مختص في الأمن السيبراني والذكاء الاصطناعي، حاصل على الماجستير في الذكاء الاصطناعي من جامعة ODTU. مؤسس @ [AuthDeep](https://authdeep.com)، بخبرة في بناء حلول برمجية مؤسسية وأنظمة معقّدة بالتعاون مع شركات عالمية.",
-            guests: [
-              {
-                name: "أحمد شمس الدين",
-                imageSlug: "ahmad-shamsddin.jpg",
-                tagline: "مهندس برمجيات ومختبر اختراق — الأمن الهجومي وتطوير أدوات الأمن السيبراني",
-              },
-              {
-                name: "يوسف كبارة",
-                imageSlug: "yusuf-kabbara.jpeg",
-                tagline: "مهندس نظم أول — تكنولوجيا المعلومات والأمن السيبراني",
-                bio: "مهندس تكنولوجيا معلومات وأمن سيبراني بخبرة 16 عاماً؛ عمل أكثر من 9 سنوات في TRT ونفّذ مشاريع في الخليج والشرق الأوسط وتركيا. مهندس نظم أول متخصص في الشبكات المؤسسية وأمن الشبكات والجدران النارية وVoIP، حاصل على ماجستير نظم معلومات الأعمال من بوجازيجي (معدل 3.94) وشهادة PMP، ومؤسس منصة Torever.",
-              },
-              {
-                name: "أسامة سيام",
-                imageSlug: "osama-seyam.jpeg",
-                tagline: "مختص أمن التطبيقات والأمن السيبراني — ماجستير أمن سيبراني",
-                bio: "أسامة سيام مختص في أمن التطبيقات والأمن السيبراني، يمتلك خبرة تزيد عن تسع سنوات في مجالات DevSecOps، واختبار الاختراق، وأمن تطبيقات الويب والجوال والسحابة. يحمل درجة الماجستير في الأمن السيبراني، إضافة إلى شهادات مهنية متخصصة مثل Burp Suite Certified Practitioner وCertified AI/ML Pentester.",
-              },
-            ],
-          },
         },
         {
           title: "برمجيّات ملطّخة بالدم",
@@ -315,6 +272,49 @@ export const dict: Record<Lang, Dict> = {
           },
         },
         {
+          title: "السيادة الرقميّة والتهديد القومي",
+          desc: "خليط بين عرض سلايد ومناقشة حول البيانات والبنية التحتية الرقمية والأمن القومي في عالمٍ مترابط.",
+          duration: "45 دقيقة",
+          tags: ["sovereignty", "security", "panel"],
+          panel: {
+            moderator: "عبدالله دعمش",
+            moderatorImage: "abduallah-damash",
+            moderatorTagline: "مهندس ذكاء اصطناعي وأمن سيبراني — MLOps · DevOps",
+            moderatorBio:
+              "رائد أعمال ومهندس مختص في الأمن السيبراني والذكاء الاصطناعي، حاصل على الماجستير في الذكاء الاصطناعي من جامعة ODTU. مؤسس @ [AuthDeep](https://authdeep.com)، بخبرة في بناء حلول برمجية مؤسسية وأنظمة معقّدة بالتعاون مع شركات عالمية.",
+            guests: [
+              {
+                name: "أحمد شمس الدين",
+                imageSlug: "ahmad-shamsddin.jpg",
+                tagline: "مهندس برمجيات ومختبر اختراق — الأمن الهجومي وتطوير أدوات الأمن السيبراني",
+              },
+              {
+                name: "يوسف كبارة",
+                imageSlug: "yusuf-kabbara.jpeg",
+                tagline: "مهندس نظم أول — تكنولوجيا المعلومات والأمن السيبراني",
+                bio: "مهندس تكنولوجيا معلومات وأمن سيبراني بخبرة 16 عاماً؛ عمل أكثر من 9 سنوات في TRT ونفّذ مشاريع في الخليج والشرق الأوسط وتركيا. مهندس نظم أول متخصص في الشبكات المؤسسية وأمن الشبكات والجدران النارية وVoIP، حاصل على ماجستير نظم معلومات الأعمال من بوجازيجي (معدل 3.94) وشهادة PMP، ومؤسس منصة Torever.",
+              },
+              {
+                name: "أسامة سيام",
+                imageSlug: "osama-seyam.jpeg",
+                tagline: "مختص أمن التطبيقات والأمن السيبراني — ماجستير أمن سيبراني",
+                bio: "أسامة سيام مختص في أمن التطبيقات والأمن السيبراني، يمتلك خبرة تزيد عن تسع سنوات في مجالات DevSecOps، واختبار الاختراق، وأمن تطبيقات الويب والجوال والسحابة. يحمل درجة الماجستير في الأمن السيبراني، إضافة إلى شهادات مهنية متخصصة مثل Burp Suite Certified Practitioner وCertified AI/ML Pentester.",
+              },
+            ],
+          },
+        },
+        {
+          title: "استخدام الذكاء الاصطناعي الوكيل في المجال البنكي",
+          desc: "تتمحور المحاضرة حول تطبيقات الذكاء الاصطناعي الوكيل في القطاع البنكي، والثغرات الحالية وأنظمة الحماية، والتقنيات الصاعدة لسد تلك الثغرات.",
+          speaker: "مصطفى اسماعيل",
+          speakerImage: "moustafa-ismail",
+          speakerTagline: "طالب ماجستير هندسة حاسوب — ODTÜ",
+          speakerBio:
+            "انا خريج هندسة كمبيوتر من اوتو، كنت الاول علي القسم. و حاليا بعمل ماجستير في اوتو هندسة كمبيوتر في classification of np complete instances. و بشتغل في استخدام الذكاء الصناعي لانظمة ال authentication للبنوك",
+          duration: "30 دقيقة",
+          tags: ["AI", "security", "banking"],
+        },
+        {
           title: "برمجة المسيّرات: المهارات والأدوات وفرص المستقبل",
           desc: "محاضرة نظريّة حول مهارات وأدوات برمجة المسيّرات وآفاق هذا المجال.",
           speaker: "محمد فريد الحافظ",
@@ -322,7 +322,7 @@ export const dict: Record<Lang, Dict> = {
           speakerTagline: "مهندس تحكم في المسيرات — جامعة يلدز التقنية",
           speakerBio:
             "مهندس تحكم في المسيرات الحربية. خريج هندسة تحكم و اتمتة من جامعة يلدز التقنية. شاركت في مسابقات التكنوفست عدة مرات. حاصل على المركز الاول في مسابقة التقنيات التعليمية 2023 في التكنوفست.",
-          duration: "45 دقيقة",
+          duration: "30 دقيقة",
           tags: ["drones", "programming", "robotics"],
         },
       ],
@@ -331,29 +331,38 @@ export const dict: Record<Lang, Dict> = {
       label: "الجدول الزمني",
       title: "برنامج المؤتمر",
       day1: "اليوم الأول",
-      day1date: "السبت · 27 يونيو · 10:00–19:00 · إسطنبول — Florya TÜGVA",
+      day1date: "السبت · 27 يونيو · 10:00–18:00 · إسطنبول — Florya TÜGVA",
       day2: "اليوم الثاني",
-      day2date: "الأحد · 28 يونيو · ورش العمل · إسطنبول — Florya TÜGVA",
+      day2date: "الأحد · 28 يونيو · 11:00–16:30 · ورش العمل · إسطنبول — Florya TÜGVA",
       time: "الوقت",
       session: "الفقرة",
-      speaker: "النوع",
+      speaker: "اسم المحاضر",
       lectures: "محاضرات",
       workshops: "ورش عمل",
       day1Rows: [
         { time: "10:00 – 10:30", title: "تواصل وتشبيك", highlight: true },
         { time: "10:30 – 11:00", title: "مقدمة المؤتمر", highlight: true },
-        { time: "11:00 – 11:45", title: "البيانات الحيوية وتغيير مستقبل علاج الأمراض", lecture: true },
-        { time: "11:45 – 12:30", title: "من الطائرة إلى المنظومة: هندسة الأنظمة المسيرة", lecture: true },
-        { time: "12:30 – 13:00", title: "كلمة إدارة ابتكار", highlight: true },
-        { time: "13:00 – 14:00", title: "استراحة غداء وصلاة", highlight: true },
-        { time: "14:00 – 14:45", title: "انترنت الأشياء الثورة الصامتة التي لم نستعد لها بعد", lecture: true },
-        { time: "14:45 – 15:30", title: "برمجيّات ملطّخة بالدم", lecture: true },
-        { time: "15:30 – 16:15", title: "استخدام الذكاء الاصطناعي في أنظمة الحماية للمجال البنكي", lecture: true },
-        { time: "16:15 – 16:30", title: "مسابقة انضمام", highlight: true },
-        { time: "16:30 – 17:15", title: "السيادة الرقميّة والتهديد القومي", lecture: true },
-        { time: "17:15 – 18:00", title: "الذكاء الاصطناعي مفتوح المصدر في الرؤية الحاسوبية", lecture: true },
-        { time: "18:00 – 18:45", title: "برمجة المسيّرات: المهارات والأدوات وفرص المستقبل", lecture: true },
-        { time: "18:45 – 19:00", title: "خاتمة المؤتمر", highlight: true },
+        { time: "11:00 – 11:30", title: "الذكاء الاصطناعي مفتوح المصدر", speaker: "محمد إمهان" },
+        { time: "11:30 – 12:00", title: "البيانات الحيوية وتغيير مستقبل علاج الأمراض", speaker: "إسراء موالدي" },
+        { time: "12:00 – 12:30", title: "كلمة إدارة ابتكار", highlight: true },
+        { time: "12:30 – 13:30", title: "استراحة غداء وصلاة", highlight: true },
+        { time: "13:30 – 14:00", title: "انترنت الأشياء الثورة الصامتة التي لم نستعد لها بعد", speaker: "فراس قراحسن" },
+        {
+          time: "14:00 – 14:45",
+          title: "برمجيّات ملطّخة بالدم",
+          speaker: "حوار — عبد الكريم لحموني · عبدالرحمن رجب · عبد الرحمن إسماعيل · عمر الخميس",
+        },
+        { time: "14:45 – 15:10", title: "Kahoot", highlight: true },
+        { time: "15:10 – 15:40", title: "من الطائرة إلى المنظومة: هندسة الأنظمة المسيرة", speaker: "حازم خلوصي" },
+        {
+          time: "15:40 – 16:25",
+          title: "السيادة الرقميّة والتهديد القومي",
+          speaker: "مناقشة — عبدالله دعمش · أحمد شمس الدين · يوسف كبارة · أسامة سيام",
+        },
+        { time: "16:25 – 16:45", title: "استراحة", highlight: true },
+        { time: "16:45 – 17:15", title: "استخدام الذكاء الاصطناعي الوكيل في المجال البنكي", speaker: "مصطفى اسماعيل" },
+        { time: "17:15 – 17:45", title: "برمجة المسيّرات: المهارات والأدوات وفرص المستقبل", speaker: "محمد فريد الحافظ" },
+        { time: "17:45 – 18:00", title: "خاتمة المؤتمر", highlight: true },
       ],
     },
     workshops: {
@@ -536,7 +545,7 @@ export const dict: Record<Lang, Dict> = {
       title: "كل ما تحتاج معرفته",
       items: [
         { q: "من يُنظّم المؤتمر؟", a: "يُنظّم المؤتمر تجمّع إبتكار، الفريق التطوّعي الذي يجمع طلّاب الجامعات الناطقين بالعربية المهتمّين بالابتكار والتقنية. تعرّف أكثر على ibtikar.org.tr" },
-        { q: "أين ومتى يُقام المؤتمر؟", a: "يُقام المؤتمر في إسطنبول: اليوم الأول السبت 27 يونيو (10:00–19:00) في Florya TÜGVA للمحاضرات النظريّة، واليوم الثاني الأحد 28 يونيو في Florya TÜGVA لورش العمل." },
+        { q: "أين ومتى يُقام المؤتمر؟", a: "يُقام المؤتمر في إسطنبول: اليوم الأول السبت 27 يونيو (10:00–18:00) في Florya TÜGVA للمحاضرات النظريّة، واليوم الثاني الأحد 28 يونيو في Florya TÜGVA لورش العمل." },
         { q: "هل التسجيل مجّاني؟", a: "نعم، التسجيل مجّاني للطلاب مع عدد محدود من المقاعد." },
         { q: "ما اللغات المعتمدة في المؤتمر؟", a: "تُقدَّم الفعاليّات بالعربيّة، وبعضها بالتركيّة والإنجليزيّة." },
         { q: "هل أحتاج خبرة تقنيّة مسبقة لحضور الورش؟", a: "صُمّمت معظم الورش كمدخل للمجال، لذا تناسب المبتدئين والمتوسّطين." },
@@ -599,32 +608,21 @@ export const dict: Record<Lang, Dict> = {
     topics: {
       label: "1. Gün · Teorik Dersler",
       title: "Konferans Konuları",
-      subtitle: "Her biri 45 dakikalık sekiz derinlemesine teorik ders.",
+      subtitle: "1. gün boyunca sekiz teorik oturum ve panel.",
       panelType: "Panel",
       panelModerator: "Moderatör",
       panelGuestLabels: ["Birinci Konuk", "İkinci Konuk", "Üçüncü Konuk"],
       items: [
         {
-          title: "Bilgisayarlı Görüde Açık Kaynak Yapay Zeka",
+          title: "Açık Kaynak Yapay Zeka",
           desc: "Açık modeller dünyasına giriş ve yapay zekanı sahiplenme, inşa etme ve çalıştırma.",
           speaker: "Muhammed İmhan",
           speakerImage: "muhammad-imhan",
           speakerTagline: "Araştırma görevlisi — İTÜ",
           speakerBio:
             "İstanbul Teknik Üniversitesi'nde bilgisayar mühendisliği yüksek lisans öğrencisi; aynı üniversitede araştırma görevlisi ve araştırmacı olarak çalışıyor. Yapay zeka, bilgisayarlı görü ve derin öğrenme alanlarıyla ilgileniyor. Yapay zekayı gerçek dünya sorunlarını çözmek için kullanmayı hedefleyen araştırma ve uygulama projeleri üzerinde çalışıyor.",
-          duration: "45 dk",
+          duration: "30 dk",
           tags: ["AI", "open-source", "computer-vision"],
-        },
-        {
-          title: "Bankacılıkta SiberGüvenlik Sistemlerinde Yapay Zeka",
-          desc: "Ders, bankacılık alanındaki mevcut güvenlik açıkları ve koruma sistemleri ile bu açıkları kapatmak için yükselen yapay zeka teknolojileri üzerine odaklanıyor.",
-          speaker: "Mustafa İsmail",
-          speakerImage: "moustafa-ismail",
-          speakerTagline: "Bilgisayar mühendisliği yüksek lisans öğrencisi — ODTÜ",
-          speakerBio:
-            "ODTÜ bilgisayar mühendisliği mezunuyum; bölüm birincisiydim. Şu anda ODTÜ'de bilgisayar mühendisliği yüksek lisansında, NP-complete örneklerinin sınıflandırılması üzerine çalışıyorum. Bankacılıkta kimlik doğrulama sistemlerinde yapay zekanın kullanımı üzerine çalışıyorum.",
-          duration: "45 dk",
-          tags: ["AI", "security", "banking"],
         },
         {
           title: "Biyoinformatik ve Hastalık Tedavisinin Geleceğini Değiştirmek",
@@ -634,7 +632,7 @@ export const dict: Record<Lang, Dict> = {
           speakerTagline: "Tıbbi veri analizi araştırmacısı — YTÜ",
           speakerBio:
             "Tıbbi veri analizi bilimleri alanında araştırmacı; Yıldız Teknik Üniversitesi Biyomühendislik lisans ve yüksek lisans mezunu.",
-          duration: "45 dk",
+          duration: "30 dk",
           tags: ["health-tech", "bioinformatics"],
         },
         {
@@ -645,7 +643,7 @@ export const dict: Record<Lang, Dict> = {
           speakerTagline: "Havacılık mühendisi — ESEN · ODTÜ",
           speakerBio:
             "Havacılık ve kontrol sistemleri mühendisi; Ankara'da Orta Doğu Teknik Üniversitesi'nde (ODTÜ) havacılık ve uzay mühendisliği doktora adayı. ODTÜ'den havacılık ve uzay mühendisliği lisans ve yüksek lisans derecelerine sahip; yüksek lisans tezi hareketli deniz platformlarında VTOL uçaklar için otonom iniş sistemleri üzerineydi. Doktora çalışmaları otonom hava sistemleri, uçuş dinamiği ve insanlı/insansız hava araçları için ileri kontrol üzerine odaklanıyor. ESEN System Integration'da havacılık mühendisi olarak çalışıyor; uçuş dinamiği, GNC sistemleri ve sabit kanat, VTOL ve insansız hava sistemleri algoritmalarında uzmanlaşmış. Otonom hava sistemleri, ileri kontrol ve hareketli platformlarda VTOL inişi üzerine birçok bilimsel yayını bulunuyor.",
-          duration: "45 dk",
+          duration: "30 dk",
           tags: ["drones", "systems-engineering"],
         },
         {
@@ -656,40 +654,8 @@ export const dict: Record<Lang, Dict> = {
           speakerTagline: "menamatix kurucusu",
           speakerBio:
             "Teknoloji, takip sistemleri ve filo yönetiminde 10 yılı aşkın deneyime sahip elektrik mühendisi ve girişimci. menamatix'te şirketlerin ulaşım verimliliğini artırmasına, araçları izlemesine ve operasyonel süreçleri otomatikleştirmesine yardımcı olan akıllı yazılım çözümleri geliştiriyor.",
-          duration: "45 dk",
+          duration: "30 dk",
           tags: ["IoT", "smart-city"],
-        },
-        {
-          title: "Dijital Egemenlik ve Ulusal Tehdit",
-          desc: "Bağlantılı bir dünyada veri, dijital altyapı ve ulusal güvenlik üzerine slayt sunumu ve tartışma karışımı.",
-          duration: "45 dk",
-          tags: ["sovereignty", "security", "panel"],
-          panel: {
-            moderator: "Abdullah Damash",
-            moderatorImage: "abduallah-damash",
-            moderatorTagline: "Kıdemli YZ ve Siber Güvenlik Mühendisi — MLOps · DevOps",
-            moderatorBio:
-              "Siber güvenlik ve yapay zeka alanında uzmanlaşmış girişimci ve mühendis; ODTÜ'den yapay zeka yüksek lisans derecesine sahip. Kurucu @ [AuthDeep](https://authdeep.com); küresel şirketlerle iş birliği içinde kurumsal yazılım çözümleri ve karmaşık sistemler inşa etme deneyimine sahip.",
-            guests: [
-              {
-                name: "Ahmed Shams al-Din",
-                imageSlug: "ahmad-shamsddin.jpg",
-                tagline: "Yazılım mühendisi ve sızma testi uzmanı — saldırı güvenliği ve siber güvenlik araçları",
-              },
-              {
-                name: "Yusuf KABBARA",
-                imageSlug: "yusuf-kabbara.jpeg",
-                tagline: "Kıdemli sistem mühendisi — BT ve siber güvenlik",
-                bio: "16 yıllık deneyime sahip BT ve siber güvenlik uzmanı; TRT'de 9 yılı aşkın süre çalıştı ve Körfez, Orta Doğu ve Türkiye'de projeler yürüttü. Kurumsal ağlar, ağ güvenliği, güvenlik duvarları ve VoIP alanında kıdemli sistem mühendisi. Boğaziçi Üniversitesi'nden işletme bilişim sistemleri yüksek lisansı (3,94 GPA) ve PMP sertifikasına sahip; Torever platformunun kurucusu.",
-              },
-              {
-                name: "Osama Seyam",
-                imageSlug: "osama-seyam.jpeg",
-                tagline: "Uygulama güvenliği uzmanı — siber güvenlik yüksek lisansı",
-                bio: "Uygulama güvenliği ve siber güvenlik uzmanı; DevSecOps, sızma testi ve web, mobil ve bulut uygulama güvenliğinde 9 yılı aşkın deneyime sahip. Siber güvenlik yüksek lisans derecesinin yanı sıra Burp Suite Certified Practitioner ve Certified AI/ML Pentester gibi profesyonel sertifikalara sahip.",
-              },
-            ],
-          },
         },
         {
           title: "Kanla Lekelenmiş Yazılım",
@@ -725,6 +691,49 @@ export const dict: Record<Lang, Dict> = {
           },
         },
         {
+          title: "Dijital Egemenlik ve Ulusal Tehdit",
+          desc: "Bağlantılı bir dünyada veri, dijital altyapı ve ulusal güvenlik üzerine slayt sunumu ve tartışma karışımı.",
+          duration: "45 dk",
+          tags: ["sovereignty", "security", "panel"],
+          panel: {
+            moderator: "Abdullah Damash",
+            moderatorImage: "abduallah-damash",
+            moderatorTagline: "Kıdemli YZ ve Siber Güvenlik Mühendisi — MLOps · DevOps",
+            moderatorBio:
+              "Siber güvenlik ve yapay zeka alanında uzmanlaşmış girişimci ve mühendis; ODTÜ'den yapay zeka yüksek lisans derecesine sahip. Kurucu @ [AuthDeep](https://authdeep.com); küresel şirketlerle iş birliği içinde kurumsal yazılım çözümleri ve karmaşık sistemler inşa etme deneyimine sahip.",
+            guests: [
+              {
+                name: "Ahmed Shams al-Din",
+                imageSlug: "ahmad-shamsddin.jpg",
+                tagline: "Yazılım mühendisi ve sızma testi uzmanı — saldırı güvenliği ve siber güvenlik araçları",
+              },
+              {
+                name: "Yusuf KABBARA",
+                imageSlug: "yusuf-kabbara.jpeg",
+                tagline: "Kıdemli sistem mühendisi — BT ve siber güvenlik",
+                bio: "16 yıllık deneyime sahip BT ve siber güvenlik uzmanı; TRT'de 9 yılı aşkın süre çalıştı ve Körfez, Orta Doğu ve Türkiye'de projeler yürüttü. Kurumsal ağlar, ağ güvenliği, güvenlik duvarları ve VoIP alanında kıdemli sistem mühendisi. Boğaziçi Üniversitesi'nden işletme bilişim sistemleri yüksek lisansı (3,94 GPA) ve PMP sertifikasına sahip; Torever platformunun kurucusu.",
+              },
+              {
+                name: "Osama Seyam",
+                imageSlug: "osama-seyam.jpeg",
+                tagline: "Uygulama güvenliği uzmanı — siber güvenlik yüksek lisansı",
+                bio: "Uygulama güvenliği ve siber güvenlik uzmanı; DevSecOps, sızma testi ve web, mobil ve bulut uygulama güvenliğinde 9 yılı aşkın deneyime sahip. Siber güvenlik yüksek lisans derecesinin yanı sıra Burp Suite Certified Practitioner ve Certified AI/ML Pentester gibi profesyonel sertifikalara sahip.",
+              },
+            ],
+          },
+        },
+        {
+          title: "Bankacılıkta Ajan Yapay Zeka Kullanımı",
+          desc: "Ders, bankacılık sektöründe ajan yapay zeka uygulamaları, mevcut güvenlik açıkları ve koruma sistemleri ile bu açıkları kapatmak için yükselen teknolojiler üzerine odaklanıyor.",
+          speaker: "Mustafa İsmail",
+          speakerImage: "moustafa-ismail",
+          speakerTagline: "Bilgisayar mühendisliği yüksek lisans öğrencisi — ODTÜ",
+          speakerBio:
+            "ODTÜ bilgisayar mühendisliği mezunuyum; bölüm birincisiydim. Şu anda ODTÜ'de bilgisayar mühendisliği yüksek lisansında, NP-complete örneklerinin sınıflandırılması üzerine çalışıyorum. Bankacılıkta kimlik doğrulama sistemlerinde yapay zekanın kullanımı üzerine çalışıyorum.",
+          duration: "30 dk",
+          tags: ["AI", "security", "banking"],
+        },
+        {
           title: "İHA Programlama: Beceriler, Araçlar ve Gelecek Fırsatları",
           desc: "İHA programlamada beceriler, araçlar ve bu alandaki gelecek fırsatları üzerine teorik bir ders.",
           speaker: "Muhammed Farid El-Hafız",
@@ -732,7 +741,7 @@ export const dict: Record<Lang, Dict> = {
           speakerTagline: "İHA kontrol mühendisi — YTÜ",
           speakerBio:
             "Askeri İHA'larda kontrol mühendisi. Yıldız Teknik Üniversitesi Kontrol ve Otomasyon Mühendisliği mezunu. Teknofest yarışmalarına birçok kez katıldı. 2023 Teknofest Eğitim Teknolojileri yarışmasında birincilik ödülü aldı.",
-          duration: "45 dk",
+          duration: "30 dk",
           tags: ["drones", "programming", "robotics"],
         },
       ],
@@ -741,29 +750,38 @@ export const dict: Record<Lang, Dict> = {
       label: "Zaman Çizelgesi",
       title: "Konferans Programı",
       day1: "1. Gün",
-      day1date: "Cumartesi · 27 Haz · 10:00–19:00 · İstanbul — Florya TÜGVA",
+      day1date: "Cumartesi · 27 Haz · 10:00–18:00 · İstanbul — Florya TÜGVA",
       day2: "2. Gün",
-      day2date: "Pazar · 28 Haz · Atölyeler · İstanbul — Florya TÜGVA",
+      day2date: "Pazar · 28 Haz · 11:00–16:30 · Atölyeler · İstanbul — Florya TÜGVA",
       time: "Saat",
       session: "Bölüm",
-      speaker: "Tür",
+      speaker: "Konuşmacı",
       lectures: "Dersler",
       workshops: "Atölyeler",
       day1Rows: [
         { time: "10:00 – 10:30", title: "Networking ve Tanışma", highlight: true },
         { time: "10:30 – 11:00", title: "Konferans Açılışı", highlight: true },
-        { time: "11:00 – 11:45", title: "Biyoinformatik ve Hastalık Tedavisinin Geleceğini Değiştirmek", lecture: true },
-        { time: "11:45 – 12:30", title: "Uçaktan Sisteme: İnsansız Sistem Mühendisliği", lecture: true },
-        { time: "12:30 – 13:00", title: "İbtikar Yönetimi Konuşması", highlight: true },
-        { time: "13:00 – 14:00", title: "Öğle Yemeği ve Namaz Molası", highlight: true },
-        { time: "14:00 – 14:45", title: "Nesnelerin İnterneti: Henüz Hazırlanmadığımız Sessiz Devrim", lecture: true },
-        { time: "14:45 – 15:30", title: "Kanla Lekelenmiş Yazılım", lecture: true },
-        { time: "15:30 – 16:15", title: "Bankacılıkta SiberGüvenlik Sistemlerinde Yapay Zeka", lecture: true },
-        { time: "16:15 – 16:30", title: "Katılım Yarışması", highlight: true },
-        { time: "16:30 – 17:15", title: "Dijital Egemenlik ve Ulusal Tehdit", lecture: true },
-        { time: "17:15 – 18:00", title: "Bilgisayarlı Görüde Açık Kaynak Yapay Zeka", lecture: true },
-        { time: "18:00 – 18:45", title: "İHA Programlama: Beceriler, Araçlar ve Gelecek Fırsatları", lecture: true },
-        { time: "18:45 – 19:00", title: "Konferans Kapanışı", highlight: true },
+        { time: "11:00 – 11:30", title: "Açık Kaynak Yapay Zeka", speaker: "Muhammed İmhan" },
+        { time: "11:30 – 12:00", title: "Biyoinformatik ve Hastalık Tedavisinin Geleceğini Değiştirmek", speaker: "Esra Mevludi" },
+        { time: "12:00 – 12:30", title: "İbtikar Yönetimi Konuşması", highlight: true },
+        { time: "12:30 – 13:30", title: "Öğle Yemeği ve Namaz Molası", highlight: true },
+        { time: "13:30 – 14:00", title: "Nesnelerin İnterneti: Henüz Hazırlanmadığımız Sessiz Devrim", speaker: "Firas Qarahsan" },
+        {
+          time: "14:00 – 14:45",
+          title: "Kanla Lekelenmiş Yazılım",
+          speaker: "Panel — Abdulkarim Lahmuni · Abdurrahman Rajab · Abdurrahman Ismail · Omar Khamis",
+        },
+        { time: "14:45 – 15:10", title: "Kahoot", highlight: true },
+        { time: "15:10 – 15:40", title: "Uçaktan Sisteme: İnsansız Sistem Mühendisliği", speaker: "Hazem Khulousi" },
+        {
+          time: "15:40 – 16:25",
+          title: "Dijital Egemenlik ve Ulusal Tehdit",
+          speaker: "Tartışma — Abdullah Damash · Ahmed Shams al-Din · Yusuf KABBARA · Osama Seyam",
+        },
+        { time: "16:25 – 16:45", title: "Mola", highlight: true },
+        { time: "16:45 – 17:15", title: "Bankacılıkta Ajan Yapay Zeka Kullanımı", speaker: "Mustafa İsmail" },
+        { time: "17:15 – 17:45", title: "İHA Programlama: Beceriler, Araçlar ve Gelecek Fırsatları", speaker: "Muhammed Farid El-Hafız" },
+        { time: "17:45 – 18:00", title: "Konferans Kapanışı", highlight: true },
       ],
     },
     workshops: {
@@ -945,7 +963,7 @@ export const dict: Record<Lang, Dict> = {
       title: "Bilmen gereken her şey",
       items: [
         { q: "Konferansı kim düzenliyor?", a: "Konferans, inovasyon ve teknolojiyle ilgilenen Arapça konuşan üniversite öğrencilerini bir araya getiren gönüllü ekip İbtikar Topluluğu tarafından düzenlenmektedir. Daha fazlası için ibtikar.org.tr" },
-        { q: "Konferans nerede ve ne zaman?", a: "Konferans İstanbul'da: 1. gün 27 Haziran Cumartesi (10:00–19:00) Florya TÜGVA'da teorik dersler; 2. gün 28 Haziran Pazar Florya TÜGVA'da atölyeler." },
+        { q: "Konferans nerede ve ne zaman?", a: "Konferans İstanbul'da: 1. gün 27 Haziran Cumartesi (10:00–18:00) Florya TÜGVA'da teorik dersler; 2. gün 28 Haziran Pazar Florya TÜGVA'da atölyeler." },
         { q: "Kayıt ücretsiz mi?", a: "Evet, öğrenciler için kayıt ücretsizdir ve kontenjan sınırlıdır." },
         { q: "Konferansın dilleri nelerdir?", a: "Etkinlikler Arapça sunulur, bazıları Türkçe ve İngilizcedir." },
         { q: "Atölyeler için ön deneyim gerekli mi?", a: "Çoğu atölye alana giriş olarak tasarlandı, başlangıç ve orta seviyeye uygundur." },
@@ -1008,32 +1026,21 @@ export const dict: Record<Lang, Dict> = {
     topics: {
       label: "Day 1 · Theoretical Lectures",
       title: "Conference Topics",
-      subtitle: "Eight in-depth theoretical lectures, 45 minutes each.",
+      subtitle: "Eight theoretical sessions and panels across day one.",
       panelType: "Panel Discussion",
       panelModerator: "Moderator",
       panelGuestLabels: ["Guest One", "Guest Two", "Guest Three"],
       items: [
         {
-          title: "Open-Source AI in Computer Vision",
+          title: "Open-Source AI",
           desc: "A theoretical introduction to open models and owning, building, and running your own AI.",
           speaker: "Muhammad Imhan",
           speakerImage: "muhammad-imhan",
           speakerTagline: "Teaching assistant & researcher — ITU",
           speakerBio:
             "Master's student in computer engineering at Istanbul Technical University; works as a teaching assistant and researcher there. Interested in artificial intelligence, computer vision, and deep learning. Works on research and applied projects aimed at using AI to solve real-world problems.",
-          duration: "45 min",
+          duration: "30 min",
           tags: ["AI", "open-source", "computer-vision"],
-        },
-        {
-          title: "AI for Cybersecurity Systems in Banking",
-          desc: "The lecture focuses on current vulnerabilities and protection systems in banking, and emerging AI techniques to close those gaps.",
-          speaker: "Moustafa Ismail",
-          speakerImage: "moustafa-ismail",
-          speakerTagline: "MSc student in computer engineering — ODTÜ",
-          speakerBio:
-            "I'm a computer engineering graduate from ODTU, where I ranked first in my department. I'm currently pursuing a master's in computer engineering at ODTU, focusing on classification of NP-complete instances. I work on using AI for authentication systems in banking.",
-          duration: "45 min",
-          tags: ["AI", "security", "banking"],
         },
         {
           title: "Bioinformatics & Changing the Future of Disease Treatment",
@@ -1043,7 +1050,7 @@ export const dict: Record<Lang, Dict> = {
           speakerTagline: "Medical data analysis researcher — YTU",
           speakerBio:
             "Researcher in medical data analysis sciences; holds bachelor's and master's degrees in bioengineering from Yildiz Technical University.",
-          duration: "45 min",
+          duration: "30 min",
           tags: ["health-tech", "bioinformatics"],
         },
         {
@@ -1054,7 +1061,7 @@ export const dict: Record<Lang, Dict> = {
           speakerTagline: "Aerospace engineer — ESEN · METU",
           speakerBio:
             "Aerospace and control systems engineer; PhD candidate in aerospace engineering at Middle East Technical University (METU) in Ankara. Holds bachelor's and master's degrees in aerospace engineering from METU; his master's thesis focused on autonomous landing systems for VTOL aircraft on moving marine platforms. His doctoral research focuses on autonomous aerial systems, flight dynamics, and advanced control for manned and unmanned aircraft. Works as an aerospace engineer at ESEN System Integration, specializing in flight dynamics, GNC systems, and algorithms for fixed-wing, VTOL, and uncrewed aerial systems. His research spans autonomous aerial systems, advanced control, and VTOL landing on moving platforms, with several published papers in the field.",
-          duration: "45 min",
+          duration: "30 min",
           tags: ["drones", "systems-engineering"],
         },
         {
@@ -1065,40 +1072,8 @@ export const dict: Record<Lang, Dict> = {
           speakerTagline: "Founder of menamatix",
           speakerBio:
             "Electrical engineer and entrepreneur with over 10 years of experience in technology, tracking systems, and fleet management. He leads menamatix in developing smart software solutions that help companies improve transport efficiency, track vehicles, and automate operational processes.",
-          duration: "45 min",
+          duration: "30 min",
           tags: ["IoT", "smart-city"],
-        },
-        {
-          title: "Digital Sovereignty & National Threat",
-          desc: "A mix of slides and discussion on data, digital infrastructure, and national security in a connected world.",
-          duration: "45 min",
-          tags: ["sovereignty", "security", "panel"],
-          panel: {
-            moderator: "Abdullah Damash",
-            moderatorImage: "abduallah-damash",
-            moderatorTagline: "Senior AI & Cybersecurity Engineer — MLOps · DevOps",
-            moderatorBio:
-              "Entrepreneur and engineer specializing in cybersecurity and artificial intelligence, with a master's degree in AI from ODTU. Founder @ [AuthDeep](https://authdeep.com), with experience building enterprise software solutions and complex systems in collaboration with global companies.",
-            guests: [
-              {
-                name: "Ahmad Shams al-Din",
-                imageSlug: "ahmad-shamsddin.jpg",
-                tagline: "Software engineer & penetration tester — offensive security and security tooling",
-              },
-              {
-                name: "Yusuf KABBARA",
-                imageSlug: "yusuf-kabbara.jpeg",
-                tagline: "Senior systems engineer — IT & cybersecurity",
-                bio: "IT and cybersecurity expert with 16 years of experience; spent 9+ years at TRT delivering projects across the Gulf, Middle East, and Türkiye. Senior systems engineer specializing in enterprise networks, network security, firewalls, and VoIP. Holds an MSc in business information systems from Boğaziçi University (GPA 3.94), is PMP certified, and founded the Torever platform.",
-              },
-              {
-                name: "Osama Seyam",
-                imageSlug: "osama-seyam.jpeg",
-                tagline: "Application security specialist — MSc Cybersecurity",
-                bio: "Application security and cybersecurity specialist with over nine years of experience in DevSecOps, penetration testing, and web, mobile, and cloud application security. Holds a master's degree in cybersecurity, along with professional certifications including Burp Suite Certified Practitioner and Certified AI/ML Pentester.",
-              },
-            ],
-          },
         },
         {
           title: "Blood-Stained Software",
@@ -1134,6 +1109,49 @@ export const dict: Record<Lang, Dict> = {
           },
         },
         {
+          title: "Digital Sovereignty & National Threat",
+          desc: "A mix of slides and discussion on data, digital infrastructure, and national security in a connected world.",
+          duration: "45 min",
+          tags: ["sovereignty", "security", "panel"],
+          panel: {
+            moderator: "Abdullah Damash",
+            moderatorImage: "abduallah-damash",
+            moderatorTagline: "Senior AI & Cybersecurity Engineer — MLOps · DevOps",
+            moderatorBio:
+              "Entrepreneur and engineer specializing in cybersecurity and artificial intelligence, with a master's degree in AI from ODTU. Founder @ [AuthDeep](https://authdeep.com), with experience building enterprise software solutions and complex systems in collaboration with global companies.",
+            guests: [
+              {
+                name: "Ahmad Shams al-Din",
+                imageSlug: "ahmad-shamsddin.jpg",
+                tagline: "Software engineer & penetration tester — offensive security and security tooling",
+              },
+              {
+                name: "Yusuf KABBARA",
+                imageSlug: "yusuf-kabbara.jpeg",
+                tagline: "Senior systems engineer — IT & cybersecurity",
+                bio: "IT and cybersecurity expert with 16 years of experience; spent 9+ years at TRT delivering projects across the Gulf, Middle East, and Türkiye. Senior systems engineer specializing in enterprise networks, network security, firewalls, and VoIP. Holds an MSc in business information systems from Boğaziçi University (GPA 3.94), is PMP certified, and founded the Torever platform.",
+              },
+              {
+                name: "Osama Seyam",
+                imageSlug: "osama-seyam.jpeg",
+                tagline: "Application security specialist — MSc Cybersecurity",
+                bio: "Application security and cybersecurity specialist with over nine years of experience in DevSecOps, penetration testing, and web, mobile, and cloud application security. Holds a master's degree in cybersecurity, along with professional certifications including Burp Suite Certified Practitioner and Certified AI/ML Pentester.",
+              },
+            ],
+          },
+        },
+        {
+          title: "Agentic AI in Banking",
+          desc: "The lecture focuses on agentic AI applications in banking, current vulnerabilities and protection systems, and emerging techniques to close those gaps.",
+          speaker: "Moustafa Ismail",
+          speakerImage: "moustafa-ismail",
+          speakerTagline: "MSc student in computer engineering — ODTÜ",
+          speakerBio:
+            "I'm a computer engineering graduate from ODTU, where I ranked first in my department. I'm currently pursuing a master's in computer engineering at ODTU, focusing on classification of NP-complete instances. I work on using AI for authentication systems in banking.",
+          duration: "30 min",
+          tags: ["AI", "security", "banking"],
+        },
+        {
           title: "Drone Programming: Skills, Tools, and Future Opportunities",
           desc: "A theoretical lecture on drone programming skills, tools, and future opportunities in the field.",
           speaker: "Muhammad Farid Al-Hafiz",
@@ -1141,7 +1159,7 @@ export const dict: Record<Lang, Dict> = {
           speakerTagline: "Drone control engineer — YTU",
           speakerBio:
             "Control engineer for military drones. Graduate of control and automation engineering from Yildiz Technical University. Participated in Teknofest competitions multiple times. Won first place in the 2023 Educational Technologies competition at Teknofest.",
-          duration: "45 min",
+          duration: "30 min",
           tags: ["drones", "programming", "robotics"],
         },
       ],
@@ -1150,29 +1168,38 @@ export const dict: Record<Lang, Dict> = {
       label: "Timeline",
       title: "Conference Program",
       day1: "Day 1",
-      day1date: "Saturday · Jun 27 · 10:00–19:00 · Istanbul — Florya TÜGVA",
+      day1date: "Saturday · Jun 27 · 10:00–18:00 · Istanbul — Florya TÜGVA",
       day2: "Day 2",
-      day2date: "Sunday · Jun 28 · Workshops · Istanbul — Florya TÜGVA",
+      day2date: "Sunday · Jun 28 · 11:00–16:30 · Workshops · Istanbul — Florya TÜGVA",
       time: "Time",
       session: "Session",
-      speaker: "Type",
+      speaker: "Speaker",
       lectures: "Lectures",
       workshops: "Workshops",
       day1Rows: [
         { time: "10:00 – 10:30", title: "Networking & Meet-up", highlight: true },
         { time: "10:30 – 11:00", title: "Conference Opening", highlight: true },
-        { time: "11:00 – 11:45", title: "Bioinformatics & Changing the Future of Disease Treatment", lecture: true },
-        { time: "11:45 – 12:30", title: "From Aircraft to System: Uncrewed Systems Engineering", lecture: true },
-        { time: "12:30 – 13:00", title: "Ibtikar Management Address", highlight: true },
-        { time: "13:00 – 14:00", title: "Lunch Break & Prayer", highlight: true },
-        { time: "14:00 – 14:45", title: "Internet of Things: The Silent Revolution We Aren't Ready For", lecture: true },
-        { time: "14:45 – 15:30", title: "Blood-Stained Software", lecture: true },
-        { time: "15:30 – 16:15", title: "AI for Cybersecurity Systems in Banking", lecture: true },
-        { time: "16:15 – 16:30", title: "Join Quiz", highlight: true },
-        { time: "16:30 – 17:15", title: "Digital Sovereignty & National Threat", lecture: true },
-        { time: "17:15 – 18:00", title: "Open-Source AI in Computer Vision", lecture: true },
-        { time: "18:00 – 18:45", title: "Drone Programming: Skills, Tools, and Future Opportunities", lecture: true },
-        { time: "18:45 – 19:00", title: "Conference Closing", highlight: true },
+        { time: "11:00 – 11:30", title: "Open-Source AI", speaker: "Muhammad Imhan" },
+        { time: "11:30 – 12:00", title: "Bioinformatics & Changing the Future of Disease Treatment", speaker: "Esra Mevludi" },
+        { time: "12:00 – 12:30", title: "Ibtikar Management Address", highlight: true },
+        { time: "12:30 – 13:30", title: "Lunch Break & Prayer", highlight: true },
+        { time: "13:30 – 14:00", title: "Internet of Things: The Silent Revolution We Aren't Ready For", speaker: "Firas Qarahsan" },
+        {
+          time: "14:00 – 14:45",
+          title: "Blood-Stained Software",
+          speaker: "Panel — Abdulkarim Lahmuni · Abdurrahman Rajab · Abdurrahman Ismail · Omar Khamis",
+        },
+        { time: "14:45 – 15:10", title: "Kahoot", highlight: true },
+        { time: "15:10 – 15:40", title: "From Aircraft to System: Uncrewed Systems Engineering", speaker: "Hazem Khulousi" },
+        {
+          time: "15:40 – 16:25",
+          title: "Digital Sovereignty & National Threat",
+          speaker: "Discussion — Abdullah Damash · Ahmad Shams al-Din · Yusuf KABBARA · Osama Seyam",
+        },
+        { time: "16:25 – 16:45", title: "Break", highlight: true },
+        { time: "16:45 – 17:15", title: "Agentic AI in Banking", speaker: "Moustafa Ismail" },
+        { time: "17:15 – 17:45", title: "Drone Programming: Skills, Tools, and Future Opportunities", speaker: "Muhammad Farid Al-Hafiz" },
+        { time: "17:45 – 18:00", title: "Conference Closing", highlight: true },
       ],
     },
     workshops: {
@@ -1355,7 +1382,7 @@ export const dict: Record<Lang, Dict> = {
       title: "Everything you need to know",
       items: [
         { q: "Who organizes the conference?", a: "The conference is organized by Ibtikar Assembly, a volunteer team of Arabic-speaking university students passionate about innovation and technology. Learn more at ibtikar.org.tr" },
-        { q: "Where and when is the conference?", a: "In Istanbul: Day 1, Saturday June 27 (10:00–19:00) at Florya TÜGVA for lectures; Day 2, Sunday June 28 at Florya TÜGVA for workshops." },
+        { q: "Where and when is the conference?", a: "In Istanbul: Day 1, Saturday June 27 (10:00–18:00) at Florya TÜGVA for lectures; Day 2, Sunday June 28 at Florya TÜGVA for workshops." },
         { q: "Is registration free?", a: "Yes, registration is free for students with a limited number of seats." },
         { q: "What languages are used?", a: "Sessions are delivered in Arabic, with some in Turkish and English." },
         { q: "Do I need prior technical experience for workshops?", a: "Most workshops are designed as an introduction, suitable for beginners and intermediates." },
