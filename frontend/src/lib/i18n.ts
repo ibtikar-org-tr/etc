@@ -419,6 +419,16 @@ export const dict: Record<Lang, Dict> = {
               tags: ["security", "pentest"],
             },
             {
+              title: "Database as Backend",
+              desc: "ورشة تطبيقيّة لبناء واجهة خلفية للتطبيقات باستخدام Supabase.",
+              speaker: "عبدالرحمن رجب",
+              speakerImage: "abdurrahman-rajab.jpeg",
+              speakerTagline: "مهندس برمجيات — بودكاست Hadith Tech — بناء مجتمعات",
+              speakerBio:
+                "مهندس حاسوب شغوف بحلّ المشكلات المعقّدة وبناء المجتمعات. مهندس برمجيات ومقدّم بودكاست Hadith Tech وبنّاء مجتمعات. تعلّم البرمجة خلال الجامعة، ثم تبنّى فكرة علوم الحاسوب الشاملة عبر البودكاست الذي يقدّمه. عمل مع الفئات الأقل حظًا، والتقنيات الناشئة، والواقع الافتراضي، وبناء المجتمعات. تطوّع مع عدة منظمات غير حكومية في منطقة الشرق الأوسط وشمال أفريقيا، وساعد في تمكينها من التقنيات. يرحّب بالتحديات التي تمكّن الناس وتدفع التقنيات قدمًا حول العالم.",
+              tags: ["supabase", "database", "backend", "programming"],
+            },
+            {
               title: "ابن بكفاءة باستخدام الذكاء الاصطناعي",
               desc: "استخدام أدوات الذكاء الاصطناعي لتعزيز الإنتاجية وتسريع بناء المنتجات الرقمية.",
               speaker: "عبدالرحمن إسماعيل",
@@ -825,6 +835,16 @@ export const dict: Record<Lang, Dict> = {
               speakerBio:
                 "Ölçeklenebilir arka uç sistemler, DevOps ve sürüm kontrolü konularında uzmanlaşmış yazılım geliştirici. İstanbul Aydın Üniversitesi yazılım mühendisliği öğrencisi (VSB Ostrava Erasmus+). eJPT, INE Junior Penetration Tester ve Hackviser CAPT sertifikalarına sahip; BEING-WISE CTF ilk 10. EARTech, BluLogix, Hesco Engineering Services ve Mevhibe Teknoloji deneyimi.",
               tags: ["security", "pentest"],
+            },
+            {
+              title: "Database as Backend",
+              desc: "Supabase kullanarak uygulama arka ucu oluşturmaya yönelik uygulamalı atölye.",
+              speaker: "Abdurrahman Rajab",
+              speakerImage: "abdurrahman-rajab.jpeg",
+              speakerTagline: "Yazılım mühendisi — Hadith Tech podcast — Topluluk oluşturucu",
+              speakerBio:
+                "Karmaşık sorunları çözmeyi ve topluluklar inşa etmeyi seven bir bilgisayar mühendisi. Yazılım mühendisi, Hadith Tech podcast sunucusu ve topluluk oluşturucu. Programlamayı üniversitede öğrendi ve ardından sunduğu podcast aracılığıyla kapsayıcı bilgisayar bilimlerini benimsedi. Kariyeri boyunca dezavantajlı gruplarla, yükselen teknolojilerle, sanal gerçeklikle ve topluluk inşasıyla çalıştı. MENA bölgesindeki birçok STK'da gönüllü olarak teknolojiden yararlanmalarına yardımcı oldu. İnsanları güçlendiren ve teknolojiyi dünya çapında ilerleten yeni zorluklara açıktır.",
+              tags: ["supabase", "database", "backend", "programming"],
             },
             {
               title: "Yapay Zeka ile Verimli Ürün Geliştirme",
@@ -1234,6 +1254,16 @@ export const dict: Record<Lang, Dict> = {
               speakerBio:
                 "Software developer specializing in scalable back-end systems, DevOps, and version control. Bachelor's student in software engineering at Istanbul Aydin University (Erasmus+ at VSB Ostrava). Certified in penetration testing (eJPT, INE Junior Penetration Tester, Hackviser CAPT); BEING-WISE CTF top 10. Experience at EARTech, BluLogix, Hesco Engineering Services, and Mevhibe Teknoloji.",
               tags: ["security", "pentest"],
+            },
+            {
+              title: "Database as Backend",
+              desc: "A hands-on workshop on building application backends with Supabase.",
+              speaker: "Abdurrahman Rajab",
+              speakerImage: "abdurrahman-rajab.jpeg",
+              speakerTagline: "Software engineer — Hadith Tech podcast — Community builder",
+              speakerBio:
+                "A computer engineer passionate about solving complex problems and building communities. Software engineer, host of the Hadith Tech podcast, and community builder. He learned programming at university and has since championed inclusive computer science through his podcast. His work spans underserved communities, emerging technologies, virtual reality, and community building. He has volunteered with several NGOs across the MENA region, helping them leverage technology. He welcomes new challenges that empower people and advance technology worldwide.",
+              tags: ["supabase", "database", "backend", "programming"],
             },
             {
               title: "Build Efficiently with AI",
