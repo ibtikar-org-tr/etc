@@ -419,16 +419,6 @@ export const dict: Record<Lang, Dict> = {
               tags: ["security", "pentest"],
             },
             {
-              title: "ورشة عمل في DeepMind و VLLM",
-              desc: "ورشة تطبيقيّة في تشغيل النماذج الكبيرة بكفاءة باستخدام قواعد البيانات الشعاعيّة.",
-              speaker: "أسامة شبيب",
-              speakerImage: "osama-shbib.jpeg",
-              speakerTagline: "باحث ذكاء اصطناعي — TÜBİTAK BİLGEM · Cosmos AI",
-              speakerBio:
-                "باحث في الذكاء الاصطناعي في TÜBİTAK BİLGEM، وعضو في مجموعة COSMOS AI البحثية في قسم هندسة الحاسوب بجامعة يلدز التقنية. حاصل على بكالوريوس هندسة الحاسوب من YTÜ. عمل سابقًا مهندس تعلّم آلة في NewMind AI، حيث طوّر خطوط RAG وضبط نماذج اللغة الكبيرة وحلول chatbot قابلة للنشر. شارك في أبحاث تحسين نماذج اللغة التركية وتطوير Cosmos-LLaVA للتعليمات البصرية. حائز على جائزة أفضل ورقة في UBMK 2025 والمركز الأول في فئة الضبط الدقيق في TEKNOFEST T3 AI Hackathon.",
-              tags: ["ai", "vector-database", "vllm", "python"],
-            },
-            {
               title: "ابن بكفاءة باستخدام الذكاء الاصطناعي",
               desc: "استخدام أدوات الذكاء الاصطناعي لتعزيز الإنتاجية وتسريع بناء المنتجات الرقمية.",
               speaker: "عبدالرحمن إسماعيل",
@@ -835,16 +825,6 @@ export const dict: Record<Lang, Dict> = {
               speakerBio:
                 "Ölçeklenebilir arka uç sistemler, DevOps ve sürüm kontrolü konularında uzmanlaşmış yazılım geliştirici. İstanbul Aydın Üniversitesi yazılım mühendisliği öğrencisi (VSB Ostrava Erasmus+). eJPT, INE Junior Penetration Tester ve Hackviser CAPT sertifikalarına sahip; BEING-WISE CTF ilk 10. EARTech, BluLogix, Hesco Engineering Services ve Mevhibe Teknoloji deneyimi.",
               tags: ["security", "pentest"],
-            },
-            {
-              title: "DeepMind ve VLLM Atölyesi",
-              desc: "Vektör veritabanlarıyla büyük modelleri verimli çalıştırma.",
-              speaker: "Osama SHBIB",
-              speakerImage: "osama-shbib.jpeg",
-              speakerTagline: "YZ Araştırmacısı — TÜBİTAK BİLGEM · Cosmos AI",
-              speakerBio:
-                "TÜBİTAK BİLGEM'de yapay zeka araştırmacısı; YTÜ Bilgisayar Mühendisliği COSMOS AI Araştırma Grubu üyesi. Yıldız Teknik Üniversitesi bilgisayar mühendisliği mezunu. NewMind AI'da makine öğrenmesi mühendisi olarak RAG hatları, LLM ince ayarı ve Docker/FastAPI ile ölçeklenebilir ML çözümleri geliştirdi. Türkçe dil modelleri ve Cosmos-LLaVA görsel talimat modeli üzerine araştırmalara katkıda bulundu. UBMK 2025 En İyi Makale Ödülü; TEKNOFEST T3 AI Hackathon ince ayar kategorisi birinciliği.",
-              tags: ["ai", "vector-database", "vllm", "python"],
             },
             {
               title: "Yapay Zeka ile Verimli Ürün Geliştirme",
@@ -1254,16 +1234,6 @@ export const dict: Record<Lang, Dict> = {
               speakerBio:
                 "Software developer specializing in scalable back-end systems, DevOps, and version control. Bachelor's student in software engineering at Istanbul Aydin University (Erasmus+ at VSB Ostrava). Certified in penetration testing (eJPT, INE Junior Penetration Tester, Hackviser CAPT); BEING-WISE CTF top 10. Experience at EARTech, BluLogix, Hesco Engineering Services, and Mevhibe Teknoloji.",
               tags: ["security", "pentest"],
-            },
-            {
-              title: "DeepMind & VLLM Workshop",
-              desc: "Running large models efficiently with vector databases.",
-              speaker: "Osama SHBIB",
-              speakerImage: "osama-shbib.jpeg",
-              speakerTagline: "AI Researcher — TÜBİTAK BİLGEM · Cosmos AI",
-              speakerBio:
-                "AI researcher at TÜBİTAK BİLGEM and research team member at the COSMOS AI Research Group (YTU Computer Engineering). Holds a bachelor's in computer engineering from Yıldız Technical University. Previously worked as a machine learning engineer at NewMind AI, building RAG pipelines, fine-tuning LLMs, and deploying scalable ML solutions with Docker and FastAPI. Co-authored research on Turkish language models and visual instruction tuning (Cosmos-LLaVA). Best Paper Award at UBMK 2025; 1st place in the finetuning category at TEKNOFEST T3 AI Hackathon.",
-              tags: ["ai", "vector-database", "vllm", "python"],
             },
             {
               title: "Build Efficiently with AI",
