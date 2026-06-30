@@ -47,6 +47,6 @@ certificateRoute.post('/certificate', async (c) => {
     }
 
     console.error('Failed to generate certificate', error)
-    return c.json({ error: 'generic', message: 'Could not retrieve certificate.' }, 500)
+    return c.json({ error: 'generation_failed', message: 'Could not generate certificate PDF.' }, 503)
   }
 })

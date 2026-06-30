@@ -1,6 +1,5 @@
 import {
   certificatePdfFilename,
-  certificatePdfObjectUrl,
   readCertificateResponseHeaders,
   type CertificateTemplate,
 } from "@/lib/fill-certificate-pdf"
@@ -18,7 +17,6 @@ export type CertificateResult = {
   attendeeNameEn: string
   registrationId: string
   template: CertificateTemplate
-  pdfBytes: Uint8Array
   pdfObjectUrl: string
   previewImageUrl: string | null
   downloadFilename: string
@@ -48,6 +46,36 @@ function apiBaseUrl(): string {
   return configured ? configured.replace(/\/$/, "") : ""
 }
 
+function isLikelyMobile(): boolean {
+  if (typeof navigator === "undefined") return false
+  return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+}
+
+function isPdfBytes(bytes: Uint8Array) {
+  return bytes.length >= 4 && bytes[0] === 0x25 && bytes[1] === 0x50 && bytes[2] === 0x44 && bytes[3] === 0x46
+}
+
+function isPdfResponse(contentType: string, bytes: Uint8Array) {
+  const normalized = contentType.toLowerCase()
+  if (normalized.includes("pdf") || normalized.includes("octet-stream")) return true
+  return isPdfBytes(bytes)
+}
+
+async function parseErrorCode(response: Response, contentType: string): Promise<CertificateErrorCode> {
+  if (!contentType.includes("json")) return "generic"
+
+  try {
+    const payload = (await response.json()) as { error?: string }
+    if (payload.error === "not_found" || payload.error === "invalid_input") return "not_found"
+    if (payload.error === "not_attended") return "not_attended"
+    if (payload.error === "generation_failed") return "not_available"
+  } catch {
+    // ignore parse errors
+  }
+
+  return "generic"
+}
+
 /** Look up attendee and return a personalized certificate PDF from the backend. */
 export async function retrieveCertificate(lookup: CertificateLookup, lang: Lang): Promise<CertificateResult> {
   const body = toApiBody(lookup, lang)
@@ -56,7 +84,12 @@ export async function retrieveCertificate(lookup: CertificateLookup, lang: Lang)
   try {
     response = await fetch(`${apiBaseUrl()}/api/certificate`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      mode: "cors",
+      credentials: "omit",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/pdf, application/json",
+      },
       body: JSON.stringify(body),
     })
   } catch {
@@ -66,41 +99,39 @@ export async function retrieveCertificate(lookup: CertificateLookup, lang: Lang)
   const contentType = response.headers.get("Content-Type") ?? ""
 
   if (!response.ok) {
-    let code: CertificateErrorCode = "generic"
-    if (contentType.includes("json")) {
-      try {
-        const payload = (await response.json()) as { error?: string }
-        if (payload.error === "not_found" || payload.error === "invalid_input") code = "not_found"
-        else if (payload.error === "not_attended") code = "not_attended"
-      } catch {
-        // ignore parse errors
-      }
-    }
-    throw new CertificateError(code)
+    throw new CertificateError(await parseErrorCode(response, contentType))
   }
 
-  if (!contentType.includes("pdf")) {
+  let pdfBlob: Blob
+  try {
+    pdfBlob = await response.blob()
+  } catch {
     throw new CertificateError("not_available")
   }
 
-  let pdfBytes: Uint8Array
-  try {
-    pdfBytes = new Uint8Array(await response.arrayBuffer())
-  } catch {
+  if (pdfBlob.size === 0) {
+    throw new CertificateError("not_available")
+  }
+
+  const header = new Uint8Array(await pdfBlob.slice(0, 4).arrayBuffer())
+  if (!isPdfResponse(contentType, header)) {
     throw new CertificateError("not_available")
   }
 
   const meta = readCertificateResponseHeaders(response)
   const template = meta.template
   const downloadFilename = certificatePdfFilename(meta.registrationId, template)
-  const pdfObjectUrl = certificatePdfObjectUrl(pdfBytes)
+  const pdfObjectUrl = URL.createObjectURL(pdfBlob)
 
   let previewImageUrl: string | null = null
-  try {
-    const { renderCertificatePreview } = await import("@/lib/render-certificate-preview")
-    previewImageUrl = await renderCertificatePreview(pdfBytes)
-  } catch (error) {
-    console.warn("Certificate preview skipped", error)
+  if (!isLikelyMobile()) {
+    try {
+      const pdfBytes = new Uint8Array(await pdfBlob.arrayBuffer())
+      const { renderCertificatePreview } = await import("@/lib/render-certificate-preview")
+      previewImageUrl = await renderCertificatePreview(pdfBytes)
+    } catch (error) {
+      console.warn("Certificate preview skipped", error)
+    }
   }
 
   return {
@@ -109,7 +140,6 @@ export async function retrieveCertificate(lookup: CertificateLookup, lang: Lang)
     attendeeNameEn: meta.attendeeNameEn,
     registrationId: meta.registrationId,
     template,
-    pdfBytes,
     pdfObjectUrl,
     previewImageUrl,
     downloadFilename,

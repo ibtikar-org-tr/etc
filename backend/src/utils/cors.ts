@@ -50,6 +50,7 @@ export function etcCors() {
     allowMethods: ['GET', 'POST', 'OPTIONS'],
     allowHeaders: ['Content-Type'],
     exposeHeaders: [
+      'Content-Disposition',
       'X-Attendee-Name',
       'X-Attendee-Name-Ar',
       'X-Attendee-Name-En',

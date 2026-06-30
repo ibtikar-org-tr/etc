@@ -12,8 +12,8 @@ const BASE_FONT_SIZE = 34
 
 const templateBytesCache = new Map<CertificateTemplate, ArrayBuffer>()
 
-function templatePublicPath(template: CertificateTemplate) {
-  return `/certificate_of_attendance_${template}.pdf`
+function templateFileName(template: CertificateTemplate) {
+  return `certificate_of_attendance_${template}.pdf`
 }
 
 export function certificateTemplateForLang(lang: string | undefined): CertificateTemplate {
@@ -36,17 +36,37 @@ export function certificatePdfFilename(registrationId: string, template: Certifi
   return `etc-2026-certificate-${template}-${registrationId}.pdf`
 }
 
+async function loadTemplateFromAssets(env: AppBindings, template: CertificateTemplate): Promise<ArrayBuffer | null> {
+  if (!env.CERTIFICATE_ASSETS) return null
+
+  const fileName = templateFileName(template)
+  const response = await env.CERTIFICATE_ASSETS.fetch(`https://certificate-assets/${fileName}`)
+  if (!response.ok) return null
+
+  return response.arrayBuffer()
+}
+
+async function loadTemplateFromFrontend(env: AppBindings, template: CertificateTemplate): Promise<ArrayBuffer | null> {
+  const base = env.FRONTEND_BASE_URL?.trim().replace(/\/$/, '')
+  if (!base) return null
+
+  const response = await fetch(`${base}/${templateFileName(template)}`)
+  if (!response.ok) return null
+
+  return response.arrayBuffer()
+}
+
 async function loadTemplateBytes(env: AppBindings, template: CertificateTemplate): Promise<ArrayBuffer> {
   const cached = templateBytesCache.get(template)
   if (cached) return cached
 
-  const base = env.FRONTEND_BASE_URL?.trim().replace(/\/$/, '')
-  if (!base) throw new Error('frontend_base_url_missing')
+  const bytes =
+    (await loadTemplateFromAssets(env, template)) ?? (await loadTemplateFromFrontend(env, template))
 
-  const response = await fetch(`${base}${templatePublicPath(template)}`)
-  if (!response.ok) throw new Error(`template_fetch_failed:${template}`)
+  if (!bytes) {
+    throw new Error(`template_fetch_failed:${template}`)
+  }
 
-  const bytes = await response.arrayBuffer()
   templateBytesCache.set(template, bytes)
   return bytes
 }
@@ -69,8 +89,7 @@ export async function generateCertificatePdf(
   const pdfDoc = await PDFDocument.load(templateBytes)
   pdfDoc.registerFontkit(fontkit)
 
-  const fontBytes =
-    cairoBold instanceof ArrayBuffer ? new Uint8Array(cairoBold) : new Uint8Array(cairoBold as ArrayBuffer)
+  const fontBytes = new Uint8Array(cairoBold)
   const font = await pdfDoc.embedFont(fontBytes)
   const page = pdfDoc.getPages()[0]
   const name = attendeeName.trim()

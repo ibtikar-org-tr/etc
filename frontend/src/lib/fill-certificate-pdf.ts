@@ -34,12 +34,28 @@ function readHeader(response: Response, name: string) {
   return value ? decodeURIComponent(value) : ""
 }
 
+function parseContentDisposition(response: Response) {
+  const value = response.headers.get("Content-Disposition")
+  const match = value?.match(/filename="?etc-2026-certificate-(ar|en|tr)-([^".]+)\.pdf"?/i)
+  if (!match) return null
+
+  return {
+    template: match[1].toLowerCase() as CertificateTemplate,
+    registrationId: match[2],
+  }
+}
+
 export function readCertificateResponseHeaders(response: Response) {
+  const fromDisposition = parseContentDisposition(response)
+  const template = (response.headers.get("X-Certificate-Template") ??
+    fromDisposition?.template ??
+    "en") as CertificateTemplate
+
   return {
     attendeeName: readHeader(response, "X-Attendee-Name"),
     attendeeNameAr: readHeader(response, "X-Attendee-Name-Ar"),
     attendeeNameEn: readHeader(response, "X-Attendee-Name-En"),
-    registrationId: response.headers.get("X-Registration-Id") ?? "",
-    template: (response.headers.get("X-Certificate-Template") ?? "en") as CertificateTemplate,
+    registrationId: response.headers.get("X-Registration-Id") ?? fromDisposition?.registrationId ?? "",
+    template,
   }
 }

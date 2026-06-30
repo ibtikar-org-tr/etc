@@ -3,6 +3,11 @@
   "name": "etc-be",
   "main": "src/index.ts",
   "compatibility_date": "2026-06-23",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": "./src/lib",
+    "binding": "CERTIFICATE_ASSETS"
+  },
   "d1_databases": [
     {
       "binding": "MEMBERS_DB",

@@ -15,6 +15,7 @@ export interface D1DatabaseLike {
 export interface AppBindings {
   MEMBERS_DB: D1DatabaseLike
   VMS_DB: D1DatabaseLike
+  CERTIFICATE_ASSETS?: Fetcher
   ETC_2026_EVENT_ID: string
   FRONTEND_BASE_URL?: string
   ETC_GOOGLE_SHEET_ID?: string
