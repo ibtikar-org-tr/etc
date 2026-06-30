@@ -14,6 +14,7 @@ import {
   retrieveCertificate,
 } from "@/lib/retrieve-certificate"
 import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
 import { gsap, prefersReducedMotion, revealTween, useGSAP } from "@/lib/gsap"
 
 export function CertificatePage() {
@@ -115,6 +116,9 @@ export function CertificatePage() {
   const selectClass =
     "w-full rounded-lg border border-border bg-background/80 px-4 py-3 text-sm text-foreground outline-none transition-colors focus:border-primary/50 focus:ring-3 focus:ring-primary/20"
 
+  const actionButtonClass =
+    "h-auto min-h-11 w-full gap-2 py-3 whitespace-normal text-center leading-snug"
+
   return (
     <section ref={sectionRef} id="top" className="relative pt-24 sm:pt-32 lg:pt-36">
       <div className="mx-auto max-w-lg px-4 pb-20 sm:px-6 sm:pb-28 lg:px-8">
@@ -172,32 +176,36 @@ export function CertificatePage() {
                 </div>
               </dl>
 
-              <div className="mt-8 flex w-full flex-col gap-3">
+              <div className="mt-8 grid w-full grid-cols-1 gap-3 sm:grid-cols-2">
                 <Button
                   type="button"
                   variant="outline"
-                  className="w-full gap-2"
+                  className={cn(actionButtonClass, "sm:col-span-2")}
                   size="lg"
                   onClick={() => openCertificatePdf(result.pdfObjectUrl)}
                 >
-                  <ExternalLink className="size-4" />
+                  <ExternalLink className="size-4 shrink-0" />
                   {c.openPdf}
                 </Button>
-                <div className="flex w-full flex-col gap-3 sm:flex-row">
-                  <Button
-                    type="button"
-                    className="flex-1 gap-2"
-                    size="lg"
-                    onClick={() => downloadCertificatePdf(result.pdfObjectUrl, result.downloadFilename)}
-                  >
-                    <Download className="size-4" />
-                    {c.download}
-                  </Button>
-                  <Button type="button" variant="outline" className="flex-1 gap-2" size="lg" onClick={resetLookup}>
-                    <RotateCcw className="size-4" />
-                    {c.tryAnother}
-                  </Button>
-                </div>
+                <Button
+                  type="button"
+                  className={actionButtonClass}
+                  size="lg"
+                  onClick={() => downloadCertificatePdf(result.pdfObjectUrl, result.downloadFilename)}
+                >
+                  <Download className="size-4 shrink-0" />
+                  {c.download}
+                </Button>
+                <Button
+                  type="button"
+                  variant="outline"
+                  className={actionButtonClass}
+                  size="lg"
+                  onClick={resetLookup}
+                >
+                  <RotateCcw className="size-4 shrink-0" />
+                  {c.tryAnother}
+                </Button>
               </div>
             </div>
           </div>
