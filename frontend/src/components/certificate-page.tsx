@@ -158,11 +158,19 @@ export function CertificatePage() {
                 onClick={() => openCertificatePdf(result.pdfObjectUrl)}
                 className="w-full overflow-hidden rounded-xl border border-border bg-white text-start transition-opacity hover:opacity-95 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary/30"
               >
-                <img
-                  src={result.previewImageUrl}
-                  alt={c.previewTitle}
-                  className="aspect-[297/210] w-full bg-white object-contain"
-                />
+                {result.previewImageUrl ? (
+                  <img
+                    src={result.previewImageUrl}
+                    alt={c.previewTitle}
+                    className="aspect-[297/210] w-full bg-white object-contain"
+                  />
+                ) : (
+                  <div className="flex aspect-[297/210] w-full flex-col items-center justify-center gap-4 bg-primary/5 px-6">
+                    <Award className="size-12 text-primary" strokeWidth={1.5} />
+                    <p className="text-center text-sm font-medium text-foreground">{result.attendeeName}</p>
+                    <p className="text-center text-xs text-muted-foreground">{c.previewFallback}</p>
+                  </div>
+                )}
                 <p className="border-t border-border/60 px-4 py-2 text-center text-xs text-muted-foreground sm:text-sm">
                   {c.tapToOpen}
                 </p>

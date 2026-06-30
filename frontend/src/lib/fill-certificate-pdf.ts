@@ -17,12 +17,16 @@ function isRtlText(text: string) {
   return /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF]/.test(text)
 }
 
-async function loadCertificateFonts(template: CertificateTemplate) {
-  await document.fonts.load("700 48px Cairo")
-  if (template !== "ar") {
-    await document.fonts.load('600 48px "IBM Plex Sans Arabic"')
-  }
-  await document.fonts.ready
+async function loadCertificateFonts() {
+  const loads = [
+    document.fonts.load("700 48px Cairo"),
+    document.fonts.load('700 48px "IBM Plex Sans Arabic"'),
+  ]
+
+  await Promise.race([
+    Promise.allSettled(loads).then(() => document.fonts.ready),
+    new Promise<void>((resolve) => window.setTimeout(resolve, 2500)),
+  ])
 }
 
 function fontFamily(_template: CertificateTemplate) {
@@ -48,7 +52,7 @@ async function renderNameImage(
   name: string,
   template: CertificateTemplate,
 ): Promise<{ pngBytes: Uint8Array; width: number; height: number }> {
-  await loadCertificateFonts(template)
+  await loadCertificateFonts()
 
   const rtl = template === "ar" || isRtlText(name)
   const canvas = document.createElement("canvas")
@@ -73,21 +77,49 @@ async function renderNameImage(
   ctx.fillText(name, canvas.width / 2, canvas.height / 2)
 
   const blob = await new Promise<Blob>((resolve, reject) => {
-    canvas.toBlob((value) => (value ? resolve(value) : reject(new Error("Failed to render name"))), "image/png")
+    const timeout = window.setTimeout(() => reject(new Error("canvas_to_blob_timeout")), 10_000)
+    canvas.toBlob(
+      (value) => {
+        window.clearTimeout(timeout)
+        if (value) resolve(value)
+        else reject(new Error("Failed to render name"))
+      },
+      "image/png",
+    )
   })
 
   const buffer = await blob.arrayBuffer()
   return { pngBytes: new Uint8Array(buffer), width: canvas.width, height: canvas.height }
 }
 
-/** Overlay attendee name on the certificate template and return PDF bytes. */
-export async function fillCertificatePdf(attendeeName: string, template: CertificateTemplate): Promise<Uint8Array> {
-  const templateResponse = await fetch(TEMPLATE_URLS[template])
+const templateCache = new Map<CertificateTemplate, ArrayBuffer>()
+
+async function loadTemplateBytes(template: CertificateTemplate): Promise<ArrayBuffer> {
+  const cached = templateCache.get(template)
+  if (cached) return cached
+
+  const controller = new AbortController()
+  const timeout = window.setTimeout(() => controller.abort(), 45_000)
+
+  let templateResponse: Response
+  try {
+    templateResponse = await fetch(TEMPLATE_URLS[template], { signal: controller.signal })
+  } finally {
+    window.clearTimeout(timeout)
+  }
+
   if (!templateResponse.ok) {
     throw new Error("certificate_template_unavailable")
   }
 
   const templateBytes = await templateResponse.arrayBuffer()
+  templateCache.set(template, templateBytes)
+  return templateBytes
+}
+
+/** Overlay attendee name on the certificate template and return PDF bytes. */
+export async function fillCertificatePdf(attendeeName: string, template: CertificateTemplate): Promise<Uint8Array> {
+  const templateBytes = await loadTemplateBytes(template)
   const pdfDoc = await PDFDocument.load(templateBytes)
   const page = pdfDoc.getPages()[0]
   const { pngBytes, width, height } = await renderNameImage(attendeeName.trim(), template)

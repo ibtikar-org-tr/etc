@@ -25,7 +25,7 @@ export type CertificateResult = CertificateApiResponse & {
   template: CertificateTemplate
   pdfBytes: Uint8Array
   pdfObjectUrl: string
-  previewImageUrl: string
+  previewImageUrl: string | null
   downloadFilename: string
 }
 
@@ -85,13 +85,19 @@ export async function retrieveCertificate(lookup: CertificateLookup, lang: Lang)
   const attendeeName = certificateNameForTemplate(template, data)
 
   let pdfBytes: Uint8Array
-  let previewImageUrl: string
   try {
     pdfBytes = await fillCertificatePdf(attendeeName, template)
+  } catch (error) {
+    console.error("Certificate PDF generation failed", error)
+    throw new CertificateError("not_available")
+  }
+
+  let previewImageUrl: string | null = null
+  try {
     const { renderCertificatePreview } = await import("@/lib/render-certificate-preview")
     previewImageUrl = await renderCertificatePreview(pdfBytes)
-  } catch {
-    throw new CertificateError("not_available")
+  } catch (error) {
+    console.warn("Certificate preview skipped", error)
   }
 
   const downloadFilename = certificatePdfFilename(data.registrationId, template)
