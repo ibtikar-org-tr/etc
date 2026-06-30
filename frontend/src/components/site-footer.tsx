@@ -10,10 +10,12 @@ export function SiteFooter() {
   const isArchive = page === "etc-2024"
   const isStartups = page === "startups"
   const isTicketQr = page === "ticket-qr"
+  const isCertificate = page === "certificate"
   const homeHref = buildPath(lang, "home")
   const archiveHref = pagePath(lang, "etc-2024")
   const startupsHref = pagePath(lang, "startups")
   const ticketQrHref = pagePath(lang, "ticket-qr")
+  const certificateHref = pagePath(lang, "certificate")
 
   const navLinks = isArchive
     ? [
@@ -37,6 +39,13 @@ export function SiteFooter() {
             { href: `${homeHref}#register`, label: t.nav.register },
             { href: homeHref, label: t.ticketQr.backToHome },
           ]
+        : isCertificate
+          ? [
+              { href: `${homeHref}#about`, label: t.nav.about },
+              { href: `${homeHref}#agenda`, label: t.nav.agenda },
+              { href: `${homeHref}#register`, label: t.nav.register },
+              { href: homeHref, label: t.certificate.backToHome },
+            ]
         : [
           { href: "#about", label: t.nav.about },
           { href: "#topics", label: t.nav.topics },
@@ -117,6 +126,14 @@ export function SiteFooter() {
                       className="text-sm text-primary transition-colors hover:underline"
                     >
                       {f.entranceQr}
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href={certificateHref}
+                      className="text-sm text-primary transition-colors hover:underline"
+                    >
+                      {f.attendanceCertificate}
                     </a>
                   </li>
                   <li>

@@ -19,10 +19,12 @@ export function SiteHeader() {
   const isArchive = page === "etc-2024"
   const isStartups = page === "startups"
   const isTicketQr = page === "ticket-qr"
+  const isCertificate = page === "certificate"
   const homeHref = buildPath(lang, "home")
   const archiveHref = pagePath(lang, "etc-2024")
   const startupsHref = pagePath(lang, "startups")
   const ticketQrHref = pagePath(lang, "ticket-qr")
+  const certificateHref = pagePath(lang, "certificate")
 
   const brandHref = isArchive
     ? `${archiveHref}#top`
@@ -30,7 +32,9 @@ export function SiteHeader() {
       ? `${startupsHref}#top`
       : isTicketQr
         ? `${ticketQrHref}#top`
-        : `${homeHref}#top`
+        : isCertificate
+          ? `${certificateHref}#top`
+          : `${homeHref}#top`
 
   const links = isArchive
     ? [
@@ -41,7 +45,7 @@ export function SiteHeader() {
       ]
     : isStartups
       ? []
-      : isTicketQr
+      : isTicketQr || isCertificate
         ? []
         : [
           { href: "#about", label: t.nav.about },
@@ -186,6 +190,13 @@ export function SiteHeader() {
             >
               {t.ticketQr.backToHome}
             </a>
+          ) : isCertificate ? (
+            <a
+              href={homeHref}
+              className="header-nav-link text-sm font-medium text-primary transition-colors hover:text-primary/80"
+            >
+              {t.certificate.backToHome}
+            </a>
           ) : (
             <a
               href={archiveHref}
@@ -287,6 +298,14 @@ export function SiteHeader() {
                 className="min-h-11 py-3 text-sm font-medium text-primary"
               >
                 {t.ticketQr.backToHome}
+              </a>
+            ) : isCertificate ? (
+              <a
+                href={homeHref}
+                onClick={() => setMobileOpen(false)}
+                className="min-h-11 py-3 text-sm font-medium text-primary"
+              >
+                {t.certificate.backToHome}
               </a>
             ) : (
               <>

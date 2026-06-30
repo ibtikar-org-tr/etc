@@ -133,6 +133,38 @@ export type Dict = {
       generic: string
     }
   }
+  certificate: {
+    badge: string
+    title: string
+    subtitle: string
+    backToHome: string
+    note: string
+    emailLabel: string
+    emailPlaceholder: string
+    membershipNumberLabel: string
+    membershipNumberPlaceholder: string
+    lookupMethodLabel: string
+    lookupMethodPlaceholder: string
+    lookupOptions: {
+      email: string
+      membershipNumber: string
+    }
+    submit: string
+    loading: string
+    successTitle: string
+    successHint: string
+    previewTitle: string
+    attendeeLabel: string
+    download: string
+    tryAnother: string
+    errors: {
+      selectionRequired: string
+      valueRequired: string
+      notFound: string
+      notAvailable: string
+      generic: string
+    }
+  }
   cta: { title: string; subtitle: string; button: string; note: string; comingSoon: string; registerVia: string }
   faq: { label: string; title: string; items: { q: string; a: string }[] }
   footer: {
@@ -145,6 +177,7 @@ export type Dict = {
     volunteer: string
     startupBooth: string
     entranceQr: string
+    attendanceCertificate: string
     website: string
   }
 }
@@ -527,6 +560,38 @@ export const dict: Record<Lang, Dict> = {
         generic: "تعذّر استرجاع رمز الدخول. حاول مرة أخرى.",
       },
     },
+    certificate: {
+      badge: "شهادة الحضور",
+      title: "احصل على شهادة حضورك",
+      subtitle: "اختر طريقة البحث، ثم أدخل البريد الإلكتروني أو رقم العضوية الذي سجّلت به في المؤتمر.",
+      backToHome: "العودة إلى مؤتمر ETC 2026",
+      note: "ETC 2026 · للحاضرين المسجّلين",
+      emailLabel: "البريد الإلكتروني",
+      emailPlaceholder: "name@example.com",
+      membershipNumberLabel: "رقم العضوية",
+      membershipNumberPlaceholder: "2501001",
+      lookupMethodLabel: "طريقة البحث",
+      lookupMethodPlaceholder: "اختر أحد الخيارات",
+      lookupOptions: {
+        email: "البريد الإلكتروني",
+        membershipNumber: "رقم العضوية",
+      },
+      submit: "إنشاء الشهادة",
+      loading: "جارٍ التحقق…",
+      successTitle: "شهادتك جاهزة",
+      successHint: "يمكنك معاينة الشهادة أدناه أو تحميلها كملف PDF.",
+      previewTitle: "معاينة شهادة الحضور",
+      attendeeLabel: "الاسم",
+      download: "تحميل PDF",
+      tryAnother: "بحث جديد",
+      errors: {
+        selectionRequired: "يرجى اختيار طريقة البحث أولًا.",
+        valueRequired: "يرجى إدخال قيمة الحقل المختار.",
+        notFound: "لم نعثر على تسجيل بهذه البيانات. تأكّد من المعلومات أو سجّل عبر منصّة إبتكار.",
+        notAvailable: "خدمة الشهادة غير متاحة حاليًا. حاول لاحقًا.",
+        generic: "تعذّر إنشاء الشهادة. حاول مرة أخرى.",
+      },
+    },
     cta: {
       title: "احجز مقعدك في مؤتمر التّقنيّات الصّاعدة 2026",
       subtitle: "التسجيل مفتوح — سجّل عبر منصّة أعضاء إبتكار.",
@@ -558,6 +623,7 @@ export const dict: Record<Lang, Dict> = {
       volunteer: "تطوّع معنا",
       startupBooth: "جناح الشركات الناشئة",
       entranceQr: "رمز الدخول",
+      attendanceCertificate: "شهادة الحضور",
       website: "ibtikar.org.tr",
     },
   },
@@ -938,6 +1004,38 @@ export const dict: Record<Lang, Dict> = {
         generic: "Giriş kodu alınamadı. Lütfen tekrar deneyin.",
       },
     },
+    certificate: {
+      badge: "Katılım Sertifikası",
+      title: "Katılım sertifikanızı alın",
+      subtitle: "Arama yöntemini seçin, ardından kayıt olurken kullandığınız e-posta veya üyelik numarasını girin.",
+      backToHome: "ETC 2026 konferansına dön",
+      note: "ETC 2026 · Kayıtlı katılımcılar",
+      emailLabel: "E-posta",
+      emailPlaceholder: "name@example.com",
+      membershipNumberLabel: "Üyelik numarası",
+      membershipNumberPlaceholder: "2501001",
+      lookupMethodLabel: "Arama yöntemi",
+      lookupMethodPlaceholder: "Bir seçenek seçin",
+      lookupOptions: {
+        email: "E-posta",
+        membershipNumber: "Üyelik numarası",
+      },
+      submit: "Sertifikayı oluştur",
+      loading: "Doğrulanıyor…",
+      successTitle: "Sertifikanız hazır",
+      successHint: "Sertifikayı aşağıda önizleyebilir veya PDF olarak indirebilirsiniz.",
+      previewTitle: "Katılım sertifikası önizlemesi",
+      attendeeLabel: "Ad",
+      download: "PDF indir",
+      tryAnother: "Yeniden ara",
+      errors: {
+        selectionRequired: "Lütfen önce bir arama yöntemi seçin.",
+        valueRequired: "Lütfen seçilen alan için bir değer girin.",
+        notFound: "Bu bilgilerle kayıt bulunamadı. Bilgileri kontrol edin veya İbtikar platformundan kayıt olun.",
+        notAvailable: "Sertifika hizmeti şu anda kullanılamıyor. Lütfen daha sonra tekrar deneyin.",
+        generic: "Sertifika oluşturulamadı. Lütfen tekrar deneyin.",
+      },
+    },
     cta: {
       title: "Yükselen Teknolojiler Konferansı 2026'da yerini ayırt",
       subtitle: "Kayıt açık — İbtikar üye platformu üzerinden kayıt olun.",
@@ -969,6 +1067,7 @@ export const dict: Record<Lang, Dict> = {
       volunteer: "Gönüllü Ol",
       startupBooth: "Girişim Standı",
       entranceQr: "Giriş QR Kodu",
+      attendanceCertificate: "Katılım Sertifikası",
       website: "ibtikar.org.tr",
     },
   },
@@ -1350,6 +1449,38 @@ export const dict: Record<Lang, Dict> = {
         generic: "Could not retrieve your entrance code. Please try again.",
       },
     },
+    certificate: {
+      badge: "Attendance Certificate",
+      title: "Get your attendance certificate",
+      subtitle: "Choose a lookup method, then enter the email or membership number you used to register.",
+      backToHome: "Back to ETC 2026",
+      note: "ETC 2026 · Registered attendees",
+      emailLabel: "Email",
+      emailPlaceholder: "name@example.com",
+      membershipNumberLabel: "Membership number",
+      membershipNumberPlaceholder: "2501001",
+      lookupMethodLabel: "Lookup method",
+      lookupMethodPlaceholder: "Choose an option",
+      lookupOptions: {
+        email: "Email",
+        membershipNumber: "Membership number",
+      },
+      submit: "Generate certificate",
+      loading: "Verifying…",
+      successTitle: "Your certificate is ready",
+      successHint: "Preview your certificate below or download it as a PDF.",
+      previewTitle: "Attendance certificate preview",
+      attendeeLabel: "Name",
+      download: "Download PDF",
+      tryAnother: "Look up again",
+      errors: {
+        selectionRequired: "Please choose a lookup method first.",
+        valueRequired: "Please enter a value for the selected field.",
+        notFound: "No registration found for these details. Check your information or register via the Ibtikar platform.",
+        notAvailable: "The certificate service is not available yet. Please try again later.",
+        generic: "Could not generate your certificate. Please try again.",
+      },
+    },
     cta: {
       title: "Reserve your seat at the Emerging Technologies Conference 2026",
       subtitle: "Registration is open — sign up via the Ibtikar members platform.",
@@ -1381,6 +1512,7 @@ export const dict: Record<Lang, Dict> = {
       volunteer: "Volunteer With Us",
       startupBooth: "Startup Booth",
       entranceQr: "Entrance QR",
+      attendanceCertificate: "Attendance Certificate",
       website: "ibtikar.org.tr",
     },
   },

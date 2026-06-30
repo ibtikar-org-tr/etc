@@ -14,6 +14,7 @@ import { StartupBoothTeaser } from "@/components/startup-booth"
 import { SiteFooter } from "@/components/site-footer"
 import { Etc2024Page } from "@/components/etc-2024-page"
 import { StartupsPage } from "@/components/startups-page"
+import { CertificatePage } from "@/components/certificate-page"
 import { QrTicketPage } from "@/components/qr-ticket-page"
 import { SeoHead } from "@/components/seo-head"
 
@@ -44,6 +45,8 @@ function AppContent() {
       <StartupsPage />
     ) : page === "ticket-qr" ? (
       <QrTicketPage />
+    ) : page === "certificate" ? (
+      <CertificatePage />
     ) : (
       <HomePage />
     )

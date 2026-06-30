@@ -1,4 +1,5 @@
 import { Hono } from 'hono'
+import { certificateRoute } from './routes/certificate.route'
 import { ticketQrRoute } from './routes/ticket-qr.route'
 import type { AppBindings } from './types/bindings'
 import { etcCors } from './utils/cors'
@@ -16,5 +17,6 @@ app.get('/health', (c) => {
 })
 
 app.route('/api', ticketQrRoute)
+app.route('/api', certificateRoute)
 
 export default app

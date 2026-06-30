@@ -150,10 +150,35 @@ const TICKET_QR_SEO: Record<Lang, Omit<SeoMeta, "path" | "canonical" | "ogImage"
   },
 }
 
+const CERTIFICATE_SEO: Record<Lang, Omit<SeoMeta, "path" | "canonical" | "ogImage" | "ogLocale" | "alternates" | "jsonLd">> = {
+  ar: {
+    title: "شهادة الحضور · ETC 2026 · تجمّع إبتكار",
+    description:
+      "احصل على شهادة حضورك الرقمية لمؤتمر التّقنيّات الصّاعدة 2026 باستخدام البريد الإلكتروني أو رقم العضوية.",
+    keywords: "شهادة الحضور, ETC 2026, إبتكار, مؤتمر, إسطنبول",
+    robots: "noindex, follow",
+  },
+  tr: {
+    title: "Katılım Sertifikası · ETC 2026 · İbtikar",
+    description:
+      "Kayıt olduğunuz e-posta veya üyelik numarası ile Yükselen Teknolojiler Konferansı 2026 katılım sertifikanızı alın.",
+    keywords: "katılım sertifikası, ETC 2026, İbtikar, konferans, İstanbul",
+    robots: "noindex, follow",
+  },
+  en: {
+    title: "Attendance Certificate · ETC 2026 · Ibtikar",
+    description:
+      "Download your digital attendance certificate for the Emerging Technologies Conference 2026 using your email or membership number.",
+    keywords: "attendance certificate, ETC 2026, Ibtikar Assembly, conference, Istanbul",
+    robots: "noindex, follow",
+  },
+}
+
 function pageSeo(page: Page, lang: Lang) {
   if (page === "etc-2024") return ARCHIVE_SEO[lang]
   if (page === "startups") return STARTUPS_SEO[lang]
   if (page === "ticket-qr") return TICKET_QR_SEO[lang]
+  if (page === "certificate") return CERTIFICATE_SEO[lang]
   return HOME_SEO[lang]
 }
 
@@ -223,6 +248,12 @@ export function getSeoMeta(lang: Lang, page: Page, origin = getSiteOrigin()): Se
           : lang === "tr"
             ? "Giriş QR Kodu · ETC 2026"
             : "Entrance QR · ETC 2026"
+      : page === "certificate"
+        ? lang === "ar"
+          ? "شهادة الحضور · ETC 2026"
+          : lang === "tr"
+            ? "Katılım Sertifikası · ETC 2026"
+            : "Attendance Certificate · ETC 2026"
       : lang === "ar"
         ? `مؤتمر التّقنيّات الصّاعدة ${year}`
         : lang === "tr"
@@ -244,7 +275,13 @@ export function getSeoMeta(lang: Lang, page: Page, origin = getSiteOrigin()): Se
             : lang === "tr"
               ? "Giriş QR Kodu"
               : "Entrance QR"
-          : null
+          : page === "certificate"
+            ? lang === "ar"
+              ? "شهادة الحضور"
+              : lang === "tr"
+                ? "Katılım Sertifikası"
+                : "Attendance Certificate"
+            : null
 
   const jsonLd: Record<string, unknown>[] = [
     websiteJsonLd(origin),
