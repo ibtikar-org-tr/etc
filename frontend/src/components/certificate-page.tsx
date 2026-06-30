@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState, type FormEvent } from "react"
-import { ArrowLeft, Award, Download, ExternalLink, RotateCcw } from "lucide-react"
+import { ArrowLeft, Award, Download, RotateCcw } from "lucide-react"
 import { useLang } from "./lang-provider"
 import { buildPath } from "@/lib/lang-url"
 import {
@@ -14,7 +14,6 @@ import {
   retrieveCertificate,
 } from "@/lib/retrieve-certificate"
 import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
 import { gsap, prefersReducedMotion, revealTween, useGSAP } from "@/lib/gsap"
 
 export function CertificatePage() {
@@ -177,16 +176,6 @@ export function CertificatePage() {
               </dl>
 
               <div className="mt-8 grid w-full grid-cols-1 gap-3 sm:grid-cols-2">
-                <Button
-                  type="button"
-                  variant="outline"
-                  className={cn(actionButtonClass, "sm:col-span-2")}
-                  size="lg"
-                  onClick={() => openCertificatePdf(result.pdfObjectUrl)}
-                >
-                  <ExternalLink className="size-4 shrink-0" />
-                  {c.openPdf}
-                </Button>
                 <Button
                   type="button"
                   className={actionButtonClass}

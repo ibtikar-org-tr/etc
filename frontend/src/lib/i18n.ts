@@ -154,7 +154,6 @@ export type Dict = {
     previewTitle: string
     tapToOpen: string
     attendeeLabel: string
-    openPdf: string
     download: string
     tryAnother: string
     errors: {
@@ -591,7 +590,6 @@ export const dict: Record<Lang, Dict> = {
       previewTitle: "معاينة شهادة الحضور",
       tapToOpen: "اضغط لعرض الشهادة بالحجم الكامل",
       attendeeLabel: "الاسم",
-      openPdf: "فتح الشهادة في نافذة جديدة",
       download: "تحميل PDF",
       tryAnother: "بحث جديد",
       errors: {
@@ -1045,7 +1043,6 @@ export const dict: Record<Lang, Dict> = {
       previewTitle: "Katılım sertifikası önizlemesi",
       tapToOpen: "Tam boyut için dokunun",
       attendeeLabel: "Ad",
-      openPdf: "Sertifikayı yeni pencerede aç",
       download: "PDF indir",
       tryAnother: "Yeniden ara",
       errors: {
@@ -1500,7 +1497,6 @@ export const dict: Record<Lang, Dict> = {
       previewTitle: "Attendance certificate preview",
       tapToOpen: "Tap to open full-size certificate",
       attendeeLabel: "Name",
-      openPdf: "Open certificate in new window",
       download: "Download PDF",
       tryAnother: "Look up again",
       errors: {
