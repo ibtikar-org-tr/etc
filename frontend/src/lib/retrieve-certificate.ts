@@ -22,7 +22,7 @@ export type CertificateResult = CertificateApiResponse & {
   downloadFilename: string
 }
 
-export type CertificateErrorCode = "not_found" | "not_available" | "generic"
+export type CertificateErrorCode = "not_found" | "not_attended" | "not_available" | "generic"
 
 export class CertificateError extends Error {
   code: CertificateErrorCode
@@ -66,6 +66,7 @@ export async function retrieveCertificate(lookup: CertificateLookup): Promise<Ce
     try {
       const payload = (await response.json()) as { error?: string }
       if (payload.error === "not_found" || payload.error === "invalid_input") code = "not_found"
+      else if (payload.error === "not_attended") code = "not_attended"
     } catch {
       // ignore parse errors
     }

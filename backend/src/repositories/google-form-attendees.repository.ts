@@ -8,6 +8,9 @@ export type SheetAttendee = {
   phone?: string
   membershipNumber?: string
   ticketLabel?: string
+  /** Raw scan log from column M; empty means not attended. */
+  attendanceLog?: string
+  attended: boolean
 }
 
 export type SheetColumnMap = Record<
@@ -15,7 +18,10 @@ export type SheetColumnMap = Record<
   'email' | 'phone' | 'membership_number' | 'name' | 'name_en' | 'ticket_label'
 >
 
-/** ETC 2026 Google Form columns (A–K). */
+/** Google Sheet column M (0-based index 12) — volunteer/scanner attendance log. */
+export const SHEET_ATTENDANCE_COLUMN_INDEX = 12
+
+/** ETC 2026 Google Form columns (A–M). */
 export const DEFAULT_SHEET_COLUMN_MAP: SheetColumnMap = {
   'الاسم الكامل': 'name',
   'Ad soyad': 'name_en',
@@ -83,6 +89,7 @@ function rowToAttendee(
   }
 
   const displayName = nameAr.trim() || nameEn.trim() || attendee.email || attendee.phone || 'ETC 2026 Attendee'
+  const attendanceLog = row[SHEET_ATTENDANCE_COLUMN_INDEX]?.trim() ?? ''
 
   return {
     rowNumber,
@@ -91,6 +98,8 @@ function rowToAttendee(
     phone: attendee.phone,
     membershipNumber: attendee.membershipNumber,
     ticketLabel: attendee.ticketLabel,
+    attendanceLog: attendanceLog || undefined,
+    attended: Boolean(attendanceLog),
   }
 }
 

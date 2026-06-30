@@ -159,6 +159,7 @@ export type Dict = {
       selectionRequired: string
       valueRequired: string
       notFound: string
+      notAttended: string
       notAvailable: string
       generic: string
     }
@@ -593,6 +594,7 @@ export const dict: Record<Lang, Dict> = {
         selectionRequired: "يرجى اختيار طريقة البحث أولًا.",
         valueRequired: "يرجى إدخال قيمة الحقل المختار.",
         notFound: "لم نعثر على تسجيل بهذه البيانات. تأكّد من المعلومات أو سجّل عبر منصّة إبتكار.",
+        notAttended: "لم يُسجَّل حضورك في المؤتمر بعد. تحقّق من تسجيل الدخول عند المدخل ثم حاول مجددًا.",
         notAvailable: "خدمة الشهادة غير متاحة حاليًا. حاول لاحقًا.",
         generic: "تعذّر إنشاء الشهادة. حاول مرة أخرى.",
       },
@@ -1044,6 +1046,7 @@ export const dict: Record<Lang, Dict> = {
         selectionRequired: "Lütfen önce bir arama yöntemi seçin.",
         valueRequired: "Lütfen seçilen alan için bir değer girin.",
         notFound: "Bu bilgilerle kayıt bulunamadı. Bilgileri kontrol edin veya İbtikar platformundan kayıt olun.",
+        notAttended: "Konferansa katılımınız henüz kaydedilmedi. Girişte QR kodunuzu okuttuktan sonra tekrar deneyin.",
         notAvailable: "Sertifika hizmeti şu anda kullanılamıyor. Lütfen daha sonra tekrar deneyin.",
         generic: "Sertifika oluşturulamadı. Lütfen tekrar deneyin.",
       },
@@ -1496,6 +1499,7 @@ export const dict: Record<Lang, Dict> = {
         selectionRequired: "Please choose a lookup method first.",
         valueRequired: "Please enter a value for the selected field.",
         notFound: "No registration found for these details. Check your information or register via the Ibtikar platform.",
+        notAttended: "Your attendance has not been recorded yet. Check in at the venue entrance, then try again.",
         notAvailable: "The certificate service is not available yet. Please try again later.",
         generic: "Could not generate your certificate. Please try again.",
       },

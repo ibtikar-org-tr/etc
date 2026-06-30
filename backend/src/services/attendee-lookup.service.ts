@@ -24,7 +24,12 @@ export type AttendeeLookupResult = {
   email: string
 }
 
-export type AttendeeLookupErrorCode = 'invalid_input' | 'not_found'
+export type AttendeeLookupErrorCode = 'invalid_input' | 'not_found' | 'not_attended'
+
+export type AttendeeLookupOptions = {
+  /** When true, Google Sheet attendees must have a non-empty column M attendance log. */
+  requireSheetAttendance?: boolean
+}
 
 export class AttendeeLookupError extends Error {
   code: AttendeeLookupErrorCode
@@ -103,14 +108,14 @@ async function lookupVmsAttendee(
 async function lookupGoogleFormAttendee(
   env: AppBindings,
   lookup: NormalizedLookup,
-): Promise<AttendeeLookupResult | null> {
+): Promise<(AttendeeLookupResult & { attended: boolean }) | null> {
   const spreadsheetId = env.ETC_GOOGLE_SHEET_ID?.trim()
   if (!spreadsheetId) return null
 
   const credentials = parseGoogleCredentials(env.GOOGLE_API_KEY)
   if (!credentials) return null
 
-  const range = env.ETC_GOOGLE_SHEET_RANGE?.trim() || 'Form Responses 1!A:K'
+  const range = env.ETC_GOOGLE_SHEET_RANGE?.trim() || 'Form Responses 1!A:M'
 
   const attendee = await findGoogleFormAttendee({
     credentials,
@@ -131,12 +136,14 @@ async function lookupGoogleFormAttendee(
     ticketLabel: attendee.ticketLabel ?? 'ETC 2026',
     membershipNumber: identity.membershipNumber,
     email: identity.email,
+    attended: attendee.attended,
   }
 }
 
 export async function lookupAttendee(
   env: AppBindings,
   input: AttendeeLookupInput,
+  options?: AttendeeLookupOptions,
 ): Promise<AttendeeLookupResult> {
   const lookup = normalizeLookupInput(input)
 
@@ -145,8 +152,19 @@ export async function lookupAttendee(
 
   try {
     const sheetAttendee = await lookupGoogleFormAttendee(env, lookup)
-    if (sheetAttendee) return sheetAttendee
+    if (sheetAttendee) {
+      if (options?.requireSheetAttendance && !sheetAttendee.attended) {
+        throw new AttendeeLookupError(
+          'not_attended',
+          'Attendance was not recorded for this registration.',
+        )
+      }
+
+      const { attended: _attended, ...result } = sheetAttendee
+      return result
+    }
   } catch (error) {
+    if (error instanceof AttendeeLookupError) throw error
     console.error('Google Form sheet lookup failed', error)
   }
 

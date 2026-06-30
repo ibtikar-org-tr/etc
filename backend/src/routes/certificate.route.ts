@@ -14,14 +14,15 @@ certificateRoute.post('/certificate', async (c) => {
   }
 
   try {
-    const attendee = await lookupAttendee(c.env, body)
+    const attendee = await lookupAttendee(c.env, body, { requireSheetAttendance: true })
     return c.json({
       attendeeName: attendee.attendeeName,
       registrationId: attendee.registrationId,
     })
   } catch (error) {
     if (error instanceof AttendeeLookupError) {
-      const status = error.code === 'invalid_input' ? 400 : 404
+      const status =
+        error.code === 'invalid_input' ? 400 : error.code === 'not_attended' ? 403 : 404
       return c.json({ error: error.code, message: error.message }, status)
     }
 

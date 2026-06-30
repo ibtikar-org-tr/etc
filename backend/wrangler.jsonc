@@ -20,7 +20,7 @@
   "vars": {
     "ETC_2026_EVENT_ID": "b1ed6cdc-d9a9-4f08-ac48-54fe3eb52207",
     "FRONTEND_BASE_URL": "https://etc.ibtikar.tr",
-    "ETC_GOOGLE_SHEET_RANGE": "Form Responses 1!A:K"
+    "ETC_GOOGLE_SHEET_RANGE": "Form Responses 1!A:M"
   },
   "observability": {
     "enabled": true

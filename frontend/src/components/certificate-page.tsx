@@ -45,6 +45,7 @@ export function CertificatePage() {
 
   function mapError(code: CertificateError["code"]) {
     if (code === "not_found") return c.errors.notFound
+    if (code === "not_attended") return c.errors.notAttended
     if (code === "not_available") return c.errors.notAvailable
     return c.errors.generic
   }
