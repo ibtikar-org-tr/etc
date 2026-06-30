@@ -27,5 +27,8 @@
   },
   "dev": {
     "port": 5939
-  }
+  },
+  "rules": [
+    { "type": "Data", "globs": ["**/*.ttf"], "fallthrough": true }
+  ]
 }

@@ -1,9 +1,7 @@
 import {
   certificatePdfFilename,
   certificatePdfObjectUrl,
-  certificateNameForTemplate,
-  certificateTemplateForLang,
-  fillCertificatePdf,
+  readCertificateResponseHeaders,
   type CertificateTemplate,
 } from "@/lib/fill-certificate-pdf"
 import type { Lang } from "@/lib/i18n"
@@ -14,14 +12,11 @@ export type CertificateLookup =
   | { type: "email"; value: string }
   | { type: "membershipNumber"; value: string }
 
-export type CertificateApiResponse = {
+export type CertificateResult = {
+  attendeeName: string
   attendeeNameAr: string
   attendeeNameEn: string
   registrationId: string
-}
-
-export type CertificateResult = CertificateApiResponse & {
-  attendeeName: string
   template: CertificateTemplate
   pdfBytes: Uint8Array
   pdfObjectUrl: string
@@ -41,11 +36,11 @@ export class CertificateError extends Error {
   }
 }
 
-function toApiBody(lookup: CertificateLookup) {
+function toApiBody(lookup: CertificateLookup, lang: Lang) {
   if (lookup.type === "email") {
-    return { email: lookup.value.trim().toLowerCase() }
+    return { email: lookup.value.trim().toLowerCase(), lang }
   }
-  return { membershipNumber: lookup.value.trim() }
+  return { membershipNumber: lookup.value.trim(), lang }
 }
 
 function apiBaseUrl(): string {
@@ -53,9 +48,9 @@ function apiBaseUrl(): string {
   return configured ? configured.replace(/\/$/, "") : ""
 }
 
-/** Look up attendee and return a personalized certificate PDF. */
+/** Look up attendee and return a personalized certificate PDF from the backend. */
 export async function retrieveCertificate(lookup: CertificateLookup, lang: Lang): Promise<CertificateResult> {
-  const body = toApiBody(lookup)
+  const body = toApiBody(lookup, lang)
 
   let response: Response
   try {
@@ -68,29 +63,37 @@ export async function retrieveCertificate(lookup: CertificateLookup, lang: Lang)
     throw new CertificateError("not_available")
   }
 
+  const contentType = response.headers.get("Content-Type") ?? ""
+
   if (!response.ok) {
     let code: CertificateErrorCode = "generic"
-    try {
-      const payload = (await response.json()) as { error?: string }
-      if (payload.error === "not_found" || payload.error === "invalid_input") code = "not_found"
-      else if (payload.error === "not_attended") code = "not_attended"
-    } catch {
-      // ignore parse errors
+    if (contentType.includes("json")) {
+      try {
+        const payload = (await response.json()) as { error?: string }
+        if (payload.error === "not_found" || payload.error === "invalid_input") code = "not_found"
+        else if (payload.error === "not_attended") code = "not_attended"
+      } catch {
+        // ignore parse errors
+      }
     }
     throw new CertificateError(code)
   }
 
-  const data = (await response.json()) as CertificateApiResponse
-  const template = certificateTemplateForLang(lang)
-  const attendeeName = certificateNameForTemplate(template, data)
+  if (!contentType.includes("pdf")) {
+    throw new CertificateError("not_available")
+  }
 
   let pdfBytes: Uint8Array
   try {
-    pdfBytes = await fillCertificatePdf(attendeeName, template)
-  } catch (error) {
-    console.error("Certificate PDF generation failed", error)
+    pdfBytes = new Uint8Array(await response.arrayBuffer())
+  } catch {
     throw new CertificateError("not_available")
   }
+
+  const meta = readCertificateResponseHeaders(response)
+  const template = meta.template
+  const downloadFilename = certificatePdfFilename(meta.registrationId, template)
+  const pdfObjectUrl = certificatePdfObjectUrl(pdfBytes)
 
   let previewImageUrl: string | null = null
   try {
@@ -100,12 +103,11 @@ export async function retrieveCertificate(lookup: CertificateLookup, lang: Lang)
     console.warn("Certificate preview skipped", error)
   }
 
-  const downloadFilename = certificatePdfFilename(data.registrationId, template)
-  const pdfObjectUrl = certificatePdfObjectUrl(pdfBytes)
-
   return {
-    ...data,
-    attendeeName,
+    attendeeName: meta.attendeeName,
+    attendeeNameAr: meta.attendeeNameAr,
+    attendeeNameEn: meta.attendeeNameEn,
+    registrationId: meta.registrationId,
     template,
     pdfBytes,
     pdfObjectUrl,

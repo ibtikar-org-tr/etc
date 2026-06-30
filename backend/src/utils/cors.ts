@@ -49,5 +49,12 @@ export function etcCors() {
     },
     allowMethods: ['GET', 'POST', 'OPTIONS'],
     allowHeaders: ['Content-Type'],
+    exposeHeaders: [
+      'X-Attendee-Name',
+      'X-Attendee-Name-Ar',
+      'X-Attendee-Name-En',
+      'X-Registration-Id',
+      'X-Certificate-Template',
+    ],
   })
 }
