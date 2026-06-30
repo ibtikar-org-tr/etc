@@ -6,6 +6,8 @@ import { useLang } from "./lang-provider"
 import { buildPath } from "@/lib/lang-url"
 import {
   CertificateError,
+  downloadCertificatePdf,
+  openCertificatePdf,
   revokeCertificateObjectUrl,
   type CertificateLookupOption,
   type CertificateResult,
@@ -148,13 +150,20 @@ export function CertificatePage() {
             </div>
 
             <div className="flex flex-col items-center px-5 py-8 sm:px-6">
-              <div className="w-full overflow-hidden rounded-xl border border-border bg-white">
-                <iframe
-                  src={result.pdfObjectUrl}
-                  title={c.previewTitle}
-                  className="aspect-[297/210] w-full bg-white"
+              <button
+                type="button"
+                onClick={() => openCertificatePdf(result.pdfObjectUrl)}
+                className="w-full overflow-hidden rounded-xl border border-border bg-white text-start transition-opacity hover:opacity-95 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary/30"
+              >
+                <img
+                  src={result.previewImageUrl}
+                  alt={c.previewTitle}
+                  className="aspect-[297/210] w-full bg-white object-contain"
                 />
-              </div>
+                <p className="border-t border-border/60 px-4 py-2 text-center text-xs text-muted-foreground sm:text-sm">
+                  {c.tapToOpen}
+                </p>
+              </button>
 
               <dl className="mt-6 w-full text-sm">
                 <div className="flex items-start justify-between gap-4 border-b border-border/60 pb-3">
@@ -164,28 +173,30 @@ export function CertificatePage() {
               </dl>
 
               <div className="mt-8 flex w-full flex-col gap-3">
-                <a
-                  href={result.pdfObjectUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex w-full"
+                <Button
+                  type="button"
+                  variant="outline"
+                  className="w-full gap-2"
+                  size="lg"
+                  onClick={() => openCertificatePdf(result.pdfObjectUrl)}
                 >
-                  <Button type="button" variant="outline" className="w-full gap-2" size="lg">
-                    <ExternalLink className="size-4" />
-                    {c.openPdf}
-                  </Button>
-                </a>
+                  <ExternalLink className="size-4" />
+                  {c.openPdf}
+                </Button>
                 <div className="flex w-full flex-col gap-3 sm:flex-row">
-                <a href={result.pdfObjectUrl} download={result.downloadFilename} className="inline-flex flex-1">
-                  <Button type="button" className="w-full gap-2" size="lg">
+                  <Button
+                    type="button"
+                    className="flex-1 gap-2"
+                    size="lg"
+                    onClick={() => downloadCertificatePdf(result.pdfObjectUrl, result.downloadFilename)}
+                  >
                     <Download className="size-4" />
                     {c.download}
                   </Button>
-                </a>
-                <Button type="button" variant="outline" className="flex-1 gap-2" size="lg" onClick={resetLookup}>
-                  <RotateCcw className="size-4" />
-                  {c.tryAnother}
-                </Button>
+                  <Button type="button" variant="outline" className="flex-1 gap-2" size="lg" onClick={resetLookup}>
+                    <RotateCcw className="size-4" />
+                    {c.tryAnother}
+                  </Button>
                 </div>
               </div>
             </div>

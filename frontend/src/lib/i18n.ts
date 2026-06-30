@@ -152,6 +152,7 @@ export type Dict = {
     successTitle: string
     successHint: string
     previewTitle: string
+    tapToOpen: string
     attendeeLabel: string
     openPdf: string
     download: string
@@ -588,6 +589,7 @@ export const dict: Record<Lang, Dict> = {
       successTitle: "شهادتك جاهزة",
       successHint: "يمكنك معاينة الشهادة أدناه أو تحميلها كملف PDF.",
       previewTitle: "معاينة شهادة الحضور",
+      tapToOpen: "اضغط لعرض الشهادة بالحجم الكامل",
       attendeeLabel: "الاسم",
       openPdf: "فتح الشهادة في نافذة جديدة",
       download: "تحميل PDF",
@@ -1041,6 +1043,7 @@ export const dict: Record<Lang, Dict> = {
       successTitle: "Sertifikanız hazır",
       successHint: "Sertifikayı aşağıda önizleyebilir veya PDF olarak indirebilirsiniz.",
       previewTitle: "Katılım sertifikası önizlemesi",
+      tapToOpen: "Tam boyut için dokunun",
       attendeeLabel: "Ad",
       openPdf: "Sertifikayı yeni pencerede aç",
       download: "PDF indir",
@@ -1495,6 +1498,7 @@ export const dict: Record<Lang, Dict> = {
       successTitle: "Your certificate is ready",
       successHint: "Preview your certificate below or download it as a PDF.",
       previewTitle: "Attendance certificate preview",
+      tapToOpen: "Tap to open full-size certificate",
       attendeeLabel: "Name",
       openPdf: "Open certificate in new window",
       download: "Download PDF",

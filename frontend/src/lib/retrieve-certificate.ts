@@ -19,6 +19,7 @@ export type CertificateApiResponse = {
 export type CertificateResult = CertificateApiResponse & {
   pdfBytes: Uint8Array
   pdfObjectUrl: string
+  previewImageUrl: string
   downloadFilename: string
 }
 
@@ -76,8 +77,11 @@ export async function retrieveCertificate(lookup: CertificateLookup): Promise<Ce
   const data = (await response.json()) as CertificateApiResponse
 
   let pdfBytes: Uint8Array
+  let previewImageUrl: string
   try {
     pdfBytes = await fillCertificatePdf(data.attendeeName)
+    const { renderCertificatePreview } = await import("@/lib/render-certificate-preview")
+    previewImageUrl = await renderCertificatePreview(pdfBytes)
   } catch {
     throw new CertificateError("not_available")
   }
@@ -89,8 +93,29 @@ export async function retrieveCertificate(lookup: CertificateLookup): Promise<Ce
     ...data,
     pdfBytes,
     pdfObjectUrl,
+    previewImageUrl,
     downloadFilename,
   }
+}
+
+export function openCertificatePdf(pdfObjectUrl: string) {
+  const link = document.createElement("a")
+  link.href = pdfObjectUrl
+  link.target = "_blank"
+  link.rel = "noopener noreferrer"
+  document.body.appendChild(link)
+  link.click()
+  link.remove()
+}
+
+export function downloadCertificatePdf(pdfObjectUrl: string, filename: string) {
+  const link = document.createElement("a")
+  link.href = pdfObjectUrl
+  link.download = filename
+  link.rel = "noopener"
+  document.body.appendChild(link)
+  link.click()
+  link.remove()
 }
 
 export function revokeCertificateObjectUrl(url: string) {
