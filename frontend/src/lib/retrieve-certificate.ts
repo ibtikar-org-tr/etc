@@ -4,6 +4,7 @@ import {
   certificateNameForTemplate,
   certificateTemplateForLang,
   fillCertificatePdf,
+  type CertificateTemplate,
 } from "@/lib/fill-certificate-pdf"
 import type { Lang } from "@/lib/i18n"
 
@@ -21,7 +22,7 @@ export type CertificateApiResponse = {
 
 export type CertificateResult = CertificateApiResponse & {
   attendeeName: string
-  template: "ar" | "en"
+  template: CertificateTemplate
   pdfBytes: Uint8Array
   pdfObjectUrl: string
   previewImageUrl: string

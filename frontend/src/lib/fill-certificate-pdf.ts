@@ -1,10 +1,11 @@
 import { PDFDocument } from "pdf-lib"
 
-export type CertificateTemplate = "ar" | "en"
+export type CertificateTemplate = "ar" | "en" | "tr"
 
 const TEMPLATE_URLS: Record<CertificateTemplate, string> = {
   ar: "/certificate_of_attendance_ar.pdf",
   en: "/certificate_of_attendance_en.pdf",
+  tr: "/certificate_of_attendance_tr.pdf",
 }
 
 const PAGE_WIDTH = 842.25
@@ -17,19 +18,15 @@ function isRtlText(text: string) {
 }
 
 async function loadCertificateFonts(template: CertificateTemplate) {
-  if (template === "ar") {
-    await document.fonts.load("700 48px Cairo")
-  } else {
-    await document.fonts.load("700 48px Cairo")
+  await document.fonts.load("700 48px Cairo")
+  if (template !== "ar") {
     await document.fonts.load('600 48px "IBM Plex Sans Arabic"')
   }
   await document.fonts.ready
 }
 
-function fontFamily(template: CertificateTemplate) {
-  return template === "ar"
-    ? '700 48px Cairo, "IBM Plex Sans Arabic", sans-serif'
-    : '700 48px Cairo, "IBM Plex Sans Arabic", sans-serif'
+function fontFamily(_template: CertificateTemplate) {
+  return '700 48px Cairo, "IBM Plex Sans Arabic", sans-serif'
 }
 
 function fitFontSize(ctx: CanvasRenderingContext2D, name: string, rtl: boolean, template: CertificateTemplate) {
@@ -108,16 +105,19 @@ export async function fillCertificatePdf(attendeeName: string, template: Certifi
 }
 
 export function certificateTemplateForLang(lang: string): CertificateTemplate {
-  return lang === "ar" ? "ar" : "en"
+  if (lang === "ar") return "ar"
+  if (lang === "tr") return "tr"
+  return "en"
 }
 
 export function certificateNameForTemplate(
   template: CertificateTemplate,
   names: { attendeeNameAr: string; attendeeNameEn: string },
 ): string {
-  return template === "ar"
-    ? names.attendeeNameAr.trim() || names.attendeeNameEn.trim()
-    : names.attendeeNameEn.trim() || names.attendeeNameAr.trim()
+  if (template === "ar") {
+    return names.attendeeNameAr.trim() || names.attendeeNameEn.trim()
+  }
+  return names.attendeeNameEn.trim() || names.attendeeNameAr.trim()
 }
 
 export function certificatePdfFilename(registrationId: string, template: CertificateTemplate) {
