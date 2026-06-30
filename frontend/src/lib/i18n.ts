@@ -153,6 +153,7 @@ export type Dict = {
     successHint: string
     previewTitle: string
     attendeeLabel: string
+    openPdf: string
     download: string
     tryAnother: string
     errors: {
@@ -588,6 +589,7 @@ export const dict: Record<Lang, Dict> = {
       successHint: "يمكنك معاينة الشهادة أدناه أو تحميلها كملف PDF.",
       previewTitle: "معاينة شهادة الحضور",
       attendeeLabel: "الاسم",
+      openPdf: "فتح الشهادة في نافذة جديدة",
       download: "تحميل PDF",
       tryAnother: "بحث جديد",
       errors: {
@@ -1040,6 +1042,7 @@ export const dict: Record<Lang, Dict> = {
       successHint: "Sertifikayı aşağıda önizleyebilir veya PDF olarak indirebilirsiniz.",
       previewTitle: "Katılım sertifikası önizlemesi",
       attendeeLabel: "Ad",
+      openPdf: "Sertifikayı yeni pencerede aç",
       download: "PDF indir",
       tryAnother: "Yeniden ara",
       errors: {
@@ -1493,6 +1496,7 @@ export const dict: Record<Lang, Dict> = {
       successHint: "Preview your certificate below or download it as a PDF.",
       previewTitle: "Attendance certificate preview",
       attendeeLabel: "Name",
+      openPdf: "Open certificate in new window",
       download: "Download PDF",
       tryAnother: "Look up again",
       errors: {

@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState, type FormEvent } from "react"
-import { ArrowLeft, Award, Download, RotateCcw } from "lucide-react"
+import { ArrowLeft, Award, Download, ExternalLink, RotateCcw } from "lucide-react"
 import { useLang } from "./lang-provider"
 import { buildPath } from "@/lib/lang-url"
 import {
@@ -163,7 +163,19 @@ export function CertificatePage() {
                 </div>
               </dl>
 
-              <div className="mt-8 flex w-full flex-col gap-3 sm:flex-row">
+              <div className="mt-8 flex w-full flex-col gap-3">
+                <a
+                  href={result.pdfObjectUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-full"
+                >
+                  <Button type="button" variant="outline" className="w-full gap-2" size="lg">
+                    <ExternalLink className="size-4" />
+                    {c.openPdf}
+                  </Button>
+                </a>
+                <div className="flex w-full flex-col gap-3 sm:flex-row">
                 <a href={result.pdfObjectUrl} download={result.downloadFilename} className="inline-flex flex-1">
                   <Button type="button" className="w-full gap-2" size="lg">
                     <Download className="size-4" />
@@ -174,6 +186,7 @@ export function CertificatePage() {
                   <RotateCcw className="size-4" />
                   {c.tryAnother}
                 </Button>
+                </div>
               </div>
             </div>
           </div>
