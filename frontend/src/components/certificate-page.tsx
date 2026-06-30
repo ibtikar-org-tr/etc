@@ -85,7 +85,7 @@ export function CertificatePage() {
 
     setLoading(true)
     try {
-      const certificate = await retrieveCertificate(lookup)
+      const certificate = await retrieveCertificate(lookup, lang)
       setResult((previous) => {
         if (previous?.pdfObjectUrl) revokeCertificateObjectUrl(previous.pdfObjectUrl)
         return certificate

@@ -47,7 +47,10 @@ export async function getUserByPhone(db: D1DatabaseLike, phone: string): Promise
     .first<UserRow>()
 }
 
-export async function getMemberDisplayName(db: D1DatabaseLike, membershipNumber: string): Promise<string> {
+export async function getMemberNames(
+  db: D1DatabaseLike,
+  membershipNumber: string,
+): Promise<{ arName: string; enName: string }> {
   const row = await db
     .prepare(
       `SELECT u.membership_number, u.email, ui.en_name, ui.ar_name
@@ -59,6 +62,18 @@ export async function getMemberDisplayName(db: D1DatabaseLike, membershipNumber:
     .bind(membershipNumber.trim())
     .first<MemberNameRow>()
 
-  if (!row) return membershipNumber
-  return row.ar_name?.trim() || row.en_name?.trim() || row.email || membershipNumber
+  if (!row) {
+    const fallback = membershipNumber.trim()
+    return { arName: fallback, enName: fallback }
+  }
+
+  const arName = row.ar_name?.trim() || row.en_name?.trim() || row.email || row.membership_number
+  const enName = row.en_name?.trim() || row.ar_name?.trim() || row.email || row.membership_number
+
+  return { arName, enName }
+}
+
+export async function getMemberDisplayName(db: D1DatabaseLike, membershipNumber: string): Promise<string> {
+  const { arName } = await getMemberNames(db, membershipNumber)
+  return arName
 }

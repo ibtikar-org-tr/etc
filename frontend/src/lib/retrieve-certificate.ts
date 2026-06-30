@@ -1,9 +1,11 @@
 import {
-  certificatePdfBlob,
   certificatePdfFilename,
   certificatePdfObjectUrl,
+  certificateNameForTemplate,
+  certificateTemplateForLang,
   fillCertificatePdf,
 } from "@/lib/fill-certificate-pdf"
+import type { Lang } from "@/lib/i18n"
 
 export type CertificateLookupOption = "email" | "membershipNumber"
 
@@ -12,11 +14,14 @@ export type CertificateLookup =
   | { type: "membershipNumber"; value: string }
 
 export type CertificateApiResponse = {
-  attendeeName: string
+  attendeeNameAr: string
+  attendeeNameEn: string
   registrationId: string
 }
 
 export type CertificateResult = CertificateApiResponse & {
+  attendeeName: string
+  template: "ar" | "en"
   pdfBytes: Uint8Array
   pdfObjectUrl: string
   previewImageUrl: string
@@ -48,7 +53,7 @@ function apiBaseUrl(): string {
 }
 
 /** Look up attendee and return a personalized certificate PDF. */
-export async function retrieveCertificate(lookup: CertificateLookup): Promise<CertificateResult> {
+export async function retrieveCertificate(lookup: CertificateLookup, lang: Lang): Promise<CertificateResult> {
   const body = toApiBody(lookup)
 
   let response: Response
@@ -75,22 +80,26 @@ export async function retrieveCertificate(lookup: CertificateLookup): Promise<Ce
   }
 
   const data = (await response.json()) as CertificateApiResponse
+  const template = certificateTemplateForLang(lang)
+  const attendeeName = certificateNameForTemplate(template, data)
 
   let pdfBytes: Uint8Array
   let previewImageUrl: string
   try {
-    pdfBytes = await fillCertificatePdf(data.attendeeName)
+    pdfBytes = await fillCertificatePdf(attendeeName, template)
     const { renderCertificatePreview } = await import("@/lib/render-certificate-preview")
     previewImageUrl = await renderCertificatePreview(pdfBytes)
   } catch {
     throw new CertificateError("not_available")
   }
 
-  const downloadFilename = certificatePdfFilename(data.registrationId)
+  const downloadFilename = certificatePdfFilename(data.registrationId, template)
   const pdfObjectUrl = certificatePdfObjectUrl(pdfBytes)
 
   return {
     ...data,
+    attendeeName,
+    template,
     pdfBytes,
     pdfObjectUrl,
     previewImageUrl,
@@ -121,5 +130,3 @@ export function downloadCertificatePdf(pdfObjectUrl: string, filename: string) {
 export function revokeCertificateObjectUrl(url: string) {
   URL.revokeObjectURL(url)
 }
-
-export { certificatePdfBlob }

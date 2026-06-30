@@ -4,6 +4,8 @@ import { normalizePhone } from '../utils/phone'
 export type SheetAttendee = {
   rowNumber: number
   name: string
+  nameAr: string
+  nameEn: string
   email: string
   phone?: string
   membershipNumber?: string
@@ -88,12 +90,15 @@ function rowToAttendee(
     return null
   }
 
-  const displayName = nameAr.trim() || nameEn.trim() || attendee.email || attendee.phone || 'ETC 2026 Attendee'
+  const arName = nameAr.trim() || nameEn.trim() || attendee.email || attendee.phone || 'ETC 2026 Attendee'
+  const enName = nameEn.trim() || nameAr.trim() || attendee.email || attendee.phone || 'ETC 2026 Attendee'
   const attendanceLog = row[SHEET_ATTENDANCE_COLUMN_INDEX]?.trim() ?? ''
 
   return {
     rowNumber,
-    name: displayName,
+    name: arName,
+    nameAr: arName,
+    nameEn: enName,
     email: attendee.email ?? '',
     phone: attendee.phone,
     membershipNumber: attendee.membershipNumber,

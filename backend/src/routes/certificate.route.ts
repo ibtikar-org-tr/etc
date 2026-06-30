@@ -16,7 +16,8 @@ certificateRoute.post('/certificate', async (c) => {
   try {
     const attendee = await lookupAttendee(c.env, body, { requireSheetAttendance: true })
     return c.json({
-      attendeeName: attendee.attendeeName,
+      attendeeNameAr: attendee.attendeeNameAr,
+      attendeeNameEn: attendee.attendeeNameEn,
       registrationId: attendee.registrationId,
     })
   } catch (error) {

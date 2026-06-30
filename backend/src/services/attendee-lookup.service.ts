@@ -2,7 +2,7 @@ import { getEventRegistrationByEventAndMember } from '../repositories/event-regi
 import { getEventTicketById } from '../repositories/event-tickets.repository'
 import { findGoogleFormAttendee, sheetAttendeeQrIdentity } from '../repositories/google-form-attendees.repository'
 import {
-  getMemberDisplayName,
+  getMemberNames,
   getUserByEmail,
   getUserByMembershipNumber,
   getUserByPhone,
@@ -18,6 +18,8 @@ export type AttendeeLookupInput = {
 
 export type AttendeeLookupResult = {
   attendeeName: string
+  attendeeNameAr: string
+  attendeeNameEn: string
   registrationId: string
   ticketLabel: string
   membershipNumber: string
@@ -94,10 +96,12 @@ async function lookupVmsAttendee(
   if (!assertRegistrationEligible(registration)) return null
 
   const ticket = registration ? await getEventTicketById(env.VMS_DB, registration.ticket_id) : null
-  const attendeeName = await getMemberDisplayName(env.MEMBERS_DB, member.membership_number)
+  const { arName, enName } = await getMemberNames(env.MEMBERS_DB, member.membership_number)
 
   return {
-    attendeeName,
+    attendeeName: arName,
+    attendeeNameAr: arName,
+    attendeeNameEn: enName,
     registrationId: registration!.id,
     ticketLabel: ticket?.name ?? 'ETC 2026',
     membershipNumber: member.membership_number,
@@ -132,6 +136,8 @@ async function lookupGoogleFormAttendee(
 
   return {
     attendeeName: attendee.name,
+    attendeeNameAr: attendee.nameAr,
+    attendeeNameEn: attendee.nameEn,
     registrationId: identity.registrationId,
     ticketLabel: attendee.ticketLabel ?? 'ETC 2026',
     membershipNumber: identity.membershipNumber,
