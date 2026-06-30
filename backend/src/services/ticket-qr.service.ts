@@ -5,7 +5,7 @@ import {
   type AttendeeLookupInput,
 } from './attendee-lookup.service'
 
-export type TicketQrLookupInput = AttendeeLookupInput
+export type TicketQrLookupInput = Pick<AttendeeLookupInput, 'email' | 'membershipNumber'>
 
 export type TicketQrLookupResult = {
   attendeeName: string

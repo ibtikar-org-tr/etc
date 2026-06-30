@@ -1,5 +1,5 @@
 import { fetchSheetValues, type GoogleServiceAccountCredentials } from '../utils/google-sheets'
-import { normalizePhone, phonesMatch } from '../utils/phone'
+import { normalizePhone } from '../utils/phone'
 
 export type SheetAttendee = {
   rowNumber: number
@@ -41,7 +41,7 @@ export const DEFAULT_SHEET_COLUMN_MAP: SheetColumnMap = {
   ticket: 'ticket_label',
 }
 
-type LookupKind = 'email' | 'membership_number' | 'phone'
+type LookupKind = 'email' | 'membership_number'
 
 function parseColumnMap(raw: string | undefined): SheetColumnMap {
   if (!raw?.trim()) return DEFAULT_SHEET_COLUMN_MAP
@@ -99,12 +99,7 @@ function matchesLookup(attendee: SheetAttendee, kind: LookupKind, value: string)
     return attendee.email.toLowerCase() === value.toLowerCase()
   }
 
-  if (kind === 'membership_number') {
-    return attendee.membershipNumber?.trim() === value.trim()
-  }
-
-  if (!attendee.phone) return false
-  return phonesMatch(attendee.phone, value)
+  return attendee.membershipNumber?.trim() === value.trim()
 }
 
 let cachedRows: { key: string; fetchedAt: number; rows: string[][] } | null = null

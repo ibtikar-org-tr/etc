@@ -1,12 +1,11 @@
 /** ETC 2026 event id on the VMS platform. */
 export const ETC_2026_EVENT_ID = "b1ed6cdc-d9a9-4f08-ac48-54fe3eb52207"
 
-export type TicketQrLookupOption = "email" | "membershipNumber" | "phoneNumber"
+export type TicketQrLookupOption = "email" | "membershipNumber"
 
 export type TicketQrLookup =
   | { type: "email"; value: string }
   | { type: "membershipNumber"; value: string }
-  | { type: "phoneNumber"; value: string }
 
 export type TicketQrApiResponse = {
   attendeeName: string
@@ -35,10 +34,7 @@ function toApiBody(lookup: TicketQrLookup) {
   if (lookup.type === "email") {
     return { email: lookup.value.trim().toLowerCase() }
   }
-  if (lookup.type === "membershipNumber") {
-    return { membershipNumber: lookup.value.trim() }
-  }
-  return { phone: lookup.value.trim() }
+  return { membershipNumber: lookup.value.trim() }
 }
 
 function apiBaseUrl(): string {
@@ -46,7 +42,7 @@ function apiBaseUrl(): string {
   return configured ? configured.replace(/\/$/, "") : ""
 }
 
-/** Lookup attendee entrance QR by email, membership number, or phone. */
+/** Lookup attendee entrance QR by email or membership number. */
 export async function retrieveTicketQr(lookup: TicketQrLookup): Promise<TicketQrResult> {
   const body = toApiBody(lookup)
 

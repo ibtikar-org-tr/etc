@@ -5,7 +5,7 @@ import type { AppBindings } from '../types/bindings'
 export const ticketQrRoute = new Hono<{ Bindings: AppBindings }>()
 
 ticketQrRoute.post('/ticket-qr', async (c) => {
-  let body: { email?: string; membershipNumber?: string; phone?: string }
+  let body: { email?: string; membershipNumber?: string }
 
   try {
     body = await c.req.json()
